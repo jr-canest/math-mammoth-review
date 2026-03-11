@@ -1,0 +1,188 @@
+{
+  "chapter": "chapter-2",
+  "section": "expressions-part-1",
+  "title": "Expressions, Part 1",
+  "pages": "47-48",
+  "problems": [
+    {
+      "id": "1a",
+      "label": "1a",
+      "display": "7 · 3",
+      "answer": {
+        "type": "number",
+        "value": 21
+      }
+    },
+    {
+      "id": "1b",
+      "label": "1b",
+      "display": "5 · 2²",
+      "answer": {
+        "type": "number",
+        "value": 20
+      }
+    },
+    {
+      "id": "1c",
+      "label": "1c",
+      "display": "2 · 5 + 18",
+      "answer": {
+        "type": "number",
+        "value": 28
+      }
+    },
+    {
+      "id": "1d",
+      "label": "1d",
+      "display": "(35 ÷ 5) · 13",
+      "answer": {
+        "type": "number",
+        "value": 91
+      }
+    },
+    {
+      "id": "1e",
+      "label": "1e",
+      "display": "5 · 3²",
+      "answer": {
+        "type": "number",
+        "value": 45
+      }
+    },
+    {
+      "id": "1f",
+      "label": "1f",
+      "display": "(3 ÷ 5) · 25",
+      "answer": {
+        "type": "number",
+        "value": 15
+      }
+    },
+    {
+      "id": "1g",
+      "label": "1g",
+      "display": "10⁴ ÷ 10²",
+      "answer": {
+        "type": "number",
+        "value": 100
+      }
+    },
+    {
+      "id": "1h",
+      "label": "1h",
+      "display": "(1 ÷ 9) · 81 − 4",
+      "answer": {
+        "type": "number",
+        "value": 5
+      }
+    },
+    {
+      "id": "2",
+      "label": "2",
+      "display": "Table: 100 − x² for x = 3, 4, 5, 6",
+      "answer": {
+        "type": "text",
+        "value": "x=3: 91; x=4: 84; x=5: 75; x=6: 64"
+      }
+    },
+    {
+      "id": "3a",
+      "label": "3a",
+      "display": "80 − 14 − 5",
+      "answer": {
+        "type": "number",
+        "value": 61
+      }
+    },
+    {
+      "id": "3b",
+      "label": "3b",
+      "display": "80 − (14 − 5)",
+      "answer": {
+        "type": "number",
+        "value": 71
+      }
+    },
+    {
+      "id": "3c",
+      "label": "3c",
+      "display": "80 + 14 + 5",
+      "answer": {
+        "type": "number",
+        "value": 99
+      }
+    },
+    {
+      "id": "3d",
+      "label": "3d",
+      "display": "80 − (14 + 5)",
+      "answer": {
+        "type": "number",
+        "value": 61
+      }
+    },
+    {
+      "id": "4a",
+      "label": "4a",
+      "display": "Which expressions from #3 had the same value?",
+      "answer": {
+        "type": "text",
+        "value": "3a and 3d had the same value."
+      }
+    },
+    {
+      "id": "4b",
+      "label": "4b",
+      "display": "Are the values the same using different numbers?",
+      "answer": {
+        "type": "text",
+        "value": "Yes. The values for 3a and 3d are the same even using different numbers."
+      }
+    },
+    {
+      "id": "4c",
+      "label": "4c",
+      "display": "Are they equivalent expressions?",
+      "answer": {
+        "type": "text",
+        "value": "Yes, they are equivalent expressions."
+      }
+    },
+    {
+      "id": "5a",
+      "label": "5a",
+      "display": "5 · 10¢ + 5 · 5¢ + 2 · 20¢ + 7 · 50¢",
+      "answer": {
+        "type": "text",
+        "value": "465¢"
+      }
+    },
+    {
+      "id": "5b",
+      "label": "5b",
+      "display": "(64 − 15) · 2",
+      "answer": {
+        "type": "text",
+        "value": "98. Henry has 98 marbles."
+      }
+    },
+    {
+      "id": "5c",
+      "label": "5c",
+      "display": "5 · 20 − 9 · 2",
+      "answer": {
+        "type": "text",
+        "value": "82. The coloured part is 82 square units."
+      }
+    },
+    {
+      "id": "5d",
+      "label": "5d",
+      "display": "5 · 5 − 2 · 2 or 5² − 2²",
+      "answer": {
+        "type": "text",
+        "value": "21. The coloured part is 21 square units."
+      }
+    }
+  ]
+}

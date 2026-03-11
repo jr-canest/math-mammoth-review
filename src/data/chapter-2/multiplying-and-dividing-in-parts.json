@@ -1,0 +1,469 @@
+{
+  "chapter": "chapter-2",
+  "section": "multiplying-and-dividing-in-parts",
+  "title": "Multiplying and Dividing in Parts",
+  "pages": "66-69",
+  "problems": [
+    {
+      "id": "1a",
+      "label": "1a",
+      "display": "7 · 99 = 7 · (100 − 1)",
+      "answer": {
+        "type": "number",
+        "value": 693
+      }
+    },
+    {
+      "id": "1b",
+      "label": "1b",
+      "display": "4 · 999 = 4 · (1000 − 1)",
+      "answer": {
+        "type": "number",
+        "value": 3996
+      }
+    },
+    {
+      "id": "1c",
+      "label": "1c",
+      "display": "5 · 104 = 5 · (100 + 4)",
+      "answer": {
+        "type": "number",
+        "value": 520
+      }
+    },
+    {
+      "id": "1d",
+      "label": "1d",
+      "display": "5 · 998 = 5 · (1000 − 2)",
+      "answer": {
+        "type": "number",
+        "value": 4990
+      }
+    },
+    {
+      "id": "1e",
+      "label": "1e",
+      "display": "6 · 98 = 6 · (100 − 2)",
+      "answer": {
+        "type": "number",
+        "value": 588
+      }
+    },
+    {
+      "id": "1f",
+      "label": "1f",
+      "display": "7 · 2030 = 7 · (2000 + 30)",
+      "answer": {
+        "type": "number",
+        "value": 14210
+      }
+    },
+    {
+      "id": "2a",
+      "label": "2a",
+      "display": "Total area: 3 · (6 + 4)",
+      "answer": {
+        "type": "text",
+        "value": "Total area: 3 · (6 + 4). Rectangles: 3 · 6 and 3 · 4"
+      }
+    },
+    {
+      "id": "2b",
+      "label": "2b",
+      "display": "Total area: 4 · (5 + 4)",
+      "answer": {
+        "type": "text",
+        "value": "Total area: 4 · (5 + 4). Rectangles: 4 · 5 and 4 · 4"
+      }
+    },
+    {
+      "id": "2c",
+      "label": "2c",
+      "display": "Total area: 6 · (6 + 8)",
+      "answer": {
+        "type": "text",
+        "value": "Total area: 6 · (6 + 8). Rectangles: 6 · 6 and 6 · 8"
+      }
+    },
+    {
+      "id": "2d",
+      "label": "2d",
+      "display": "Total area: 5 · (2 + 3)",
+      "answer": {
+        "type": "text",
+        "value": "Total area: 5 · (2 + 3). Rectangles: 5 · 2 and 5 · 3"
+      }
+    },
+    {
+      "id": "3a",
+      "label": "3a",
+      "display": "What is the partial product 80?",
+      "answer": {
+        "type": "text",
+        "value": "80 is the partial product of 10 · 8 (10 from 16 and 8 from 78). 700 is the partial product of 10 · 70 (10 from 16 and 70 from 78)."
+      }
+    },
+    {
+      "id": "4a",
+      "label": "4a",
+      "display": "29 · 17",
+      "answer": {
+        "type": "number",
+        "value": 493
+      }
+    },
+    {
+      "id": "4b",
+      "label": "4b",
+      "display": "75 · 36",
+      "answer": {
+        "type": "number",
+        "value": 2700
+      }
+    },
+    {
+      "id": "5a",
+      "label": "5a",
+      "display": "(80 + 12) ÷ 2",
+      "answer": {
+        "type": "number",
+        "value": 46
+      }
+    },
+    {
+      "id": "5b",
+      "label": "5b",
+      "display": "(350 + 15) ÷ 5",
+      "answer": {
+        "type": "number",
+        "value": 73
+      }
+    },
+    {
+      "id": "5c",
+      "label": "5c",
+      "display": "(400 − 12) ÷ 4",
+      "answer": {
+        "type": "number",
+        "value": 97
+      }
+    },
+    {
+      "id": "5d",
+      "label": "5d",
+      "display": "(9300 − 60) ÷ 3",
+      "answer": {
+        "type": "number",
+        "value": 3080
+      }
+    },
+    {
+      "id": "5e",
+      "label": "5e",
+      "display": "(350 + 21 − 7) ÷ 7",
+      "answer": {
+        "type": "number",
+        "value": 52
+      }
+    },
+    {
+      "id": "5f",
+      "label": "5f",
+      "display": "(900 − 18) ÷ 9",
+      "answer": {
+        "type": "number",
+        "value": 98
+      }
+    },
+    {
+      "id": "5g",
+      "label": "5g",
+      "display": "(22 m + 9 cm) ÷ 2",
+      "answer": {
+        "type": "text",
+        "value": "11 m 4.5 cm"
+      }
+    },
+    {
+      "id": "5h",
+      "label": "5h",
+      "display": "(40 kg + 750 g) ÷ 5",
+      "answer": {
+        "type": "text",
+        "value": "8 kg 150 g"
+      }
+    },
+    {
+      "id": "5i",
+      "label": "5i",
+      "display": "(12 L + 600 mL) ÷ 4",
+      "answer": {
+        "type": "text",
+        "value": "3 L 150 mL"
+      }
+    },
+    {
+      "id": "6a",
+      "label": "6a",
+      "display": "Mental division",
+      "answer": {
+        "type": "number",
+        "value": 206
+      }
+    },
+    {
+      "id": "6b",
+      "label": "6b",
+      "display": "Mental division",
+      "answer": {
+        "type": "number",
+        "value": 203
+      }
+    },
+    {
+      "id": "6c",
+      "label": "6c",
+      "display": "Mental division",
+      "answer": {
+        "type": "number",
+        "value": 103
+      }
+    },
+    {
+      "id": "6d",
+      "label": "6d",
+      "display": "Mental division",
+      "answer": {
+        "type": "number",
+        "value": 201
+      }
+    },
+    {
+      "id": "6e",
+      "label": "6e",
+      "display": "Mental division",
+      "answer": {
+        "type": "number",
+        "value": 502
+      }
+    },
+    {
+      "id": "7",
+      "label": "7",
+      "display": "2 L 250 mL ÷ 4",
+      "answer": {
+        "type": "text",
+        "value": "562 1/2 mL per person, approximately 560 mL"
+      }
+    },
+    {
+      "id": "8a",
+      "label": "8a",
+      "display": "(15 + 4/5) ÷ 5",
+      "answer": {
+        "type": "fraction",
+        "value": "3 4/5",
+        "decimal": 3.16,
+        "tolerance": 0.01
+      }
+    },
+    {
+      "id": "8b",
+      "label": "8b",
+      "display": "(44 + 7/11) ÷ 11",
+      "answer": {
+        "type": "fraction",
+        "value": "4 7/11",
+        "decimal": 4.6364,
+        "tolerance": 0.001
+      }
+    },
+    {
+      "id": "8c",
+      "label": "8c",
+      "display": "(70 + 6/7) ÷ 7",
+      "answer": {
+        "type": "fraction",
+        "value": "10 6/7",
+        "decimal": 10.8571,
+        "tolerance": 0.001
+      }
+    },
+    {
+      "id": "8d",
+      "label": "8d",
+      "display": "(420 + 2/6) ÷ 6",
+      "answer": {
+        "type": "fraction",
+        "value": "70 2/6",
+        "decimal": 70.3333,
+        "tolerance": 0.001
+      }
+    },
+    {
+      "id": "8e",
+      "label": "8e",
+      "display": "(240 + 12 + 3/4) ÷ 4",
+      "answer": {
+        "type": "fraction",
+        "value": "63 3/4",
+        "decimal": 63.75
+      }
+    },
+    {
+      "id": "8f",
+      "label": "8f",
+      "display": "(270 + 36 + 2/9) ÷ 9",
+      "answer": {
+        "type": "fraction",
+        "value": "34 2/9",
+        "decimal": 34.2222,
+        "tolerance": 0.001
+      }
+    },
+    {
+      "id": "9a",
+      "label": "9a",
+      "display": "Divide mentally",
+      "answer": {
+        "type": "fraction",
+        "value": "100 3/4",
+        "decimal": 100.75
+      }
+    },
+    {
+      "id": "9b",
+      "label": "9b",
+      "display": "Divide mentally",
+      "answer": {
+        "type": "fraction",
+        "value": "303 2/3",
+        "decimal": 303.6667,
+        "tolerance": 0.001
+      }
+    },
+    {
+      "id": "9c",
+      "label": "9c",
+      "display": "Divide mentally",
+      "answer": {
+        "type": "fraction",
+        "value": "1004 4/5",
+        "decimal": 1004.8
+      }
+    },
+    {
+      "id": "9d",
+      "label": "9d",
+      "display": "Divide mentally",
+      "answer": {
+        "type": "fraction",
+        "value": "20 1/4",
+        "decimal": 20.25
+      }
+    },
+    {
+      "id": "9e",
+      "label": "9e",
+      "display": "Divide mentally",
+      "answer": {
+        "type": "fraction",
+        "value": "42 1/3",
+        "decimal": 42.3333,
+        "tolerance": 0.001
+      }
+    },
+    {
+      "id": "9f",
+      "label": "9f",
+      "display": "Divide mentally",
+      "answer": {
+        "type": "fraction",
+        "value": "60 5/6",
+        "decimal": 60.8333,
+        "tolerance": 0.001
+      }
+    },
+    {
+      "id": "10a",
+      "label": "10a",
+      "display": "7 ÷ 14",
+      "answer": {
+        "type": "fraction",
+        "value": "1/2",
+        "decimal": 0.5
+      }
+    },
+    {
+      "id": "10b",
+      "label": "10b",
+      "display": "7 ÷ 21",
+      "answer": {
+        "type": "fraction",
+        "value": "1/3",
+        "decimal": 0.3333,
+        "tolerance": 0.001
+      }
+    },
+    {
+      "id": "10c",
+      "label": "10c",
+      "display": "80 ÷ 11",
+      "answer": {
+        "type": "fraction",
+        "value": "7 3/11",
+        "decimal": 7.2727,
+        "tolerance": 0.001
+      }
+    },
+    {
+      "id": "10d",
+      "label": "10d",
+      "display": "6/8 + 3 + 30",
+      "answer": {
+        "type": "fraction",
+        "value": "33 6/8",
+        "decimal": 33.75
+      }
+    },
+    {
+      "id": "10e",
+      "label": "10e",
+      "display": "117 ÷ 4",
+      "answer": {
+        "type": "fraction",
+        "value": "29 1/4",
+        "decimal": 29.25
+      }
+    },
+    {
+      "id": "10f",
+      "label": "10f",
+      "display": "100 ÷ 30",
+      "answer": {
+        "type": "fraction",
+        "value": "3 1/3",
+        "decimal": 3.3333,
+        "tolerance": 0.001
+      }
+    },
+    {
+      "id": "puzzle_a",
+      "label": "Puzzle a",
+      "display": "Puzzle corner: (250 − 3) ÷ 10",
+      "answer": {
+        "type": "text",
+        "value": "25 − 3/10 = 24 7/10"
+      }
+    },
+    {
+      "id": "puzzle_b",
+      "label": "Puzzle b",
+      "display": "Puzzle corner: (11 − 3) ÷ 5",
+      "answer": {
+        "type": "text",
+        "value": "2 − 3/5 = 1 2/5"
+      }
+    }
+  ]
+}

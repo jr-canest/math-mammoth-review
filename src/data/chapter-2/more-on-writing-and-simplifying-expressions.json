@@ -1,0 +1,260 @@
+{
+  "chapter": "chapter-2",
+  "section": "more-on-writing-and-simplifying-expressions",
+  "title": "More on Writing and Simplifying Expressions",
+  "pages": "58-60",
+  "problems": [
+    {
+      "id": "1",
+      "label": "1",
+      "display": "Table: identify terms, coefficients, constants",
+      "answer": {
+        "type": "text",
+        "value": "4a + 5b: terms 4a,5b; coefficients 4,5; no constants. 300y: term 300y; coefficient 300; no constants. 11x + 5: terms 11x,5; coefficient 11; constant 5. x + 12y + 9: terms x,12y,9; coefficients 1,12; constant 9. p·9: term p·9; coefficient 9; no constants. 8x⁴y³ + 10: terms 8x⁴y³,10; coefficient 8; constant 10. (11/26)p: term (11/26)p; coefficient 11/26; no constants."
+      }
+    },
+    {
+      "id": "2a",
+      "label": "2a",
+      "display": "The value, in cents, of m five-cent coins",
+      "answer": {
+        "type": "text",
+        "value": "5m; term: 5m; coefficient: 5"
+      }
+    },
+    {
+      "id": "2b",
+      "label": "2b",
+      "display": "The total cost of buying 20 apples that cost p each",
+      "answer": {
+        "type": "text",
+        "value": "20p; term: 20p; coefficient: 20"
+      }
+    },
+    {
+      "id": "2c",
+      "label": "2c",
+      "display": "15 less than v",
+      "answer": {
+        "type": "text",
+        "value": "v − 15; terms: v, 15; coefficient: 1"
+      }
+    },
+    {
+      "id": "3",
+      "label": "3",
+      "display": "Table: identify like terms and constants",
+      "answer": {
+        "type": "text",
+        "value": "15x + 12z + 9z: like terms 12z and 9z; no constants. 10 + 10y + 30y: like terms 10y and 30y; constant 10. p·9 + 2: no like terms; constant 2. 8a − 2a + 10 + b + 7b: like terms 8a and 2a, b and 7b; constant 10. 8y + 7x + 6 + 15y − 2x: like terms 8y and 15y, 7x and 2x; constant 6."
+      }
+    },
+    {
+      "id": "4a",
+      "label": "4a",
+      "display": "Simplify",
+      "answer": {
+        "type": "text",
+        "value": "9x + 8"
+      }
+    },
+    {
+      "id": "4b",
+      "label": "4b",
+      "display": "Simplify",
+      "answer": {
+        "type": "text",
+        "value": "13z²"
+      }
+    },
+    {
+      "id": "4c",
+      "label": "4c",
+      "display": "Simplify",
+      "answer": {
+        "type": "text",
+        "value": "3m + 12n"
+      }
+    },
+    {
+      "id": "4d",
+      "label": "4d",
+      "display": "Simplify",
+      "answer": {
+        "type": "text",
+        "value": "5x + 23y + 6"
+      }
+    },
+    {
+      "id": "4e",
+      "label": "4e",
+      "display": "Simplify",
+      "answer": {
+        "type": "text",
+        "value": "10m² + 9"
+      }
+    },
+    {
+      "id": "4f",
+      "label": "4f",
+      "display": "Simplify",
+      "answer": {
+        "type": "text",
+        "value": "not possible to simplify"
+      }
+    },
+    {
+      "id": "4g",
+      "label": "4g",
+      "display": "Simplify",
+      "answer": {
+        "type": "text",
+        "value": "12y + 11z − 6"
+      }
+    },
+    {
+      "id": "4h",
+      "label": "4h",
+      "display": "Simplify",
+      "answer": {
+        "type": "text",
+        "value": "33h − w + 4"
+      }
+    },
+    {
+      "id": "5a",
+      "label": "5a",
+      "display": "3 + 2(1/2)",
+      "answer": {
+        "type": "number",
+        "value": 4
+      }
+    },
+    {
+      "id": "5b",
+      "label": "5b",
+      "display": "2(3 + 1/2)",
+      "answer": {
+        "type": "number",
+        "value": 7
+      }
+    },
+    {
+      "id": "6a",
+      "label": "6a",
+      "display": "Which expressions are equivalent to 3s?",
+      "answer": {
+        "type": "text",
+        "value": "s + s + s, 3s and 2s + s"
+      }
+    },
+    {
+      "id": "6b",
+      "label": "6b",
+      "display": "Which expressions are equivalent to 2y + 2x?",
+      "answer": {
+        "type": "text",
+        "value": "2y + 2x and y + y + x + x"
+      }
+    },
+    {
+      "id": "7a",
+      "label": "7a",
+      "display": "Write as product and as sum",
+      "answer": {
+        "type": "text",
+        "value": "4(5 + s) and 4s + 20"
+      }
+    },
+    {
+      "id": "7b",
+      "label": "7b",
+      "display": "Write as product and as sum",
+      "answer": {
+        "type": "text",
+        "value": "3(b + 3) and 3b + 9"
+      }
+    },
+    {
+      "id": "7c",
+      "label": "7c",
+      "display": "Write as product and as sum",
+      "answer": {
+        "type": "text",
+        "value": "4(y + 3) and 4y + 12"
+      }
+    },
+    {
+      "id": "7d",
+      "label": "7d",
+      "display": "Write as product and as sum",
+      "answer": {
+        "type": "text",
+        "value": "5(n + 10) and 5n + 50"
+      }
+    },
+    {
+      "id": "7e",
+      "label": "7e",
+      "display": "Write as product and as sum",
+      "answer": {
+        "type": "text",
+        "value": "6(s + 8) and 6s + 48"
+      }
+    },
+    {
+      "id": "7f",
+      "label": "7f",
+      "display": "Write as product and as sum",
+      "answer": {
+        "type": "text",
+        "value": "4(2x + 1) and 8x + 4"
+      }
+    },
+    {
+      "id": "8a",
+      "label": "8a",
+      "display": "Write a simplified expression for the perimeter",
+      "answer": {
+        "type": "text",
+        "value": "4(a + 20) or 4a + 80"
+      }
+    },
+    {
+      "id": "8b",
+      "label": "8b",
+      "display": "Write an expression",
+      "answer": {
+        "type": "text",
+        "value": "p − $5"
+      }
+    },
+    {
+      "id": "8c",
+      "label": "8c",
+      "display": "Write an expression",
+      "answer": {
+        "type": "text",
+        "value": "5(p − $3)"
+      }
+    },
+    {
+      "id": "puzzle_a",
+      "label": "Puzzle a",
+      "display": "Puzzle corner",
+      "answer": {
+        "type": "text",
+        "value": "x² + 1/2"
+      }
+    },
+    {
+      "id": "puzzle_b",
+      "label": "Puzzle b",
+      "display": "Puzzle corner",
+      "answer": {
+        "type": "text",
+        "value": "2a + 6b + 7 or 6a + 2b + 7"
+      }
+    }
+  ]
+}

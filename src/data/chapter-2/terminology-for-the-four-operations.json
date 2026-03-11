@@ -1,0 +1,307 @@
+{
+  "chapter": "chapter-2",
+  "section": "terminology-for-the-four-operations",
+  "title": "Terminology for the Four Operations",
+  "pages": "49-50",
+  "problems": [
+    {
+      "id": "1a_sum",
+      "label": "1a sum",
+      "display": "50 and 2: sum",
+      "answer": {
+        "type": "number",
+        "value": 52
+      }
+    },
+    {
+      "id": "1a_difference",
+      "label": "1a difference",
+      "display": "50 and 2: difference",
+      "answer": {
+        "type": "number",
+        "value": 48
+      }
+    },
+    {
+      "id": "1a_product",
+      "label": "1a product",
+      "display": "50 and 2: product",
+      "answer": {
+        "type": "number",
+        "value": 100
+      }
+    },
+    {
+      "id": "1a_quotient",
+      "label": "1a quotient",
+      "display": "50 and 2: quotient",
+      "answer": {
+        "type": "number",
+        "value": 25
+      }
+    },
+    {
+      "id": "1b_sum",
+      "label": "1b sum",
+      "display": "5 and 3: sum",
+      "answer": {
+        "type": "number",
+        "value": 8
+      }
+    },
+    {
+      "id": "1b_difference",
+      "label": "1b difference",
+      "display": "5 and 3: difference",
+      "answer": {
+        "type": "number",
+        "value": 2
+      }
+    },
+    {
+      "id": "1b_product",
+      "label": "1b product",
+      "display": "5 and 3: product",
+      "answer": {
+        "type": "number",
+        "value": 15
+      }
+    },
+    {
+      "id": "1b_quotient",
+      "label": "1b quotient",
+      "display": "5 and 3: quotient",
+      "answer": {
+        "type": "fraction",
+        "value": "1 2/3",
+        "decimal": 1.6667,
+        "tolerance": 0.001
+      }
+    },
+    {
+      "id": "2a_sum",
+      "label": "2a sum",
+      "display": "x and 6: sum",
+      "answer": {
+        "type": "text",
+        "value": "x + 6"
+      }
+    },
+    {
+      "id": "2a_difference",
+      "label": "2a difference",
+      "display": "x and 6: difference",
+      "answer": {
+        "type": "text",
+        "value": "x − 6"
+      }
+    },
+    {
+      "id": "2a_product",
+      "label": "2a product",
+      "display": "x and 6: product",
+      "answer": {
+        "type": "text",
+        "value": "6x"
+      }
+    },
+    {
+      "id": "2a_quotient",
+      "label": "2a quotient",
+      "display": "x and 6: quotient",
+      "answer": {
+        "type": "text",
+        "value": "x/6"
+      }
+    },
+    {
+      "id": "2b_sum",
+      "label": "2b sum",
+      "display": "z and w: sum",
+      "answer": {
+        "type": "text",
+        "value": "z + w"
+      }
+    },
+    {
+      "id": "2b_difference",
+      "label": "2b difference",
+      "display": "z and w: difference",
+      "answer": {
+        "type": "text",
+        "value": "z − w"
+      }
+    },
+    {
+      "id": "2b_product",
+      "label": "2b product",
+      "display": "z and w: product",
+      "answer": {
+        "type": "text",
+        "value": "wz"
+      }
+    },
+    {
+      "id": "2b_quotient",
+      "label": "2b quotient",
+      "display": "z and w: quotient",
+      "answer": {
+        "type": "text",
+        "value": "z/w"
+      }
+    },
+    {
+      "id": "3a",
+      "label": "3a",
+      "display": "The product of 5 and T",
+      "answer": {
+        "type": "text",
+        "value": "5T"
+      }
+    },
+    {
+      "id": "3b",
+      "label": "3b",
+      "display": "The quotient of 5 and T",
+      "answer": {
+        "type": "text",
+        "value": "5/T"
+      }
+    },
+    {
+      "id": "3c",
+      "label": "3c",
+      "display": "The product of 6 and 5",
+      "answer": {
+        "type": "number",
+        "value": 30
+      }
+    },
+    {
+      "id": "3d",
+      "label": "3d",
+      "display": "The quotient of T and 5",
+      "answer": {
+        "type": "text",
+        "value": "T/5"
+      }
+    },
+    {
+      "id": "3e",
+      "label": "3e",
+      "display": "The difference between T and 5",
+      "answer": {
+        "type": "text",
+        "value": "T − 5"
+      }
+    },
+    {
+      "id": "3f",
+      "label": "3f",
+      "display": "The sum of T and 5",
+      "answer": {
+        "type": "text",
+        "value": "T + 5"
+      }
+    },
+    {
+      "id": "3g",
+      "label": "3g",
+      "display": "The sum of 5, 15, and 9",
+      "answer": {
+        "type": "number",
+        "value": 29
+      }
+    },
+    {
+      "id": "3h",
+      "label": "3h",
+      "display": "The difference between 5 and T",
+      "answer": {
+        "type": "text",
+        "value": "5 − T"
+      }
+    },
+    {
+      "id": "4a",
+      "label": "4a",
+      "display": "The quotient is 5, the divisor is 8, the dividend is 40.",
+      "answer": {
+        "type": "text",
+        "value": "40 ÷ 8 = 5"
+      }
+    },
+    {
+      "id": "4b",
+      "label": "4b",
+      "display": "The subtrahend is 30, the difference is 15, and the minuend is 45.",
+      "answer": {
+        "type": "text",
+        "value": "45 − 30 = 15"
+      }
+    },
+    {
+      "id": "4c",
+      "label": "4c",
+      "display": "The factors are 5, 6 and 8, and the product is 240.",
+      "answer": {
+        "type": "text",
+        "value": "5 · 6 · 8 = 240"
+      }
+    },
+    {
+      "id": "4d",
+      "label": "4d",
+      "display": "The addends are 7, 8 and 85, and the sum is 100.",
+      "answer": {
+        "type": "text",
+        "value": "7 + 8 + 85 = 100"
+      }
+    },
+    {
+      "id": "5a",
+      "label": "5a",
+      "display": "Write a multiplication with three factors where the product is zero.",
+      "answer": {
+        "type": "text",
+        "value": "Answers will vary. Example: 5 · 6 · 0 = 0. At least one factor must be zero."
+      }
+    },
+    {
+      "id": "5b",
+      "label": "5b",
+      "display": "Write a division where the dividend is 120 and the quotient is less than 15.",
+      "answer": {
+        "type": "text",
+        "value": "Answers will vary. Example: 120 ÷ 40 = 3. The divisor must be more than 8."
+      }
+    },
+    {
+      "id": "5c",
+      "label": "5c",
+      "display": "Write additions of four addends.",
+      "answer": {
+        "type": "text",
+        "value": "Answers will vary. Example: 2 + 2 + 2 + 2 = 8."
+      }
+    },
+    {
+      "id": "6",
+      "label": "6",
+      "display": "How to find the subtrahend?",
+      "answer": {
+        "type": "text",
+        "value": "Subtract the difference from the minuend. a. 56 − 19 = 37; b. 4203 − 553 = 3650"
+      }
+    },
+    {
+      "id": "7",
+      "label": "7",
+      "display": "How to find the divisor?",
+      "answer": {
+        "type": "text",
+        "value": "Divide the dividend by the quotient. a. 56 ÷ 7 = 8, so y = 8; b. 535 ÷ 5 = 107, so x = 107"
+      }
+    }
+  ]
+}

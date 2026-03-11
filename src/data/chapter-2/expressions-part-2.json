@@ -1,0 +1,227 @@
+{
+  "chapter": "chapter-2",
+  "section": "expressions-part-2",
+  "title": "Expressions, Part 2",
+  "pages": "53-54",
+  "problems": [
+    {
+      "id": "1a",
+      "label": "1a",
+      "display": "V = (4 cm)³",
+      "answer": {
+        "type": "text",
+        "value": "64 cm³"
+      }
+    },
+    {
+      "id": "1b",
+      "label": "1b",
+      "display": "V = (1/2 m)³",
+      "answer": {
+        "type": "text",
+        "value": "1/8 m³"
+      }
+    },
+    {
+      "id": "2a",
+      "label": "2a",
+      "display": "°F when °C gives 86",
+      "answer": {
+        "type": "text",
+        "value": "86°F"
+      }
+    },
+    {
+      "id": "2b",
+      "label": "2b",
+      "display": "°F when °C gives 64.4",
+      "answer": {
+        "type": "text",
+        "value": "64.4°F"
+      }
+    },
+    {
+      "id": "3",
+      "label": "3",
+      "display": "Cost = $3.60 · 380 ÷ 9",
+      "answer": {
+        "type": "number",
+        "value": 152
+      }
+    },
+    {
+      "id": "4a",
+      "label": "4a",
+      "display": "Expression for total cost of p pencils at 10¢ each",
+      "answer": {
+        "type": "text",
+        "value": "10p"
+      }
+    },
+    {
+      "id": "4b",
+      "label": "4b",
+      "display": "Expression for 1/5 of S",
+      "answer": {
+        "type": "text",
+        "value": "(1/5)S or S/5"
+      }
+    },
+    {
+      "id": "4c",
+      "label": "4c",
+      "display": "Expression for cost of m items at $4 and n items at $3.50",
+      "answer": {
+        "type": "text",
+        "value": "4m + 3.50n"
+      }
+    },
+    {
+      "id": "4d",
+      "label": "4d",
+      "display": "Expression for sum of p and q",
+      "answer": {
+        "type": "text",
+        "value": "p + q"
+      }
+    },
+    {
+      "id": "4e",
+      "label": "4e",
+      "display": "Expression for average of p and q",
+      "answer": {
+        "type": "text",
+        "value": "(p + q)/2"
+      }
+    },
+    {
+      "id": "5a",
+      "label": "5a",
+      "display": "Which expressions are equivalent?",
+      "answer": {
+        "type": "text",
+        "value": "The first 3 expressions are equivalent."
+      }
+    },
+    {
+      "id": "5b",
+      "label": "5b",
+      "display": "Which expressions are equivalent?",
+      "answer": {
+        "type": "text",
+        "value": "The first and third expressions are equivalent (2x/6 and x/3)."
+      }
+    },
+    {
+      "id": "6a",
+      "label": "6a",
+      "display": "(3.2 + 5.3) · 2",
+      "answer": {
+        "type": "number",
+        "value": 17
+      }
+    },
+    {
+      "id": "6b",
+      "label": "6b",
+      "display": "(190 − 50) ÷ 5",
+      "answer": {
+        "type": "number",
+        "value": 28
+      }
+    },
+    {
+      "id": "6c",
+      "label": "6c",
+      "display": "100 − (40 − 5)",
+      "answer": {
+        "type": "number",
+        "value": 65
+      }
+    },
+    {
+      "id": "6d",
+      "label": "6d",
+      "display": "(2 · 5)³",
+      "answer": {
+        "type": "number",
+        "value": 1000
+      }
+    },
+    {
+      "id": "6e",
+      "label": "6e",
+      "display": "5 ÷ 3³",
+      "answer": {
+        "type": "fraction",
+        "value": "5/27",
+        "decimal": 0.1852,
+        "tolerance": 0.001
+      }
+    },
+    {
+      "id": "6f",
+      "label": "6f",
+      "display": "2(10 − 4) + 3(5 + 8)",
+      "answer": {
+        "type": "number",
+        "value": 51
+      }
+    },
+    {
+      "id": "6g",
+      "label": "6g",
+      "display": "(61 − 30) ÷ 5²",
+      "answer": {
+        "type": "fraction",
+        "value": "1 6/25",
+        "decimal": 1.24
+      }
+    },
+    {
+      "id": "6h",
+      "label": "6h",
+      "display": "6² − 7",
+      "answer": {
+        "type": "number",
+        "value": 29
+      }
+    },
+    {
+      "id": "7a",
+      "label": "7a",
+      "display": "20 + 9",
+      "answer": {
+        "type": "number",
+        "value": 29
+      }
+    },
+    {
+      "id": "7b",
+      "label": "7b",
+      "display": "60 − 27",
+      "answer": {
+        "type": "number",
+        "value": 33
+      }
+    },
+    {
+      "id": "7c",
+      "label": "7c",
+      "display": "600 ÷ 40 − 12",
+      "answer": {
+        "type": "number",
+        "value": 3
+      }
+    },
+    {
+      "id": "8",
+      "label": "8",
+      "display": "Find the missing factor",
+      "answer": {
+        "type": "text",
+        "value": "Divide the product by the known factor. a. 12 · 8 = 96; b. 7 · 418 = 2926"
+      }
+    }
+  ]
+}

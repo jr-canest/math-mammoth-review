@@ -1,0 +1,179 @@
+import { useState, useEffect, useCallback, useRef } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
+import { loadSections, loadSectionData } from '../lib/dataLoader';
+import type { SectionData, SectionMeta } from '../lib/dataLoader';
+import type { SectionProgress } from '../lib/progressStore';
+import ProblemRow from './ProblemRow';
+import ProgressBar from './ProgressBar';
+import CelebrationModal from './CelebrationModal';
+
+interface ProblemViewProps {
+  getSectionProgress: (key: string) => SectionProgress | null;
+  markCorrect: (sectionKey: string, problemId: string, attemptCount: number, totalProblems: number, answer?: string) => void;
+  markIncorrect: (sectionKey: string, problemId: string, attemptCount: number) => void;
+  playCorrect: () => void;
+  playIncorrect: () => void;
+  playMilestone: () => void;
+  playComplete: () => void;
+}
+
+export default function ProblemView({
+  getSectionProgress,
+  markCorrect,
+  markIncorrect,
+  playCorrect,
+  playIncorrect,
+  playMilestone,
+  playComplete,
+}: ProblemViewProps) {
+  const { chapterId, sectionId } = useParams<{ chapterId: string; sectionId: string }>();
+  const navigate = useNavigate();
+  const [sectionData, setSectionData] = useState<SectionData | null>(null);
+  const [sections, setSections] = useState<SectionMeta[]>([]);
+  const [celebration, setCelebration] = useState<'milestone' | 'complete' | null>(null);
+  const milestoneShownRef = useRef(false);
+  const completeShownRef = useRef(false);
+
+  const sectionKey = `${chapterId}-${sectionId}`;
+
+  useEffect(() => {
+    if (!chapterId || !sectionId) return;
+    const allSections = loadSections(chapterId);
+    setSections(allSections);
+    const meta = allSections.find(s => s.id === sectionId);
+    if (meta) {
+      const data = loadSectionData(chapterId, meta.file);
+      setSectionData(data);
+    }
+    milestoneShownRef.current = false;
+    completeShownRef.current = false;
+  }, [chapterId, sectionId]);
+
+  const progress = getSectionProgress(sectionKey);
+  const totalProblems = sectionData?.problems.length ?? 0;
+
+  const correctCount = progress
+    ? Object.values(progress.attempts).filter(a => a.correct).length
+    : 0;
+  const incorrectCount = progress
+    ? Object.values(progress.attempts).filter(a => !a.correct).length
+    : 0;
+
+  const score = totalProblems > 0 ? correctCount / totalProblems : 0;
+
+  // Check for milestones
+  useEffect(() => {
+    if (score >= 1 && !completeShownRef.current && totalProblems > 0) {
+      completeShownRef.current = true;
+      milestoneShownRef.current = true;
+      setCelebration('complete');
+      playComplete();
+    } else if (score >= 0.8 && !milestoneShownRef.current && totalProblems > 0 && score < 1) {
+      milestoneShownRef.current = true;
+      setCelebration('milestone');
+      playMilestone();
+    }
+  }, [score, totalProblems, playComplete, playMilestone]);
+
+  const handleCorrect = useCallback(
+    (problemId: string, attemptCount: number, answer: string) => {
+      markCorrect(sectionKey, problemId, attemptCount, totalProblems, answer);
+    },
+    [markCorrect, sectionKey, totalProblems],
+  );
+
+  const handleIncorrect = useCallback(
+    (problemId: string, attemptCount: number) => {
+      markIncorrect(sectionKey, problemId, attemptCount);
+    },
+    [markIncorrect, sectionKey],
+  );
+
+  const handleNextSection = () => {
+    const currentIdx = sections.findIndex(s => s.id === sectionId);
+    if (currentIdx >= 0 && currentIdx < sections.length - 1) {
+      navigate(`/chapter/${chapterId}/${sections[currentIdx + 1].id}`);
+    } else {
+      navigate(`/chapter/${chapterId}`);
+    }
+    setCelebration(null);
+  };
+
+  if (!sectionData) {
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <div className="text-xl text-gray-400">Loading...</div>
+      </div>
+    );
+  }
+
+  const currentIdx = sections.findIndex(s => s.id === sectionId);
+  const hasNext = currentIdx >= 0 && currentIdx < sections.length - 1;
+
+  return (
+    <div className="min-h-screen bg-slate-50">
+      {/* Header */}
+      <header className="bg-white shadow-sm sticky top-0 z-10">
+        <div className="max-w-3xl mx-auto px-4 py-3 flex items-center gap-3">
+          <button
+            onClick={() => navigate(`/chapter/${chapterId}`)}
+            className="p-2 -ml-2 text-indigo-600 active:scale-95 transition-transform"
+          >
+            <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+          <div className="flex-1 min-w-0">
+            <h1 className="text-lg font-bold text-gray-900 truncate">
+              {sectionData.title}
+            </h1>
+            <p className="text-sm text-gray-500">Pages {sectionData.pages}</p>
+          </div>
+          <div className="text-right shrink-0">
+            <span className="text-lg font-bold text-indigo-600">
+              {correctCount}/{totalProblems}
+            </span>
+          </div>
+        </div>
+        <div className="max-w-3xl mx-auto px-4 pb-3">
+          <ProgressBar
+            total={totalProblems}
+            correct={correctCount}
+            incorrect={incorrectCount}
+          />
+        </div>
+      </header>
+
+      {/* Problems */}
+      <main className="max-w-3xl mx-auto px-4 py-4 space-y-3 pb-24">
+        {sectionData.problems.map(problem => {
+          const attempt = progress?.attempts[problem.id];
+          return (
+            <ProblemRow
+              key={problem.id}
+              problem={problem}
+              isCorrect={attempt?.correct ?? false}
+              previousAttempts={attempt?.attempts ?? 0}
+              savedAnswer={attempt?.answer}
+              onCorrect={(count, answer) => handleCorrect(problem.id, count, answer)}
+              onIncorrect={(count) => handleIncorrect(problem.id, count)}
+              playCorrect={playCorrect}
+              playIncorrect={playIncorrect}
+            />
+          );
+        })}
+      </main>
+
+      {/* Celebration Modal */}
+      {celebration && (
+        <CelebrationModal
+          type={celebration}
+          sectionTitle={sectionData.title}
+          score={score}
+          onClose={() => setCelebration(null)}
+          onNextSection={hasNext ? handleNextSection : undefined}
+        />
+      )}
+    </div>
+  );
+}

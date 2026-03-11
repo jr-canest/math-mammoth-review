@@ -1,0 +1,287 @@
+{
+  "chapter": "chapter-2",
+  "section": "words-and-expressions",
+  "title": "Words and Expressions",
+  "pages": "51-52",
+  "problems": [
+    {
+      "id": "1a",
+      "label": "1a",
+      "display": "Seven times y",
+      "answer": {
+        "type": "text",
+        "value": "7y"
+      }
+    },
+    {
+      "id": "1b",
+      "label": "1b",
+      "display": "S plus 7",
+      "answer": {
+        "type": "text",
+        "value": "S + 7"
+      }
+    },
+    {
+      "id": "1c",
+      "label": "1c",
+      "display": "5s divided by 8",
+      "answer": {
+        "type": "text",
+        "value": "5s/8"
+      }
+    },
+    {
+      "id": "1d",
+      "label": "1d",
+      "display": "x minus 9",
+      "answer": {
+        "type": "text",
+        "value": "x − 9"
+      }
+    },
+    {
+      "id": "1e",
+      "label": "1e",
+      "display": "190 plus r",
+      "answer": {
+        "type": "text",
+        "value": "190 + r"
+      }
+    },
+    {
+      "id": "1f",
+      "label": "1f",
+      "display": "8 times d",
+      "answer": {
+        "type": "text",
+        "value": "8d"
+      }
+    },
+    {
+      "id": "1g",
+      "label": "1g",
+      "display": "9 minus x",
+      "answer": {
+        "type": "text",
+        "value": "9 − x"
+      }
+    },
+    {
+      "id": "1h",
+      "label": "1h",
+      "display": "n minus 14",
+      "answer": {
+        "type": "text",
+        "value": "n − 14"
+      }
+    },
+    {
+      "id": "2a",
+      "label": "2a",
+      "display": "30 times the quantity (s minus 300)",
+      "answer": {
+        "type": "text",
+        "value": "30(s − 300)"
+      }
+    },
+    {
+      "id": "2b",
+      "label": "2b",
+      "display": "(35 + x) divided by 7",
+      "answer": {
+        "type": "text",
+        "value": "(35 + x)/7"
+      }
+    },
+    {
+      "id": "2c",
+      "label": "2c",
+      "display": "y minus 200/40",
+      "answer": {
+        "type": "text",
+        "value": "y − 200/40"
+      }
+    },
+    {
+      "id": "3a",
+      "label": "3a",
+      "display": "30(1200 − 300)",
+      "answer": {
+        "type": "number",
+        "value": 27000
+      }
+    },
+    {
+      "id": "3b",
+      "label": "3b",
+      "display": "(35 + 42) ÷ 7",
+      "answer": {
+        "type": "number",
+        "value": 11
+      }
+    },
+    {
+      "id": "3c",
+      "label": "3c",
+      "display": "800 − 200/40",
+      "answer": {
+        "type": "number",
+        "value": 795
+      }
+    },
+    {
+      "id": "4a",
+      "label": "4a",
+      "display": "(2x − 1) ÷ 3",
+      "answer": {
+        "type": "text",
+        "value": "(2x − 1)/3"
+      }
+    },
+    {
+      "id": "4b",
+      "label": "4b",
+      "display": "4s minus 9",
+      "answer": {
+        "type": "text",
+        "value": "4s − 9"
+      }
+    },
+    {
+      "id": "4c",
+      "label": "4c",
+      "display": "5 times the quantity (x + 2)",
+      "answer": {
+        "type": "text",
+        "value": "5(x + 2)"
+      }
+    },
+    {
+      "id": "4d",
+      "label": "4d",
+      "display": "8 times the quantity (4 + x + 2)",
+      "answer": {
+        "type": "text",
+        "value": "8(4 + x + 2)"
+      }
+    },
+    {
+      "id": "4e",
+      "label": "4e",
+      "display": "2 times the quantity (10 minus s)",
+      "answer": {
+        "type": "text",
+        "value": "2(10 − s)"
+      }
+    },
+    {
+      "id": "4f",
+      "label": "4f",
+      "display": "y divided by (y + 4)",
+      "answer": {
+        "type": "text",
+        "value": "y/(y + 4)"
+      }
+    },
+    {
+      "id": "5a",
+      "label": "5a",
+      "display": "7s + 6",
+      "answer": {
+        "type": "text",
+        "value": "7s + 6"
+      }
+    },
+    {
+      "id": "5b",
+      "label": "5b",
+      "display": "(5 + x) divided by (5 − x)",
+      "answer": {
+        "type": "text",
+        "value": "(5 + x)/(5 − x)"
+      }
+    },
+    {
+      "id": "5c",
+      "label": "5c",
+      "display": "w² divided by (w − 1)",
+      "answer": {
+        "type": "text",
+        "value": "w²/(w − 1)"
+      }
+    },
+    {
+      "id": "5d",
+      "label": "5d",
+      "display": "(6 − x)²",
+      "answer": {
+        "type": "text",
+        "value": "(6 − x)²"
+      }
+    },
+    {
+      "id": "5e",
+      "label": "5e",
+      "display": "(5 − m)²",
+      "answer": {
+        "type": "text",
+        "value": "(5 − m)²"
+      }
+    },
+    {
+      "id": "5f",
+      "label": "5f",
+      "display": "(x + 4) divided by x²",
+      "answer": {
+        "type": "text",
+        "value": "(x + 4)/x²"
+      }
+    },
+    {
+      "id": "5g",
+      "label": "5g",
+      "display": "100 minus p²",
+      "answer": {
+        "type": "text",
+        "value": "100 − p²"
+      }
+    },
+    {
+      "id": "5h",
+      "label": "5h",
+      "display": "7 minus x",
+      "answer": {
+        "type": "text",
+        "value": "7 − x"
+      }
+    },
+    {
+      "id": "5i",
+      "label": "5i",
+      "display": "x² plus 100",
+      "answer": {
+        "type": "text",
+        "value": "x² + 100"
+      }
+    },
+    {
+      "id": "puzzle_a",
+      "label": "Puzzle a",
+      "display": "Puzzle corner: product of three consecutive numbers is 504",
+      "answer": {
+        "type": "text",
+        "value": "7, 8, 9. The next higher cube after 504 is 8³ = 512, so 8 is the middle number."
+      }
+    },
+    {
+      "id": "puzzle_b",
+      "label": "Puzzle b",
+      "display": "Puzzle corner: sum 621 divided by 3",
+      "answer": {
+        "type": "text",
+        "value": "206, 207, 208"
+      }
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+[
+  {
+    "id": "order-of-operations",
+    "title": "The Order of Operations",
+    "pages": "45-46",
+    "file": "order-of-operations.json",
+    "order": 1
+  },
+  {
+    "id": "expressions-part-1",
+    "title": "Expressions, Part 1",
+    "pages": "47-48",
+    "file": "expressions-part-1.json",
+    "order": 2
+  },
+  {
+    "id": "terminology-for-the-four-operations",
+    "title": "Terminology for the Four Operations",
+    "pages": "49-50",
+    "file": "terminology-for-the-four-operations.json",
+    "order": 3
+  },
+  {
+    "id": "words-and-expressions",
+    "title": "Words and Expressions",
+    "pages": "51-52",
+    "file": "words-and-expressions.json",
+    "order": 4
+  },
+  {
+    "id": "expressions-part-2",
+    "title": "Expressions, Part 2",
+    "pages": "53-54",
+    "file": "expressions-part-2.json",
+    "order": 5
+  },
+  {
+    "id": "writing-and-simplifying-expressions-1",
+    "title": "Writing and Simplifying Expressions 1: Length and Perimeter",
+    "pages": "55-57",
+    "file": "writing-and-simplifying-expressions-1.json",
+    "order": 6
+  },
+  {
+    "id": "more-on-writing-and-simplifying-expressions",
+    "title": "More on Writing and Simplifying Expressions",
+    "pages": "58-60",
+    "file": "more-on-writing-and-simplifying-expressions.json",
+    "order": 7
+  },
+  {
+    "id": "writing-and-simplifying-expressions-2-area",
+    "title": "Writing and Simplifying Expressions 2: Area",
+    "pages": "61-65",
+    "file": "writing-and-simplifying-expressions-2-area.json",
+    "order": 8
+  },
+  {
+    "id": "multiplying-and-dividing-in-parts",
+    "title": "Multiplying and Dividing in Parts",
+    "pages": "66-69",
+    "file": "multiplying-and-dividing-in-parts.json",
+    "order": 9
+  }
+]

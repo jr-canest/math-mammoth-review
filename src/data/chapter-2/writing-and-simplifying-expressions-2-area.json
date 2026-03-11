@@ -1,0 +1,386 @@
+{
+  "chapter": "chapter-2",
+  "section": "writing-and-simplifying-expressions-2-area",
+  "title": "Writing and Simplifying Expressions 2: Area",
+  "pages": "61-65",
+  "problems": [
+    {
+      "id": "1a",
+      "label": "1a",
+      "display": "A = 3x · 4x",
+      "answer": {
+        "type": "text",
+        "value": "12x²"
+      }
+    },
+    {
+      "id": "1b",
+      "label": "1b",
+      "display": "A = 5y · 3y",
+      "answer": {
+        "type": "text",
+        "value": "15y²"
+      }
+    },
+    {
+      "id": "1c",
+      "label": "1c",
+      "display": "A = 5x · x",
+      "answer": {
+        "type": "text",
+        "value": "5x²"
+      }
+    },
+    {
+      "id": "1d",
+      "label": "1d",
+      "display": "A = 2b · 7b",
+      "answer": {
+        "type": "text",
+        "value": "14b²"
+      }
+    },
+    {
+      "id": "2a_A",
+      "label": "2a A",
+      "display": "Area of rectangle",
+      "answer": {
+        "type": "text",
+        "value": "A = 12x²"
+      }
+    },
+    {
+      "id": "2a_P",
+      "label": "2a P",
+      "display": "Perimeter of rectangle",
+      "answer": {
+        "type": "text",
+        "value": "P = 16x"
+      }
+    },
+    {
+      "id": "2b_A",
+      "label": "2b A",
+      "display": "Area of rectangle",
+      "answer": {
+        "type": "text",
+        "value": "A = 3x²"
+      }
+    },
+    {
+      "id": "2b_P",
+      "label": "2b P",
+      "display": "Perimeter of rectangle",
+      "answer": {
+        "type": "text",
+        "value": "P = 8x"
+      }
+    },
+    {
+      "id": "2c_A",
+      "label": "2c A",
+      "display": "Area of rectangle",
+      "answer": {
+        "type": "text",
+        "value": "A = 9s²"
+      }
+    },
+    {
+      "id": "2c_P",
+      "label": "2c P",
+      "display": "Perimeter of rectangle",
+      "answer": {
+        "type": "text",
+        "value": "P = 12s"
+      }
+    },
+    {
+      "id": "2d_A",
+      "label": "2d A",
+      "display": "Area of rectangle",
+      "answer": {
+        "type": "text",
+        "value": "A = 8a²"
+      }
+    },
+    {
+      "id": "2d_P",
+      "label": "2d P",
+      "display": "Perimeter of rectangle",
+      "answer": {
+        "type": "text",
+        "value": "P = 12a"
+      }
+    },
+    {
+      "id": "3a",
+      "label": "3a",
+      "display": "A and P of rectangle",
+      "answer": {
+        "type": "text",
+        "value": "A = 28c², P = 22c"
+      }
+    },
+    {
+      "id": "3b",
+      "label": "3b",
+      "display": "A and P of rectangle",
+      "answer": {
+        "type": "text",
+        "value": "A = 80x², P = 36x"
+      }
+    },
+    {
+      "id": "4a",
+      "label": "4a",
+      "display": "A and P of L-shape",
+      "answer": {
+        "type": "text",
+        "value": "A = 14x², P = 18x"
+      }
+    },
+    {
+      "id": "4b",
+      "label": "4b",
+      "display": "A and P of L-shape",
+      "answer": {
+        "type": "text",
+        "value": "A = 19x², P = 20x"
+      }
+    },
+    {
+      "id": "5a",
+      "label": "5a",
+      "display": "A and P of shape",
+      "answer": {
+        "type": "text",
+        "value": "A = 19x², P = 26x"
+      }
+    },
+    {
+      "id": "5b",
+      "label": "5b",
+      "display": "A and P of shape",
+      "answer": {
+        "type": "text",
+        "value": "A = 24x², P = 22x"
+      }
+    },
+    {
+      "id": "5c",
+      "label": "5c",
+      "display": "A and P of shape",
+      "answer": {
+        "type": "text",
+        "value": "A = 40b², P = 32b"
+      }
+    },
+    {
+      "id": "5d",
+      "label": "5d",
+      "display": "A and P of shape",
+      "answer": {
+        "type": "text",
+        "value": "A = 43b², P = 28b"
+      }
+    },
+    {
+      "id": "5e",
+      "label": "5e",
+      "display": "A and P of shape",
+      "answer": {
+        "type": "text",
+        "value": "A = 51a², P = 36a"
+      }
+    },
+    {
+      "id": "5f",
+      "label": "5f",
+      "display": "A and P of shape",
+      "answer": {
+        "type": "text",
+        "value": "A = 51a², P = 36a"
+      }
+    },
+    {
+      "id": "6a",
+      "label": "6a",
+      "display": "A = ?",
+      "answer": {
+        "type": "text",
+        "value": "A = 20x²"
+      }
+    },
+    {
+      "id": "6b",
+      "label": "6b",
+      "display": "A when x = 5 cm",
+      "answer": {
+        "type": "text",
+        "value": "A = 500 cm²"
+      }
+    },
+    {
+      "id": "6c",
+      "label": "6c",
+      "display": "A when x = 10 cm",
+      "answer": {
+        "type": "text",
+        "value": "A = 2000 cm²"
+      }
+    },
+    {
+      "id": "6d",
+      "label": "6d",
+      "display": "Is the area double?",
+      "answer": {
+        "type": "text",
+        "value": "No. It is quadruple (four times as much)."
+      }
+    },
+    {
+      "id": "7a",
+      "label": "7a",
+      "display": "A and P",
+      "answer": {
+        "type": "text",
+        "value": "A = 51a², P = 36a"
+      }
+    },
+    {
+      "id": "7b",
+      "label": "7b",
+      "display": "P when a = 2 cm",
+      "answer": {
+        "type": "text",
+        "value": "72 cm"
+      }
+    },
+    {
+      "id": "7c",
+      "label": "7c",
+      "display": "P when a = 4 cm",
+      "answer": {
+        "type": "text",
+        "value": "144 cm"
+      }
+    },
+    {
+      "id": "7d",
+      "label": "7d",
+      "display": "Is the perimeter doubled?",
+      "answer": {
+        "type": "text",
+        "value": "yes"
+      }
+    },
+    {
+      "id": "7e",
+      "label": "7e",
+      "display": "Is the area doubled?",
+      "answer": {
+        "type": "text",
+        "value": "No, the area was quadruple (four times as much). When a = 2: 204 cm². When a = 4: 816 cm²."
+      }
+    },
+    {
+      "id": "8a",
+      "label": "8a",
+      "display": "Side of square with area 9b²",
+      "answer": {
+        "type": "text",
+        "value": "3b"
+      }
+    },
+    {
+      "id": "8b",
+      "label": "8b",
+      "display": "Side of square with area 36a²",
+      "answer": {
+        "type": "text",
+        "value": "6a"
+      }
+    },
+    {
+      "id": "9a",
+      "label": "9a",
+      "display": "Side of square with area 36c²",
+      "answer": {
+        "type": "text",
+        "value": "6c"
+      }
+    },
+    {
+      "id": "9b",
+      "label": "9b",
+      "display": "Side of square with area 36b²",
+      "answer": {
+        "type": "text",
+        "value": "6b"
+      }
+    },
+    {
+      "id": "10",
+      "label": "10",
+      "display": "Side of square with area 4y²",
+      "answer": {
+        "type": "text",
+        "value": "The length of each side is 2y."
+      }
+    },
+    {
+      "id": "11",
+      "label": "11",
+      "display": "Other side of rectangle with area 48s² and one side 6s",
+      "answer": {
+        "type": "text",
+        "value": "The other side is 8s."
+      }
+    },
+    {
+      "id": "12a",
+      "label": "12a",
+      "display": "Expression: (9r)²",
+      "answer": {
+        "type": "text",
+        "value": "81r²"
+      }
+    },
+    {
+      "id": "12b",
+      "label": "12b",
+      "display": "Expression: perimeter of rectangle with sides 8a and 12a",
+      "answer": {
+        "type": "text",
+        "value": "40a"
+      }
+    },
+    {
+      "id": "12c",
+      "label": "12c",
+      "display": "Ava's age if Sarah is S",
+      "answer": {
+        "type": "text",
+        "value": "S − 3"
+      }
+    },
+    {
+      "id": "12d",
+      "label": "12d",
+      "display": "More expensive shoes cost",
+      "answer": {
+        "type": "text",
+        "value": "p + $10"
+      }
+    },
+    {
+      "id": "12e",
+      "label": "12e",
+      "display": "Cost of 5 pairs of more expensive shoes",
+      "answer": {
+        "type": "text",
+        "value": "5(p + $10)"
+      }
+    }
+  ]
+}
