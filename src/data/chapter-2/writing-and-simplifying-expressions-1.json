@@ -3,372 +3,251 @@
   "section": "writing-and-simplifying-expressions-1",
   "title": "Writing and Simplifying Expressions 1: Length and Perimeter",
   "pages": "55-57",
-  "needsReview": true,
   "problems": [
     {
       "id": "1a",
       "label": "1a",
-      "group": "1. Simplify the total length.",
-      "display": "Simplify the total length",
-      "answer": {
-        "type": "text",
-        "value": "5x"
-      }
+      "group": "1. Write an expression for the total length of the line segments in simplified form.",
+      "display": "x + x + x + x + x",
+      "answer": { "type": "text", "value": "5x" }
     },
     {
       "id": "1b",
       "label": "1b",
-      "display": "Simplify the total length",
-      "answer": {
-        "type": "text",
-        "value": "2x + 2y"
-      }
+      "display": "x + y + y + x",
+      "answer": { "type": "text", "value": "2x + 2y" }
     },
     {
       "id": "1c",
       "label": "1c",
-      "display": "Simplify the total length",
-      "answer": {
-        "type": "text",
-        "value": "3n + m"
-      }
+      "display": "n + n + m + n",
+      "answer": { "type": "text", "value": "3n + m" }
     },
     {
       "id": "1d",
       "label": "1d",
-      "display": "Simplify the total length",
-      "answer": {
-        "type": "text",
-        "value": "3z + 8"
-      }
+      "display": "z + 8 + z + z",
+      "answer": { "type": "text", "value": "3z + 8" }
     },
     {
       "id": "1e",
       "label": "1e",
-      "display": "Simplify the total length",
-      "answer": {
-        "type": "text",
-        "value": "2q + x + 3"
-      }
+      "display": "x + q + 3 + q",
+      "answer": { "type": "text", "value": "2q + x + 3" }
     },
     {
       "id": "1f",
       "label": "1f",
-      "display": "Simplify the total length",
-      "answer": {
-        "type": "text",
-        "value": "2z + 2x + y + 9"
-      }
+      "display": "z + x + x + y + 9 + z",
+      "answer": { "type": "text", "value": "2z + 2x + y + 9" }
     },
     {
       "id": "2a",
       "label": "2a",
-      "group": "2. Write an expression for the perimeter.",
-      "display": "Write expression for perimeter",
-      "answer": {
-        "type": "text",
-        "value": "2x + 8"
-      }
+      "group": "2. Write an expression for the perimeter of each shape in simplified form.",
+      "display": "Rectangle with sides x and 4",
+      "answer": { "type": "text", "value": "2x + 8" }
     },
     {
       "id": "2b",
       "label": "2b",
-      "display": "Write expression for perimeter",
-      "answer": {
-        "type": "text",
-        "value": "2x + 2y"
-      }
+      "display": "Rectangle with sides x and y",
+      "answer": { "type": "text", "value": "2x + 2y" }
     },
     {
       "id": "2c",
       "label": "2c",
-      "display": "Write expression for perimeter",
-      "answer": {
-        "type": "text",
-        "value": "6s"
-      }
+      "display": "Regular hexagon with side s",
+      "answer": { "type": "text", "value": "6s" }
     },
     {
       "id": "2d",
       "label": "2d",
-      "display": "Write expression for perimeter",
-      "answer": {
-        "type": "text",
-        "value": "4y"
-      }
+      "display": "Square with side y",
+      "answer": { "type": "text", "value": "4y" }
     },
     {
       "id": "2e",
       "label": "2e",
-      "display": "Write expression for perimeter",
-      "answer": {
-        "type": "text",
-        "value": "a + b + 7"
-      }
+      "display": "Triangle with sides a, b, and 7",
+      "answer": { "type": "text", "value": "a + b + 7" }
     },
     {
       "id": "2f",
       "label": "2f",
-      "display": "Write expression for perimeter",
-      "answer": {
-        "type": "text",
-        "value": "2s + 2t + 3"
-      }
+      "display": "Pentagon with sides s, s, t, t, and 3",
+      "answer": { "type": "text", "value": "2s + 2t + 3" }
     },
     {
       "id": "3a",
       "label": "3a",
-      "group": "3. Simplify the expressions.",
+      "group": "3. Write an expression for the illustration, and simplify it.",
       "display": "3x + x",
-      "answer": {
-        "type": "text",
-        "value": "4x"
-      }
+      "answer": { "type": "text", "value": "4x" }
     },
     {
       "id": "3b",
       "label": "3b",
       "display": "2z + 7 + 12",
-      "answer": {
-        "type": "text",
-        "value": "2z + 19"
-      }
+      "answer": { "type": "text", "value": "2z + 19" }
     },
     {
       "id": "3c",
       "label": "3c",
       "display": "4p − 2p",
-      "answer": {
-        "type": "text",
-        "value": "2p"
-      }
+      "answer": { "type": "text", "value": "2p" }
     },
     {
       "id": "3d",
       "label": "3d",
       "display": "4x + 11 − 2x",
-      "answer": {
-        "type": "text",
-        "value": "2x + 11"
-      }
+      "answer": { "type": "text", "value": "2x + 11" }
     },
     {
       "id": "4a",
       "label": "4a",
-      "group": "4. Simplify if possible.",
-      "display": "Simplify: 5c + 2",
-      "answer": {
-        "type": "text",
-        "value": "5c + 2"
-      }
+      "group": "4. Simplify the expressions.",
+      "display": "c + c + c + c + c + 2",
+      "answer": { "type": "text", "value": "5c + 2" }
     },
     {
       "id": "4b",
       "label": "4b",
-      "display": "Simplify: 3p + 2r",
-      "answer": {
-        "type": "text",
-        "value": "3p + 2r"
-      }
+      "display": "p + p + p + r + r",
+      "answer": { "type": "text", "value": "3p + 2r" }
     },
     {
       "id": "4c",
       "label": "4c",
-      "display": "Simplify: 3x + 7",
-      "answer": {
-        "type": "text",
-        "value": "3x + 7"
-      }
+      "display": "5 + x + x + 2 + x",
+      "answer": { "type": "text", "value": "3x + 7" }
     },
     {
       "id": "4d",
       "label": "4d",
-      "display": "Simplify: 3z + 2x + 4",
-      "answer": {
-        "type": "text",
-        "value": "3z + 2x + 4"
-      }
+      "display": "z + z + x + 4 + x + z",
+      "answer": { "type": "text", "value": "3z + 2x + 4" }
     },
     {
       "id": "4e",
       "label": "4e",
-      "display": "Simplify: 3m + q + s",
-      "answer": {
-        "type": "text",
-        "value": "3m + q + s"
-      }
+      "display": "m + m + q + m + s",
+      "answer": { "type": "text", "value": "3m + q + s" }
     },
     {
       "id": "4f",
       "label": "4f",
-      "display": "Simplify: 2y + 13",
-      "answer": {
-        "type": "text",
-        "value": "2y + 13"
-      }
+      "display": "8 + 1 + y + y + 4",
+      "answer": { "type": "text", "value": "2y + 13" }
     },
     {
       "id": "4g",
       "label": "4g",
-      "display": "Simplify: 7c",
-      "answer": {
-        "type": "text",
-        "value": "7c"
-      }
+      "display": "5c + 2c",
+      "answer": { "type": "text", "value": "7c" }
     },
     {
       "id": "4h",
       "label": "4h",
-      "display": "Simplify: 6p",
-      "answer": {
-        "type": "text",
-        "value": "6p"
-      }
+      "display": "8p − 2p",
+      "answer": { "type": "text", "value": "6p" }
     },
     {
       "id": "4i",
       "label": "4i",
-      "display": "Simplify: 5d",
-      "answer": {
-        "type": "text",
-        "value": "5d"
-      }
+      "display": "6d − d",
+      "answer": { "type": "text", "value": "5d" }
     },
     {
       "id": "4j",
       "label": "4j",
-      "display": "Simplify: 9x",
-      "answer": {
-        "type": "text",
-        "value": "9x"
-      }
+      "display": "20x − 6x − 5x",
+      "answer": { "type": "text", "value": "9x" }
     },
     {
       "id": "4k",
       "label": "4k",
-      "display": "Simplify: 5 + 4x",
-      "answer": {
-        "type": "text",
-        "value": "5 + 4x"
-      }
+      "display": "5 + 2x + 3x − x",
+      "answer": { "type": "text", "value": "5 + 4x" }
     },
     {
       "id": "4l",
       "label": "4l",
-      "display": "Simplify: 9a + 2 − 7x",
-      "answer": {
-        "type": "text",
-        "value": "9a + 2 − 7x"
-      }
+      "display": "2a + 2 + 7a − 7x",
+      "answer": { "type": "text", "value": "9a + 2 − 7x" }
     },
     {
       "id": "5a",
       "label": "5a",
-      "group": "5. Multiply.",
-      "display": "Multiply: c³",
-      "answer": {
-        "type": "text",
-        "value": "c³"
-      }
+      "group": "5. Simplify the expressions and remove the unnecessary multiplication signs.",
+      "display": "c · c · c",
+      "answer": { "type": "text", "value": "c³" }
     },
     {
       "id": "5b",
       "label": "5b",
-      "display": "Multiply: 4x²",
-      "answer": {
-        "type": "text",
-        "value": "4x²"
-      }
+      "display": "x · x · 4",
+      "answer": { "type": "text", "value": "4x²" }
     },
     {
       "id": "5c",
       "label": "5c",
-      "display": "Multiply: 30x",
-      "answer": {
-        "type": "text",
-        "value": "30x"
-      }
+      "display": "5 · x · 6",
+      "answer": { "type": "text", "value": "30x" }
     },
     {
       "id": "5d",
       "label": "5d",
-      "display": "Multiply: 2xz",
-      "answer": {
-        "type": "text",
-        "value": "2xz"
-      }
+      "display": "2 · z · x",
+      "answer": { "type": "text", "value": "2xz" }
     },
     {
       "id": "5e",
       "label": "5e",
-      "display": "Multiply: 45ab",
-      "answer": {
-        "type": "text",
-        "value": "45ab"
-      }
+      "display": "b · 5 · 9 · a",
+      "answer": { "type": "text", "value": "45ab" }
     },
     {
       "id": "5f",
       "label": "5f",
-      "display": "Multiply: 4y + 8",
-      "answer": {
-        "type": "text",
-        "value": "4y + 8"
-      }
+      "display": "y · 4 + 8",
+      "answer": { "type": "text", "value": "4y + 8" }
     },
     {
       "id": "5g",
       "label": "5g",
-      "display": "Multiply: c² + 16",
-      "answer": {
-        "type": "text",
-        "value": "c² + 16"
-      }
+      "display": "c · c + 2 · 8",
+      "answer": { "type": "text", "value": "c² + 16" }
     },
     {
       "id": "5h",
       "label": "5h",
-      "display": "Multiply: 32r − 14",
-      "answer": {
-        "type": "text",
-        "value": "32r − 14"
-      }
+      "display": "r · 8 · 4 − 2 · 7",
+      "answer": { "type": "text", "value": "32r − 14" }
     },
     {
       "id": "5i",
       "label": "5i",
-      "display": "Multiply: 280wx",
-      "answer": {
-        "type": "text",
-        "value": "280wx"
-      }
+      "display": "2 · w · 5 · 4 · x · 7",
+      "answer": { "type": "text", "value": "280wx" }
     },
     {
       "id": "5j",
       "label": "5j",
-      "display": "Multiply: 3p³",
-      "answer": {
-        "type": "text",
-        "value": "3p³"
-      }
+      "display": "p · p · 3 · p",
+      "answer": { "type": "text", "value": "3p³" }
     },
     {
       "id": "5k",
       "label": "5k",
-      "display": "Multiply: 60w⁴",
-      "answer": {
-        "type": "text",
-        "value": "60w⁴"
-      }
+      "display": "w · w · 10 · 6 · w · w",
+      "answer": { "type": "text", "value": "60w⁴" }
     },
     {
       "id": "5l",
       "label": "5l",
-      "display": "Multiply: r² − 9",
-      "answer": {
-        "type": "text",
-        "value": "r² − 9"
-      }
+      "display": "r · r − 3 · 3",
+      "answer": { "type": "text", "value": "r² − 9" }
     }
   ]
 }
