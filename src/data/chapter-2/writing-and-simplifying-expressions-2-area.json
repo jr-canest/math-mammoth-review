@@ -3,10 +3,12 @@
   "section": "writing-and-simplifying-expressions-2-area",
   "title": "Writing and Simplifying Expressions 2: Area",
   "pages": "61-65",
+  "needsReview": true,
   "problems": [
     {
       "id": "1a",
       "label": "1a",
+      "group": "1. Write the area of each rectangle.",
       "display": "A = 3x · 4x",
       "answer": {
         "type": "text",
@@ -43,6 +45,7 @@
     {
       "id": "2a_A",
       "label": "2a A",
+      "group": "2. Write the area and the perimeter of each rectangle.",
       "display": "Area of rectangle",
       "answer": {
         "type": "text",
@@ -115,6 +118,7 @@
     {
       "id": "3a",
       "label": "3a",
+      "group": "3. Write the area and the perimeter.",
       "display": "A and P of rectangle",
       "answer": {
         "type": "text",
@@ -133,6 +137,7 @@
     {
       "id": "4a",
       "label": "4a",
+      "group": "4. Find the area and the perimeter of the L-shapes.",
       "display": "A and P of L-shape",
       "answer": {
         "type": "text",
@@ -151,6 +156,7 @@
     {
       "id": "5a",
       "label": "5a",
+      "group": "5. Find the area and the perimeter of the shapes.",
       "display": "A and P of shape",
       "answer": {
         "type": "text",
@@ -205,6 +211,7 @@
     {
       "id": "6a",
       "label": "6a",
+      "group": "6. Find the area.",
       "display": "A = ?",
       "answer": {
         "type": "text",
@@ -241,6 +248,7 @@
     {
       "id": "7a",
       "label": "7a",
+      "group": "7. Find the area and perimeter. Investigate doubling.",
       "display": "A and P",
       "answer": {
         "type": "text",
@@ -286,6 +294,7 @@
     {
       "id": "8a",
       "label": "8a",
+      "group": "8. What is the side of a square with the given area?",
       "display": "Side of square with area 9b²",
       "answer": {
         "type": "text",
@@ -304,6 +313,7 @@
     {
       "id": "9a",
       "label": "9a",
+      "group": "9. Find the side of a square with the given area.",
       "display": "Side of square with area 36c²",
       "answer": {
         "type": "text",
@@ -322,6 +332,7 @@
     {
       "id": "10",
       "label": "10",
+      "group": "10. Find the side of a square with area 4y².",
       "display": "Side of square with area 4y²",
       "answer": {
         "type": "text",
@@ -331,6 +342,7 @@
     {
       "id": "11",
       "label": "11",
+      "group": "11. Find the other side of the rectangle.",
       "display": "Other side of rectangle with area 48s² and one side 6s",
       "answer": {
         "type": "text",
@@ -340,6 +352,7 @@
     {
       "id": "12a",
       "label": "12a",
+      "group": "12. Write an expression.",
       "display": "Expression: (9r)²",
       "answer": {
         "type": "text",

@@ -3,10 +3,12 @@
   "section": "writing-and-simplifying-expressions-1",
   "title": "Writing and Simplifying Expressions 1: Length and Perimeter",
   "pages": "55-57",
+  "needsReview": true,
   "problems": [
     {
       "id": "1a",
       "label": "1a",
+      "group": "1. Simplify the total length.",
       "display": "Simplify the total length",
       "answer": {
         "type": "text",
@@ -61,6 +63,7 @@
     {
       "id": "2a",
       "label": "2a",
+      "group": "2. Write an expression for the perimeter.",
       "display": "Write expression for perimeter",
       "answer": {
         "type": "text",
@@ -115,6 +118,7 @@
     {
       "id": "3a",
       "label": "3a",
+      "group": "3. Simplify the expressions.",
       "display": "3x + x",
       "answer": {
         "type": "text",
@@ -151,6 +155,7 @@
     {
       "id": "4a",
       "label": "4a",
+      "group": "4. Simplify if possible.",
       "display": "Simplify: 5c + 2",
       "answer": {
         "type": "text",
@@ -259,6 +264,7 @@
     {
       "id": "5a",
       "label": "5a",
+      "group": "5. Multiply.",
       "display": "Multiply: c³",
       "answer": {
         "type": "text",

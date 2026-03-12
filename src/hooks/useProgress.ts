@@ -5,24 +5,35 @@ import {
   saveProgress,
   recordCorrectAnswer,
   recordIncorrectAttempt,
+  removeAnswer,
 } from '../lib/progressStore';
 
-export function useProgress() {
+export function useProgress(userId: string | null) {
   const [progress, setProgress] = useState<ProgressData>({ sections: {}, dailyLog: {} });
   const [loading, setLoading] = useState(true);
   const saveTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const userIdRef = useRef(userId);
 
   useEffect(() => {
-    loadProgress().then(data => {
+    userIdRef.current = userId;
+    if (!userId) {
+      setProgress({ sections: {}, dailyLog: {} });
+      setLoading(false);
+      return;
+    }
+    setLoading(true);
+    loadProgress(userId).then(data => {
       setProgress(data);
       setLoading(false);
     });
-  }, []);
+  }, [userId]);
 
   const debouncedSave = useCallback((data: ProgressData) => {
     if (saveTimerRef.current) clearTimeout(saveTimerRef.current);
     saveTimerRef.current = setTimeout(() => {
-      saveProgress(data);
+      if (userIdRef.current) {
+        saveProgress(userIdRef.current, data);
+      }
     }, 1000);
   }, []);
 
@@ -48,10 +59,21 @@ export function useProgress() {
     [debouncedSave],
   );
 
+  const undoAnswer = useCallback(
+    (sectionKey: string, problemId: string, totalProblems: number) => {
+      setProgress(prev => {
+        const next = removeAnswer(prev, sectionKey, problemId, totalProblems);
+        debouncedSave(next);
+        return next;
+      });
+    },
+    [debouncedSave],
+  );
+
   const getSectionProgress = useCallback(
     (sectionKey: string) => progress.sections[sectionKey] || null,
     [progress],
   );
 
-  return { progress, loading, markCorrect, markIncorrect, getSectionProgress };
+  return { progress, loading, markCorrect, markIncorrect, undoAnswer, getSectionProgress };
 }

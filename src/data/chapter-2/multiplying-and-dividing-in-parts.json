@@ -3,10 +3,12 @@
   "section": "multiplying-and-dividing-in-parts",
   "title": "Multiplying and Dividing in Parts",
   "pages": "66-69",
+  "needsReview": true,
   "problems": [
     {
       "id": "1a",
       "label": "1a",
+      "group": "1. Multiply in parts.",
       "display": "7 · 99 = 7 · (100 − 1)",
       "answer": {
         "type": "number",
@@ -61,6 +63,7 @@
     {
       "id": "2a",
       "label": "2a",
+      "group": "2. Write the total area as a product and the areas of the two rectangles.",
       "display": "Total area: 3 · (6 + 4)",
       "answer": {
         "type": "text",
@@ -97,6 +100,7 @@
     {
       "id": "3a",
       "label": "3a",
+      "group": "3. Identify the partial products.",
       "display": "What is the partial product 80?",
       "answer": {
         "type": "text",
@@ -106,6 +110,7 @@
     {
       "id": "4a",
       "label": "4a",
+      "group": "4. Multiply using partial products.",
       "display": "29 · 17",
       "answer": {
         "type": "number",
@@ -124,6 +129,7 @@
     {
       "id": "5a",
       "label": "5a",
+      "group": "5. Divide in parts.",
       "display": "(80 + 12) ÷ 2",
       "answer": {
         "type": "number",
@@ -205,6 +211,7 @@
     {
       "id": "6a",
       "label": "6a",
+      "group": "6. Divide mentally.",
       "display": "Mental division",
       "answer": {
         "type": "number",
@@ -250,6 +257,7 @@
     {
       "id": "7",
       "label": "7",
+      "group": "7. Solve the word problem.",
       "display": "2 L 250 mL ÷ 4",
       "answer": {
         "type": "text",
@@ -259,6 +267,7 @@
     {
       "id": "8a",
       "label": "8a",
+      "group": "8. Divide in parts.",
       "display": "(15 + 4/5) ÷ 5",
       "answer": {
         "type": "fraction",
@@ -324,6 +333,7 @@
     {
       "id": "9a",
       "label": "9a",
+      "group": "9. Divide mentally.",
       "display": "Divide mentally",
       "answer": {
         "type": "fraction",
@@ -387,6 +397,7 @@
     {
       "id": "10a",
       "label": "10a",
+      "group": "10. Solve.",
       "display": "7 ÷ 14",
       "answer": {
         "type": "fraction",
@@ -450,6 +461,7 @@
     {
       "id": "puzzle_a",
       "label": "Puzzle a",
+      "group": "Puzzle Corner.",
       "display": "Puzzle corner: (250 − 3) ÷ 10",
       "answer": {
         "type": "text",

@@ -5,184 +5,124 @@
   "pages": "47-48",
   "problems": [
     {
-      "id": "1a",
-      "label": "1a",
-      "display": "7 · 3",
-      "answer": {
-        "type": "number",
-        "value": 21
-      }
+      "id": "1a", "label": "1a",
+      "group": "1. Evaluate the expressions when the value of the variable is given.",
+      "display": "7z when z = 3",
+      "answer": { "type": "number", "value": 21 }
     },
     {
-      "id": "1b",
-      "label": "1b",
-      "display": "5 · 2²",
-      "answer": {
-        "type": "number",
-        "value": 20
-      }
+      "id": "1b", "label": "1b",
+      "display": "5x² when x = 2",
+      "answer": { "type": "number", "value": 20 }
     },
     {
-      "id": "1c",
-      "label": "1c",
-      "display": "2 · 5 + 18",
-      "answer": {
-        "type": "number",
-        "value": 28
-      }
+      "id": "1c", "label": "1c",
+      "display": "2x + 18 when x = 5",
+      "answer": { "type": "number", "value": 28 }
     },
     {
-      "id": "1d",
-      "label": "1d",
-      "display": "(35 ÷ 5) · 13",
-      "answer": {
-        "type": "number",
-        "value": 91
-      }
+      "id": "1d", "label": "1d",
+      "display": "(35/z) · 13 when z = 5",
+      "answer": { "type": "number", "value": 91 }
     },
     {
-      "id": "1e",
-      "label": "1e",
-      "display": "5 · 3²",
-      "answer": {
-        "type": "number",
-        "value": 45
-      }
+      "id": "1e", "label": "1e",
+      "display": "mn² when m = 5, n = 3",
+      "answer": { "type": "number", "value": 45 }
     },
     {
-      "id": "1f",
-      "label": "1f",
-      "display": "(3 ÷ 5) · 25",
-      "answer": {
-        "type": "number",
-        "value": 15
-      }
+      "id": "1f", "label": "1f",
+      "display": "(3/5)s when s = 25",
+      "answer": { "type": "number", "value": 15 }
     },
     {
-      "id": "1g",
-      "label": "1g",
-      "display": "10⁴ ÷ 10²",
-      "answer": {
-        "type": "number",
-        "value": 100
-      }
+      "id": "1g", "label": "1g",
+      "display": "x⁴ ÷ x² when x = 10",
+      "answer": { "type": "number", "value": 100 }
     },
     {
-      "id": "1h",
-      "label": "1h",
-      "display": "(1 ÷ 9) · 81 − 4",
-      "answer": {
-        "type": "number",
-        "value": 5
-      }
+      "id": "1h", "label": "1h",
+      "display": "(1/9)y − 4 when y = 81",
+      "answer": { "type": "number", "value": 5 }
     },
     {
-      "id": "2",
-      "label": "2",
-      "display": "Table: 100 − x² for x = 3, 4, 5, 6",
-      "answer": {
-        "type": "text",
-        "value": "x=3: 91; x=4: 84; x=5: 75; x=6: 64"
-      }
+      "id": "2a", "label": "2a",
+      "group": "2. Evaluate 100 − x² for the given values of x.",
+      "display": "100 − x² when x = 3",
+      "answer": { "type": "number", "value": 91 }
     },
     {
-      "id": "3a",
-      "label": "3a",
-      "display": "80 − 14 − 5",
-      "answer": {
-        "type": "number",
-        "value": 61
-      }
+      "id": "2b", "label": "2b",
+      "display": "100 − x² when x = 4",
+      "answer": { "type": "number", "value": 84 }
     },
     {
-      "id": "3b",
-      "label": "3b",
-      "display": "80 − (14 − 5)",
-      "answer": {
-        "type": "number",
-        "value": 71
-      }
+      "id": "2c", "label": "2c",
+      "display": "100 − x² when x = 5",
+      "answer": { "type": "number", "value": 75 }
     },
     {
-      "id": "3c",
-      "label": "3c",
-      "display": "80 + 14 + 5",
-      "answer": {
-        "type": "number",
-        "value": 99
-      }
+      "id": "2d", "label": "2d",
+      "display": "100 − x² when x = 6",
+      "answer": { "type": "number", "value": 64 }
     },
     {
-      "id": "3d",
-      "label": "3d",
-      "display": "80 − (14 + 5)",
-      "answer": {
-        "type": "number",
-        "value": 61
-      }
+      "id": "3a", "label": "3a",
+      "group": "3. Find the value of the expressions if p = 14 and s = 5.",
+      "display": "80 − p − s",
+      "answer": { "type": "number", "value": 61 }
     },
     {
-      "id": "4a",
-      "label": "4a",
-      "display": "Which expressions from #3 had the same value?",
-      "answer": {
-        "type": "text",
-        "value": "3a and 3d had the same value."
-      }
+      "id": "3b", "label": "3b",
+      "display": "80 − (p − s)",
+      "answer": { "type": "number", "value": 71 }
     },
     {
-      "id": "4b",
-      "label": "4b",
-      "display": "Are the values the same using different numbers?",
-      "answer": {
-        "type": "text",
-        "value": "Yes. The values for 3a and 3d are the same even using different numbers."
-      }
+      "id": "3c", "label": "3c",
+      "display": "80 + p + s",
+      "answer": { "type": "number", "value": 99 }
     },
     {
-      "id": "4c",
-      "label": "4c",
-      "display": "Are they equivalent expressions?",
-      "answer": {
-        "type": "text",
-        "value": "Yes, they are equivalent expressions."
-      }
+      "id": "3d", "label": "3d",
+      "display": "80 − (p + s)",
+      "answer": { "type": "number", "value": 61 }
     },
     {
-      "id": "5a",
-      "label": "5a",
-      "display": "5 · 10¢ + 5 · 5¢ + 2 · 20¢ + 7 · 50¢",
-      "answer": {
-        "type": "text",
-        "value": "465¢"
-      }
+      "id": "4a", "label": "4a",
+      "group": "4. Answer these questions about the expressions in problem 3.",
+      "display": "Which of expressions 3a, 3b, 3c, and 3d had the same value?",
+      "answer": { "type": "workbook", "hint": "3a and 3d" }
     },
     {
-      "id": "5b",
-      "label": "5b",
-      "display": "(64 − 15) · 2",
-      "answer": {
-        "type": "text",
-        "value": "98. Henry has 98 marbles."
-      }
+      "id": "4b", "label": "4b",
+      "display": "Check if those same expressions still have the same value using other values for p and s.",
+      "answer": { "type": "workbook", "hint": "Yes, they are always equal" }
     },
     {
-      "id": "5c",
-      "label": "5c",
-      "display": "5 · 20 − 9 · 2",
-      "answer": {
-        "type": "text",
-        "value": "82. The coloured part is 82 square units."
-      }
+      "id": "4c", "label": "4c",
+      "display": "Do those expressions always have the same value? (equivalent expressions)",
+      "answer": { "type": "workbook", "hint": "Yes, they are equivalent expressions" }
     },
     {
-      "id": "5d",
-      "label": "5d",
-      "display": "5 · 5 − 2 · 2 or 5² − 2²",
-      "answer": {
-        "type": "text",
-        "value": "21. The coloured part is 21 square units."
-      }
+      "id": "5a", "label": "5a",
+      "group": "5. Write a single expression for each problem, then find the value.",
+      "display": "Total value in cents: five 10¢ coins, five 5¢ coins, two 20¢ coins, seven 50¢ coins",
+      "answer": { "type": "number", "value": 465 }
+    },
+    {
+      "id": "5b", "label": "5b",
+      "display": "Margaret has 64 marbles. Tom has 15 less. Henry has twice Tom's amount. How many does Henry have?",
+      "answer": { "type": "number", "value": 98 }
+    },
+    {
+      "id": "5c", "label": "5c",
+      "display": "What is the area of the coloured part? (see workbook p. 48, rectangle diagram)",
+      "answer": { "type": "number", "value": 82 }
+    },
+    {
+      "id": "5d", "label": "5d",
+      "display": "What is the area of the coloured part? (see workbook p. 48, square diagram)",
+      "answer": { "type": "number", "value": 21 }
     }
   ]
 }

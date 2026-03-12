@@ -5,283 +5,197 @@
   "pages": "51-52",
   "problems": [
     {
-      "id": "1a",
-      "label": "1a",
-      "display": "Seven times y",
-      "answer": {
-        "type": "text",
-        "value": "7y"
-      }
+      "id": "1a", "label": "1a",
+      "group": "1. Write an expression.",
+      "display": "the product of 7 and y",
+      "answer": { "type": "text", "value": "7y" },
+      "variables": ["y"]
     },
     {
-      "id": "1b",
-      "label": "1b",
-      "display": "S plus 7",
-      "answer": {
-        "type": "text",
-        "value": "S + 7"
-      }
+      "id": "1b", "label": "1b",
+      "display": "7 more than S",
+      "answer": { "type": "text", "value": "S + 7" },
+      "variables": ["S"]
     },
     {
-      "id": "1c",
-      "label": "1c",
-      "display": "5s divided by 8",
-      "answer": {
-        "type": "text",
-        "value": "5s/8"
-      }
+      "id": "1c", "label": "1c",
+      "display": "the quotient of 5s and 8",
+      "answer": { "type": "text", "value": "5s/8" },
+      "variables": ["s"]
     },
     {
-      "id": "1d",
-      "label": "1d",
-      "display": "x minus 9",
-      "answer": {
-        "type": "text",
-        "value": "x − 9"
-      }
+      "id": "1d", "label": "1d",
+      "display": "9 less than x",
+      "answer": { "type": "text", "value": "x − 9" },
+      "variables": ["x"]
     },
     {
-      "id": "1e",
-      "label": "1e",
-      "display": "190 plus r",
-      "answer": {
-        "type": "text",
-        "value": "190 + r"
-      }
+      "id": "1e", "label": "1e",
+      "display": "r added to 190",
+      "answer": { "type": "text", "value": "190 + r" },
+      "variables": ["r"]
     },
     {
-      "id": "1f",
-      "label": "1f",
+      "id": "1f", "label": "1f",
       "display": "8 times d",
-      "answer": {
-        "type": "text",
-        "value": "8d"
-      }
+      "answer": { "type": "text", "value": "8d" },
+      "variables": ["d"]
     },
     {
-      "id": "1g",
-      "label": "1g",
-      "display": "9 minus x",
-      "answer": {
-        "type": "text",
-        "value": "9 − x"
-      }
+      "id": "1g", "label": "1g",
+      "display": "x less than 9",
+      "answer": { "type": "text", "value": "9 − x" },
+      "variables": ["x"]
     },
     {
-      "id": "1h",
-      "label": "1h",
-      "display": "n minus 14",
-      "answer": {
-        "type": "text",
-        "value": "n − 14"
-      }
+      "id": "1h", "label": "1h",
+      "display": "14 subtracted from n",
+      "answer": { "type": "text", "value": "n − 14" },
+      "variables": ["n"]
     },
     {
-      "id": "2a",
-      "label": "2a",
-      "display": "30 times the quantity (s minus 300)",
-      "answer": {
-        "type": "text",
-        "value": "30(s − 300)"
-      }
+      "id": "2a", "label": "2a",
+      "group": "2. Write an expression for each scenario.",
+      "display": "The difference between s and 300, multiplied by 30.",
+      "answer": { "type": "text", "value": "30(s − 300)" },
+      "variables": ["s"]
     },
     {
-      "id": "2b",
-      "label": "2b",
-      "display": "(35 + x) divided by 7",
-      "answer": {
-        "type": "text",
-        "value": "(35 + x)/7"
-      }
+      "id": "2b", "label": "2b",
+      "display": "The sum of 35 and x divided by 7.",
+      "answer": { "type": "text", "value": "(35 + x)/7" },
+      "variables": ["x"]
     },
     {
-      "id": "2c",
-      "label": "2c",
-      "display": "y minus 200/40",
-      "answer": {
-        "type": "text",
-        "value": "y − 200/40"
-      }
+      "id": "2c", "label": "2c",
+      "display": "The quotient of 200 and 40, subtracted from y.",
+      "answer": { "type": "text", "value": "y − 200/40" },
+      "variables": ["y"]
     },
     {
-      "id": "3a",
-      "label": "3a",
+      "id": "3a", "label": "3a",
+      "group": "3. Find the value of the expressions you wrote in exercise 2 when...",
       "display": "30(1200 − 300)",
-      "answer": {
-        "type": "number",
-        "value": 27000
-      }
+      "answer": { "type": "number", "value": 27000 }
     },
     {
-      "id": "3b",
-      "label": "3b",
+      "id": "3b", "label": "3b",
       "display": "(35 + 42) ÷ 7",
-      "answer": {
-        "type": "number",
-        "value": 11
-      }
+      "answer": { "type": "number", "value": 11 }
     },
     {
-      "id": "3c",
-      "label": "3c",
+      "id": "3c", "label": "3c",
       "display": "800 − 200/40",
-      "answer": {
-        "type": "number",
-        "value": 795
-      }
+      "answer": { "type": "number", "value": 795 }
     },
     {
-      "id": "4a",
-      "label": "4a",
-      "display": "(2x − 1) ÷ 3",
-      "answer": {
-        "type": "text",
-        "value": "(2x − 1)/3"
-      }
+      "id": "4a", "label": "4a",
+      "group": "4. Write an expression.",
+      "display": "the quantity 2x − 1 divided by 3",
+      "answer": { "type": "text", "value": "(2x − 1)/3" },
+      "variables": ["x"]
     },
     {
-      "id": "4b",
-      "label": "4b",
-      "display": "4s minus 9",
-      "answer": {
-        "type": "text",
-        "value": "4s − 9"
-      }
+      "id": "4b", "label": "4b",
+      "display": "the quantity 5 + x, cubed",
+      "answer": { "type": "text", "value": "(5 + x)³" },
+      "variables": ["x"]
     },
     {
-      "id": "4c",
-      "label": "4c",
-      "display": "5 times the quantity (x + 2)",
-      "answer": {
-        "type": "text",
-        "value": "5(x + 2)"
-      }
+      "id": "4c", "label": "4c",
+      "display": "5 times the quantity x + 2",
+      "answer": { "type": "text", "value": "5(x + 2)" },
+      "variables": ["x"]
     },
     {
-      "id": "4d",
-      "label": "4d",
-      "display": "8 times the quantity (4 + x + 2)",
-      "answer": {
-        "type": "text",
-        "value": "8(4 + x + 2)"
-      }
+      "id": "4d", "label": "4d",
+      "display": "8 times the sum of 4, x and 2",
+      "answer": { "type": "text", "value": "8(4 + x + 2)" },
+      "variables": ["x"]
     },
     {
-      "id": "4e",
-      "label": "4e",
-      "display": "2 times the quantity (10 minus s)",
-      "answer": {
-        "type": "text",
-        "value": "2(10 − s)"
-      }
+      "id": "4e", "label": "4e",
+      "display": "2 times the quantity 10 minus s",
+      "answer": { "type": "text", "value": "2(10 − s)" },
+      "variables": ["s"]
     },
     {
-      "id": "4f",
-      "label": "4f",
-      "display": "y divided by (y + 4)",
-      "answer": {
-        "type": "text",
-        "value": "y/(y + 4)"
-      }
+      "id": "4f", "label": "4f",
+      "display": "y divided by the quantity y + 4",
+      "answer": { "type": "text", "value": "y/(y + 4)" },
+      "variables": ["y"]
     },
     {
-      "id": "5a",
-      "label": "5a",
-      "display": "7s + 6",
-      "answer": {
-        "type": "text",
-        "value": "7s + 6"
-      }
+      "id": "4g", "label": "4g",
+      "display": "the quotient of the quantity x + 4 and x²",
+      "answer": { "type": "text", "value": "(x + 4)/x²" },
+      "variables": ["x"]
     },
     {
-      "id": "5b",
-      "label": "5b",
-      "display": "(5 + x) divided by (5 − x)",
-      "answer": {
-        "type": "text",
-        "value": "(5 + x)/(5 − x)"
-      }
+      "id": "5a", "label": "5a",
+      "group": "5. Write an expression.",
+      "display": "6 added to the product 7s",
+      "answer": { "type": "text", "value": "7s + 6" },
+      "variables": ["s"]
     },
     {
-      "id": "5c",
-      "label": "5c",
-      "display": "w² divided by (w − 1)",
-      "answer": {
-        "type": "text",
-        "value": "w²/(w − 1)"
-      }
+      "id": "5b", "label": "5b",
+      "display": "the difference between 4s and 9",
+      "answer": { "type": "text", "value": "4s − 9" },
+      "variables": ["s"]
     },
     {
-      "id": "5d",
-      "label": "5d",
-      "display": "(6 − x)²",
-      "answer": {
-        "type": "text",
-        "value": "(6 − x)²"
-      }
+      "id": "5c", "label": "5c",
+      "display": "Divide the sum 5 plus x by the difference between 5 and x.",
+      "answer": { "type": "text", "value": "(5 + x)/(5 − x)" },
+      "variables": ["x"]
     },
     {
-      "id": "5e",
-      "label": "5e",
-      "display": "(5 − m)²",
-      "answer": {
-        "type": "text",
-        "value": "(5 − m)²"
-      }
+      "id": "5d", "label": "5d",
+      "display": "the difference between 6 and x, squared",
+      "answer": { "type": "text", "value": "(6 − x)²" },
+      "variables": ["x"]
     },
     {
-      "id": "5f",
-      "label": "5f",
-      "display": "(x + 4) divided by x²",
-      "answer": {
-        "type": "text",
-        "value": "(x + 4)/x²"
-      }
+      "id": "5e", "label": "5e",
+      "display": "the quantity 5 minus m, squared",
+      "answer": { "type": "text", "value": "(5 − m)²" },
+      "variables": ["m"]
     },
     {
-      "id": "5g",
-      "label": "5g",
-      "display": "100 minus p²",
-      "answer": {
-        "type": "text",
-        "value": "100 − p²"
-      }
+      "id": "5f", "label": "5f",
+      "display": "w² divided by the quantity w − 1",
+      "answer": { "type": "text", "value": "w²/(w − 1)" },
+      "variables": ["w"]
     },
     {
-      "id": "5h",
-      "label": "5h",
-      "display": "7 minus x",
-      "answer": {
-        "type": "text",
-        "value": "7 − x"
-      }
+      "id": "5g", "label": "5g",
+      "display": "p² less than 100",
+      "answer": { "type": "text", "value": "100 − p²" },
+      "variables": ["p"]
     },
     {
-      "id": "5i",
-      "label": "5i",
-      "display": "x² plus 100",
-      "answer": {
-        "type": "text",
-        "value": "x² + 100"
-      }
+      "id": "5h", "label": "5h",
+      "display": "Subtract x from 7.",
+      "answer": { "type": "text", "value": "7 − x" },
+      "variables": ["x"]
     },
     {
-      "id": "puzzle_a",
-      "label": "Puzzle a",
-      "display": "Puzzle corner: product of three consecutive numbers is 504",
-      "answer": {
-        "type": "text",
-        "value": "7, 8, 9. The next higher cube after 504 is 8³ = 512, so 8 is the middle number."
-      }
+      "id": "5i", "label": "5i",
+      "display": "100 more than x²",
+      "answer": { "type": "text", "value": "x² + 100" },
+      "variables": ["x"]
     },
     {
-      "id": "puzzle_b",
-      "label": "Puzzle b",
-      "display": "Puzzle corner: sum 621 divided by 3",
-      "answer": {
-        "type": "text",
-        "value": "206, 207, 208"
-      }
+      "id": "puzzle_a", "label": "Puzzle a",
+      "group": "Puzzle Corner",
+      "display": "The product of three numbers is 504. The numbers are consecutive. What are the numbers?",
+      "answer": { "type": "workbook", "hint": "7, 8, 9" }
+    },
+    {
+      "id": "puzzle_b", "label": "Puzzle b",
+      "display": "The sum of three consecutive numbers is 621. What are the numbers?",
+      "answer": { "type": "workbook", "hint": "206, 207, 208" }
     }
   ]
 }

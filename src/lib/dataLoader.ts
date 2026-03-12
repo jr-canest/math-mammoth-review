@@ -20,6 +20,9 @@ export interface Problem {
   label: string;
   display: string;
   answer: Answer;
+  image?: string;
+  group?: string;
+  variables?: string[];
 }
 
 export interface SectionData {
@@ -27,6 +30,7 @@ export interface SectionData {
   section: string;
   title: string;
   pages: string;
+  needsReview?: boolean;
   problems: Problem[];
 }
 
@@ -34,9 +38,16 @@ export interface SectionData {
 const chapterIndexModules = import.meta.glob<SectionMeta[]>('../data/*/index.json', { eager: true, import: 'default' });
 const sectionDataModules = import.meta.glob<SectionData>('../data/*/*.json', { eager: true, import: 'default' });
 
+const chaptersModule = import.meta.glob<Chapter[]>('../data/chapters.json', { eager: true, import: 'default' });
+
+export function loadChaptersSync(): Chapter[] {
+  const data = chaptersModule['../data/chapters.json'];
+  if (!data) return [];
+  return [...data].sort((a, b) => a.order - b.order);
+}
+
 export async function loadChapters(): Promise<Chapter[]> {
-  const mod = await import('../data/chapters.json');
-  return (mod.default as Chapter[]).sort((a, b) => a.order - b.order);
+  return loadChaptersSync();
 }
 
 export function loadSections(chapterFolder: string): SectionMeta[] {

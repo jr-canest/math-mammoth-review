@@ -11,6 +11,7 @@ interface ProblemViewProps {
   getSectionProgress: (key: string) => SectionProgress | null;
   markCorrect: (sectionKey: string, problemId: string, attemptCount: number, totalProblems: number, answer?: string) => void;
   markIncorrect: (sectionKey: string, problemId: string, attemptCount: number) => void;
+  undoAnswer: (sectionKey: string, problemId: string, totalProblems: number) => void;
   playCorrect: () => void;
   playIncorrect: () => void;
   playMilestone: () => void;
@@ -21,6 +22,7 @@ export default function ProblemView({
   getSectionProgress,
   markCorrect,
   markIncorrect,
+  undoAnswer,
   playCorrect,
   playIncorrect,
   playMilestone,
@@ -89,6 +91,13 @@ export default function ProblemView({
     [markIncorrect, sectionKey],
   );
 
+  const handleUndo = useCallback(
+    (problemId: string) => {
+      undoAnswer(sectionKey, problemId, totalProblems);
+    },
+    [undoAnswer, sectionKey, totalProblems],
+  );
+
   const handleNextSection = () => {
     const currentIdx = sections.findIndex(s => s.id === sectionId);
     if (currentIdx >= 0 && currentIdx < sections.length - 1) {
@@ -130,7 +139,15 @@ export default function ProblemView({
             <p className="text-sm text-gray-500">Pages {sectionData.pages}</p>
           </div>
           <div className="text-right shrink-0">
-            <span className="text-lg font-bold text-indigo-600">
+            <span className={`text-lg font-bold ${
+              score >= 1 ? 'text-emerald-600' :
+              score >= 0.65 ? 'text-emerald-500' :
+              score >= 0.4 ? 'text-green-500' :
+              score >= 0.2 ? 'text-yellow-500' :
+              score >= 0.1 ? 'text-amber-500' :
+              score > 0 ? 'text-orange-500' :
+              'text-gray-400'
+            }`}>
               {correctCount}/{totalProblems}
             </span>
           </div>
@@ -146,20 +163,31 @@ export default function ProblemView({
 
       {/* Problems */}
       <main className="max-w-3xl mx-auto px-4 py-4 space-y-3 pb-24">
-        {sectionData.problems.map(problem => {
+        {sectionData.problems.map((problem, idx) => {
           const attempt = progress?.attempts[problem.id];
+          const prevGroup = idx > 0 ? sectionData.problems[idx - 1].group : undefined;
+          const showGroupHeader = problem.group && problem.group !== prevGroup;
           return (
-            <ProblemRow
-              key={problem.id}
-              problem={problem}
-              isCorrect={attempt?.correct ?? false}
-              previousAttempts={attempt?.attempts ?? 0}
-              savedAnswer={attempt?.answer}
-              onCorrect={(count, answer) => handleCorrect(problem.id, count, answer)}
-              onIncorrect={(count) => handleIncorrect(problem.id, count)}
-              playCorrect={playCorrect}
-              playIncorrect={playIncorrect}
-            />
+            <div key={problem.id}>
+              {showGroupHeader && (
+                <div className={`${idx > 0 ? 'mt-5' : ''} mb-2 px-1`}>
+                  <p className="text-sm font-semibold text-gray-500 italic">
+                    {problem.group}
+                  </p>
+                </div>
+              )}
+              <ProblemRow
+                problem={problem}
+                isCorrect={attempt?.correct ?? false}
+                previousAttempts={attempt?.attempts ?? 0}
+                savedAnswer={attempt?.answer}
+                onCorrect={(count, answer) => handleCorrect(problem.id, count, answer)}
+                onIncorrect={(count) => handleIncorrect(problem.id, count)}
+                onUndo={problem.answer.type === 'workbook' ? () => handleUndo(problem.id) : undefined}
+                playCorrect={playCorrect}
+                playIncorrect={playIncorrect}
+              />
+            </div>
           );
         })}
       </main>

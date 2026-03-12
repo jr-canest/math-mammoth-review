@@ -16,7 +16,12 @@ export interface TextAnswer {
   value: string;
 }
 
-export type Answer = NumberAnswer | FractionAnswer | TextAnswer;
+export interface WorkbookAnswer {
+  type: 'workbook';
+  hint?: string;
+}
+
+export type Answer = NumberAnswer | FractionAnswer | TextAnswer | WorkbookAnswer;
 
 function parseNumber(input: string): number | null {
   const cleaned = input.replace(/,/g, '').replace(/\s/g, '');
@@ -73,8 +78,18 @@ export function checkAnswer(input: string, answer: Answer): boolean {
       return Math.abs(parsed - answer.decimal) <= tolerance;
     }
 
+    case 'workbook':
+      return true;
+
     case 'text': {
-      return trimmed.toLowerCase() === answer.value.toLowerCase();
+      // Normalize both sides: collapse whitespace, unify dash characters
+      const normalize = (s: string) =>
+        s.toLowerCase()
+          .replace(/[\u2212\u2013\u2014\u2010]/g, '-') // minus sign, en/em dash, hyphen → ASCII hyphen
+          .replace(/\s+/g, ' ')                         // collapse whitespace
+          .replace(/\s*([+\-*/=()÷×·])\s*/g, '$1')      // strip spaces around operators
+          .trim();
+      return normalize(trimmed) === normalize(answer.value);
     }
   }
 }

@@ -1,14 +1,37 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { loadChapters, loadSections } from '../lib/dataLoader';
+import { loadChapters, loadSections, loadSectionData } from '../lib/dataLoader';
 import type { Chapter } from '../lib/dataLoader';
 import type { ProgressData } from '../lib/progressStore';
 
 interface ChapterSelectProps {
   progress: ProgressData;
+  onSwitchUser: () => void;
+  userName: string;
 }
 
-export default function ChapterSelect({ progress }: ChapterSelectProps) {
+/** Returns a Tailwind text color class based on percentage (0–1): orange → yellow → green */
+function progressTextColor(pct: number): string {
+  if (pct >= 1) return 'text-emerald-600';
+  if (pct >= 0.65) return 'text-emerald-500';
+  if (pct >= 0.4) return 'text-green-500';
+  if (pct >= 0.2) return 'text-yellow-500';
+  if (pct >= 0.1) return 'text-amber-500';
+  if (pct > 0) return 'text-orange-500';
+  return 'text-gray-400';
+}
+
+/** Returns a CSS background color for the progress bar fill based on percentage */
+function progressBarColor(pct: number): string {
+  if (pct >= 1) return '#10b981';    // emerald-500
+  if (pct >= 0.65) return '#34d399'; // emerald-400
+  if (pct >= 0.4) return '#4ade80';  // green-400
+  if (pct >= 0.2) return '#facc15';  // yellow-400
+  if (pct >= 0.1) return '#fbbf24';  // amber-400
+  return '#fb923c';                   // orange-400
+}
+
+export default function ChapterSelect({ progress, onSwitchUser, userName }: ChapterSelectProps) {
   const [chapters, setChapters] = useState<Chapter[]>([]);
   const navigate = useNavigate();
 
@@ -29,17 +52,20 @@ export default function ChapterSelect({ progress }: ChapterSelectProps) {
         {chapters.map(chapter => {
           const sections = loadSections(chapter.folder);
           const totalSections = sections.length;
-          let completedSections = 0;
-          let totalScore = 0;
+          let totalProblems = 0;
+          let totalCorrect = 0;
 
           sections.forEach(section => {
+            const data = loadSectionData(chapter.folder, section.file);
+            if (data) totalProblems += data.problems.length;
             const key = `${chapter.folder}-${section.id}`;
             const sp = progress.sections[key];
-            if (sp?.completedAt) completedSections++;
-            if (sp) totalScore += sp.score;
+            if (sp) {
+              totalCorrect += Object.values(sp.attempts).filter(a => a.correct).length;
+            }
           });
 
-          const avgProgress = totalSections > 0 ? (totalScore / totalSections) : 0;
+          const pct = totalProblems > 0 ? totalCorrect / totalProblems : 0;
 
           return (
             <button
@@ -51,26 +77,38 @@ export default function ChapterSelect({ progress }: ChapterSelectProps) {
               <div className="flex items-center justify-between mb-3">
                 <h2 className="text-xl font-bold text-gray-900">{chapter.title}</h2>
                 <span className="text-sm text-gray-400">
-                  {completedSections}/{totalSections} sections
+                  {totalSections} sections
                 </span>
               </div>
               <div className="w-full bg-gray-200 rounded-full h-3 overflow-hidden">
                 <div
-                  className="h-full bg-indigo-500 transition-all duration-500 rounded-full"
-                  style={{ width: `${avgProgress * 100}%` }}
+                  className="h-full transition-all duration-500 rounded-full"
+                  style={{ width: `${pct * 100}%`, backgroundColor: progressBarColor(pct) }}
                 />
               </div>
-              {avgProgress > 0 && (
-                <p className="text-sm text-indigo-600 mt-2 font-medium">
-                  {Math.round(avgProgress * 100)}% complete
-                </p>
+              {pct > 0 && (
+                <div className="flex items-center justify-between mt-2">
+                  <span className={`text-sm font-medium ${progressTextColor(pct)}`}>
+                    {Math.round(pct * 100)}% complete
+                  </span>
+                  <span className="text-xs text-gray-400">
+                    {totalCorrect}/{totalProblems} problems
+                  </span>
+                </div>
               )}
             </button>
           );
         })}
       </main>
 
-      <footer className="max-w-3xl mx-auto px-4 py-8 text-center">
+      <footer className="max-w-3xl mx-auto px-4 py-8 flex justify-center gap-4">
+        <button
+          onClick={onSwitchUser}
+          className="text-sm text-gray-400 hover:text-gray-500 transition-colors"
+        >
+          Switch User ({userName})
+        </button>
+        <span className="text-gray-300">|</span>
         <button
           onClick={() => navigate('/parent')}
           className="text-sm text-gray-400 hover:text-gray-500 transition-colors"

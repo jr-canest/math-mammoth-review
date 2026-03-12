@@ -5,135 +5,118 @@
   "pages": "45-46",
   "problems": [
     {
-      "id": "1a",
-      "label": "1a",
-      "display": "100 − (50 − 50)",
-      "answer": { "type": "number", "value": 100 }
+      "id": "1a", "label": "1a",
+      "group": "1. Put brackets into the equations to make them true.",
+      "display": "100 − 50 − 50 = 100",
+      "answer": { "type": "workbook", "hint": "100 − (50 − 50) = 100" }
     },
     {
-      "id": "1b",
-      "label": "1b",
-      "display": "200 ÷ (10 + 10) + 5",
-      "answer": { "type": "number", "value": 15 }
+      "id": "1b", "label": "1b",
+      "display": "200 ÷ 10 + 10 + 5 = 15",
+      "answer": { "type": "workbook", "hint": "200 ÷ (10 + 10) + 5 = 15" }
     },
     {
-      "id": "1c",
-      "label": "1c",
-      "display": "(50 + 50) · 4 − 10",
-      "answer": { "type": "number", "value": 390 }
+      "id": "1c", "label": "1c",
+      "display": "50 + 50 · 4 − 10 = 390",
+      "answer": { "type": "workbook", "hint": "(50 + 50) · 4 − 10 = 390" }
     },
     {
-      "id": "2a",
-      "label": "2a",
+      "id": "2a", "label": "2a",
+      "group": "2. Rewrite each expression using the fraction line, then solve.",
       "display": "64 ÷ 8 · 4",
       "answer": { "type": "number", "value": 32 }
     },
     {
-      "id": "2b",
-      "label": "2b",
+      "id": "2b", "label": "2b",
       "display": "64 ÷ (8 · 4) · 2",
       "answer": { "type": "number", "value": 4 }
     },
     {
-      "id": "2c",
-      "label": "2c",
-      "display": "4 · (8 ÷ 4) · 2",
+      "id": "2c", "label": "2c",
+      "display": "4 · 8 ÷ 4 · 2",
       "answer": { "type": "number", "value": 16 }
     },
     {
-      "id": "2d",
-      "label": "2d",
+      "id": "2d", "label": "2d",
       "display": "64 ÷ (8 · 4)",
       "answer": { "type": "number", "value": 2 }
     },
     {
-      "id": "2e",
-      "label": "2e",
+      "id": "2e", "label": "2e",
       "display": "64 ÷ 8 · 4 · 2",
       "answer": { "type": "number", "value": 64 }
     },
     {
-      "id": "2f",
-      "label": "2f",
+      "id": "2f", "label": "2f",
       "display": "(4 · 8) ÷ (4 · 2)",
       "answer": { "type": "number", "value": 4 }
     },
     {
-      "id": "3a",
-      "label": "3a",
+      "id": "3a", "label": "3a",
+      "group": "3. Find the value of these expressions.",
       "display": "150 + 2 · 10",
       "answer": { "type": "number", "value": 170 }
     },
     {
-      "id": "3b",
-      "label": "3b",
+      "id": "3b", "label": "3b",
       "display": "5² · 2³",
       "answer": { "type": "number", "value": 200 }
     },
     {
-      "id": "3c",
-      "label": "3c",
+      "id": "3c", "label": "3c",
       "display": "3² · (150 + 900) ÷ 3",
       "answer": { "type": "number", "value": 3150 }
     },
     {
-      "id": "3d",
-      "label": "3d",
+      "id": "3d", "label": "3d",
       "display": "(12 + 9) ÷ (4 + 1)",
       "answer": { "type": "fraction", "value": "4 1/5", "decimal": 4.2 }
     },
     {
-      "id": "3e",
-      "label": "3e",
+      "id": "3e", "label": "3e",
       "display": "5² ÷ 3²",
       "answer": { "type": "fraction", "value": "2 7/9", "decimal": 2.7778, "tolerance": 0.001 }
     },
     {
-      "id": "3f",
-      "label": "3f",
+      "id": "3f", "label": "3f",
       "display": "2³ ÷ 8 + 10³",
       "answer": { "type": "number", "value": 1001 }
     },
     {
-      "id": "3g",
-      "label": "3g",
+      "id": "3g", "label": "3g",
       "display": "(6 + 6)² · (15 − 5)²",
       "answer": { "type": "number", "value": 14400 }
     },
     {
-      "id": "3h",
-      "label": "3h",
+      "id": "3h", "label": "3h",
       "display": "40 + 80 ÷ 2 · 4 − 15",
       "answer": { "type": "number", "value": 185 }
     },
     {
-      "id": "3i",
-      "label": "3i",
+      "id": "3i", "label": "3i",
       "display": "7² ÷ 7 · 7",
       "answer": { "type": "number", "value": 49 }
     },
     {
-      "id": "4a",
-      "label": "4a",
-      "display": "20,000 − 7 · 500",
+      "id": "4a", "label": "4a",
+      "group": "4. Write the expressions in a shorter way, using multiplication. Find their values.",
+      "display": "20,000 − 500 − 500 − 500 − 500 − 500 − 500 − 500",
       "answer": { "type": "number", "value": 16500 }
     },
     {
-      "id": "4b",
-      "label": "4b",
-      "display": "6 · 70 + 5 · 120",
+      "id": "4b", "label": "4b",
+      "display": "70 + 70 + 70 + 70 + 70 + 70 + 120 + 120 + 120 + 120 + 120",
       "answer": { "type": "number", "value": 1020 }
     },
     {
-      "id": "5a",
-      "label": "5a",
-      "display": "2⁷ + 5³",
+      "id": "5a", "label": "5a",
+      "group": "5. Write the expressions in a shorter way, using exponents. Find their values.",
+      "display": "2 · 2 · 2 · 2 · 2 · 2 · 2 + 5 · 5 · 5",
       "answer": { "type": "number", "value": 253 }
     },
     {
-      "id": "5b",
-      "label": "5b",
-      "display": "5 · 100³ − 2 · 10⁵",
+      "id": "5b", "label": "5b",
+      "display": "5 · 100 · 100 · 100 − 2 · 10 · 10 · 10 · 10 · 10",
       "answer": { "type": "number", "value": 4800000 }
     }
   ]

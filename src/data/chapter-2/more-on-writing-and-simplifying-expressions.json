@@ -3,10 +3,12 @@
   "section": "more-on-writing-and-simplifying-expressions",
   "title": "More on Writing and Simplifying Expressions",
   "pages": "58-60",
+  "needsReview": true,
   "problems": [
     {
       "id": "1",
       "label": "1",
+      "group": "1. Identify the terms, coefficients, and constants.",
       "display": "Table: identify terms, coefficients, constants",
       "answer": {
         "type": "text",
@@ -16,6 +18,7 @@
     {
       "id": "2a",
       "label": "2a",
+      "group": "2. Write an expression. Then identify its terms and coefficients.",
       "display": "The value, in cents, of m five-cent coins",
       "answer": {
         "type": "text",
@@ -43,6 +46,7 @@
     {
       "id": "3",
       "label": "3",
+      "group": "3. Identify the like terms and constants.",
       "display": "Table: identify like terms and constants",
       "answer": {
         "type": "text",
@@ -52,6 +56,7 @@
     {
       "id": "4a",
       "label": "4a",
+      "group": "4. Simplify.",
       "display": "Simplify",
       "answer": {
         "type": "text",
@@ -124,6 +129,7 @@
     {
       "id": "5a",
       "label": "5a",
+      "group": "5. Calculate.",
       "display": "3 + 2(1/2)",
       "answer": {
         "type": "number",
@@ -142,6 +148,7 @@
     {
       "id": "6a",
       "label": "6a",
+      "group": "6. Which expressions are equivalent?",
       "display": "Which expressions are equivalent to 3s?",
       "answer": {
         "type": "text",
@@ -160,6 +167,7 @@
     {
       "id": "7a",
       "label": "7a",
+      "group": "7. Write each area as a product and as a sum.",
       "display": "Write as product and as sum",
       "answer": {
         "type": "text",
@@ -214,6 +222,7 @@
     {
       "id": "8a",
       "label": "8a",
+      "group": "8. Write an expression.",
       "display": "Write a simplified expression for the perimeter",
       "answer": {
         "type": "text",
@@ -241,6 +250,7 @@
     {
       "id": "puzzle_a",
       "label": "Puzzle a",
+      "group": "Puzzle Corner.",
       "display": "Puzzle corner",
       "answer": {
         "type": "text",

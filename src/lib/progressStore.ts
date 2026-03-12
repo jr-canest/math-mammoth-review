@@ -1,8 +1,7 @@
 import { doc, getDoc, setDoc } from 'firebase/firestore';
 import { db } from './firebase';
 
-const STUDENT_ID = 'odaniel';
-const LOCAL_KEY = 'mathMammoth_progress';
+const LOCAL_KEY_PREFIX = 'mathMammoth_progress_';
 
 export interface ProblemAttempt {
   correct: boolean;
@@ -28,16 +27,16 @@ export interface ProgressData {
   dailyLog: Record<string, DailyLog>;
 }
 
-function getLocalProgress(): ProgressData {
+function getLocalProgress(userId: string): ProgressData {
   try {
-    const stored = localStorage.getItem(LOCAL_KEY);
+    const stored = localStorage.getItem(LOCAL_KEY_PREFIX + userId);
     if (stored) return JSON.parse(stored);
   } catch { /* ignore */ }
   return { sections: {}, dailyLog: {} };
 }
 
-function saveLocalProgress(data: ProgressData): void {
-  localStorage.setItem(LOCAL_KEY, JSON.stringify(data));
+function saveLocalProgress(userId: string, data: ProgressData): void {
+  localStorage.setItem(LOCAL_KEY_PREFIX + userId, JSON.stringify(data));
 }
 
 function mergeProgress(local: ProgressData, remote: ProgressData): ProgressData {
@@ -81,16 +80,16 @@ function mergeProgress(local: ProgressData, remote: ProgressData): ProgressData 
   return merged;
 }
 
-export async function loadProgress(): Promise<ProgressData> {
-  const local = getLocalProgress();
+export async function loadProgress(userId: string): Promise<ProgressData> {
+  const local = getLocalProgress(userId);
 
   try {
-    const docRef = doc(db, 'mathMammoth', STUDENT_ID);
+    const docRef = doc(db, 'mathMammoth', userId);
     const docSnap = await getDoc(docRef);
     if (docSnap.exists()) {
       const remote = docSnap.data() as ProgressData;
       const merged = mergeProgress(local, remote);
-      saveLocalProgress(merged);
+      saveLocalProgress(userId, merged);
       return merged;
     }
   } catch (e) {
@@ -100,11 +99,11 @@ export async function loadProgress(): Promise<ProgressData> {
   return local;
 }
 
-export async function saveProgress(data: ProgressData): Promise<void> {
-  saveLocalProgress(data);
+export async function saveProgress(userId: string, data: ProgressData): Promise<void> {
+  saveLocalProgress(userId, data);
 
   try {
-    const docRef = doc(db, 'mathMammoth', STUDENT_ID);
+    const docRef = doc(db, 'mathMammoth', userId);
     await setDoc(docRef, data, { merge: true });
   } catch (e) {
     console.warn('Firebase save failed, saved locally:', e);
@@ -154,6 +153,32 @@ export function recordCorrectAnswer(
   return {
     sections: { ...progress.sections, [sectionKey]: section },
     dailyLog: { ...progress.dailyLog, [today]: daily },
+  };
+}
+
+export function removeAnswer(
+  progress: ProgressData,
+  sectionKey: string,
+  problemId: string,
+  totalProblems: number,
+): ProgressData {
+  const section = progress.sections[sectionKey];
+  if (!section) return progress;
+
+  const { [problemId]: _removed, ...remaining } = section.attempts;
+
+  const correctCount = Object.values(remaining).filter(a => a.correct).length;
+
+  return {
+    ...progress,
+    sections: {
+      ...progress.sections,
+      [sectionKey]: {
+        attempts: remaining,
+        completedAt: null,
+        score: totalProblems > 0 ? correctCount / totalProblems : 0,
+      },
+    },
   };
 }
 

@@ -1,14 +1,26 @@
+import { useState, useCallback } from 'react';
 import { HashRouter, Routes, Route } from 'react-router-dom';
 import { useProgress } from './hooks/useProgress';
 import { useSound } from './hooks/useSound';
+import UserSelect from './components/UserSelect';
 import ChapterSelect from './components/ChapterSelect';
 import SectionSelect from './components/SectionSelect';
 import ProblemView from './components/ProblemView';
 import ParentDashboard from './components/ParentDashboard';
 
 export default function App() {
-  const { progress, loading, markCorrect, markIncorrect, getSectionProgress } = useProgress();
+  const [userId, setUserId] = useState<string | null>(null);
+  const { progress, loading, markCorrect, markIncorrect, undoAnswer, getSectionProgress } = useProgress(userId);
   const { muted, toggleMute, playCorrect, playIncorrect, playMilestone, playComplete } = useSound();
+
+  const handleSwitchUser = useCallback(() => {
+    window.location.hash = '#/';
+    setUserId(null);
+  }, []);
+
+  if (!userId) {
+    return <UserSelect onSelect={setUserId} />;
+  }
 
   if (loading) {
     return (
@@ -32,7 +44,7 @@ export default function App() {
       </button>
 
       <Routes>
-        <Route path="/" element={<ChapterSelect progress={progress} />} />
+        <Route path="/" element={<ChapterSelect progress={progress} onSwitchUser={handleSwitchUser} userName={userId} />} />
         <Route path="/chapter/:chapterId" element={<SectionSelect progress={progress} />} />
         <Route
           path="/chapter/:chapterId/:sectionId"
@@ -41,6 +53,7 @@ export default function App() {
               getSectionProgress={getSectionProgress}
               markCorrect={markCorrect}
               markIncorrect={markIncorrect}
+              undoAnswer={undoAnswer}
               playCorrect={playCorrect}
               playIncorrect={playIncorrect}
               playMilestone={playMilestone}

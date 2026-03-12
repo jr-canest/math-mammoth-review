@@ -61,5 +61,61 @@
     "pages": "66-69",
     "file": "multiplying-and-dividing-in-parts.json",
     "order": 9
+  },
+  {
+    "id": "the-distributive-property",
+    "title": "The Distributive Property",
+    "pages": "70-73",
+    "file": "the-distributive-property.json",
+    "order": 10
+  },
+  {
+    "id": "equations",
+    "title": "Equations",
+    "pages": "74-75",
+    "file": "equations.json",
+    "order": 11
+  },
+  {
+    "id": "solving-equations",
+    "title": "Solving Equations",
+    "pages": "76-79",
+    "file": "solving-equations.json",
+    "order": 12
+  },
+  {
+    "id": "writing-equations",
+    "title": "Writing Equations",
+    "pages": "80-81",
+    "file": "writing-equations.json",
+    "order": 13
+  },
+  {
+    "id": "inequalities",
+    "title": "Inequalities",
+    "pages": "82-85",
+    "file": "inequalities.json",
+    "order": 14
+  },
+  {
+    "id": "using-two-variables",
+    "title": "Using Two Variables",
+    "pages": "86-89",
+    "file": "using-two-variables.json",
+    "order": 15
+  },
+  {
+    "id": "chapter-2-mixed-review",
+    "title": "Chapter 2 Mixed Review",
+    "pages": "90-91",
+    "file": "chapter-2-mixed-review.json",
+    "order": 16
+  },
+  {
+    "id": "chapter-2-review",
+    "title": "Chapter 2 Review",
+    "pages": "92-95",
+    "file": "chapter-2-review.json",
+    "order": 17
   }
 ]

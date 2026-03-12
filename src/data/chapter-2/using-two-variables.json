@@ -1,0 +1,30 @@
+{
+  "chapter": "chapter-2",
+  "section": "using-two-variables",
+  "title": "Using Two Variables",
+  "pages": "86-89",
+  "needsReview": true,
+  "problems": [
+    { "id": "1", "label": "1", "group": "1. Fill in the table and plot the points.", "display": "Calculate y values for y = x + 2, fill the table, and plot the points (see workbook p. 87)", "answer": { "type": "workbook", "hint": "y values: 2,3,4,5,6,7,8,9,10 for x = 0..8" } },
+    { "id": "2", "label": "2", "group": "2. Fill in the table and plot the points.", "display": "Calculate y values for y = 8 − x, fill the table, and plot the points (see workbook p. 87)", "answer": { "type": "workbook", "hint": "y values: 8,7,6,5,4,3,2,1,0 for x = 0..8" } },
+    { "id": "3", "label": "3", "group": "3. Fill in the table and plot the points.", "display": "Calculate y values for y = 2x − 1, fill the table, and plot the points (see workbook p. 87)", "answer": { "type": "workbook", "hint": "y values: 1,3,5,7,9,11 for x = 1..6" } },
+    { "id": "4a", "label": "4a", "group": "4. A car travels at 80 km/h.", "display": "A car travels at 80 km/h. Fill in the distance table (see workbook p. 88)", "answer": { "type": "workbook", "hint": "d = 0,80,160,240,320,400,480 for t = 0..6" } },
+    { "id": "4b", "label": "4b", "display": "Plot the car's distance points on the coordinate grid (see workbook p. 88)", "answer": { "type": "workbook" } },
+    { "id": "4c", "label": "4c", "display": "Write an equation relating t and d for the car travelling at 80 km/h.", "answer": { "type": "text", "value": "d = 80t" } },
+    { "id": "4d", "label": "4d", "display": "Which is the independent variable, t or d?", "answer": { "type": "text", "value": "t" } },
+    { "id": "5a", "label": "5a", "group": "5. Larry gets 1 litre of water per 3 seconds.", "display": "Larry gets 1 litre of water per 3 seconds. Fill in the volume table (see workbook p. 88)", "answer": { "type": "workbook", "hint": "V = 0, 1/3, 2/3, 1, 4/3, 5/3, 2, 7/3, 8/3, 3 for t = 0..9" } },
+    { "id": "5b", "label": "5b", "display": "Plot the water volume points on the coordinate grid (see workbook p. 88)", "answer": { "type": "workbook" } },
+    { "id": "5c", "label": "5c", "display": "Write an equation relating t (seconds) and V (litres) for the water faucet.", "answer": { "type": "text", "value": "V = t/3" } },
+    { "id": "5d", "label": "5d", "display": "Which is the independent variable, t or V?", "answer": { "type": "text", "value": "t" } },
+    { "id": "6a", "label": "6a", "group": "6. Xavier and Yvonne share 12 candies.", "display": "Xavier and Yvonne share 12 candies. Fill in the table using the graph (see workbook p. 88)", "answer": { "type": "workbook", "hint": "X+Y=12 for each pair" } },
+    { "id": "6b", "label": "6b", "display": "Write an equation relating X (Xavier's candy) and Y (Yvonne's candy).", "answer": { "type": "text", "value": "X + Y = 12" } },
+    { "id": "6c", "label": "6c", "display": "Which is the independent variable, X or Y? (for Xavier and Yvonne's candy)", "answer": { "type": "text", "value": "x" } },
+    { "id": "7a", "label": "7a", "group": "7. Maximum safe heart rate: H = 220 − A.", "display": "Calculate the max safe heart rate H = 220 − A for ages 5 to 60 (every 5 years). Fill the table (see workbook p. 89).", "answer": { "type": "workbook", "hint": "H: 215,210,205,200,195,190,185,180,175,170,165,160 for A = 5,10,...,60" } },
+    { "id": "7b", "label": "7b", "display": "Plot the heart rate points on the coordinate grid (see workbook p. 89)", "answer": { "type": "workbook" } },
+    { "id": "7c", "label": "7c", "display": "For H = 220 − A, which is the dependent variable: H or A?", "answer": { "type": "text", "value": "H" } },
+    { "id": "8a", "label": "8a", "group": "8. Read the graph, fill the table, and write the equation.", "display": "Read the graph (workbook p. 89, problem 8a), fill the table, and write the equation y = ?", "answer": { "type": "workbook", "hint": "y = x + 1" } },
+    { "id": "8b", "label": "8b", "display": "Read the graph (workbook p. 89, problem 8b), fill the table, and write the equation y = ?", "answer": { "type": "workbook", "hint": "y = 7 − x" } },
+    { "id": "puzzle-a", "label": "Puzzle a", "group": "Puzzle Corner: Write the equation for the graph.", "display": "Puzzle Corner (a): Write the equation for the graph (see workbook p. 89)", "answer": { "type": "workbook", "hint": "y = 10 − (x/2) or y = 10 − (1/2)x" } },
+    { "id": "puzzle-b", "label": "Puzzle b", "display": "Puzzle Corner (b): Write the equation for the graph (see workbook p. 89)", "answer": { "type": "workbook", "hint": "y = 2x + 1" } }
+  ]
+}

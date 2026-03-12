@@ -5,223 +5,142 @@
   "pages": "53-54",
   "problems": [
     {
-      "id": "1a",
-      "label": "1a",
-      "display": "V = (4 cm)³",
-      "answer": {
-        "type": "text",
-        "value": "64 cm³"
-      }
+      "id": "1a", "label": "1a",
+      "group": "1. Find the volume of a cube using V = s³.",
+      "display": "Find the volume of a cube with edge s = 4 cm.",
+      "answer": { "type": "number", "value": 64 }
     },
     {
-      "id": "1b",
-      "label": "1b",
-      "display": "V = (1/2 m)³",
-      "answer": {
-        "type": "text",
-        "value": "1/8 m³"
-      }
+      "id": "1b", "label": "1b",
+      "display": "Find the volume of a cube with edge s = ½ m.",
+      "answer": { "type": "fraction", "value": "1/8", "decimal": 0.125 }
     },
     {
-      "id": "2a",
-      "label": "2a",
-      "display": "°F when °C gives 86",
-      "answer": {
-        "type": "text",
-        "value": "86°F"
-      }
+      "id": "2a", "label": "2a",
+      "group": "2. The formula F = C/5 · 9 + 32 converts Celsius to Fahrenheit. Find the Fahrenheit temperature.",
+      "display": "30°C = ___°F",
+      "answer": { "type": "number", "value": 86 }
     },
     {
-      "id": "2b",
-      "label": "2b",
-      "display": "°F when °C gives 64.4",
-      "answer": {
-        "type": "text",
-        "value": "64.4°F"
-      }
+      "id": "2b", "label": "2b",
+      "display": "18°C = ___°F",
+      "answer": { "type": "number", "value": 64.4, "tolerance": 0.1 }
     },
     {
-      "id": "3",
-      "label": "3",
-      "display": "Cost = $3.60 · 380 ÷ 9",
-      "answer": {
-        "type": "number",
-        "value": 152
-      }
+      "id": "3", "label": "3",
+      "group": "3. John uses the formula C = kL/9 to calculate travel cost in dollars (k = km, L = gas price per litre).",
+      "display": "Gas costs $3.60/litre. How much to travel 380 km?",
+      "answer": { "type": "number", "value": 152 }
     },
     {
-      "id": "4a",
-      "label": "4a",
-      "display": "Expression for total cost of p pencils at 10¢ each",
-      "answer": {
-        "type": "text",
-        "value": "10p"
-      }
+      "id": "4a", "label": "4a",
+      "group": "4. Write an expression for each situation.",
+      "display": "The value, in cents, of p ten-cent coins (where p is a whole number).",
+      "answer": { "type": "text", "value": "10p" },
+      "variables": ["p"]
     },
     {
-      "id": "4b",
-      "label": "4b",
-      "display": "Expression for 1/5 of S",
-      "answer": {
-        "type": "text",
-        "value": "(1/5)S or S/5"
-      }
+      "id": "4b", "label": "4b",
+      "display": "Father's salary is S dollars, and he pays 1/5 of it in taxes. Write an expression for the tax amount.",
+      "answer": { "type": "text", "value": "S/5" },
+      "variables": ["S"]
     },
     {
-      "id": "4c",
-      "label": "4c",
-      "display": "Expression for cost of m items at $4 and n items at $3.50",
-      "answer": {
-        "type": "text",
-        "value": "4m + 3.50n"
-      }
+      "id": "4c", "label": "4c",
+      "display": "You bought m roses at $4 each and n tulips at $3.50 each. What was the total cost?",
+      "answer": { "type": "text", "value": "4m + 3.50n" },
+      "variables": ["m", "n"]
     },
     {
-      "id": "4d",
-      "label": "4d",
-      "display": "Expression for sum of p and q",
-      "answer": {
-        "type": "text",
-        "value": "p + q"
-      }
+      "id": "4d", "label": "4d",
+      "display": "The price of chicken and rice is p dollars and shepherd's pie is q dollars. Total cost of buying both?",
+      "answer": { "type": "text", "value": "p + q" },
+      "variables": ["p", "q"]
     },
     {
-      "id": "4e",
-      "label": "4e",
-      "display": "Expression for average of p and q",
-      "answer": {
-        "type": "text",
-        "value": "(p + q)/2"
-      }
+      "id": "4e", "label": "4e",
+      "display": "You share the total cost from 4d equally with your friend. How much does each pay?",
+      "answer": { "type": "text", "value": "(p + q)/2" },
+      "variables": ["p", "q"]
     },
     {
-      "id": "5a",
-      "label": "5a",
-      "display": "Which expressions are equivalent?",
-      "answer": {
-        "type": "text",
-        "value": "The first 3 expressions are equivalent."
-      }
+      "id": "5a", "label": "5a",
+      "group": "5. Can you find which of these expressions are equivalent?",
+      "display": "Which are equivalent: x + x, 2x, x · 2, x − x?",
+      "answer": { "type": "workbook", "hint": "The first 3 expressions are equivalent." }
     },
     {
-      "id": "5b",
-      "label": "5b",
-      "display": "Which expressions are equivalent?",
-      "answer": {
-        "type": "text",
-        "value": "The first and third expressions are equivalent (2x/6 and x/3)."
-      }
+      "id": "5b", "label": "5b",
+      "display": "Which are equivalent: 2x/6, x/6, x/3, x²/6?",
+      "answer": { "type": "workbook", "hint": "The first and third (2x/6 and x/3)." }
     },
     {
-      "id": "6a",
-      "label": "6a",
-      "display": "(3.2 + 5.3) · 2",
-      "answer": {
-        "type": "number",
-        "value": 17
-      }
+      "id": "6a", "label": "6a",
+      "group": "6. Write an expression. Solve.",
+      "display": "The sum of 3.2 and 5.3, multiplied by 2.",
+      "answer": { "type": "number", "value": 17 }
     },
     {
-      "id": "6b",
-      "label": "6b",
-      "display": "(190 − 50) ÷ 5",
-      "answer": {
-        "type": "number",
-        "value": 28
-      }
+      "id": "6b", "label": "6b",
+      "display": "First subtract 50 from 190, then divide the result by 5.",
+      "answer": { "type": "number", "value": 28 }
     },
     {
-      "id": "6c",
-      "label": "6c",
-      "display": "100 − (40 − 5)",
-      "answer": {
-        "type": "number",
-        "value": 65
-      }
+      "id": "6c", "label": "6c",
+      "display": "Subtract from 100 the difference between 40 and 5.",
+      "answer": { "type": "number", "value": 65 }
     },
     {
-      "id": "6d",
-      "label": "6d",
-      "display": "(2 · 5)³",
-      "answer": {
-        "type": "number",
-        "value": 1000
-      }
+      "id": "6d", "label": "6d",
+      "display": "The quantity 2 times 5, cubed.",
+      "answer": { "type": "number", "value": 1000 }
     },
     {
-      "id": "6e",
-      "label": "6e",
-      "display": "5 ÷ 3³",
-      "answer": {
-        "type": "fraction",
-        "value": "5/27",
-        "decimal": 0.1852,
-        "tolerance": 0.001
-      }
+      "id": "6e", "label": "6e",
+      "display": "5 divided by 3 cubed.",
+      "answer": { "type": "fraction", "value": "5/27", "decimal": 0.1852, "tolerance": 0.001 }
     },
     {
-      "id": "6f",
-      "label": "6f",
-      "display": "2(10 − 4) + 3(5 + 8)",
-      "answer": {
-        "type": "number",
-        "value": 51
-      }
+      "id": "6f", "label": "6f",
+      "display": "2 times the quantity 10 minus 4, plus 3 times the quantity 5 plus 8.",
+      "answer": { "type": "number", "value": 51 }
     },
     {
-      "id": "6g",
-      "label": "6g",
-      "display": "(61 − 30) ÷ 5²",
-      "answer": {
-        "type": "fraction",
-        "value": "1 6/25",
-        "decimal": 1.24
-      }
+      "id": "6g", "label": "6g",
+      "display": "The difference between 61 and 30, divided by the quantity 5 squared.",
+      "answer": { "type": "fraction", "value": "1 6/25", "decimal": 1.24 }
     },
     {
-      "id": "6h",
-      "label": "6h",
-      "display": "6² − 7",
-      "answer": {
-        "type": "number",
-        "value": 29
-      }
+      "id": "6h", "label": "6h",
+      "display": "7 less than 6 squared.",
+      "answer": { "type": "number", "value": 29 }
     },
     {
-      "id": "7a",
-      "label": "7a",
-      "display": "20 + 9",
-      "answer": {
-        "type": "number",
-        "value": 29
-      }
+      "id": "7a", "label": "7a",
+      "group": "7. Find the value of the expressions, using the correct order of operations.",
+      "display": "20 + (1 + 8 · 10) / 9",
+      "answer": { "type": "number", "value": 29 }
     },
     {
-      "id": "7b",
-      "label": "7b",
-      "display": "60 − 27",
-      "answer": {
-        "type": "number",
-        "value": 33
-      }
+      "id": "7b", "label": "7b",
+      "display": "60 − (1 + 2)³",
+      "answer": { "type": "number", "value": 33 }
     },
     {
-      "id": "7c",
-      "label": "7c",
-      "display": "600 ÷ 40 − 12",
-      "answer": {
-        "type": "number",
-        "value": 3
-      }
+      "id": "7c", "label": "7c",
+      "display": "20 · 30 / (50 − 10) − 12",
+      "answer": { "type": "number", "value": 3 }
     },
     {
-      "id": "8",
-      "label": "8",
-      "display": "Find the missing factor",
-      "answer": {
-        "type": "text",
-        "value": "Divide the product by the known factor. a. 12 · 8 = 96; b. 7 · 418 = 2926"
-      }
+      "id": "8a", "label": "8a",
+      "group": "8. Find a strategy that always works for finding an unknown factor. Use it to solve these problems.",
+      "display": "___ · 8 = 96",
+      "answer": { "type": "number", "value": 12 }
+    },
+    {
+      "id": "8b", "label": "8b",
+      "display": "7m = 2926, find m",
+      "answer": { "type": "number", "value": 418 }
     }
   ]
 }

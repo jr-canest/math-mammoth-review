@@ -5,303 +5,159 @@
   "pages": "49-50",
   "problems": [
     {
-      "id": "1a_sum",
-      "label": "1a sum",
+      "id": "1a_sum", "label": "1a sum",
+      "group": "1. Fill in the table, calculating the sum, difference, product and quotient of the numbers.",
       "display": "50 and 2: sum",
-      "answer": {
-        "type": "number",
-        "value": 52
-      }
+      "answer": { "type": "number", "value": 52 }
     },
     {
-      "id": "1a_difference",
-      "label": "1a difference",
+      "id": "1a_difference", "label": "1a diff",
       "display": "50 and 2: difference",
-      "answer": {
-        "type": "number",
-        "value": 48
-      }
+      "answer": { "type": "number", "value": 48 }
     },
     {
-      "id": "1a_product",
-      "label": "1a product",
+      "id": "1a_product", "label": "1a prod",
       "display": "50 and 2: product",
-      "answer": {
-        "type": "number",
-        "value": 100
-      }
+      "answer": { "type": "number", "value": 100 }
     },
     {
-      "id": "1a_quotient",
-      "label": "1a quotient",
+      "id": "1a_quotient", "label": "1a quot",
       "display": "50 and 2: quotient",
-      "answer": {
-        "type": "number",
-        "value": 25
-      }
+      "answer": { "type": "number", "value": 25 }
     },
     {
-      "id": "1b_sum",
-      "label": "1b sum",
+      "id": "1b_sum", "label": "1b sum",
       "display": "5 and 3: sum",
-      "answer": {
-        "type": "number",
-        "value": 8
-      }
+      "answer": { "type": "number", "value": 8 }
     },
     {
-      "id": "1b_difference",
-      "label": "1b difference",
+      "id": "1b_difference", "label": "1b diff",
       "display": "5 and 3: difference",
-      "answer": {
-        "type": "number",
-        "value": 2
-      }
+      "answer": { "type": "number", "value": 2 }
     },
     {
-      "id": "1b_product",
-      "label": "1b product",
+      "id": "1b_product", "label": "1b prod",
       "display": "5 and 3: product",
-      "answer": {
-        "type": "number",
-        "value": 15
-      }
+      "answer": { "type": "number", "value": 15 }
     },
     {
-      "id": "1b_quotient",
-      "label": "1b quotient",
+      "id": "1b_quotient", "label": "1b quot",
       "display": "5 and 3: quotient",
-      "answer": {
-        "type": "fraction",
-        "value": "1 2/3",
-        "decimal": 1.6667,
-        "tolerance": 0.001
-      }
+      "answer": { "type": "fraction", "value": "1 2/3", "decimal": 1.6667, "tolerance": 0.001 }
     },
     {
-      "id": "2a_sum",
-      "label": "2a sum",
+      "id": "2a_sum", "label": "2a sum",
+      "group": "2. Write the sum, difference, product and quotient of the numbers and letters (you cannot calculate anything).",
       "display": "x and 6: sum",
-      "answer": {
-        "type": "text",
-        "value": "x + 6"
-      }
+      "answer": { "type": "text", "value": "x + 6" },
+      "variables": ["x"]
     },
     {
-      "id": "2a_difference",
-      "label": "2a difference",
+      "id": "2a_difference", "label": "2a diff",
       "display": "x and 6: difference",
-      "answer": {
-        "type": "text",
-        "value": "x − 6"
-      }
+      "answer": { "type": "text", "value": "x − 6" },
+      "variables": ["x"]
     },
     {
-      "id": "2a_product",
-      "label": "2a product",
+      "id": "2a_product", "label": "2a prod",
       "display": "x and 6: product",
-      "answer": {
-        "type": "text",
-        "value": "6x"
-      }
+      "answer": { "type": "text", "value": "6x" },
+      "variables": ["x"]
     },
     {
-      "id": "2a_quotient",
-      "label": "2a quotient",
+      "id": "2a_quotient", "label": "2a quot",
       "display": "x and 6: quotient",
-      "answer": {
-        "type": "text",
-        "value": "x/6"
-      }
+      "answer": { "type": "text", "value": "x/6" },
+      "variables": ["x"]
     },
     {
-      "id": "2b_sum",
-      "label": "2b sum",
+      "id": "2b_sum", "label": "2b sum",
       "display": "z and w: sum",
-      "answer": {
-        "type": "text",
-        "value": "z + w"
-      }
+      "answer": { "type": "text", "value": "z + w" },
+      "variables": ["z", "w"]
     },
     {
-      "id": "2b_difference",
-      "label": "2b difference",
+      "id": "2b_difference", "label": "2b diff",
       "display": "z and w: difference",
-      "answer": {
-        "type": "text",
-        "value": "z − w"
-      }
+      "answer": { "type": "text", "value": "z − w" },
+      "variables": ["z", "w"]
     },
     {
-      "id": "2b_product",
-      "label": "2b product",
+      "id": "2b_product", "label": "2b prod",
       "display": "z and w: product",
-      "answer": {
-        "type": "text",
-        "value": "wz"
-      }
+      "answer": { "type": "text", "value": "wz" },
+      "variables": ["z", "w"]
     },
     {
-      "id": "2b_quotient",
-      "label": "2b quotient",
+      "id": "2b_quotient", "label": "2b quot",
       "display": "z and w: quotient",
-      "answer": {
-        "type": "text",
-        "value": "z/w"
-      }
+      "answer": { "type": "text", "value": "z/w" },
+      "variables": ["z", "w"]
     },
     {
-      "id": "3a",
-      "label": "3a",
-      "display": "The product of 5 and T",
-      "answer": {
-        "type": "text",
-        "value": "5T"
-      }
+      "id": "3", "label": "3",
+      "group": "3. Match the expressions.",
+      "display": "Match each description (a–h) to the correct expression in the workbook.",
+      "answer": { "type": "workbook", "hint": "a→5T, b→5÷T, c→30, d→T/5, e→T−5, f→T+5, g→29, h→5−T" }
     },
     {
-      "id": "3b",
-      "label": "3b",
-      "display": "The quotient of 5 and T",
-      "answer": {
-        "type": "text",
-        "value": "5/T"
-      }
+      "id": "4a", "label": "4a",
+      "group": "4. Write an equation, and find the part that is not given.",
+      "display": "The quotient is 5, the divisor is 8, the dividend is ___.",
+      "answer": { "type": "number", "value": 40 }
     },
     {
-      "id": "3c",
-      "label": "3c",
-      "display": "The product of 6 and 5",
-      "answer": {
-        "type": "number",
-        "value": 30
-      }
+      "id": "4b", "label": "4b",
+      "display": "The subtrahend is ___, the difference is 15 and the minuend is 45.",
+      "answer": { "type": "number", "value": 30 }
     },
     {
-      "id": "3d",
-      "label": "3d",
-      "display": "The quotient of T and 5",
-      "answer": {
-        "type": "text",
-        "value": "T/5"
-      }
+      "id": "4c", "label": "4c",
+      "display": "The factors are 5, 6 and 8, and the product is ___.",
+      "answer": { "type": "number", "value": 240 }
     },
     {
-      "id": "3e",
-      "label": "3e",
-      "display": "The difference between T and 5",
-      "answer": {
-        "type": "text",
-        "value": "T − 5"
-      }
+      "id": "4d", "label": "4d",
+      "display": "The addends are 7, 8 and ___, and the sum is 100.",
+      "answer": { "type": "number", "value": 85 }
     },
     {
-      "id": "3f",
-      "label": "3f",
-      "display": "The sum of T and 5",
-      "answer": {
-        "type": "text",
-        "value": "T + 5"
-      }
+      "id": "5a", "label": "5a",
+      "group": "5. Write the problems as described.",
+      "display": "Write a multiplication problem, using three factors, where the product is 0.",
+      "answer": { "type": "workbook", "hint": "Any numbers as long as at least one factor is zero." }
     },
     {
-      "id": "3g",
-      "label": "3g",
-      "display": "The sum of 5, 15, and 9",
-      "answer": {
-        "type": "number",
-        "value": 29
-      }
+      "id": "5b", "label": "5b",
+      "display": "Write a division problem where the dividend is 120 and the quotient is less than 15.",
+      "answer": { "type": "workbook", "hint": "The divisor will need to be more than 8." }
     },
     {
-      "id": "3h",
-      "label": "3h",
-      "display": "The difference between 5 and T",
-      "answer": {
-        "type": "text",
-        "value": "5 − T"
-      }
+      "id": "5c", "label": "5c",
+      "display": "Using four addends, write a sum that is less than 9.",
+      "answer": { "type": "workbook", "hint": "Answers will vary." }
     },
     {
-      "id": "4a",
-      "label": "4a",
-      "display": "The quotient is 5, the divisor is 8, the dividend is 40.",
-      "answer": {
-        "type": "text",
-        "value": "40 ÷ 8 = 5"
-      }
+      "id": "6a", "label": "6a",
+      "group": "6. Find a strategy that always works for finding an unknown subtrahend. Use it to solve these problems.",
+      "display": "56 − ___ = 19",
+      "answer": { "type": "number", "value": 37 }
     },
     {
-      "id": "4b",
-      "label": "4b",
-      "display": "The subtrahend is 30, the difference is 15, and the minuend is 45.",
-      "answer": {
-        "type": "text",
-        "value": "45 − 30 = 15"
-      }
+      "id": "6b", "label": "6b",
+      "display": "4203 − x = 553, find x",
+      "answer": { "type": "number", "value": 3650 }
     },
     {
-      "id": "4c",
-      "label": "4c",
-      "display": "The factors are 5, 6 and 8, and the product is 240.",
-      "answer": {
-        "type": "text",
-        "value": "5 · 6 · 8 = 240"
-      }
+      "id": "7a", "label": "7a",
+      "group": "7. Find a strategy that always works for finding an unknown divisor. Use it to solve these problems.",
+      "display": "56 ÷ y = 7, find y",
+      "answer": { "type": "number", "value": 8 }
     },
     {
-      "id": "4d",
-      "label": "4d",
-      "display": "The addends are 7, 8 and 85, and the sum is 100.",
-      "answer": {
-        "type": "text",
-        "value": "7 + 8 + 85 = 100"
-      }
-    },
-    {
-      "id": "5a",
-      "label": "5a",
-      "display": "Write a multiplication with three factors where the product is zero.",
-      "answer": {
-        "type": "text",
-        "value": "Answers will vary. Example: 5 · 6 · 0 = 0. At least one factor must be zero."
-      }
-    },
-    {
-      "id": "5b",
-      "label": "5b",
-      "display": "Write a division where the dividend is 120 and the quotient is less than 15.",
-      "answer": {
-        "type": "text",
-        "value": "Answers will vary. Example: 120 ÷ 40 = 3. The divisor must be more than 8."
-      }
-    },
-    {
-      "id": "5c",
-      "label": "5c",
-      "display": "Write additions of four addends.",
-      "answer": {
-        "type": "text",
-        "value": "Answers will vary. Example: 2 + 2 + 2 + 2 = 8."
-      }
-    },
-    {
-      "id": "6",
-      "label": "6",
-      "display": "How to find the subtrahend?",
-      "answer": {
-        "type": "text",
-        "value": "Subtract the difference from the minuend. a. 56 − 19 = 37; b. 4203 − 553 = 3650"
-      }
-    },
-    {
-      "id": "7",
-      "label": "7",
-      "display": "How to find the divisor?",
-      "answer": {
-        "type": "text",
-        "value": "Divide the dividend by the quotient. a. 56 ÷ 7 = 8, so y = 8; b. 535 ÷ 5 = 107, so x = 107"
-      }
+      "id": "7b", "label": "7b",
+      "display": "535 ÷ x = 5, find x",
+      "answer": { "type": "number", "value": 107 }
     }
   ]
 }

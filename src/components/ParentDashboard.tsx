@@ -22,8 +22,9 @@ function getDefaultRange(): { start: string; end: string } {
   };
 }
 
-function formatAnswerValue(answer: { type: string; value: number | string }): string {
-  return String(answer.value);
+function formatAnswerValue(answer: { type: string; value?: number | string }): string {
+  if (answer.type === 'workbook') return 'Done in workbook';
+  return String(answer.value ?? '');
 }
 
 interface ProblemInfo {
@@ -56,7 +57,7 @@ function ProblemRow({ p }: { p: ProblemInfo }) {
       }`}>
         {p.correct ? '✓' : p.attempted ? '✗' : '·'}
       </span>
-      <span className="font-mono font-bold text-gray-600 w-6">{p.label}</span>
+      <span className="font-mono font-bold text-gray-600 shrink-0 whitespace-nowrap">{p.label}</span>
       <span className="text-gray-500 flex-1 truncate">{p.display}</span>
       <span className="text-gray-400 font-mono shrink-0">= {p.correctAnswer}</span>
       {eventuallyCorrect && (
@@ -267,8 +268,17 @@ export default function ParentDashboard({ progress }: ParentDashboardProps) {
           </div>
           <div className="bg-white rounded-xl shadow-sm p-4 text-center">
             <div className={`text-2xl font-bold ${
-              rangeTotals.attempted > 0 && rangeTotals.correct / rangeTotals.attempted >= 0.8
-                ? 'text-emerald-600' : 'text-amber-600'
+              rangeTotals.attempted > 0
+                ? (() => {
+                    const pct = rangeTotals.correct / rangeTotals.attempted;
+                    return pct >= 1 ? 'text-emerald-600' :
+                      pct >= 0.65 ? 'text-emerald-500' :
+                      pct >= 0.4 ? 'text-green-500' :
+                      pct >= 0.2 ? 'text-yellow-500' :
+                      pct >= 0.1 ? 'text-amber-500' :
+                      'text-orange-500';
+                  })()
+                : 'text-gray-400'
             }`}>
               {rangeTotals.attempted > 0
                 ? `${Math.round((rangeTotals.correct / rangeTotals.attempted) * 100)}%`
@@ -303,8 +313,15 @@ export default function ParentDashboard({ progress }: ParentDashboardProps) {
                       <td className="px-3 py-2 text-right font-semibold">
                         <span className={
                           day.problemsAttempted > 0
-                            ? (day.problemsCorrect / day.problemsAttempted >= 0.8
-                              ? 'text-emerald-600' : 'text-amber-600')
+                            ? (() => {
+                                const pct = day.problemsCorrect / day.problemsAttempted;
+                                return pct >= 1 ? 'text-emerald-600' :
+                                  pct >= 0.65 ? 'text-emerald-500' :
+                                  pct >= 0.4 ? 'text-green-500' :
+                                  pct >= 0.2 ? 'text-yellow-500' :
+                                  pct >= 0.1 ? 'text-amber-500' :
+                                  'text-orange-500';
+                              })()
                             : 'text-gray-400'
                         }>
                           {day.problemsAttempted > 0
@@ -340,8 +357,13 @@ export default function ParentDashboard({ progress }: ParentDashboardProps) {
                       </div>
                       <div className="text-right">
                         <span className={`text-lg font-bold ${
-                          s.completedAt ? 'text-amber-500' :
-                          s.score >= 0.8 ? 'text-emerald-600' : 'text-indigo-600'
+                          s.score >= 1 ? 'text-emerald-600' :
+                          s.score >= 0.65 ? 'text-emerald-500' :
+                          s.score >= 0.4 ? 'text-green-500' :
+                          s.score >= 0.2 ? 'text-yellow-500' :
+                          s.score >= 0.1 ? 'text-amber-500' :
+                          s.score > 0 ? 'text-orange-500' :
+                          'text-gray-400'
                         }`}>
                           {s.correctCount}/{s.totalProblems}
                         </span>
