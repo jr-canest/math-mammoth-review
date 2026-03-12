@@ -5,7 +5,7 @@ interface UserSelectProps {
 }
 
 const USERS = [
-  { id: 'matthias', name: 'Matthias', emoji: '🧑‍🎓', pin: '1234' },
+  { id: 'matthias', name: 'Matthias', emoji: '🧑‍🎓', pin: '2014' },
   { id: 'test', name: 'Test', emoji: '🧪' },
 ] as const;
 
