@@ -116,7 +116,7 @@ export default function SectionSelect({ progress }: SectionSelectProps) {
                   </h3>
                   {data?.needsReview && (
                     <span className="shrink-0 px-1.5 py-0.5 text-[10px] font-semibold bg-amber-100 text-amber-600 rounded-full uppercase tracking-wide">
-                      In Progress
+                      In Construction
                     </span>
                   )}
                 </div>
