@@ -59,6 +59,18 @@ function parseFraction(input: string): number | null {
   return null;
 }
 
+/** Convert caret exponent notation (e.g. x^2, w^4) to Unicode superscripts */
+function caretToSuperscript(s: string): string {
+  const superDigits: Record<string, string> = {
+    '0': '\u2070', '1': '\u00B9', '2': '\u00B2', '3': '\u00B3',
+    '4': '\u2074', '5': '\u2075', '6': '\u2076', '7': '\u2077',
+    '8': '\u2078', '9': '\u2079',
+  };
+  return s.replace(/\^(\d+)/g, (_, digits: string) =>
+    [...digits].map(d => superDigits[d] ?? d).join('')
+  );
+}
+
 /**
  * Check if two algebraic expressions are equivalent by comparing
  * their terms as sorted sets (handles commutative addition and
@@ -72,7 +84,7 @@ function areExpressionsEquivalent(a: string, b: string): boolean {
 }
 
 function parseExpressionTerms(expr: string): string[] {
-  let s = expr.toLowerCase()
+  let s = caretToSuperscript(expr).toLowerCase()
     .replace(/[\u2212\u2013\u2014\u2010]/g, '-')
     .replace(/\s+/g, '');
 
@@ -139,9 +151,10 @@ export function checkAnswer(input: string, answer: Answer): boolean {
       return true;
 
     case 'text': {
-      // Normalize both sides: collapse whitespace, unify dash characters
+      // Normalize both sides: collapse whitespace, unify dash characters, caret → superscript
       const normalize = (s: string) =>
-        s.toLowerCase()
+        caretToSuperscript(s)
+          .toLowerCase()
           .replace(/[\u2212\u2013\u2014\u2010]/g, '-') // minus sign, en/em dash, hyphen → ASCII hyphen
           .replace(/\s+/g, ' ')                         // collapse whitespace
           .replace(/\s*([+\-*/=()÷×·])\s*/g, '$1')      // strip spaces around operators
