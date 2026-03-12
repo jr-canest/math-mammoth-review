@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { loadChapters, loadSections, loadSectionData } from '../lib/dataLoader';
 import type { Chapter } from '../lib/dataLoader';
@@ -8,6 +8,8 @@ interface ChapterSelectProps {
   progress: ProgressData;
   onSwitchUser: () => void;
   userName: string;
+  onExport: () => void;
+  onImport: (file: File) => Promise<void>;
 }
 
 /** Returns a Tailwind text color class based on percentage (0–1): orange → yellow → green */
@@ -31,9 +33,10 @@ function progressBarColor(pct: number): string {
   return '#fb923c';                   // orange-400
 }
 
-export default function ChapterSelect({ progress, onSwitchUser, userName }: ChapterSelectProps) {
+export default function ChapterSelect({ progress, onSwitchUser, userName, onExport, onImport }: ChapterSelectProps) {
   const [chapters, setChapters] = useState<Chapter[]>([]);
   const navigate = useNavigate();
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     loadChapters().then(setChapters);
@@ -101,20 +104,55 @@ export default function ChapterSelect({ progress, onSwitchUser, userName }: Chap
         })}
       </main>
 
-      <footer className="max-w-3xl mx-auto px-4 py-8 flex justify-center gap-4">
-        <button
-          onClick={onSwitchUser}
-          className="text-sm text-gray-400 hover:text-gray-500 transition-colors"
-        >
-          Switch User ({userName})
-        </button>
-        <span className="text-gray-300">|</span>
-        <button
-          onClick={() => navigate('/parent')}
-          className="text-sm text-gray-400 hover:text-gray-500 transition-colors"
-        >
-          Parent Dashboard
-        </button>
+      <footer className="max-w-3xl mx-auto px-4 py-8 space-y-3">
+        <div className="flex justify-center gap-4">
+          <button
+            onClick={onSwitchUser}
+            className="text-sm text-gray-400 hover:text-gray-500 transition-colors"
+          >
+            Switch User ({userName})
+          </button>
+          <span className="text-gray-300">|</span>
+          <button
+            onClick={() => navigate('/parent')}
+            className="text-sm text-gray-400 hover:text-gray-500 transition-colors"
+          >
+            Parent Dashboard
+          </button>
+        </div>
+        <div className="flex justify-center gap-4">
+          <button
+            onClick={onExport}
+            className="text-sm text-gray-400 hover:text-gray-500 transition-colors"
+          >
+            Export Backup
+          </button>
+          <span className="text-gray-300">|</span>
+          <button
+            onClick={() => fileInputRef.current?.click()}
+            className="text-sm text-gray-400 hover:text-gray-500 transition-colors"
+          >
+            Import Backup
+          </button>
+          <input
+            ref={fileInputRef}
+            type="file"
+            accept=".json"
+            className="hidden"
+            onChange={async (e) => {
+              const file = e.target.files?.[0];
+              if (file) {
+                try {
+                  await onImport(file);
+                  alert('Progress restored successfully!');
+                } catch {
+                  alert('Invalid backup file.');
+                }
+                e.target.value = '';
+              }
+            }}
+          />
+        </div>
       </footer>
     </div>
   );

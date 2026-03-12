@@ -6,6 +6,8 @@ import {
   recordCorrectAnswer,
   recordIncorrectAttempt,
   removeAnswer,
+  exportProgressToFile,
+  importProgressFromFile,
 } from '../lib/progressStore';
 
 export function useProgress(userId: string | null) {
@@ -75,5 +77,17 @@ export function useProgress(userId: string | null) {
     [progress],
   );
 
-  return { progress, loading, markCorrect, markIncorrect, undoAnswer, getSectionProgress };
+  const exportData = useCallback(() => {
+    if (userIdRef.current) {
+      exportProgressToFile(progress, userIdRef.current);
+    }
+  }, [progress]);
+
+  const importData = useCallback(async (file: File) => {
+    if (!userIdRef.current) return;
+    const data = await importProgressFromFile(userIdRef.current, file);
+    setProgress(data);
+  }, []);
+
+  return { progress, loading, markCorrect, markIncorrect, undoAnswer, getSectionProgress, exportData, importData };
 }

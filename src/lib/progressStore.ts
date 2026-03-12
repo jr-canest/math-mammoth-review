@@ -25,6 +25,7 @@ export interface DailyLog {
 export interface ProgressData {
   sections: Record<string, SectionProgress>;
   dailyLog: Record<string, DailyLog>;
+  dataVersion?: number;
 }
 
 function getLocalProgress(userId: string): ProgressData {
@@ -43,6 +44,7 @@ function mergeProgress(local: ProgressData, remote: ProgressData): ProgressData 
   const merged: ProgressData = {
     sections: { ...local.sections },
     dailyLog: { ...local.dailyLog },
+    dataVersion: Math.max(local.dataVersion ?? 0, remote.dataVersion ?? 0),
   };
 
   // Merge sections - remote wins on conflict
@@ -88,6 +90,15 @@ export async function loadProgress(userId: string): Promise<ProgressData> {
     const docSnap = await getDoc(docRef);
     if (docSnap.exists()) {
       const remote = docSnap.data() as ProgressData;
+
+      // If remote has a higher dataVersion (e.g. after a reset), use remote entirely
+      const remoteVersion = remote.dataVersion ?? 0;
+      const localVersion = local.dataVersion ?? 0;
+      if (remoteVersion > localVersion) {
+        saveLocalProgress(userId, remote);
+        return remote;
+      }
+
       const merged = mergeProgress(local, remote);
       saveLocalProgress(userId, merged);
       return merged;
@@ -217,4 +228,28 @@ export function recordIncorrectAttempt(
     sections: { ...progress.sections, [sectionKey]: section },
     dailyLog: { ...progress.dailyLog, [today]: daily },
   };
+}
+
+/** Downloads a JSON backup of the user's progress */
+export function exportProgressToFile(progress: ProgressData, userId: string): void {
+  const blob = new Blob([JSON.stringify(progress, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `math-mammoth-backup-${userId}-${new Date().toISOString().split('T')[0]}.json`;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+
+/** Imports progress from a JSON file, saves to Firebase + local, returns the data */
+export async function importProgressFromFile(userId: string, file: File): Promise<ProgressData> {
+  const text = await file.text();
+  const data = JSON.parse(text) as ProgressData;
+  if (!data.sections || !data.dailyLog) {
+    throw new Error('Invalid progress file');
+  }
+  await saveProgress(userId, data);
+  return data;
 }

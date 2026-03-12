@@ -10,7 +10,7 @@ import ParentDashboard from './components/ParentDashboard';
 
 export default function App() {
   const [userId, setUserId] = useState<string | null>(null);
-  const { progress, loading, markCorrect, markIncorrect, undoAnswer, getSectionProgress } = useProgress(userId);
+  const { progress, loading, markCorrect, markIncorrect, undoAnswer, getSectionProgress, exportData, importData } = useProgress(userId);
   const { muted, toggleMute, playCorrect, playIncorrect, playMilestone, playComplete } = useSound();
 
   const handleSwitchUser = useCallback(() => {
@@ -44,7 +44,7 @@ export default function App() {
       </button>
 
       <Routes>
-        <Route path="/" element={<ChapterSelect progress={progress} onSwitchUser={handleSwitchUser} userName={userId} />} />
+        <Route path="/" element={<ChapterSelect progress={progress} onSwitchUser={handleSwitchUser} userName={userId} onExport={exportData} onImport={importData} />} />
         <Route path="/chapter/:chapterId" element={<SectionSelect progress={progress} />} />
         <Route
           path="/chapter/:chapterId/:sectionId"
