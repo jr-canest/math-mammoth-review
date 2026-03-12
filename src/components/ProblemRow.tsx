@@ -36,6 +36,7 @@ export default function ProblemRow({
   const inputRef = useRef<HTMLInputElement>(null);
 
   const hasExpressionBuilder = problem.answer.type === 'text' && problem.variables?.length;
+  const keyboardMode = problem.answer.type === 'number' ? 'decimal' as const : 'text' as const;
 
   useEffect(() => {
     setIsCorrect(initialCorrect);
@@ -76,7 +77,9 @@ export default function ProblemRow({
     <div
       className={`p-3 rounded-xl transition-colors duration-300 ${
         isCorrect
-          ? 'bg-emerald-50 border-2 border-emerald-200'
+          ? attempts <= 1
+            ? 'bg-emerald-50 border-2 border-emerald-200'
+            : 'bg-amber-50 border-2 border-amber-200'
           : 'bg-white border-2 border-gray-100'
       } ${shaking ? 'animate-shake' : ''}`}
     >
@@ -115,10 +118,17 @@ export default function ProblemRow({
               </div>
             ) : (
               <>
-                <span className="text-emerald-600 font-semibold">
-                  {problem.answer.type === 'workbook' ? 'Done in workbook' : input}
-                </span>
-                <span className="text-2xl animate-pop">✅</span>
+                <div className="text-right">
+                  {attempts > 1 && (
+                    <span className="text-[10px] text-amber-500 font-medium block leading-tight">
+                      {attempts} tries
+                    </span>
+                  )}
+                  <span className={`font-semibold ${attempts <= 1 ? 'text-emerald-600' : 'text-amber-600'}`}>
+                    {problem.answer.type === 'workbook' ? 'Done in workbook' : input}
+                  </span>
+                </div>
+                <span className={`text-2xl animate-pop ${attempts > 1 ? 'opacity-70' : ''}`}>✅</span>
                 {onUndo && (
                   <button
                     onClick={() => setConfirmingUndo(true)}
@@ -190,7 +200,7 @@ export default function ProblemRow({
           <input
             ref={inputRef}
             type="text"
-            inputMode="text"
+            inputMode={keyboardMode}
             value={input}
             onChange={e => {
               setInput(e.target.value);

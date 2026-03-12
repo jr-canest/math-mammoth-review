@@ -12,10 +12,17 @@ function getAudioContext(): AudioContext {
   return audioCtx;
 }
 
-function playNote(ctx: AudioContext, freq: number, startTime: number, duration: number, gain: number = 0.3) {
+function playNote(
+  ctx: AudioContext,
+  freq: number,
+  startTime: number,
+  duration: number,
+  gain: number = 0.3,
+  type: OscillatorType = 'sine',
+) {
   const osc = ctx.createOscillator();
   const gainNode = ctx.createGain();
-  osc.type = 'sine';
+  osc.type = type;
   osc.frequency.value = freq;
   gainNode.gain.setValueAtTime(gain, startTime);
   gainNode.gain.exponentialRampToValueAtTime(0.001, startTime + duration);
@@ -48,8 +55,10 @@ export function useSound() {
     if (mutedRef.current) return;
     const ctx = getAudioContext();
     const now = ctx.currentTime;
-    playNote(ctx, 523.25, now, 0.15, 0.25);       // C5
-    playNote(ctx, 659.25, now + 0.12, 0.2, 0.25);  // E5
+    // Bright bell ding: triangle wave for bell timbre
+    playNote(ctx, 880, now, 0.35, 0.22, 'triangle');       // A5 - main bell tone
+    playNote(ctx, 1760, now, 0.2, 0.08, 'sine');           // A6 - soft harmonic shimmer
+    playNote(ctx, 1318.5, now + 0.06, 0.25, 0.12, 'triangle'); // E6 - brightness
   }, []);
 
   const playIncorrect = useCallback(() => {
