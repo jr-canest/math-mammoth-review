@@ -6,6 +6,7 @@ import {
   recordCorrectAnswer,
   recordIncorrectAttempt,
   removeAnswer,
+  clearSection as clearSectionData,
   exportProgressToFile,
   importProgressFromFile,
 } from '../lib/progressStore';
@@ -72,6 +73,17 @@ export function useProgress(userId: string | null) {
     [debouncedSave],
   );
 
+  const clearSection = useCallback(
+    (sectionKey: string) => {
+      setProgress(prev => {
+        const next = clearSectionData(prev, sectionKey);
+        debouncedSave(next);
+        return next;
+      });
+    },
+    [debouncedSave],
+  );
+
   const getSectionProgress = useCallback(
     (sectionKey: string) => progress.sections[sectionKey] || null,
     [progress],
@@ -89,5 +101,5 @@ export function useProgress(userId: string | null) {
     setProgress(data);
   }, []);
 
-  return { progress, loading, markCorrect, markIncorrect, undoAnswer, getSectionProgress, exportData, importData };
+  return { progress, loading, markCorrect, markIncorrect, undoAnswer, clearSection, getSectionProgress, exportData, importData };
 }

@@ -10,7 +10,7 @@ import ParentDashboard from './components/ParentDashboard';
 
 export default function App() {
   const [userId, setUserId] = useState<string | null>(null);
-  const { progress, loading, markCorrect, markIncorrect, undoAnswer, getSectionProgress, exportData, importData } = useProgress(userId);
+  const { progress, loading, markCorrect, markIncorrect, undoAnswer, clearSection, getSectionProgress, exportData, importData } = useProgress(userId);
   const { muted, toggleMute, playCorrect, playIncorrect, playMilestone, playComplete } = useSound();
 
   const handleSwitchUser = useCallback(() => {
@@ -54,6 +54,7 @@ export default function App() {
               markCorrect={markCorrect}
               markIncorrect={markIncorrect}
               undoAnswer={undoAnswer}
+              clearSection={clearSection}
               playCorrect={playCorrect}
               playIncorrect={playIncorrect}
               playMilestone={playMilestone}

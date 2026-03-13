@@ -84,48 +84,142 @@ function areExpressionsEquivalent(a: string, b: string): boolean {
 }
 
 function parseExpressionTerms(expr: string): string[] {
-  let s = caretToSuperscript(expr).toLowerCase()
+  const s = caretToSuperscript(expr).toLowerCase()
     .replace(/[\u2212\u2013\u2014\u2010]/g, '-')
+    .replace(/÷/g, '/')
     .replace(/\s+/g, '');
 
-  // Convert subtraction to addition of negative terms: "a-b" → "a+-b"
-  s = s.replace(/-/g, '+-');
+  // Split at top-level '+' and '-', respecting parentheses depth
+  const terms: string[] = [];
+  let current = '';
+  let depth = 0;
 
-  const rawTerms = s.split('+').filter(t => t !== '');
-  return rawTerms.map(normalizeTerm).sort();
+  for (let i = 0; i < s.length; i++) {
+    if (s[i] === '(') depth++;
+    if (s[i] === ')') depth--;
+
+    if (depth === 0 && i > 0 && (s[i] === '+' || s[i] === '-')) {
+      if (current) terms.push(current);
+      current = s[i] === '-' ? '-' : '';
+    } else {
+      current += s[i];
+    }
+  }
+  if (current) terms.push(current);
+
+  return terms.map(normalizeTerm).sort();
+}
+
+/**
+ * Extract multiplicative factors from an expression string.
+ * Factors are: numbers, variables (letter + optional superscripts),
+ * or parenthesized groups. × · * are treated as separators.
+ */
+function extractFactors(expr: string): string[] {
+  const factors: string[] = [];
+  let i = 0;
+  while (i < expr.length) {
+    // Skip multiplication signs (treated as implicit multiplication)
+    if (expr[i] === '\u00D7' || expr[i] === '\u00B7' || expr[i] === '\u22C5' || expr[i] === '*') {
+      i++;
+      continue;
+    }
+    if (expr[i] === '(') {
+      let depth = 1;
+      let j = i + 1;
+      while (j < expr.length && depth > 0) {
+        if (expr[j] === '(') depth++;
+        if (expr[j] === ')') depth--;
+        j++;
+      }
+      factors.push(expr.slice(i, j));
+      i = j;
+    } else if (/\d/.test(expr[i])) {
+      let j = i;
+      while (j < expr.length && /[\d.]/.test(expr[j])) j++;
+      factors.push(expr.slice(i, j));
+      i = j;
+    } else if (/[a-z]/.test(expr[i])) {
+      let j = i + 1;
+      while (j < expr.length && /[\u00B2\u00B3\u00B9\u2070\u2074-\u2079]/.test(expr[j])) j++;
+      factors.push(expr.slice(i, j));
+      i = j;
+    } else {
+      i++;
+    }
+  }
+  return factors;
+}
+
+/** Normalize content inside parenthesized groups by sorting their additive terms */
+function normalizeFactorContent(factor: string): string {
+  if (factor.startsWith('(') && factor.endsWith(')')) {
+    const inner = factor.slice(1, -1);
+    const terms = parseExpressionTerms(inner);
+    let result = '';
+    for (const t of terms) {
+      if (result && !t.startsWith('-')) {
+        result += '+';
+      }
+      result += t;
+    }
+    return '(' + result + ')';
+  }
+  return factor;
+}
+
+/** Sort factors: numbers first, then variables, then parenthesized groups */
+function factorCompare(a: string, b: string): number {
+  const typeOf = (s: string) => s.startsWith('(') ? 2 : /^\d/.test(s) ? 0 : 1;
+  const aType = typeOf(a);
+  const bType = typeOf(b);
+  if (aType !== bType) return aType - bType;
+  if (aType === 0) return parseFloat(a) - parseFloat(b);
+  return a < b ? -1 : a > b ? 1 : 0;
 }
 
 function normalizeTerm(term: string): string {
-  // Match: optional sign, optional numeric coefficient, then variable part
-  const match = term.match(/^(-?)(\d*\.?\d*)(.*)$/);
-  if (!match) return term;
-
-  const sign = match[1];
-  const coefStr = match[2];
-  const varPart = match[3];
-
-  let coef: number;
-  if (!coefStr) {
-    coef = sign === '-' ? -1 : 1;
-  } else {
-    coef = parseFloat(sign + coefStr);
+  let sign = '';
+  let rest = term;
+  if (rest.startsWith('-')) {
+    sign = '-';
+    rest = rest.slice(1);
   }
 
-  // Sort variable groups: each letter + optional superscript(s)
-  const sortedVar = sortVariableLetters(varPart);
+  // Find top-level '/' to separate numerator and denominator
+  let slashIdx = -1;
+  let depth = 0;
+  for (let i = 0; i < rest.length; i++) {
+    if (rest[i] === '(') depth++;
+    if (rest[i] === ')') depth--;
+    if (depth === 0 && rest[i] === '/') {
+      slashIdx = i;
+      break;
+    }
+  }
 
-  if (sortedVar === '') return coef.toString();
-  if (coef === 1) return sortedVar;
-  if (coef === -1) return '-' + sortedVar;
-  return coef + sortedVar;
-}
+  let numerator: string;
+  let denominator: string | null = null;
 
-function sortVariableLetters(varPart: string): string {
-  // Match each letter followed by optional superscript digits (²³⁴ etc.)
-  const re = /[a-z][\u00B2\u00B3\u00B9\u2070\u2074-\u2079]*/g;
-  const groups = varPart.match(re);
-  if (!groups || groups.length <= 1) return varPart;
-  return groups.sort().join('');
+  if (slashIdx >= 0) {
+    numerator = rest.slice(0, slashIdx);
+    denominator = rest.slice(slashIdx + 1);
+  } else {
+    numerator = rest;
+  }
+
+  const numFactors = extractFactors(numerator).map(normalizeFactorContent);
+  numFactors.sort(factorCompare);
+
+  let result = sign + numFactors.join('');
+
+  if (denominator !== null) {
+    const denFactors = extractFactors(denominator).map(normalizeFactorContent);
+    denFactors.sort(factorCompare);
+    result += '/' + denFactors.join('');
+  }
+
+  return result;
 }
 
 export function checkAnswer(input: string, answer: Answer): boolean {
@@ -157,7 +251,7 @@ export function checkAnswer(input: string, answer: Answer): boolean {
           .toLowerCase()
           .replace(/[\u2212\u2013\u2014\u2010]/g, '-') // minus sign, en/em dash, hyphen → ASCII hyphen
           .replace(/\s+/g, ' ')                         // collapse whitespace
-          .replace(/\s*([+\-*/=()÷×·])\s*/g, '$1')      // strip spaces around operators
+          .replace(/\s*([+\-*/=()÷×·⋅])\s*/g, '$1')      // strip spaces around operators
           .trim();
 
       // Exact match after normalization

@@ -230,6 +230,17 @@ export function recordIncorrectAttempt(
   };
 }
 
+export function clearSection(
+  progress: ProgressData,
+  sectionKey: string,
+): ProgressData {
+  const { [sectionKey]: _removed, ...remainingSections } = progress.sections;
+  return {
+    ...progress,
+    sections: remainingSections,
+  };
+}
+
 /** Downloads a JSON backup of the user's progress */
 export function exportProgressToFile(progress: ProgressData, userId: string): void {
   const blob = new Blob([JSON.stringify(progress, null, 2)], { type: 'application/json' });

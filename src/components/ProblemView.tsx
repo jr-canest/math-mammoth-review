@@ -12,6 +12,7 @@ interface ProblemViewProps {
   markCorrect: (sectionKey: string, problemId: string, attemptCount: number, totalProblems: number, answer?: string) => void;
   markIncorrect: (sectionKey: string, problemId: string, attemptCount: number) => void;
   undoAnswer: (sectionKey: string, problemId: string, totalProblems: number) => void;
+  clearSection: (sectionKey: string) => void;
   playCorrect: () => void;
   playIncorrect: () => void;
   playMilestone: () => void;
@@ -23,6 +24,7 @@ export default function ProblemView({
   markCorrect,
   markIncorrect,
   undoAnswer,
+  clearSection,
   playCorrect,
   playIncorrect,
   playMilestone,
@@ -33,6 +35,7 @@ export default function ProblemView({
   const [sectionData, setSectionData] = useState<SectionData | null>(null);
   const [sections, setSections] = useState<SectionMeta[]>([]);
   const [celebration, setCelebration] = useState<'milestone' | 'complete' | null>(null);
+  const [confirmingReset, setConfirmingReset] = useState(false);
   const milestoneShownRef = useRef(false);
   const completeShownRef = useRef(false);
 
@@ -190,6 +193,45 @@ export default function ProblemView({
             </div>
           );
         })}
+
+        {/* Reset section progress */}
+        {correctCount > 0 && (
+          <div className="mt-8 flex flex-col items-center gap-2">
+            {!confirmingReset ? (
+              <button
+                onClick={() => setConfirmingReset(true)}
+                className="text-xs text-gray-400 hover:text-gray-500 transition-colors"
+              >
+                Reset section progress
+              </button>
+            ) : (
+              <div className="flex flex-col items-center gap-2">
+                <p className="text-xs text-gray-500">Clear all answers for this section?</p>
+                <div className="flex gap-3">
+                  <button
+                    onClick={() => {
+                      clearSection(sectionKey);
+                      setConfirmingReset(false);
+                      milestoneShownRef.current = false;
+                      completeShownRef.current = false;
+                    }}
+                    className="px-3 py-1 text-xs font-medium text-red-600 bg-red-50 rounded-lg
+                               hover:bg-red-100 transition-colors"
+                  >
+                    Clear
+                  </button>
+                  <button
+                    onClick={() => setConfirmingReset(false)}
+                    className="px-3 py-1 text-xs font-medium text-gray-500 bg-gray-100 rounded-lg
+                               hover:bg-gray-200 transition-colors"
+                  >
+                    Cancel
+                  </button>
+                </div>
+              </div>
+            )}
+          </div>
+        )}
       </main>
 
       {/* Celebration Modal */}

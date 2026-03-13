@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { checkAnswer } from '../lib/answerChecker';
 import type { TextAnswer } from '../lib/answerChecker';
 
@@ -36,26 +36,7 @@ function CalcButton({
   );
 }
 
-function formatForDisplay(tokens: string[]): string {
-  if (tokens.length === 0) return '';
-
-  const parts: string[] = [];
-  for (let i = 0; i < tokens.length; i++) {
-    const token = tokens[i];
-    // Add spaces around binary operators (not at the start, not after open paren)
-    if (['+', '−', '/'].includes(token) && parts.length > 0) {
-      const lastPart = parts[parts.length - 1];
-      if (lastPart !== '(' && lastPart !== ' ') {
-        parts.push(' ');
-      }
-      parts.push(token);
-      parts.push(' ');
-    } else {
-      parts.push(token);
-    }
-  }
-  return parts.join('').replace(/\s+/g, ' ').trim();
-}
+const OPERATORS = new Set(['+', '\u2212', '÷', '\u22C5']);
 
 export default function ExpressionBuilder({
   variables,
@@ -66,25 +47,40 @@ export default function ExpressionBuilder({
   onClose,
 }: ExpressionBuilderProps) {
   const [tokens, setTokens] = useState<string[]>([]);
+  const [cursorPos, setCursorPos] = useState(0);
+  const cursorRef = useRef(0);
   const [shaking, setShaking] = useState(false);
   const [showWrong, setShowWrong] = useState(false);
 
   const rawExpression = tokens.join('');
-  const displayExpression = formatForDisplay(tokens);
+
+  const moveCursor = (pos: number) => {
+    cursorRef.current = pos;
+    setCursorPos(pos);
+  };
 
   const handleTap = (value: string) => {
     setShowWrong(false);
-    setTokens(prev => [...prev, value]);
+    const pos = cursorRef.current;
+    setTokens(prev => [...prev.slice(0, pos), value, ...prev.slice(pos)]);
+    cursorRef.current = pos + 1;
+    setCursorPos(pos + 1);
   };
 
   const handleBackspace = () => {
+    const pos = cursorRef.current;
+    if (pos === 0) return;
     setShowWrong(false);
-    setTokens(prev => prev.slice(0, -1));
+    setTokens(prev => [...prev.slice(0, pos - 1), ...prev.slice(pos)]);
+    cursorRef.current = pos - 1;
+    setCursorPos(pos - 1);
   };
 
   const handleClear = () => {
     setShowWrong(false);
     setTokens([]);
+    cursorRef.current = 0;
+    setCursorPos(0);
   };
 
   const handleCheck = () => {
@@ -100,6 +96,9 @@ export default function ExpressionBuilder({
       setTimeout(() => setShaking(false), 500);
     }
   };
+
+  // Ensure cursor stays in bounds
+  const safeCursor = Math.min(cursorPos, tokens.length);
 
   return (
     <div
@@ -129,20 +128,50 @@ export default function ExpressionBuilder({
           {problemDisplay}
         </p>
 
-        {/* Display area */}
+        {/* Display area with cursor */}
         <div className="flex items-center gap-2 mb-3">
           <div
-            className={`flex-1 min-h-14 px-4 py-3 rounded-xl border-2 text-xl text-right
-                        font-mono tracking-wide flex items-center justify-end
+            className={`flex-1 min-h-14 px-3 py-3 rounded-xl border-2 text-xl
+                        font-mono tracking-wide flex items-center justify-end cursor-text
                         ${showWrong ? 'border-red-400 bg-red-50' : 'border-gray-200 bg-gray-50'}`}
+            onClick={() => moveCursor(tokens.length)}
           >
-            {displayExpression || (
+            {tokens.length === 0 ? (
               <span className="text-gray-300 text-base font-sans">Tap to build</span>
+            ) : (
+              <span className="flex items-center flex-wrap justify-end">
+                {/* Leading zone — click to position cursor at start */}
+                <span
+                  className="flex-1 self-stretch min-w-2"
+                  onClick={(e) => { e.stopPropagation(); moveCursor(0); }}
+                />
+                {tokens.map((token, idx) => {
+                  const isOp = OPERATORS.has(token);
+                  return (
+                    <span key={idx} className="flex items-center">
+                      {safeCursor === idx && (
+                        <span className="w-0.5 h-7 bg-indigo-500 rounded-full mx-px shrink-0"
+                              style={{ animation: 'cursor-blink 1s step-end infinite' }} />
+                      )}
+                      <span
+                        className={isOp ? 'mx-1' : ''}
+                        onClick={(e) => { e.stopPropagation(); moveCursor(idx + 1); }}
+                      >
+                        {token}
+                      </span>
+                    </span>
+                  );
+                })}
+                {safeCursor === tokens.length && (
+                  <span className="w-0.5 h-7 bg-indigo-500 rounded-full mx-px shrink-0"
+                        style={{ animation: 'cursor-blink 1s step-end infinite' }} />
+                )}
+              </span>
             )}
           </div>
           <button
             onClick={handleBackspace}
-            disabled={tokens.length === 0}
+            disabled={safeCursor === 0}
             className="p-3 rounded-xl bg-gray-100 text-gray-600 text-xl
                        active:scale-95 transition-transform
                        disabled:opacity-30"
@@ -151,6 +180,9 @@ export default function ExpressionBuilder({
             ⌫
           </button>
         </div>
+
+        {/* Cursor blink animation */}
+        <style>{`@keyframes cursor-blink { 0%,100%{opacity:1} 50%{opacity:0} }`}</style>
 
         {/* Error message */}
         {showWrong && (
@@ -180,6 +212,11 @@ export default function ExpressionBuilder({
             className="bg-amber-100 text-amber-700 flex-1"
           />
           <CalcButton
+            label="⁴"
+            onClick={() => handleTap('⁴')}
+            className="bg-amber-100 text-amber-700 flex-1"
+          />
+          <CalcButton
             label="Clear"
             onClick={handleClear}
             className="bg-red-50 text-red-500 text-sm flex-1"
@@ -192,8 +229,8 @@ export default function ExpressionBuilder({
           <CalcButton label="8" onClick={() => handleTap('8')} />
           <CalcButton label="9" onClick={() => handleTap('9')} />
           <CalcButton
-            label="/"
-            onClick={() => handleTap('/')}
+            label="÷"
+            onClick={() => handleTap('÷')}
             className="bg-slate-100 border-2 border-slate-200 text-slate-700"
           />
 
@@ -201,8 +238,8 @@ export default function ExpressionBuilder({
           <CalcButton label="5" onClick={() => handleTap('5')} />
           <CalcButton label="6" onClick={() => handleTap('6')} />
           <CalcButton
-            label="+"
-            onClick={() => handleTap('+')}
+            label="×·"
+            onClick={() => handleTap('\u22C5')}
             className="bg-slate-100 border-2 border-slate-200 text-slate-700"
           />
 
@@ -211,27 +248,40 @@ export default function ExpressionBuilder({
           <CalcButton label="3" onClick={() => handleTap('3')} />
           <CalcButton
             label="−"
-            onClick={() => handleTap('−')}
+            onClick={() => handleTap('\u2212')}
             className="bg-slate-100 border-2 border-slate-200 text-slate-700"
           />
 
-          <CalcButton label="0" onClick={() => handleTap('0')} />
           <CalcButton
             label="("
             onClick={() => handleTap('(')}
             className="bg-slate-100 border-2 border-slate-200 text-slate-700"
           />
+          <CalcButton label="0" onClick={() => handleTap('0')} />
           <CalcButton
             label=")"
             onClick={() => handleTap(')')}
             className="bg-slate-100 border-2 border-slate-200 text-slate-700"
           />
           <CalcButton
-            label="Check ✓"
+            label="+"
+            onClick={() => handleTap('+')}
+            className="bg-slate-100 border-2 border-slate-200 text-slate-700"
+          />
+        </div>
+
+        {/* Check button - full width */}
+        <div className="mt-2">
+          <button
             onClick={handleCheck}
             disabled={tokens.length === 0}
-            className="bg-emerald-500 text-white font-bold text-sm"
-          />
+            className="w-full min-h-12 rounded-xl text-lg font-bold
+                       bg-emerald-500 text-white
+                       active:scale-95 transition-transform
+                       disabled:opacity-40 disabled:cursor-not-allowed"
+          >
+            Check ✓
+          </button>
         </div>
       </div>
     </div>
