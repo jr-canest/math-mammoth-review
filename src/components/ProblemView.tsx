@@ -34,8 +34,9 @@ export default function ProblemView({
   const navigate = useNavigate();
   const [sectionData, setSectionData] = useState<SectionData | null>(null);
   const [sections, setSections] = useState<SectionMeta[]>([]);
-  const [celebration, setCelebration] = useState<'milestone' | 'complete' | null>(null);
+  const [celebration, setCelebration] = useState<'halfway' | 'milestone' | 'complete' | null>(null);
   const [confirmingReset, setConfirmingReset] = useState(false);
+  const halfwayShownRef = useRef(false);
   const milestoneShownRef = useRef(false);
   const completeShownRef = useRef(false);
 
@@ -49,9 +50,22 @@ export default function ProblemView({
     if (meta) {
       const data = loadSectionData(chapterId, meta.file);
       setSectionData(data);
+
+      // Initialize celebration refs based on current progress so we don't
+      // re-celebrate milestones that were already reached in a prior visit.
+      const key = `${chapterId}-${sectionId}`;
+      const sp = getSectionProgress(key);
+      const total = data.problems.length;
+      const correct = sp ? Object.values(sp.attempts).filter(a => a.correct).length : 0;
+      const currentScore = total > 0 ? correct / total : 0;
+      halfwayShownRef.current = currentScore >= 0.5;
+      milestoneShownRef.current = currentScore >= 0.8;
+      completeShownRef.current = currentScore >= 1;
+    } else {
+      halfwayShownRef.current = false;
+      milestoneShownRef.current = false;
+      completeShownRef.current = false;
     }
-    milestoneShownRef.current = false;
-    completeShownRef.current = false;
   }, [chapterId, sectionId]);
 
   const progress = getSectionProgress(sectionKey);
@@ -71,11 +85,17 @@ export default function ProblemView({
     if (score >= 1 && !completeShownRef.current && totalProblems > 0) {
       completeShownRef.current = true;
       milestoneShownRef.current = true;
+      halfwayShownRef.current = true;
       setCelebration('complete');
       playComplete();
-    } else if (score >= 0.8 && !milestoneShownRef.current && totalProblems > 0 && score < 1) {
+    } else if (score >= 0.8 && !milestoneShownRef.current && totalProblems > 0) {
       milestoneShownRef.current = true;
+      halfwayShownRef.current = true;
       setCelebration('milestone');
+      playMilestone();
+    } else if (score >= 0.5 && !halfwayShownRef.current && totalProblems > 0) {
+      halfwayShownRef.current = true;
+      setCelebration('halfway');
       playMilestone();
     }
   }, [score, totalProblems, playComplete, playMilestone]);
@@ -153,6 +173,16 @@ export default function ProblemView({
             }`}>
               {correctCount}/{totalProblems}
             </span>
+            {totalProblems > 0 && (
+              <p className={`text-xs font-medium ${
+                score >= 1 ? 'text-emerald-500' :
+                score >= 0.8 ? 'text-emerald-400' :
+                score > 0 ? 'text-gray-400' :
+                'text-gray-300'
+              }`}>
+                {Math.round(score * 100)}%
+              </p>
+            )}
           </div>
         </div>
         <div className="max-w-3xl mx-auto px-4 pb-3">
@@ -212,6 +242,7 @@ export default function ProblemView({
                     onClick={() => {
                       clearSection(sectionKey);
                       setConfirmingReset(false);
+                      halfwayShownRef.current = false;
                       milestoneShownRef.current = false;
                       completeShownRef.current = false;
                     }}

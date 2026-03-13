@@ -20,7 +20,7 @@ export default function ProgressBar({ total, correct, incorrect, className = '' 
   const incorrectPct = total > 0 ? (incorrect / total) * 100 : 0;
 
   return (
-    <div className={`w-full bg-gray-200 rounded-full h-4 overflow-hidden ${className}`}>
+    <div className={`relative w-full bg-gray-200 rounded-full h-4 overflow-hidden ${className}`}>
       <div className="h-full flex">
         <div
           className="transition-all duration-500 ease-out"
@@ -31,6 +31,9 @@ export default function ProgressBar({ total, correct, incorrect, className = '' 
           style={{ width: `${incorrectPct}%` }}
         />
       </div>
+      {/* Milestone markers */}
+      <div className="absolute left-1/2 top-0 h-full w-px bg-gray-400/40" />
+      <div className="absolute left-[80%] top-0 h-full w-px bg-gray-400/40" />
     </div>
   );
 }

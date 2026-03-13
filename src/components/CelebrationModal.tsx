@@ -1,7 +1,7 @@
 import ConfettiEffect from './ConfettiEffect';
 
 interface CelebrationModalProps {
-  type: 'milestone' | 'complete';
+  type: 'halfway' | 'milestone' | 'complete';
   sectionTitle: string;
   score: number;
   onClose: () => void;
@@ -15,22 +15,27 @@ export default function CelebrationModal({
   onClose,
   onNextSection,
 }: CelebrationModalProps) {
-  const isMilestone = type === 'milestone';
+  const emoji = type === 'complete' ? '🏆' : type === 'milestone' ? '⭐' : '💪';
+  const heading = type === 'complete' ? 'Section Complete!' : type === 'milestone' ? 'Amazing Work!' : 'Halfway There!';
+  const message = type === 'complete'
+    ? `You completed "${sectionTitle}"!`
+    : type === 'milestone'
+    ? `You got over 80% on "${sectionTitle}"!`
+    : `You're halfway through "${sectionTitle}"! Keep going!`;
+  const confettiSize = type === 'complete' ? 'big' : 'small';
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4">
-      <ConfettiEffect trigger={true} intensity={isMilestone ? 'small' : 'big'} />
+      <ConfettiEffect trigger={true} intensity={confettiSize} />
       <div className="bg-white rounded-2xl shadow-2xl max-w-md w-full p-8 text-center animate-bounce-in">
         <div className="text-6xl mb-4">
-          {isMilestone ? '⭐' : '🏆'}
+          {emoji}
         </div>
         <h2 className="text-2xl font-bold text-indigo-600 mb-2">
-          {isMilestone ? 'Amazing Work!' : 'Section Complete!'}
+          {heading}
         </h2>
         <p className="text-lg text-gray-700 mb-2">
-          {isMilestone
-            ? `You got over 80% on "${sectionTitle}"!`
-            : `You completed "${sectionTitle}"!`}
+          {message}
         </p>
         <p className="text-3xl font-bold text-emerald-500 mb-6">
           {Math.round(score * 100)}%
