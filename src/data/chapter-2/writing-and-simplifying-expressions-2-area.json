@@ -3,397 +3,391 @@
   "section": "writing-and-simplifying-expressions-2-area",
   "title": "Writing and Simplifying Expressions 2: Area",
   "pages": "61-65",
-  "needsReview": true,
   "problems": [
     {
       "id": "1a",
       "label": "1a",
-      "group": "1. Write the area of each rectangle.",
-      "display": "A = 3x · 4x",
-      "answer": {
-        "type": "text",
-        "value": "12x²"
-      }
+      "group": "1. Write an expression for the area of the rectangle, and simplify it.",
+      "display": "See workbook.",
+      "answer": { "type": "text", "value": "12x\u00b2" },
+      "variables": ["x"]
     },
     {
       "id": "1b",
       "label": "1b",
-      "display": "A = 5y · 3y",
-      "answer": {
-        "type": "text",
-        "value": "15y²"
-      }
+      "display": "See workbook.",
+      "answer": { "type": "text", "value": "15y\u00b2" },
+      "variables": ["y"]
     },
     {
       "id": "1c",
       "label": "1c",
-      "display": "A = 5x · x",
-      "answer": {
-        "type": "text",
-        "value": "5x²"
-      }
+      "display": "See workbook.",
+      "answer": { "type": "text", "value": "5x\u00b2" },
+      "variables": ["x"]
     },
     {
       "id": "1d",
       "label": "1d",
-      "display": "A = 2b · 7b",
-      "answer": {
-        "type": "text",
-        "value": "14b²"
-      }
+      "display": "See workbook.",
+      "answer": { "type": "text", "value": "14b\u00b2" },
+      "variables": ["b"]
     },
     {
-      "id": "2a_A",
-      "label": "2a A",
-      "group": "2. Write the area and the perimeter of each rectangle.",
-      "display": "Area of rectangle",
+      "id": "2a",
+      "label": "2a",
+      "group": "2. Write an expression for both the area and perimeter of each rectangle. Give them in simplified form.",
+      "display": "See workbook.",
       "answer": {
-        "type": "text",
-        "value": "A = 12x²"
-      }
+        "type": "dual",
+        "layout": "table",
+        "fields": [
+          { "label": "Area", "value": "12x\u00b2", "inputType": "text" },
+          { "label": "Perimeter", "value": "16x", "inputType": "text" }
+        ]
+      },
+      "variables": ["x"]
     },
     {
-      "id": "2a_P",
-      "label": "2a P",
-      "display": "Perimeter of rectangle",
+      "id": "2b",
+      "label": "2b",
+      "display": "See workbook.",
       "answer": {
-        "type": "text",
-        "value": "P = 16x"
-      }
+        "type": "dual",
+        "layout": "table",
+        "fields": [
+          { "label": "Area", "value": "3x\u00b2", "inputType": "text" },
+          { "label": "Perimeter", "value": "8x", "inputType": "text" }
+        ]
+      },
+      "variables": ["x"]
     },
     {
-      "id": "2b_A",
-      "label": "2b A",
-      "display": "Area of rectangle",
+      "id": "2c",
+      "label": "2c",
+      "display": "See workbook.",
       "answer": {
-        "type": "text",
-        "value": "A = 3x²"
-      }
+        "type": "dual",
+        "layout": "table",
+        "fields": [
+          { "label": "Area", "value": "9s\u00b2", "inputType": "text" },
+          { "label": "Perimeter", "value": "12s", "inputType": "text" }
+        ]
+      },
+      "variables": ["s"]
     },
     {
-      "id": "2b_P",
-      "label": "2b P",
-      "display": "Perimeter of rectangle",
+      "id": "2d",
+      "label": "2d",
+      "display": "See workbook.",
       "answer": {
-        "type": "text",
-        "value": "P = 8x"
-      }
-    },
-    {
-      "id": "2c_A",
-      "label": "2c A",
-      "display": "Area of rectangle",
-      "answer": {
-        "type": "text",
-        "value": "A = 9s²"
-      }
-    },
-    {
-      "id": "2c_P",
-      "label": "2c P",
-      "display": "Perimeter of rectangle",
-      "answer": {
-        "type": "text",
-        "value": "P = 12s"
-      }
-    },
-    {
-      "id": "2d_A",
-      "label": "2d A",
-      "display": "Area of rectangle",
-      "answer": {
-        "type": "text",
-        "value": "A = 8a²"
-      }
-    },
-    {
-      "id": "2d_P",
-      "label": "2d P",
-      "display": "Perimeter of rectangle",
-      "answer": {
-        "type": "text",
-        "value": "P = 12a"
-      }
+        "type": "dual",
+        "layout": "table",
+        "fields": [
+          { "label": "Area", "value": "8a\u00b2", "inputType": "text" },
+          { "label": "Perimeter", "value": "12a", "inputType": "text" }
+        ]
+      },
+      "variables": ["a"]
     },
     {
       "id": "3a",
       "label": "3a",
-      "group": "3. Write the area and the perimeter.",
-      "display": "A and P of rectangle",
+      "group": "3. Write an expression for both the area and perimeter of each rectangle. Give them in simplified form.",
+      "display": "See workbook.",
       "answer": {
-        "type": "text",
-        "value": "A = 28c², P = 22c"
-      }
+        "type": "dual",
+        "layout": "table",
+        "fields": [
+          { "label": "Area", "value": "28c\u00b2", "inputType": "text" },
+          { "label": "Perimeter", "value": "22c", "inputType": "text" }
+        ]
+      },
+      "variables": ["c"]
     },
     {
       "id": "3b",
       "label": "3b",
-      "display": "A and P of rectangle",
+      "display": "See workbook.",
       "answer": {
-        "type": "text",
-        "value": "A = 80x², P = 36x"
-      }
+        "type": "dual",
+        "layout": "table",
+        "fields": [
+          { "label": "Area", "value": "80x\u00b2", "inputType": "text" },
+          { "label": "Perimeter", "value": "36x", "inputType": "text" }
+        ]
+      },
+      "variables": ["x"]
     },
     {
       "id": "4a",
       "label": "4a",
-      "group": "4. Find the area and the perimeter of the L-shapes.",
-      "display": "A and P of L-shape",
+      "group": "4. Write an expression for both the area and perimeter of each shape, in simplified form.",
+      "display": "See workbook.",
       "answer": {
-        "type": "text",
-        "value": "A = 14x², P = 18x"
-      }
+        "type": "dual",
+        "layout": "table",
+        "fields": [
+          { "label": "Area", "value": "14x\u00b2", "inputType": "text" },
+          { "label": "Perimeter", "value": "18x", "inputType": "text" }
+        ]
+      },
+      "variables": ["x"]
     },
     {
       "id": "4b",
       "label": "4b",
-      "display": "A and P of L-shape",
+      "display": "See workbook.",
       "answer": {
-        "type": "text",
-        "value": "A = 19x², P = 20x"
-      }
+        "type": "dual",
+        "layout": "table",
+        "fields": [
+          { "label": "Area", "value": "19x\u00b2", "inputType": "text" },
+          { "label": "Perimeter", "value": "20x", "inputType": "text" }
+        ]
+      },
+      "variables": ["x"]
     },
     {
       "id": "5a",
       "label": "5a",
-      "group": "5. Find the area and the perimeter of the shapes.",
-      "display": "A and P of shape",
+      "group": "5. Write an expression, in simplified form, for both the area and perimeter of each shape.",
+      "display": "See workbook.",
       "answer": {
-        "type": "text",
-        "value": "A = 19x², P = 26x"
-      }
+        "type": "dual",
+        "layout": "table",
+        "fields": [
+          { "label": "Area", "value": "19x\u00b2", "inputType": "text" },
+          { "label": "Perimeter", "value": "26x", "inputType": "text" }
+        ]
+      },
+      "variables": ["x"]
     },
     {
       "id": "5b",
       "label": "5b",
-      "display": "A and P of shape",
+      "display": "See workbook.",
       "answer": {
-        "type": "text",
-        "value": "A = 24x², P = 22x"
-      }
+        "type": "dual",
+        "layout": "table",
+        "fields": [
+          { "label": "Area", "value": "24x\u00b2", "inputType": "text" },
+          { "label": "Perimeter", "value": "22x", "inputType": "text" }
+        ]
+      },
+      "variables": ["x"]
     },
     {
       "id": "5c",
       "label": "5c",
-      "display": "A and P of shape",
+      "display": "See workbook.",
       "answer": {
-        "type": "text",
-        "value": "A = 40b², P = 32b"
-      }
+        "type": "dual",
+        "layout": "table",
+        "fields": [
+          { "label": "Area", "value": "40b\u00b2", "inputType": "text" },
+          { "label": "Perimeter", "value": "32b", "inputType": "text" }
+        ]
+      },
+      "variables": ["b"]
     },
     {
       "id": "5d",
       "label": "5d",
-      "display": "A and P of shape",
+      "display": "See workbook.",
       "answer": {
-        "type": "text",
-        "value": "A = 43b², P = 28b"
-      }
+        "type": "dual",
+        "layout": "table",
+        "fields": [
+          { "label": "Area", "value": "43b\u00b2", "inputType": "text" },
+          { "label": "Perimeter", "value": "28b", "inputType": "text" }
+        ]
+      },
+      "variables": ["b"]
     },
     {
       "id": "5e",
       "label": "5e",
-      "display": "A and P of shape",
+      "display": "See workbook.",
       "answer": {
-        "type": "text",
-        "value": "A = 51a², P = 36a"
-      }
+        "type": "dual",
+        "layout": "table",
+        "fields": [
+          { "label": "Area", "value": "51a\u00b2", "inputType": "text" },
+          { "label": "Perimeter", "value": "36a", "inputType": "text" }
+        ]
+      },
+      "variables": ["a"]
     },
     {
       "id": "5f",
       "label": "5f",
-      "display": "A and P of shape",
+      "display": "See workbook.",
       "answer": {
-        "type": "text",
-        "value": "A = 51a², P = 36a"
-      }
+        "type": "dual",
+        "layout": "table",
+        "fields": [
+          { "label": "Area", "value": "51a\u00b2", "inputType": "text" },
+          { "label": "Perimeter", "value": "36a", "inputType": "text" }
+        ]
+      },
+      "variables": ["a"]
     },
     {
       "id": "6a",
       "label": "6a",
-      "group": "6. Find the area.",
-      "display": "A = ?",
-      "answer": {
-        "type": "text",
-        "value": "A = 20x²"
-      }
+      "group": "6. Write an expression for the area of this shape.",
+      "display": "See workbook.",
+      "answer": { "type": "text", "value": "20x\u00b2" },
+      "variables": ["x"]
     },
     {
       "id": "6b",
       "label": "6b",
-      "display": "A when x = 5 cm",
-      "answer": {
-        "type": "text",
-        "value": "A = 500 cm²"
-      }
+      "display": "Evaluate the expression if x = 5 cm.",
+      "answer": { "type": "number", "value": 500 }
     },
     {
       "id": "6c",
       "label": "6c",
-      "display": "A when x = 10 cm",
-      "answer": {
-        "type": "text",
-        "value": "A = 2000 cm²"
-      }
+      "display": "Evaluate the expression if x = 10 cm.",
+      "answer": { "type": "number", "value": 2000 }
     },
     {
       "id": "6d",
       "label": "6d",
-      "display": "Is the area double?",
+      "display": "Is the area you get in (c) double the area you get in (b)?",
       "answer": {
-        "type": "text",
-        "value": "No. It is quadruple (four times as much)."
+        "type": "workbook",
+        "hint": "No. It is quadruple (four times as much)."
       }
     },
     {
       "id": "7a",
       "label": "7a",
-      "group": "7. Find the area and perimeter. Investigate doubling.",
-      "display": "A and P",
+      "group": "7. Copy the area and perimeter from 5e. Investigate doubling.",
+      "display": "See workbook.",
       "answer": {
-        "type": "text",
-        "value": "A = 51a², P = 36a"
-      }
+        "type": "dual",
+        "layout": "table",
+        "fields": [
+          { "label": "Area", "value": "51a\u00b2", "inputType": "text" },
+          { "label": "Perimeter", "value": "36a", "inputType": "text" }
+        ]
+      },
+      "variables": ["a"]
     },
     {
       "id": "7b",
       "label": "7b",
-      "display": "P when a = 2 cm",
-      "answer": {
-        "type": "text",
-        "value": "72 cm"
-      }
+      "display": "Evaluate the perimeter if a = 2 cm.",
+      "answer": { "type": "number", "value": 72 }
     },
     {
       "id": "7c",
       "label": "7c",
-      "display": "P when a = 4 cm",
-      "answer": {
-        "type": "text",
-        "value": "144 cm"
-      }
+      "display": "Evaluate the perimeter if a = 4 cm.",
+      "answer": { "type": "number", "value": 144 }
     },
     {
       "id": "7d",
       "label": "7d",
-      "display": "Is the perimeter doubled?",
+      "display": "Is the perimeter in (c) double the perimeter in (b)?",
       "answer": {
-        "type": "text",
-        "value": "yes"
+        "type": "workbook",
+        "hint": "Yes"
       }
     },
     {
       "id": "7e",
       "label": "7e",
-      "display": "Is the area doubled?",
+      "display": "Check if the same is true for area. Find the area for a = 2 cm and a = 4 cm.",
       "answer": {
-        "type": "text",
-        "value": "No, the area was quadruple (four times as much). When a = 2: 204 cm². When a = 4: 816 cm²."
+        "type": "workbook",
+        "hint": "When a = 2: A = 51 \u00b7 2\u00b2 = 204 cm\u00b2. When a = 4: A = 51 \u00b7 4\u00b2 = 816 cm\u00b2. No, the area is quadruple (four times as much)."
       }
     },
     {
       "id": "8a",
       "label": "8a",
-      "group": "8. What is the side of a square with the given area?",
-      "display": "Side of square with area 9b²",
-      "answer": {
-        "type": "text",
-        "value": "3b"
-      }
+      "group": "8. Find the missing side length of the rectangles when one side and the area are given.",
+      "display": "See workbook.",
+      "answer": { "type": "text", "value": "3b" },
+      "variables": ["b"]
     },
     {
       "id": "8b",
       "label": "8b",
-      "display": "Side of square with area 36a²",
-      "answer": {
-        "type": "text",
-        "value": "6a"
-      }
+      "display": "See workbook.",
+      "answer": { "type": "text", "value": "6a" },
+      "variables": ["a"]
     },
     {
       "id": "9a",
       "label": "9a",
-      "group": "9. Find the side of a square with the given area.",
-      "display": "Side of square with area 36c²",
-      "answer": {
-        "type": "text",
-        "value": "6c"
-      }
+      "group": "9. Find the missing side length when one side and the perimeter are given.",
+      "display": "See workbook.",
+      "answer": { "type": "text", "value": "6c" },
+      "variables": ["c"]
     },
     {
       "id": "9b",
       "label": "9b",
-      "display": "Side of square with area 36b²",
-      "answer": {
-        "type": "text",
-        "value": "6b"
-      }
+      "display": "See workbook.",
+      "answer": { "type": "text", "value": "6b" },
+      "variables": ["b"]
     },
     {
       "id": "10",
       "label": "10",
-      "group": "10. Find the side of a square with area 4y².",
-      "display": "Side of square with area 4y²",
-      "answer": {
-        "type": "text",
-        "value": "The length of each side is 2y."
-      }
+      "group": "10. The area of a square is 4y\u00b2. What is the length of each side?",
+      "display": "Find the side length.",
+      "answer": { "type": "text", "value": "2y" },
+      "variables": ["y"]
     },
     {
       "id": "11",
       "label": "11",
-      "group": "11. Find the other side of the rectangle.",
-      "display": "Other side of rectangle with area 48s² and one side 6s",
-      "answer": {
-        "type": "text",
-        "value": "The other side is 8s."
-      }
+      "group": "11. The perimeter of a rectangle is 42s, and one of its sides is 13s. How long is the other side?",
+      "display": "Find the other side.",
+      "answer": { "type": "text", "value": "8s" },
+      "variables": ["s"]
     },
     {
       "id": "12a",
       "label": "12a",
-      "group": "12. Write an expression.",
-      "display": "Expression: (9r)²",
-      "answer": {
-        "type": "text",
-        "value": "81r²"
-      }
+      "group": "12. Write an expression for each situation.",
+      "display": "What is the area of a square with sides of length 9r?",
+      "answer": { "type": "text", "value": "81r\u00b2" },
+      "variables": ["r"]
     },
     {
       "id": "12b",
       "label": "12b",
-      "display": "Expression: perimeter of rectangle with sides 8a and 12a",
-      "answer": {
-        "type": "text",
-        "value": "40a"
-      }
+      "display": "What is the perimeter of a regular pentagon with sides of length 8a?",
+      "answer": { "type": "text", "value": "40a" },
+      "variables": ["a"]
     },
     {
       "id": "12c",
       "label": "12c",
-      "display": "Ava's age if Sarah is S",
-      "answer": {
-        "type": "text",
-        "value": "S − 3"
-      }
+      "display": "Susan\u2019s age is S years. Her sister Ava is 3 years younger. Write an expression for Ava\u2019s age.",
+      "answer": { "type": "text", "value": "S \u2212 3" },
+      "variables": ["S"]
     },
     {
       "id": "12d",
       "label": "12d",
-      "display": "More expensive shoes cost",
-      "answer": {
-        "type": "text",
-        "value": "p + $10"
-      }
+      "display": "A cheap pair of shoes costs p dollars. Another pair is $10 more expensive. Write an expression for the cost of the more expensive pair.",
+      "answer": { "type": "text", "value": "p + 10" },
+      "variables": ["p"]
     },
     {
       "id": "12e",
       "label": "12e",
-      "display": "Cost of 5 pairs of more expensive shoes",
-      "answer": {
-        "type": "text",
-        "value": "5(p + $10)"
-      }
+      "display": "Write an expression for the cost of five pairs of the expensive shoes from (d).",
+      "answer": { "type": "text", "value": "5(p + 10)" },
+      "variables": ["p"]
     }
   ]
 }

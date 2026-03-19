@@ -1,0 +1,108 @@
+{
+  "chapter": "chapter-7",
+  "section": "problem-solving-with-fractions-1",
+  "title": "Problem Solving with Fractions 1",
+  "pages": "59-61",
+  "problems": [
+    {
+      "id": "1a", "label": "1a",
+      "group": "1. Anna needs to make 30 servings of spiced coffee for a party. The recipe makes 4 servings. Calculate the amount of each ingredient she needs.",
+      "display": "Spiced Coffee — 30 servings",
+      "answer": {
+        "type": "dual",
+        "fields": [
+          { "label": "Ground cinnamon (tsp)", "value": "11 1/4", "inputType": "number", "decimal": 11.25, "tolerance": 0.001 },
+          { "label": "Ground nutmeg (tsp)", "value": "3 3/4", "inputType": "number", "decimal": 3.75, "tolerance": 0.001 },
+          { "label": "Sugar (tbsp)", "value": "15", "inputType": "number" },
+          { "label": "Heavy cream (cups)", "value": "7 1/2", "inputType": "number", "decimal": 7.5, "tolerance": 0.001 },
+          { "label": "Coffee (cups)", "value": "22 1/2", "inputType": "number", "decimal": 22.5, "tolerance": 0.001 },
+          { "label": "Chocolate syrup (tsp)", "value": "30", "inputType": "number" }
+        ]
+      }
+    },
+    {
+      "id": "1b", "label": "1b",
+      "group": "1. Next week she wants to make just one serving for herself. Calculate the amount of each ingredient she needs.",
+      "display": "Spiced Coffee — 1 serving",
+      "answer": {
+        "type": "dual",
+        "fields": [
+          { "label": "Ground cinnamon (tsp)", "value": "3/8", "inputType": "number", "decimal": 0.375, "tolerance": 0.001 },
+          { "label": "Ground nutmeg (tsp)", "value": "1/8", "inputType": "number", "decimal": 0.125, "tolerance": 0.001 },
+          { "label": "Sugar (tbsp)", "value": "1/2", "inputType": "number", "decimal": 0.5, "tolerance": 0.001 },
+          { "label": "Heavy cream (cups)", "value": "1/4", "inputType": "number", "decimal": 0.25, "tolerance": 0.001 },
+          { "label": "Coffee (cups)", "value": "3/4", "inputType": "number", "decimal": 0.75, "tolerance": 0.001 },
+          { "label": "Chocolate syrup (tsp)", "value": "1", "inputType": "number" }
+        ]
+      }
+    },
+    {
+      "id": "2", "label": "2",
+      "group": "2. Sam planted tomatoes in his garden, which is a rectangle with an area of 2 1/2 m². If one side of the garden measures 5 m, how long is the other side?",
+      "display": "2 1/2 ÷ 5",
+      "answer": { "type": "fraction", "value": "1/2", "decimal": 0.5 }
+    },
+    {
+      "id": "3", "label": "3",
+      "group": "3. Which is a better deal: a book that costs $45.55 at 1/5 off or a book that costs $52.80 at 1/4 off?",
+      "display": "Which book is cheaper after the discount?",
+      "answer": { "type": "multiselect", "options": ["The $45.55 book at 1/5 off", "The $52.80 book at 1/4 off"], "correct": ["The $45.55 book at 1/5 off"] }
+    },
+    {
+      "id": "4a", "label": "4a",
+      "group": "4. The unknown is given as a part of a part. Solve for x. See workbook for the bar model.",
+      "display": "See workbook.",
+      "answer": { "type": "number", "value": "177" }
+    },
+    {
+      "id": "4b", "label": "4b",
+      "group": "4. The unknown is given as a part of a part. Solve for x. See workbook for the bar model.",
+      "display": "See workbook.",
+      "answer": { "type": "number", "value": "248" }
+    },
+    {
+      "id": "5", "label": "5",
+      "group": "5. Elaine gave her grandmother 3/4 of the 48 flowers she had picked. Then her grandmother gave 1/4 of those flowers to her neighbour.",
+      "display": "How many flowers does each person have?",
+      "answer": {
+        "type": "dual",
+        "fields": [
+          { "label": "Grandmother has now", "value": "27", "inputType": "number" },
+          { "label": "Neighbour got", "value": "9", "inputType": "number" },
+          { "label": "Elaine has left", "value": "12", "inputType": "number" }
+        ]
+      }
+    },
+    {
+      "id": "6", "label": "6",
+      "group": "6. Father paid 1/5 of his pay cheque in taxes. After that, he used 1/6 of what remained as a loan payment. Then he had $860 left. How much was his pay cheque?",
+      "display": "Draw a bar model to help you solve.",
+      "answer": { "type": "number", "value": "1290" }
+    },
+    {
+      "id": "7", "label": "7",
+      "group": "7. Father used 1/6 of his $1200 to pay for automobile repairs. Of what was left, he used 2/5 to buy groceries. How much money does Father have left now?",
+      "display": "Draw a bar model to help you solve.",
+      "answer": { "type": "number", "value": "600" }
+    },
+    {
+      "id": "8a", "label": "8a",
+      "group": "8. Of the total retail sales of potatoes, the farmer gets 1/8, the wholesale dealer gets 1/12 and the shopkeeper gets the rest.",
+      "display": "How much (as a fraction) does the shopkeeper get?",
+      "answer": { "type": "fraction", "value": "19/24", "decimal": 0.7917 }
+    },
+    {
+      "id": "8b", "label": "8b",
+      "group": "8. Of the total retail sales of potatoes, the farmer gets 1/8, the wholesale dealer gets 1/12 and the shopkeeper gets the rest.",
+      "display": "If the total sales were $4500, how much (in dollars) would each get?",
+      "answer": {
+        "type": "dual",
+        "fields": [
+          { "label": "Farmer ($)", "value": "562.50", "inputType": "number" },
+          { "label": "Wholesale dealer ($)", "value": "375", "inputType": "number" },
+          { "label": "Shopkeeper ($)", "value": "3562.50", "inputType": "number" }
+        ]
+      }
+    }
+  ]
+}

@@ -74,18 +74,18 @@
     },
     {
       "id": "3a", "label": "3a",
-      "group": "3. Find the value of the expressions you wrote in exercise 2 when...",
-      "display": "30(1200 − 300)",
+      "group": "3. Find the value of the expressions you wrote in exercise 2 when ...",
+      "display": "the variable s has the value 1200",
       "answer": { "type": "number", "value": 27000 }
     },
     {
       "id": "3b", "label": "3b",
-      "display": "(35 + 42) ÷ 7",
+      "display": "the variable x has the value 42",
       "answer": { "type": "number", "value": 11 }
     },
     {
       "id": "3c", "label": "3c",
-      "display": "800 − 200/40",
+      "display": "the variable y has the value 800",
       "answer": { "type": "number", "value": 795 }
     },
     {

@@ -4,5 +4,59 @@
     "title": "Chapter 2: Expressions and Equations",
     "folder": "chapter-2",
     "order": 2
+  },
+  {
+    "id": "chapter-2-review",
+    "title": "Chapter 2 Review",
+    "folder": "chapter-2-review",
+    "order": 2.5
+  },
+  {
+    "id": "chapter-7",
+    "title": "Chapter 7: Fractions",
+    "folder": "chapter-7",
+    "order": 7
+  },
+  {
+    "id": "chapter-7-review",
+    "title": "Chapter 7 Review",
+    "folder": "chapter-7-review",
+    "order": 7.5
+  },
+  {
+    "id": "chapter-8",
+    "title": "Chapter 8: Integers",
+    "folder": "chapter-8",
+    "order": 8
+  },
+  {
+    "id": "chapter-8-review",
+    "title": "Chapter 8 Review",
+    "folder": "chapter-8-review",
+    "order": 8.5
+  },
+  {
+    "id": "chapter-9",
+    "title": "Chapter 9: Geometry",
+    "folder": "chapter-9",
+    "order": 9
+  },
+  {
+    "id": "chapter-9-review",
+    "title": "Chapter 9 Review",
+    "folder": "chapter-9-review",
+    "order": 9.5
+  },
+  {
+    "id": "chapter-10",
+    "title": "Chapter 10: Statistics",
+    "folder": "chapter-10",
+    "order": 10
+  },
+  {
+    "id": "chapter-10-review",
+    "title": "Chapter 10 Review",
+    "folder": "chapter-10-review",
+    "order": 10.5
   }
 ]

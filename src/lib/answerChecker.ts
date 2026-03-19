@@ -21,7 +21,50 @@ export interface WorkbookAnswer {
   hint?: string;
 }
 
-export type Answer = NumberAnswer | FractionAnswer | TextAnswer | WorkbookAnswer;
+export interface MultiselectAnswer {
+  type: 'multiselect';
+  options: string[];
+  correct: string[];
+}
+
+export interface DualField {
+  label: string;
+  value: string;
+  inputType: 'text' | 'number';
+  decimal?: number;      // If present, use fraction checking instead of number
+  tolerance?: number;    // For fraction comparison (default 0.001)
+}
+
+export interface DualAnswer {
+  type: 'dual';
+  layout?: 'table';
+  fields: DualField[];
+}
+
+export interface MeasureAnswer {
+  type: 'measure';
+  value: string;       // e.g. "11 m 4.5 cm"
+  units: string[];     // e.g. ["m", "cm"] — determines builder buttons
+  tolerance?: number;  // base-unit tolerance, default 0.01
+}
+
+export interface GapField {
+  value: string;
+  inputType: 'number' | 'text';
+  decimal?: number;      // If present, use fraction checking instead of number
+  tolerance?: number;    // For fraction comparison (default 0.001)
+}
+
+export interface GapAnswer {
+  type: 'gap';
+  template: string;       // e.g. "{0}(x + 2) = 3x + 6" — {n} marks gap positions
+  gaps: GapField[];       // one per {n} placeholder
+  validSets?: string[][]; // alternative valid answer combinations
+  layout?: 'table';       // render as a grid table instead of inline equation
+  tableRows?: string[][]; // rows of cells; cells matching {n} become gap inputs
+}
+
+export type Answer = NumberAnswer | FractionAnswer | TextAnswer | WorkbookAnswer | MultiselectAnswer | DualAnswer | MeasureAnswer | GapAnswer;
 
 function parseNumber(input: string): number | null {
   const cleaned = input.replace(/,/g, '').replace(/\s/g, '');
@@ -222,6 +265,57 @@ function normalizeTerm(term: string): string {
   return result;
 }
 
+// ── Measure (compound unit) helpers ──
+
+const UNIT_CONVERSIONS: Record<string, { base: string; factor: number }> = {
+  // Length → base: mm
+  km:  { base: 'mm', factor: 1_000_000 },
+  m:   { base: 'mm', factor: 1_000 },
+  cm:  { base: 'mm', factor: 10 },
+  mm:  { base: 'mm', factor: 1 },
+  // Weight → base: g
+  kg:  { base: 'g', factor: 1_000 },
+  g:   { base: 'g', factor: 1 },
+  // Volume → base: mL
+  L:   { base: 'mL', factor: 1_000 },
+  mL:  { base: 'mL', factor: 1 },
+};
+
+interface UnitPair { value: number; unit: string; }
+
+function parseMeasure(input: string): UnitPair[] | null {
+  const trimmed = input.trim();
+  if (!trimmed) return null;
+
+  const pairs: UnitPair[] = [];
+  // Order: longest-first to avoid 'm' matching before 'mm'/'mL'
+  const regex = /(-?\d+(?:\.\d+)?)\s*(km|cm|mm|kg|mL|m|g|L)\b/g;
+  let match: RegExpExecArray | null;
+
+  while ((match = regex.exec(trimmed)) !== null) {
+    pairs.push({ value: parseFloat(match[1]), unit: match[2] });
+  }
+
+  return pairs.length > 0 ? pairs : null;
+}
+
+function measureToBase(pairs: UnitPair[]): { base: string; total: number } | null {
+  if (pairs.length === 0) return null;
+
+  const firstConv = UNIT_CONVERSIONS[pairs[0].unit];
+  if (!firstConv) return null;
+  const base = firstConv.base;
+
+  let total = 0;
+  for (const pair of pairs) {
+    const conv = UNIT_CONVERSIONS[pair.unit];
+    if (!conv || conv.base !== base) return null; // mismatched unit groups
+    total += pair.value * conv.factor;
+  }
+
+  return { base, total };
+}
+
 export function checkAnswer(input: string, answer: Answer): boolean {
   const trimmed = input.trim();
   if (!trimmed) return false;
@@ -244,14 +338,42 @@ export function checkAnswer(input: string, answer: Answer): boolean {
     case 'workbook':
       return true;
 
+    case 'multiselect':
+      // Not checked via checkAnswer — handled by MultiSelectRow component
+      return false;
+
+    case 'dual':
+      // Not checked via checkAnswer — handled by DualAnswerRow component
+      return false;
+
+    case 'gap':
+      // Not checked via checkAnswer — handled by GapRow component
+      return false;
+
+    case 'measure': {
+      const inputPairs = parseMeasure(trimmed);
+      if (!inputPairs) return false;
+      const expectedPairs = parseMeasure(answer.value);
+      if (!expectedPairs) return false;
+      const inputBase = measureToBase(inputPairs);
+      const expectedBase = measureToBase(expectedPairs);
+      if (!inputBase || !expectedBase) return false;
+      if (inputBase.base !== expectedBase.base) return false;
+      const tolerance = answer.tolerance ?? 0.01;
+      return Math.abs(inputBase.total - expectedBase.total) <= tolerance;
+    }
+
     case 'text': {
       // Normalize both sides: collapse whitespace, unify dash characters, caret → superscript
       const normalize = (s: string) =>
         caretToSuperscript(s)
           .toLowerCase()
           .replace(/[\u2212\u2013\u2014\u2010]/g, '-') // minus sign, en/em dash, hyphen → ASCII hyphen
+          .replace(/÷/g, '/')                           // ÷ → / (treat as equivalent)
+          .replace(/>=/g, '≥')                          // ASCII >= → Unicode ≥
+          .replace(/<=/g, '≤')                          // ASCII <= → Unicode ≤
           .replace(/\s+/g, ' ')                         // collapse whitespace
-          .replace(/\s*([+\-*/=()÷×·⋅])\s*/g, '$1')      // strip spaces around operators
+          .replace(/\s*([+\-*/=()÷×·⋅<>≤≥])\s*/g, '$1') // strip spaces around operators
           .trim();
 
       // Exact match after normalization

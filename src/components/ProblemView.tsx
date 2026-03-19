@@ -4,6 +4,9 @@ import { loadSections, loadSectionData } from '../lib/dataLoader';
 import type { SectionData, SectionMeta } from '../lib/dataLoader';
 import type { SectionProgress } from '../lib/progressStore';
 import ProblemRow from './ProblemRow';
+import MultiSelectRow from './MultiSelectRow';
+import DualAnswerRow from './DualAnswerRow';
+import GapRow from './GapRow';
 import ProgressBar from './ProgressBar';
 import CelebrationModal from './CelebrationModal';
 
@@ -50,6 +53,7 @@ export default function ProblemView({
     if (meta) {
       const data = loadSectionData(chapterId, meta.file);
       setSectionData(data);
+      if (!data) return;
 
       // Initialize celebration refs based on current progress so we don't
       // re-celebrate milestones that were already reached in a prior visit.
@@ -123,8 +127,18 @@ export default function ProblemView({
 
   const handleNextSection = () => {
     const currentIdx = sections.findIndex(s => s.id === sectionId);
-    if (currentIdx >= 0 && currentIdx < sections.length - 1) {
-      navigate(`/chapter/${chapterId}/${sections[currentIdx + 1].id}`);
+    // Find next section that isn't marked needsReview
+    let nextSection: SectionMeta | null = null;
+    for (let i = currentIdx + 1; i < sections.length; i++) {
+      const meta = sections[i];
+      const data = loadSectionData(chapterId!, meta.file);
+      if (data && !data.needsReview) {
+        nextSection = meta;
+        break;
+      }
+    }
+    if (nextSection) {
+      navigate(`/chapter/${chapterId}/${nextSection.id}`);
     } else {
       navigate(`/chapter/${chapterId}`);
     }
@@ -132,6 +146,33 @@ export default function ProblemView({
   };
 
   if (!sectionData) {
+    const meta = sections.find(s => s.id === sectionId);
+    // If sections have loaded and we found the meta but no problem data, the section is empty
+    if (sections.length > 0 || meta) {
+      return (
+        <div className="min-h-screen bg-slate-50">
+          <header className="bg-white shadow-sm sticky top-0 z-10">
+            <div className="max-w-3xl mx-auto px-4 py-3 flex items-center gap-3">
+              <button
+                onClick={() => navigate(`/chapter/${chapterId}`)}
+                className="p-2 -ml-2 text-indigo-600 active:scale-95 transition-transform"
+              >
+                ← Back
+              </button>
+              <div className="flex-1 min-w-0">
+                <h1 className="text-lg font-bold text-gray-900 truncate">{meta?.title ?? 'Section'}</h1>
+                {meta?.pages && <p className="text-sm text-gray-500">Pages {meta.pages}</p>}
+              </div>
+            </div>
+          </header>
+          <div className="flex flex-col items-center justify-center py-20 px-4">
+            <div className="text-5xl mb-4">📚</div>
+            <div className="text-xl font-semibold text-gray-700 mb-2">Coming Soon!</div>
+            <div className="text-gray-500 text-center">Problems for this section haven't been added yet.</div>
+          </div>
+        </div>
+      );
+    }
     return (
       <div className="flex items-center justify-center min-h-screen">
         <div className="text-xl text-gray-400">Loading...</div>
@@ -140,7 +181,10 @@ export default function ProblemView({
   }
 
   const currentIdx = sections.findIndex(s => s.id === sectionId);
-  const hasNext = currentIdx >= 0 && currentIdx < sections.length - 1;
+  const hasNext = currentIdx >= 0 && sections.slice(currentIdx + 1).some(s => {
+    const d = loadSectionData(chapterId!, s.file);
+    return d && !d.needsReview;
+  });
 
   return (
     <div className="min-h-screen bg-slate-50">
@@ -209,17 +253,52 @@ export default function ProblemView({
                   </p>
                 </div>
               )}
-              <ProblemRow
-                problem={problem}
-                isCorrect={attempt?.correct ?? false}
-                previousAttempts={attempt?.attempts ?? 0}
-                savedAnswer={attempt?.answer}
-                onCorrect={(count, answer) => handleCorrect(problem.id, count, answer)}
-                onIncorrect={(count) => handleIncorrect(problem.id, count)}
-                onUndo={problem.answer.type === 'workbook' ? () => handleUndo(problem.id) : undefined}
-                playCorrect={playCorrect}
-                playIncorrect={playIncorrect}
-              />
+              {problem.answer.type === 'multiselect' ? (
+                <MultiSelectRow
+                  problem={problem as any}
+                  isCorrect={attempt?.correct ?? false}
+                  previousAttempts={attempt?.attempts ?? 0}
+                  savedAnswer={attempt?.answer}
+                  onCorrect={(count, answer) => handleCorrect(problem.id, count, answer)}
+                  onIncorrect={(count) => handleIncorrect(problem.id, count)}
+                  playCorrect={playCorrect}
+                  playIncorrect={playIncorrect}
+                />
+              ) : problem.answer.type === 'gap' ? (
+                <GapRow
+                  problem={problem as any}
+                  isCorrect={attempt?.correct ?? false}
+                  previousAttempts={attempt?.attempts ?? 0}
+                  savedAnswer={attempt?.answer}
+                  onCorrect={(count, answer) => handleCorrect(problem.id, count, answer)}
+                  onIncorrect={(count) => handleIncorrect(problem.id, count)}
+                  playCorrect={playCorrect}
+                  playIncorrect={playIncorrect}
+                />
+              ) : problem.answer.type === 'dual' ? (
+                <DualAnswerRow
+                  problem={problem as any}
+                  isCorrect={attempt?.correct ?? false}
+                  previousAttempts={attempt?.attempts ?? 0}
+                  savedAnswer={attempt?.answer}
+                  onCorrect={(count, answer) => handleCorrect(problem.id, count, answer)}
+                  onIncorrect={(count) => handleIncorrect(problem.id, count)}
+                  playCorrect={playCorrect}
+                  playIncorrect={playIncorrect}
+                />
+              ) : (
+                <ProblemRow
+                  problem={problem}
+                  isCorrect={attempt?.correct ?? false}
+                  previousAttempts={attempt?.attempts ?? 0}
+                  savedAnswer={attempt?.answer}
+                  onCorrect={(count, answer) => handleCorrect(problem.id, count, answer)}
+                  onIncorrect={(count) => handleIncorrect(problem.id, count)}
+                  onUndo={problem.answer.type === 'workbook' ? () => handleUndo(problem.id) : undefined}
+                  playCorrect={playCorrect}
+                  playIncorrect={playIncorrect}
+                />
+              )}
             </div>
           );
         })}

@@ -3,28 +3,349 @@
   "section": "using-two-variables",
   "title": "Using Two Variables",
   "pages": "86-89",
-  "needsReview": true,
   "problems": [
-    { "id": "1", "label": "1", "group": "1. Fill in the table and plot the points.", "display": "Calculate y values for y = x + 2, fill the table, and plot the points (see workbook p. 87)", "answer": { "type": "workbook", "hint": "y values: 2,3,4,5,6,7,8,9,10 for x = 0..8" } },
-    { "id": "2", "label": "2", "group": "2. Fill in the table and plot the points.", "display": "Calculate y values for y = 8 − x, fill the table, and plot the points (see workbook p. 87)", "answer": { "type": "workbook", "hint": "y values: 8,7,6,5,4,3,2,1,0 for x = 0..8" } },
-    { "id": "3", "label": "3", "group": "3. Fill in the table and plot the points.", "display": "Calculate y values for y = 2x − 1, fill the table, and plot the points (see workbook p. 87)", "answer": { "type": "workbook", "hint": "y values: 1,3,5,7,9,11 for x = 1..6" } },
-    { "id": "4a", "label": "4a", "group": "4. A car travels at 80 km/h.", "display": "A car travels at 80 km/h. Fill in the distance table (see workbook p. 88)", "answer": { "type": "workbook", "hint": "d = 0,80,160,240,320,400,480 for t = 0..6" } },
-    { "id": "4b", "label": "4b", "display": "Plot the car's distance points on the coordinate grid (see workbook p. 88)", "answer": { "type": "workbook" } },
-    { "id": "4c", "label": "4c", "display": "Write an equation relating t and d for the car travelling at 80 km/h.", "answer": { "type": "text", "value": "d = 80t" } },
-    { "id": "4d", "label": "4d", "display": "Which is the independent variable, t or d?", "answer": { "type": "text", "value": "t" } },
-    { "id": "5a", "label": "5a", "group": "5. Larry gets 1 litre of water per 3 seconds.", "display": "Larry gets 1 litre of water per 3 seconds. Fill in the volume table (see workbook p. 88)", "answer": { "type": "workbook", "hint": "V = 0, 1/3, 2/3, 1, 4/3, 5/3, 2, 7/3, 8/3, 3 for t = 0..9" } },
-    { "id": "5b", "label": "5b", "display": "Plot the water volume points on the coordinate grid (see workbook p. 88)", "answer": { "type": "workbook" } },
-    { "id": "5c", "label": "5c", "display": "Write an equation relating t (seconds) and V (litres) for the water faucet.", "answer": { "type": "text", "value": "V = t/3" } },
-    { "id": "5d", "label": "5d", "display": "Which is the independent variable, t or V?", "answer": { "type": "text", "value": "t" } },
-    { "id": "6a", "label": "6a", "group": "6. Xavier and Yvonne share 12 candies.", "display": "Xavier and Yvonne share 12 candies. Fill in the table using the graph (see workbook p. 88)", "answer": { "type": "workbook", "hint": "X+Y=12 for each pair" } },
-    { "id": "6b", "label": "6b", "display": "Write an equation relating X (Xavier's candy) and Y (Yvonne's candy).", "answer": { "type": "text", "value": "X + Y = 12" } },
-    { "id": "6c", "label": "6c", "display": "Which is the independent variable, X or Y? (for Xavier and Yvonne's candy)", "answer": { "type": "text", "value": "x" } },
-    { "id": "7a", "label": "7a", "group": "7. Maximum safe heart rate: H = 220 − A.", "display": "Calculate the max safe heart rate H = 220 − A for ages 5 to 60 (every 5 years). Fill the table (see workbook p. 89).", "answer": { "type": "workbook", "hint": "H: 215,210,205,200,195,190,185,180,175,170,165,160 for A = 5,10,...,60" } },
-    { "id": "7b", "label": "7b", "display": "Plot the heart rate points on the coordinate grid (see workbook p. 89)", "answer": { "type": "workbook" } },
-    { "id": "7c", "label": "7c", "display": "For H = 220 − A, which is the dependent variable: H or A?", "answer": { "type": "text", "value": "H" } },
-    { "id": "8a", "label": "8a", "group": "8. Read the graph, fill the table, and write the equation.", "display": "Read the graph (workbook p. 89, problem 8a), fill the table, and write the equation y = ?", "answer": { "type": "workbook", "hint": "y = x + 1" } },
-    { "id": "8b", "label": "8b", "display": "Read the graph (workbook p. 89, problem 8b), fill the table, and write the equation y = ?", "answer": { "type": "workbook", "hint": "y = 7 − x" } },
-    { "id": "puzzle-a", "label": "Puzzle a", "group": "Puzzle Corner: Write the equation for the graph.", "display": "Puzzle Corner (a): Write the equation for the graph (see workbook p. 89)", "answer": { "type": "workbook", "hint": "y = 10 − (x/2) or y = 10 − (1/2)x" } },
-    { "id": "puzzle-b", "label": "Puzzle b", "display": "Puzzle Corner (b): Write the equation for the graph (see workbook p. 89)", "answer": { "type": "workbook", "hint": "y = 2x + 1" } }
+    {
+      "id": "1-table", "label": "1",
+      "group": "1. Calculate the values of y according to the equation y = x + 2.",
+      "display": "Fill in the missing y values.",
+      "answer": {
+        "type": "gap",
+        "layout": "table",
+        "template": "",
+        "tableRows": [
+          ["x", "0", "1", "2", "3", "4", "5", "6", "7", "8"],
+          ["y", "2", "3", "4", "{0}", "{1}", "{2}", "{3}", "{4}", "{5}"]
+        ],
+        "gaps": [
+          { "value": "5", "inputType": "number" },
+          { "value": "6", "inputType": "number" },
+          { "value": "7", "inputType": "number" },
+          { "value": "8", "inputType": "number" },
+          { "value": "9", "inputType": "number" },
+          { "value": "10", "inputType": "number" }
+        ]
+      }
+    },
+    {
+      "id": "1-plot", "label": "1",
+      "group": "1. Calculate the values of y according to the equation y = x + 2.",
+      "display": "Now, plot the points.",
+      "answer": { "type": "workbook" }
+    },
+
+    {
+      "id": "2-table", "label": "2",
+      "group": "2. Calculate the values of y according to the equation y = 8 − x.",
+      "display": "Fill in the missing y values.",
+      "answer": {
+        "type": "gap",
+        "layout": "table",
+        "template": "",
+        "tableRows": [
+          ["x", "0", "1", "2", "3", "4", "5", "6", "7", "8"],
+          ["y", "8", "{0}", "{1}", "{2}", "{3}", "{4}", "{5}", "{6}", "{7}"]
+        ],
+        "gaps": [
+          { "value": "7", "inputType": "number" },
+          { "value": "6", "inputType": "number" },
+          { "value": "5", "inputType": "number" },
+          { "value": "4", "inputType": "number" },
+          { "value": "3", "inputType": "number" },
+          { "value": "2", "inputType": "number" },
+          { "value": "1", "inputType": "number" },
+          { "value": "0", "inputType": "number" }
+        ]
+      }
+    },
+    {
+      "id": "2-plot", "label": "2",
+      "group": "2. Calculate the values of y according to the equation y = 8 − x.",
+      "display": "Now, plot the points.",
+      "answer": { "type": "workbook" }
+    },
+
+    {
+      "id": "3-table", "label": "3",
+      "group": "3. Calculate the values of y according to the equation y = 2x − 1.",
+      "display": "Fill in the y values.",
+      "answer": {
+        "type": "gap",
+        "layout": "table",
+        "template": "",
+        "tableRows": [
+          ["x", "1", "2", "3", "4", "5", "6"],
+          ["y", "{0}", "{1}", "{2}", "{3}", "{4}", "{5}"]
+        ],
+        "gaps": [
+          { "value": "1", "inputType": "number" },
+          { "value": "3", "inputType": "number" },
+          { "value": "5", "inputType": "number" },
+          { "value": "7", "inputType": "number" },
+          { "value": "9", "inputType": "number" },
+          { "value": "11", "inputType": "number" }
+        ]
+      }
+    },
+    {
+      "id": "3-plot", "label": "3",
+      "group": "3. Calculate the values of y according to the equation y = 2x − 1.",
+      "display": "Now, plot the points.",
+      "answer": { "type": "workbook" }
+    },
+
+    {
+      "id": "4a", "label": "4a",
+      "group": "4. An automobile is travelling at a constant speed of 80 kilometres per hour.",
+      "display": "Fill in the distance table.",
+      "answer": {
+        "type": "gap",
+        "layout": "table",
+        "template": "",
+        "tableRows": [
+          ["t (hours)", "0", "1", "2", "3", "4", "5", "6"],
+          ["d (km)", "0", "80", "{0}", "{1}", "{2}", "{3}", "{4}"]
+        ],
+        "gaps": [
+          { "value": "160", "inputType": "number" },
+          { "value": "240", "inputType": "number" },
+          { "value": "320", "inputType": "number" },
+          { "value": "400", "inputType": "number" },
+          { "value": "480", "inputType": "number" }
+        ]
+      }
+    },
+    {
+      "id": "4b", "label": "4b",
+      "group": "4. An automobile is travelling at a constant speed of 80 kilometres per hour.",
+      "display": "Plot the points on the coordinate grid.",
+      "answer": { "type": "workbook" }
+    },
+    {
+      "id": "4c", "label": "4c",
+      "group": "4. An automobile is travelling at a constant speed of 80 kilometres per hour.",
+      "display": "Write an equation that relates t and d.",
+      "variables": ["d", "t"],
+      "answer": { "type": "text", "value": "d=80t" }
+    },
+    {
+      "id": "4d", "label": "4d",
+      "group": "4. An automobile is travelling at a constant speed of 80 kilometres per hour.",
+      "display": "Which of the two variables is the independent variable?",
+      "answer": { "type": "multiselect", "options": ["t", "d"], "correct": ["t"] }
+    },
+
+    {
+      "id": "5a", "label": "5a",
+      "group": "5. Larry gets water out of a fully-open faucet at the rate of 1 litre per 3 seconds.",
+      "display": "Fill in the volume table.",
+      "answer": {
+        "type": "gap",
+        "layout": "table",
+        "template": "",
+        "tableRows": [
+          ["t (sec)", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9"],
+          ["V (L)", "{0}", "{1}", "{2}", "{3}", "{4}", "{5}", "{6}", "{7}", "{8}", "{9}"]
+        ],
+        "gaps": [
+          { "value": "0", "inputType": "number" },
+          { "value": "1/3", "inputType": "number", "decimal": 0.3333, "tolerance": 0.001 },
+          { "value": "2/3", "inputType": "number", "decimal": 0.6667, "tolerance": 0.001 },
+          { "value": "1", "inputType": "number" },
+          { "value": "1 1/3", "inputType": "number", "decimal": 1.3333, "tolerance": 0.001 },
+          { "value": "1 2/3", "inputType": "number", "decimal": 1.6667, "tolerance": 0.001 },
+          { "value": "2", "inputType": "number" },
+          { "value": "2 1/3", "inputType": "number", "decimal": 2.3333, "tolerance": 0.001 },
+          { "value": "2 2/3", "inputType": "number", "decimal": 2.6667, "tolerance": 0.001 },
+          { "value": "3", "inputType": "number" }
+        ]
+      }
+    },
+    {
+      "id": "5b", "label": "5b",
+      "group": "5. Larry gets water out of a fully-open faucet at the rate of 1 litre per 3 seconds.",
+      "display": "Plot the points on the coordinate grid.",
+      "answer": { "type": "workbook" }
+    },
+    {
+      "id": "5c", "label": "5c",
+      "group": "5. Larry gets water out of a fully-open faucet at the rate of 1 litre per 3 seconds.",
+      "display": "Write an equation that relates t and V.",
+      "variables": ["V", "t"],
+      "answer": { "type": "text", "value": "V=t÷3" }
+    },
+    {
+      "id": "5d", "label": "5d",
+      "group": "5. Larry gets water out of a fully-open faucet at the rate of 1 litre per 3 seconds.",
+      "display": "Which of the two variables is the independent variable?",
+      "answer": { "type": "multiselect", "options": ["t", "V"], "correct": ["t"] }
+    },
+
+    {
+      "id": "6a", "label": "6a",
+      "group": "6. Xavier and Yvonne got 12 pieces of candy from their mother to share.",
+      "display": "Fill in the values of X and Y using the already plotted points. See workbook.",
+      "answer": { "type": "workbook" }
+    },
+    {
+      "id": "6b", "label": "6b",
+      "group": "6. Xavier and Yvonne got 12 pieces of candy from their mother to share.",
+      "display": "Write an equation that relates X and Y.",
+      "variables": ["X", "Y"],
+      "answer": { "type": "text", "value": "X+Y=12" }
+    },
+    {
+      "id": "6c", "label": "6c",
+      "group": "6. Xavier and Yvonne got 12 pieces of candy from their mother to share.",
+      "display": "Which of the two variables is the independent variable?",
+      "answer": { "type": "multiselect", "options": ["X", "Y"], "correct": ["X"] }
+    },
+
+    {
+      "id": "7a-1", "label": "7a",
+      "group": "7. Maximum safe heart rate: H = 220 − A, where A is the person's age.",
+      "display": "Fill in the table for ages 5–30.",
+      "answer": {
+        "type": "gap",
+        "layout": "table",
+        "template": "",
+        "tableRows": [
+          ["A", "{0}", "{1}", "{2}", "{3}", "{4}", "{5}"],
+          ["H", "{6}", "{7}", "{8}", "{9}", "{10}", "{11}"]
+        ],
+        "gaps": [
+          { "value": "5", "inputType": "number" },
+          { "value": "10", "inputType": "number" },
+          { "value": "15", "inputType": "number" },
+          { "value": "20", "inputType": "number" },
+          { "value": "25", "inputType": "number" },
+          { "value": "30", "inputType": "number" },
+          { "value": "215", "inputType": "number" },
+          { "value": "210", "inputType": "number" },
+          { "value": "205", "inputType": "number" },
+          { "value": "200", "inputType": "number" },
+          { "value": "195", "inputType": "number" },
+          { "value": "190", "inputType": "number" }
+        ]
+      }
+    },
+    {
+      "id": "7a-2", "label": "7a",
+      "group": "7. Maximum safe heart rate: H = 220 − A, where A is the person's age.",
+      "display": "Fill in the table for ages 35–60.",
+      "answer": {
+        "type": "gap",
+        "layout": "table",
+        "template": "",
+        "tableRows": [
+          ["A", "{0}", "{1}", "{2}", "{3}", "{4}", "{5}"],
+          ["H", "{6}", "{7}", "{8}", "{9}", "{10}", "{11}"]
+        ],
+        "gaps": [
+          { "value": "35", "inputType": "number" },
+          { "value": "40", "inputType": "number" },
+          { "value": "45", "inputType": "number" },
+          { "value": "50", "inputType": "number" },
+          { "value": "55", "inputType": "number" },
+          { "value": "60", "inputType": "number" },
+          { "value": "185", "inputType": "number" },
+          { "value": "180", "inputType": "number" },
+          { "value": "175", "inputType": "number" },
+          { "value": "170", "inputType": "number" },
+          { "value": "165", "inputType": "number" },
+          { "value": "160", "inputType": "number" }
+        ]
+      }
+    },
+    {
+      "id": "7b", "label": "7b",
+      "group": "7. Maximum safe heart rate: H = 220 − A, where A is the person's age.",
+      "display": "Plot the number pairs on the coordinate grid.",
+      "answer": { "type": "workbook" }
+    },
+    {
+      "id": "7c", "label": "7c",
+      "group": "7. Maximum safe heart rate: H = 220 − A, where A is the person's age.",
+      "display": "Which of the two variables is the dependent variable?",
+      "answer": { "type": "multiselect", "options": ["A", "H"], "correct": ["H"] }
+    },
+
+    {
+      "id": "8a-table", "label": "8a",
+      "group": "8. For each graph, write the number pairs in the table. Then, write an equation that relates x and y.",
+      "display": "Read graph (a) and fill in the y values. See workbook.",
+      "answer": {
+        "type": "gap",
+        "layout": "table",
+        "template": "",
+        "tableRows": [
+          ["x", "1", "2", "3", "4", "5", "6", "7", "8", "9"],
+          ["y", "{0}", "{1}", "{2}", "{3}", "{4}", "{5}", "{6}", "{7}", "{8}"]
+        ],
+        "gaps": [
+          { "value": "2", "inputType": "number" },
+          { "value": "3", "inputType": "number" },
+          { "value": "4", "inputType": "number" },
+          { "value": "5", "inputType": "number" },
+          { "value": "6", "inputType": "number" },
+          { "value": "7", "inputType": "number" },
+          { "value": "8", "inputType": "number" },
+          { "value": "9", "inputType": "number" },
+          { "value": "10", "inputType": "number" }
+        ]
+      }
+    },
+    {
+      "id": "8a-eq", "label": "8a",
+      "group": "8. For each graph, write the number pairs in the table. Then, write an equation that relates x and y.",
+      "display": "Write the equation for graph (a).",
+      "variables": ["x", "y"],
+      "answer": { "type": "text", "value": "y=x+1" }
+    },
+    {
+      "id": "8b-table", "label": "8b",
+      "group": "8. For each graph, write the number pairs in the table. Then, write an equation that relates x and y.",
+      "display": "Read graph (b) and fill in the y values. See workbook.",
+      "answer": {
+        "type": "gap",
+        "layout": "table",
+        "template": "",
+        "tableRows": [
+          ["x", "0", "1", "2", "3", "4", "5", "6", "7"],
+          ["y", "{0}", "{1}", "{2}", "{3}", "{4}", "{5}", "{6}", "{7}"]
+        ],
+        "gaps": [
+          { "value": "7", "inputType": "number" },
+          { "value": "6", "inputType": "number" },
+          { "value": "5", "inputType": "number" },
+          { "value": "4", "inputType": "number" },
+          { "value": "3", "inputType": "number" },
+          { "value": "2", "inputType": "number" },
+          { "value": "1", "inputType": "number" },
+          { "value": "0", "inputType": "number" }
+        ]
+      }
+    },
+    {
+      "id": "8b-eq", "label": "8b",
+      "group": "8. For each graph, write the number pairs in the table. Then, write an equation that relates x and y.",
+      "display": "Write the equation for graph (b).",
+      "variables": ["x", "y"],
+      "answer": { "type": "text", "value": "y=7−x" }
+    },
+
+    {
+      "id": "puzzle-a", "label": "Puzzle a",
+      "group": "Puzzle Corner: For each graph, write an equation that relates x and y.",
+      "display": "Write the equation for graph (a). See workbook.",
+      "variables": ["x", "y"],
+      "answer": { "type": "text", "value": "y=10−x÷2" }
+    },
+    {
+      "id": "puzzle-b", "label": "Puzzle b",
+      "group": "Puzzle Corner: For each graph, write an equation that relates x and y.",
+      "display": "Write the equation for graph (b). See workbook.",
+      "variables": ["x", "y"],
+      "answer": { "type": "text", "value": "y=2x+1" }
+    }
   ]
 }

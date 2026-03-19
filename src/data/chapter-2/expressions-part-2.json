@@ -66,13 +66,21 @@
     {
       "id": "5a", "label": "5a",
       "group": "5. Can you find which of these expressions are equivalent?",
-      "display": "Which are equivalent: x + x, 2x, x · 2, x − x?",
-      "answer": { "type": "workbook", "hint": "The first 3 expressions are equivalent." }
+      "display": "Select the equivalent expressions.",
+      "answer": {
+        "type": "multiselect",
+        "options": ["x + x", "2x", "x ⋅ 2", "x − x"],
+        "correct": ["x + x", "2x", "x ⋅ 2"]
+      }
     },
     {
       "id": "5b", "label": "5b",
-      "display": "Which are equivalent: 2x/6, x/6, x/3, x²/6?",
-      "answer": { "type": "workbook", "hint": "The first and third (2x/6 and x/3)." }
+      "display": "Select the equivalent expressions.",
+      "answer": {
+        "type": "multiselect",
+        "options": ["2x/6", "x/6", "x/3", "x²/6"],
+        "correct": ["2x/6", "x/3"]
+      }
     },
     {
       "id": "6a", "label": "6a",

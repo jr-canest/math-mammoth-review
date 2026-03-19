@@ -1,0 +1,472 @@
+{
+  "chapter": "chapter-7",
+  "section": "dividing-fractions-reciprocal-numbers",
+  "title": "Dividing Fractions: Reciprocal Numbers",
+  "pages": "50-54",
+  "problems": [
+    {
+      "id": "1a", "label": "1a",
+      "group": "1. Find the answers that are unreasonable without actually dividing.",
+      "display": "4/5 ÷ 6 = 2/15",
+      "answer": { "type": "multiselect", "options": ["Reasonable", "Unreasonable"], "correct": ["Reasonable"] }
+    },
+    {
+      "id": "1b", "label": "1b",
+      "group": "1. Find the answers that are unreasonable without actually dividing.",
+      "display": "2 3/4 ÷ 1/4 = 7/12",
+      "answer": { "type": "multiselect", "options": ["Reasonable", "Unreasonable"], "correct": ["Unreasonable"] }
+    },
+    {
+      "id": "1c", "label": "1c",
+      "group": "1. Find the answers that are unreasonable without actually dividing.",
+      "display": "7/9 ÷ 2 = 7/18",
+      "answer": { "type": "multiselect", "options": ["Reasonable", "Unreasonable"], "correct": ["Reasonable"] }
+    },
+    {
+      "id": "1d", "label": "1d",
+      "group": "1. Find the answers that are unreasonable without actually dividing.",
+      "display": "8 ÷ 2 1/3 = 18 1/3",
+      "answer": { "type": "multiselect", "options": ["Reasonable", "Unreasonable"], "correct": ["Unreasonable"] }
+    },
+    {
+      "id": "1e", "label": "1e",
+      "group": "1. Find the answers that are unreasonable without actually dividing.",
+      "display": "5 1/4 ÷ 6 1/2 = 3 1/8",
+      "answer": { "type": "multiselect", "options": ["Reasonable", "Unreasonable"], "correct": ["Unreasonable"] }
+    },
+    {
+      "id": "2a", "label": "2a",
+      "group": "2. Solve with the help of the visual model. Write a division. See workbook.",
+      "display": "",
+      "answer": {
+        "type": "gap",
+        "template": "3 3/4 ÷ 3/4 = {0}\nCheck: {1} ⋅ 3/4 = {2}",
+        "gaps": [
+          { "value": "5", "inputType": "number" },
+          { "value": "5", "inputType": "number" },
+          { "value": "3 3/4", "inputType": "number", "decimal": 3.75, "tolerance": 0.001 }
+        ]
+      }
+    },
+    {
+      "id": "2b", "label": "2b",
+      "group": "2. Solve with the help of the visual model. Write a division. See workbook.",
+      "display": "",
+      "answer": {
+        "type": "gap",
+        "template": "{0} ÷ {1} = {2}\nCheck: {3} ⋅ {4} = {5}",
+        "gaps": [
+          { "value": "1 5/7", "inputType": "number", "decimal": 1.7143, "tolerance": 0.001 },
+          { "value": "3/7", "inputType": "number", "decimal": 0.4286, "tolerance": 0.001 },
+          { "value": "4", "inputType": "number" },
+          { "value": "4", "inputType": "number" },
+          { "value": "3/7", "inputType": "number", "decimal": 0.4286, "tolerance": 0.001 },
+          { "value": "1 5/7", "inputType": "number", "decimal": 1.7143, "tolerance": 0.001 }
+        ]
+      }
+    },
+    {
+      "id": "2c", "label": "2c",
+      "group": "2. Solve with the help of the visual model. Write a division. See workbook.",
+      "display": "",
+      "answer": {
+        "type": "gap",
+        "template": "3 ÷ {0} = {1}\nCheck: {2} ⋅ {3} = {4}",
+        "gaps": [
+          { "value": "3/10", "inputType": "number", "decimal": 0.3, "tolerance": 0.001 },
+          { "value": "10", "inputType": "number" },
+          { "value": "10", "inputType": "number" },
+          { "value": "3/10", "inputType": "number", "decimal": 0.3, "tolerance": 0.001 },
+          { "value": "3", "inputType": "number" }
+        ]
+      }
+    },
+    {
+      "id": "2d", "label": "2d",
+      "group": "2. Solve with the help of the visual model. Write a division. See workbook.",
+      "display": "",
+      "answer": {
+        "type": "gap",
+        "template": "{0} ÷ {1} = {2}\nCheck: {3} ⋅ {4} = {5}",
+        "gaps": [
+          { "value": "7/9", "inputType": "number", "decimal": 0.7778, "tolerance": 0.001 },
+          { "value": "2/9", "inputType": "number", "decimal": 0.2222, "tolerance": 0.001 },
+          { "value": "3 1/2", "inputType": "number", "decimal": 3.5, "tolerance": 0.001 },
+          { "value": "3 1/2", "inputType": "number", "decimal": 3.5, "tolerance": 0.001 },
+          { "value": "2/9", "inputType": "number", "decimal": 0.2222, "tolerance": 0.001 },
+          { "value": "7/9", "inputType": "number", "decimal": 0.7778, "tolerance": 0.001 }
+        ]
+      }
+    },
+    {
+      "id": "3a", "label": "3a",
+      "group": "3. Solve. Think how many times the fraction goes into the whole number.",
+      "display": "3 ÷ 1/6",
+      "answer": { "type": "number", "value": "18" }
+    },
+    {
+      "id": "3b", "label": "3b",
+      "group": "3. Solve. Think how many times the fraction goes into the whole number.",
+      "display": "4 ÷ 1/5",
+      "answer": { "type": "number", "value": "20" }
+    },
+    {
+      "id": "3c", "label": "3c",
+      "group": "3. Solve. Think how many times the fraction goes into the whole number.",
+      "display": "3 ÷ 1/10",
+      "answer": { "type": "number", "value": "30" }
+    },
+    {
+      "id": "3d", "label": "3d",
+      "group": "3. Solve. Think how many times the fraction goes into the whole number.",
+      "display": "5 ÷ 1/10",
+      "answer": { "type": "number", "value": "50" }
+    },
+    {
+      "id": "3e", "label": "3e",
+      "group": "3. Solve. Think how many times the fraction goes into the whole number.",
+      "display": "7 ÷ 1/4",
+      "answer": { "type": "number", "value": "28" }
+    },
+    {
+      "id": "3f", "label": "3f",
+      "group": "3. Solve. Think how many times the fraction goes into the whole number.",
+      "display": "4 ÷ 1/8",
+      "answer": { "type": "number", "value": "32" }
+    },
+    {
+      "id": "3g", "label": "3g",
+      "group": "3. Solve. Think how many times the fraction goes into the whole number.",
+      "display": "4 ÷ 1/10",
+      "answer": { "type": "number", "value": "40" }
+    },
+    {
+      "id": "3h", "label": "3h",
+      "group": "3. Solve. Think how many times the fraction goes into the whole number.",
+      "display": "9 ÷ 1/8",
+      "answer": { "type": "number", "value": "72" }
+    },
+    {
+      "id": "4a", "label": "4a",
+      "group": "4. Find the reciprocal numbers. Then write a multiplication with the given number and its reciprocal.",
+      "display": "5/8",
+      "answer": {
+        "type": "gap",
+        "template": "5/8 ⋅ {0} = 1",
+        "gaps": [{ "value": "8/5", "inputType": "number", "decimal": 1.6, "tolerance": 0.001 }]
+      }
+    },
+    {
+      "id": "4b", "label": "4b",
+      "group": "4. Find the reciprocal numbers. Then write a multiplication with the given number and its reciprocal.",
+      "display": "1/9",
+      "answer": {
+        "type": "gap",
+        "template": "{0} ⋅ {1} = 1",
+        "gaps": [
+          { "value": "1/9", "inputType": "number", "decimal": 0.1111, "tolerance": 0.001 },
+          { "value": "9", "inputType": "number" }
+        ]
+      }
+    },
+    {
+      "id": "4c", "label": "4c",
+      "group": "4. Find the reciprocal numbers. Then write a multiplication with the given number and its reciprocal.",
+      "display": "1 7/8",
+      "answer": {
+        "type": "gap",
+        "template": "{0} ⋅ {1} = 1",
+        "gaps": [
+          { "value": "1 7/8", "inputType": "number", "decimal": 1.875, "tolerance": 0.001 },
+          { "value": "8/15", "inputType": "number", "decimal": 0.5333, "tolerance": 0.001 }
+        ]
+      }
+    },
+    {
+      "id": "4d", "label": "4d",
+      "group": "4. Find the reciprocal numbers. Then write a multiplication with the given number and its reciprocal.",
+      "display": "32",
+      "answer": {
+        "type": "gap",
+        "template": "32 ⋅ {0} = 1",
+        "gaps": [{ "value": "1/32", "inputType": "number", "decimal": 0.03125, "tolerance": 0.001 }]
+      }
+    },
+    {
+      "id": "4e", "label": "4e",
+      "group": "4. Find the reciprocal numbers. Then write a multiplication with the given number and its reciprocal.",
+      "display": "2 1/8",
+      "answer": {
+        "type": "gap",
+        "template": "{0} ⋅ {1} = 1",
+        "gaps": [
+          { "value": "2 1/8", "inputType": "number", "decimal": 2.125, "tolerance": 0.001 },
+          { "value": "8/17", "inputType": "number", "decimal": 0.4706, "tolerance": 0.001 }
+        ]
+      }
+    },
+    {
+      "id": "5a", "label": "5a",
+      "group": "5. Write a division sentence to match each multiplication above.",
+      "display": "",
+      "answer": {
+        "type": "gap",
+        "template": "1 ÷ {0} = {1}",
+        "gaps": [
+          { "value": "8/5", "inputType": "number", "decimal": 1.6, "tolerance": 0.001 },
+          { "value": "5/8", "inputType": "number", "decimal": 0.625, "tolerance": 0.001 }
+        ]
+      }
+    },
+    {
+      "id": "5b", "label": "5b",
+      "group": "5. Write a division sentence to match each multiplication above.",
+      "display": "",
+      "answer": {
+        "type": "gap",
+        "template": "1 ÷ {0} = {1}",
+        "gaps": [
+          { "value": "1/9", "inputType": "number", "decimal": 0.1111, "tolerance": 0.001 },
+          { "value": "9", "inputType": "number" }
+        ]
+      }
+    },
+    {
+      "id": "5c", "label": "5c",
+      "group": "5. Write a division sentence to match each multiplication above.",
+      "display": "",
+      "answer": {
+        "type": "gap",
+        "template": "1 ÷ {0} = {1}",
+        "gaps": [
+          { "value": "8/15", "inputType": "number", "decimal": 0.5333, "tolerance": 0.001 },
+          { "value": "15/8", "inputType": "number", "decimal": 1.875, "tolerance": 0.001 }
+        ]
+      }
+    },
+    {
+      "id": "5d", "label": "5d",
+      "group": "5. Write a division sentence to match each multiplication above.",
+      "display": "",
+      "answer": {
+        "type": "gap",
+        "template": "{0} ÷ {1} = {2}",
+        "gaps": [
+          { "value": "1", "inputType": "number" },
+          { "value": "1/32", "inputType": "number", "decimal": 0.03125, "tolerance": 0.001 },
+          { "value": "32", "inputType": "number" }
+        ]
+      }
+    },
+    {
+      "id": "5e", "label": "5e",
+      "group": "5. Write a division sentence to match each multiplication above.",
+      "display": "",
+      "answer": {
+        "type": "gap",
+        "template": "{0} ÷ {1} = {2}",
+        "gaps": [
+          { "value": "1", "inputType": "number" },
+          { "value": "8/17", "inputType": "number", "decimal": 0.4706, "tolerance": 0.001 },
+          { "value": "17/8", "inputType": "number", "decimal": 2.125, "tolerance": 0.001 }
+        ]
+      }
+    },
+    {
+      "id": "6a", "label": "6a",
+      "group": "6. Solve these division problems using the shortcut.",
+      "display": "3/4 ÷ 5",
+      "answer": { "type": "fraction", "value": "3/20", "decimal": 0.15 }
+    },
+    {
+      "id": "6b", "label": "6b",
+      "group": "6. Solve these division problems using the shortcut.",
+      "display": "2/3 ÷ 6/7",
+      "answer": { "type": "fraction", "value": "7/9", "decimal": 0.7778 }
+    },
+    {
+      "id": "6c", "label": "6c",
+      "group": "6. Solve these division problems using the shortcut.",
+      "display": "4/7 ÷ 3/7",
+      "answer": { "type": "fraction", "value": "1 1/3", "decimal": 1.3333 }
+    },
+    {
+      "id": "6d", "label": "6d",
+      "group": "6. Solve these division problems using the shortcut.",
+      "display": "2/3 ÷ 3/5",
+      "answer": { "type": "fraction", "value": "1 1/9", "decimal": 1.1111 }
+    },
+    {
+      "id": "6e", "label": "6e",
+      "group": "6. Solve these division problems using the shortcut.",
+      "display": "4 ÷ 2/5",
+      "answer": { "type": "number", "value": "10" }
+    },
+    {
+      "id": "6f", "label": "6f",
+      "group": "6. Solve these division problems using the shortcut.",
+      "display": "13/3 ÷ 1/5",
+      "answer": { "type": "fraction", "value": "21 2/3", "decimal": 21.6667 }
+    },
+    {
+      "id": "7a", "label": "7a",
+      "group": "7. Write a division. See workbook for the visual.",
+      "display": "",
+      "answer": {
+        "type": "gap",
+        "template": "1 ÷ {0} = {1}",
+        "gaps": [
+          { "value": "3/7", "inputType": "number", "decimal": 0.4286, "tolerance": 0.001 },
+          { "value": "7/3", "inputType": "number", "decimal": 2.3333, "tolerance": 0.001 }
+        ]
+      }
+    },
+    {
+      "id": "7b", "label": "7b",
+      "group": "7. Write a division. See workbook for the visual.",
+      "display": "",
+      "answer": {
+        "type": "gap",
+        "template": "1 ÷ {0} = {1}",
+        "gaps": [
+          { "value": "3/10", "inputType": "number", "decimal": 0.3, "tolerance": 0.001 },
+          { "value": "10/3", "inputType": "number", "decimal": 3.3333, "tolerance": 0.001 }
+        ]
+      }
+    },
+    {
+      "id": "7c", "label": "7c",
+      "group": "7. Write a division. See workbook for the visual.",
+      "display": "",
+      "answer": {
+        "type": "gap",
+        "template": "1 ÷ {0} = {1}",
+        "gaps": [
+          { "value": "2/9", "inputType": "number", "decimal": 0.2222, "tolerance": 0.001 },
+          { "value": "9/2", "inputType": "number", "decimal": 4.5, "tolerance": 0.001 }
+        ]
+      }
+    },
+    {
+      "id": "7d", "label": "7d",
+      "group": "7. Write a division. See workbook for the visual.",
+      "display": "",
+      "answer": {
+        "type": "gap",
+        "template": "1 ÷ {0} = {1}",
+        "gaps": [
+          { "value": "5/9", "inputType": "number", "decimal": 0.5556, "tolerance": 0.001 },
+          { "value": "9/5", "inputType": "number", "decimal": 1.8, "tolerance": 0.001 }
+        ]
+      }
+    },
+    {
+      "id": "8a", "label": "8a",
+      "group": "8. Fill in the answers and complete the patterns.",
+      "display": "",
+      "answer": {
+        "type": "gap",
+        "layout": "table",
+        "template": "",
+        "tableRows": [
+          ["", "", "Divisor", "", "Answer"],
+          ["1", "3 ÷", "1/5", "=", "{0}"],
+          ["2", "3 ÷", "2/5", "=", "{1}"],
+          ["3", "3 ÷", "3/5", "=", "{2}"],
+          ["4", "3 ÷", "{3}", "=", "{4}"],
+          ["5", "3 ÷", "{5}", "=", "{6}"]
+        ],
+        "gaps": [
+          { "value": "15", "inputType": "number" },
+          { "value": "7 1/2", "inputType": "number", "decimal": 7.5, "tolerance": 0.001 },
+          { "value": "5", "inputType": "number" },
+          { "value": "4/5", "inputType": "number", "decimal": 0.8, "tolerance": 0.001 },
+          { "value": "3 3/4", "inputType": "number", "decimal": 3.75, "tolerance": 0.001 },
+          { "value": "5/5", "inputType": "number", "decimal": 1.0, "tolerance": 0.001 },
+          { "value": "3", "inputType": "number" }
+        ]
+      }
+    },
+    {
+      "id": "8b", "label": "8b",
+      "group": "8. Fill in the answers and complete the patterns.",
+      "display": "",
+      "answer": {
+        "type": "gap",
+        "layout": "table",
+        "template": "",
+        "tableRows": [
+          ["", "", "Divisor", "", "Answer"],
+          ["1", "6 ÷", "1/4", "=", "{0}"],
+          ["2", "6 ÷", "2/4", "=", "{1}"],
+          ["3", "6 ÷", "3/4", "=", "{2}"],
+          ["4", "6 ÷", "{3}", "=", "{4}"],
+          ["5", "6 ÷", "{5}", "=", "{6}"]
+        ],
+        "gaps": [
+          { "value": "24", "inputType": "number" },
+          { "value": "12", "inputType": "number" },
+          { "value": "8", "inputType": "number" },
+          { "value": "4/4", "inputType": "number", "decimal": 1.0, "tolerance": 0.001 },
+          { "value": "6", "inputType": "number" },
+          { "value": "5/4", "inputType": "number", "decimal": 1.25, "tolerance": 0.001 },
+          { "value": "4 4/5", "inputType": "number", "decimal": 4.8, "tolerance": 0.001 }
+        ]
+      }
+    },
+    {
+      "id": "8c", "label": "8c",
+      "group": "8. Fill in the answers and complete the patterns.",
+      "display": "",
+      "answer": {
+        "type": "gap",
+        "layout": "table",
+        "template": "",
+        "tableRows": [
+          ["", "Dividend", "", "", "Answer"],
+          ["1", "1", "÷ 1/4", "=", "{0}"],
+          ["2", "2", "÷ 1/4", "=", "{1}"],
+          ["3", "3", "÷ 1/4", "=", "{2}"],
+          ["4", "{3}", "÷ 1/4", "=", "{4}"],
+          ["5", "{5}", "÷ 1/4", "=", "{6}"]
+        ],
+        "gaps": [
+          { "value": "4", "inputType": "number" },
+          { "value": "8", "inputType": "number" },
+          { "value": "12", "inputType": "number" },
+          { "value": "4", "inputType": "number" },
+          { "value": "16", "inputType": "number" },
+          { "value": "5", "inputType": "number" },
+          { "value": "20", "inputType": "number" }
+        ]
+      }
+    },
+    {
+      "id": "8d", "label": "8d",
+      "group": "8. Fill in the answers and complete the patterns.",
+      "display": "",
+      "answer": {
+        "type": "gap",
+        "layout": "table",
+        "template": "",
+        "tableRows": [
+          ["", "", "Divisor", "", "Answer"],
+          ["1", "8 ÷", "1/2", "=", "{0}"],
+          ["2", "8 ÷", "2/2", "=", "{1}"],
+          ["3", "8 ÷", "3/2", "=", "{2}"],
+          ["4", "8 ÷", "{3}", "=", "{4}"],
+          ["5", "8 ÷", "{5}", "=", "{6}"]
+        ],
+        "gaps": [
+          { "value": "16", "inputType": "number" },
+          { "value": "8", "inputType": "number" },
+          { "value": "5 1/3", "inputType": "number", "decimal": 5.3333, "tolerance": 0.001 },
+          { "value": "4/2", "inputType": "number", "decimal": 2.0, "tolerance": 0.001 },
+          { "value": "4", "inputType": "number" },
+          { "value": "5/2", "inputType": "number", "decimal": 2.5, "tolerance": 0.001 },
+          { "value": "3 1/5", "inputType": "number", "decimal": 3.2, "tolerance": 0.001 }
+        ]
+      }
+    }
+  ]
+}

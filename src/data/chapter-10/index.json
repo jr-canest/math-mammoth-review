@@ -1,0 +1,65 @@
+[
+  {
+    "id": "understanding-distributions",
+    "title": "Understanding Distributions",
+    "pages": "149-153",
+    "file": "understanding-distributions.json",
+    "order": 1
+  },
+  {
+    "id": "mean-median-and-mode",
+    "title": "Mean, Median and Mode",
+    "pages": "154-155",
+    "file": "mean-median-and-mode.json",
+    "order": 2
+  },
+  {
+    "id": "using-mean-median-and-mode",
+    "title": "Using Mean, Median and Mode",
+    "pages": "156-157",
+    "file": "using-mean-median-and-mode.json",
+    "order": 3
+  },
+  {
+    "id": "range-and-interquartile-range",
+    "title": "Range and Interquartile Range",
+    "pages": "158-159",
+    "file": "range-and-interquartile-range.json",
+    "order": 4
+  },
+  {
+    "id": "boxplots",
+    "title": "Boxplots",
+    "pages": "160-162",
+    "file": "boxplots.json",
+    "order": 5
+  },
+  {
+    "id": "mean-absolute-deviation",
+    "title": "Mean Absolute Deviation",
+    "pages": "163-166",
+    "file": "mean-absolute-deviation.json",
+    "order": 6
+  },
+  {
+    "id": "making-histograms",
+    "title": "Making Histograms",
+    "pages": "167-169",
+    "file": "making-histograms.json",
+    "order": 7
+  },
+  {
+    "id": "summarizing-statistical-distributions",
+    "title": "Summarizing Statistical Distributions",
+    "pages": "170-173",
+    "file": "summarizing-statistical-distributions.json",
+    "order": 8
+  },
+  {
+    "id": "stem-and-leaf-plots",
+    "title": "Stem-and-Leaf-Plots",
+    "pages": "174-175",
+    "file": "stem-and-leaf-plots.json",
+    "order": 9
+  }
+]

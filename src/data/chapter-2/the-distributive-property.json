@@ -3,60 +3,555 @@
   "section": "the-distributive-property",
   "title": "The Distributive Property",
   "pages": "70-73",
-  "needsReview": true,
   "problems": [
-    { "id": "1a", "label": "1a", "group": "1. Multiply.", "display": "Multiply: 3(90 + 5) =", "answer": { "type": "number", "value": 285 } },
-    { "id": "1b", "label": "1b", "display": "Multiply: 7(50 + 6) =", "answer": { "type": "number", "value": 392 } },
-    { "id": "1c", "label": "1c", "display": "Multiply: 4(a + b) =", "answer": { "type": "text", "value": "4a + 4b" } },
-    { "id": "1d", "label": "1d", "display": "Multiply: 2(x + 6) =", "answer": { "type": "text", "value": "2x + 12" } },
-    { "id": "1e", "label": "1e", "display": "Multiply: 7(y + 3) =", "answer": { "type": "text", "value": "7y + 21" } },
-    { "id": "1f", "label": "1f", "display": "Multiply: 10(s + 4) =", "answer": { "type": "text", "value": "10s + 40" } },
-    { "id": "1g", "label": "1g", "display": "Multiply: s(6 + x) =", "answer": { "type": "text", "value": "6s + sx" } },
-    { "id": "1h", "label": "1h", "display": "Multiply: x(y + 3) =", "answer": { "type": "text", "value": "xy + 3x" } },
-    { "id": "1i", "label": "1i", "display": "Multiply: 8(5 + b) =", "answer": { "type": "text", "value": "40 + 8b" } },
-    { "id": "1j", "label": "1j", "display": "Multiply: 9(5 + c) =", "answer": { "type": "text", "value": "45 + 9c" } },
-    { "id": "2a", "label": "2a", "group": "2. Multiply.", "display": "Multiply: 3(a + b + 5) =", "answer": { "type": "text", "value": "3a + 3b + 15" } },
-    { "id": "2b", "label": "2b", "display": "Multiply: 8(5 + y + r) =", "answer": { "type": "text", "value": "40 + 8y + 8r" } },
-    { "id": "2c", "label": "2c", "display": "Multiply: 4(s + 5 + 8) =", "answer": { "type": "text", "value": "4s + 52" } },
-    { "id": "2d", "label": "2d", "display": "Multiply: 3(10 + c + d + 2) =", "answer": { "type": "text", "value": "36 + 3c + 3d" } },
-    { "id": "3a", "label": "3a", "group": "3. Multiply.", "display": "Multiply: 2(3x + 5) =", "answer": { "type": "text", "value": "6x + 10" } },
-    { "id": "3b", "label": "3b", "display": "Multiply: 7(7a + 6) =", "answer": { "type": "text", "value": "49a + 42" } },
-    { "id": "3c", "label": "3c", "display": "Multiply: 5(4a + 8b) =", "answer": { "type": "text", "value": "20a + 40b" } },
-    { "id": "3d", "label": "3d", "display": "Multiply: 2(4x + 3y) =", "answer": { "type": "text", "value": "8x + 6y" } },
-    { "id": "3e", "label": "3e", "display": "Multiply: 3(9 + 10z) =", "answer": { "type": "text", "value": "27 + 30z" } },
-    { "id": "3f", "label": "3f", "display": "Multiply: 6(3x + 4 + 2y) =", "answer": { "type": "text", "value": "18x + 24 + 12y" } },
-    { "id": "3g", "label": "3g", "display": "Multiply: 11(2c + 7a) =", "answer": { "type": "text", "value": "22c + 77a" } },
-    { "id": "3h", "label": "3h", "display": "Multiply: 8(5 + 2a + 3b) =", "answer": { "type": "text", "value": "40 + 16a + 24b" } },
-    { "id": "4a", "label": "4a", "group": "4. Write the area two ways.", "display": "Write an expression for the area of a rectangle with height 9 and widths 8 and b, two ways (see workbook p. 71)", "answer": { "type": "workbook", "hint": "9(8 + b) and 72 + 9b" } },
-    { "id": "4b", "label": "4b", "display": "Write an expression for the area of a rectangle with height s and widths t and 13, two ways (see workbook p. 71)", "answer": { "type": "workbook", "hint": "s(t + 13) and st + 13s" } },
-    { "id": "4c", "label": "4c", "display": "Write an expression for the area of a rectangle with height 3 and widths x and 7, two ways (see workbook p. 71)", "answer": { "type": "workbook", "hint": "3(x + 7) and 3x + 21" } },
-    { "id": "4d", "label": "4d", "display": "Write an expression for the area of a rectangle with height 7 and widths 2x and 6, two ways (see workbook p. 71)", "answer": { "type": "workbook", "hint": "7(2x + 6) and 14x + 42" } },
-    { "id": "4e", "label": "4e", "display": "Write an expression for the area of a rectangle with height 6 and widths 4t and 3s, two ways (see workbook p. 71)", "answer": { "type": "workbook", "hint": "6(4t + 3s) and 24t + 18s" } },
-    { "id": "4f", "label": "4f", "display": "Write an expression for the area of a rectangle with height 20 and widths 3s and 12, two ways (see workbook p. 71)", "answer": { "type": "workbook", "hint": "20(3s + 12) and 60s + 240" } },
-    { "id": "5a", "label": "5a", "group": "5. Find the missing number.", "display": "Find the missing number: □(x + 2) = 3x + 6", "answer": { "type": "number", "value": 3 } },
-    { "id": "5b", "label": "5b", "display": "Find the missing number: □(t + 8) = 7t + 56", "answer": { "type": "number", "value": 7 } },
-    { "id": "5c", "label": "5c", "display": "Find the missing number: □(s + 6) = 9s + 54", "answer": { "type": "number", "value": 9 } },
-    { "id": "5d", "label": "5d", "display": "Find the missing variable: 4(□ + 5) = 4z + 20", "answer": { "type": "text", "value": "z" } },
-    { "id": "5e", "label": "5e", "display": "Find the missing number: 5(s + □) = 5s + 30", "answer": { "type": "number", "value": 6 } },
-    { "id": "5f", "label": "5f", "display": "Find the missing number: 7(y + □) = 7y + 42", "answer": { "type": "number", "value": 6 } },
-    { "id": "6a", "label": "6a", "group": "6. Find the missing number.", "display": "Find the missing number: □(x + 5) = 6x + 30", "answer": { "type": "number", "value": 6 } },
-    { "id": "6b", "label": "6b", "display": "Find the missing number: 10(y + □) = 10y + 30", "answer": { "type": "number", "value": 3 } },
-    { "id": "6c", "label": "6c", "display": "Find the missing number: 6(□ + z) = 12 + 6z", "answer": { "type": "number", "value": 2 } },
-    { "id": "6d", "label": "6d", "display": "Find the missing number: 8(r + □) = 8r + 24", "answer": { "type": "number", "value": 3 } },
-    { "id": "7a", "label": "7a", "group": "7. Find the missing number or expression.", "display": "Find the missing number: □(2x + 5) = 6x + 15", "answer": { "type": "number", "value": 3 } },
-    { "id": "7b", "label": "7b", "display": "Find the missing number: □(3w + 5) = 21w + 35", "answer": { "type": "number", "value": 7 } },
-    { "id": "7c", "label": "7c", "display": "Find the missing number: □(6y + 4) = 12y + 8", "answer": { "type": "number", "value": 2 } },
-    { "id": "7d", "label": "7d", "display": "Find the missing number: □(10s + 3) = 50s + 15", "answer": { "type": "number", "value": 5 } },
-    { "id": "7e", "label": "7e", "display": "Find the missing expression: 2(□ + 9) = 4x + 18", "answer": { "type": "text", "value": "2x" } },
-    { "id": "7f", "label": "7f", "display": "Find the missing expression: 4(□ + 3) = 12x + 12", "answer": { "type": "text", "value": "3x" } },
-    { "id": "7g", "label": "7g", "display": "Find the missing expression: 5(□ + 3) = 20y + 15", "answer": { "type": "text", "value": "4y" } },
-    { "id": "7h", "label": "7h", "display": "Find the missing expressions: 8(□ + □ + 7) = 40t + 8s + 56 (see workbook p. 72)", "answer": { "type": "workbook", "hint": "5t + s" } },
-    { "id": "8", "label": "8", "group": "8. Write the perimeter.", "display": "A regular heptagon has side length 2x + 3. Write the perimeter as a product, then expand.", "answer": { "type": "text", "value": "14x + 21" } },
-    { "id": "9", "label": "9", "group": "9. Find the side length.", "display": "The perimeter of a regular pentagon is 15x + 5. How long is one side?", "answer": { "type": "text", "value": "3x + 1" } },
-    { "id": "10a", "label": "10a", "group": "10. Factor.", "display": "Factor: 6x + 6 = □(x + 1)", "answer": { "type": "number", "value": 6 } },
-    { "id": "10b-f", "label": "10b-f", "display": "Factor these sums (problems 10b–10f, see workbook p. 73)", "answer": { "type": "workbook", "hint": "b. 8(y+2)  c. 15(x+3)  d. 4(w+10)  e. 6(x+5)  f. 8(x+2y+6)" } },
-    { "id": "11a-j", "label": "11a-j", "group": "11. Factor these sums as products.", "display": "Factor these sums as products (problems 11a–11j, see workbook p. 73)", "answer": { "type": "workbook", "hint": "a. 4(2x+1)  b. 5(3x+2)  c. 8(3y+1)  d. 3(2x+1)  e. 7(6y+2)  f. 8(4x+3)  g. 9(3y+1)  h. 11(5x+2)  i. 12(3y+1) or 3(12y+4)  j. 9(4x+z+3)" } },
-    { "id": "12", "label": "12", "group": "12. Find the side of the square.", "display": "The perimeter of a square is 48x + 16. How long is its side?", "answer": { "type": "text", "value": "12x + 4" } },
-    { "id": "puzzle", "label": "Puzzle", "group": "Puzzle Corner.", "display": "Puzzle Corner: Shopkeeper problem (see workbook p. 73)", "answer": { "type": "workbook", "hint": "$17.17 per item" } }
+    {
+      "id": "1a", "label": "1a",
+      "group": "1. Multiply using the distributive property.",
+      "display": "3(90 + 5)",
+      "answer": { "type": "number", "value": 285 }
+    },
+    {
+      "id": "1b", "label": "1b",
+      "display": "7(50 + 6)",
+      "answer": { "type": "number", "value": 392 }
+    },
+    {
+      "id": "1c", "label": "1c",
+      "display": "4(a + b)",
+      "answer": { "type": "text", "value": "4a + 4b" },
+      "variables": ["a", "b"]
+    },
+    {
+      "id": "1d", "label": "1d",
+      "display": "2(x + 6)",
+      "answer": { "type": "text", "value": "2x + 12" },
+      "variables": ["x"]
+    },
+    {
+      "id": "1e", "label": "1e",
+      "display": "7(y + 3)",
+      "answer": { "type": "text", "value": "7y + 21" },
+      "variables": ["y"]
+    },
+    {
+      "id": "1f", "label": "1f",
+      "display": "10(s + 4)",
+      "answer": { "type": "text", "value": "10s + 40" },
+      "variables": ["s"]
+    },
+    {
+      "id": "1g", "label": "1g",
+      "display": "s(6 + x)",
+      "answer": { "type": "text", "value": "6s + sx" },
+      "variables": ["s", "x"]
+    },
+    {
+      "id": "1h", "label": "1h",
+      "display": "x(y + 3)",
+      "answer": { "type": "text", "value": "xy + 3x" },
+      "variables": ["x", "y"]
+    },
+    {
+      "id": "1i", "label": "1i",
+      "display": "8(5 + b)",
+      "answer": { "type": "text", "value": "40 + 8b" },
+      "variables": ["b"]
+    },
+    {
+      "id": "1j", "label": "1j",
+      "display": "9(5 + c)",
+      "answer": { "type": "text", "value": "45 + 9c" },
+      "variables": ["c"]
+    },
+
+    {
+      "id": "2a", "label": "2a",
+      "group": "2. Multiply using the distributive property.",
+      "display": "3(a + b + 5)",
+      "answer": { "type": "text", "value": "3a + 3b + 15" },
+      "variables": ["a", "b"]
+    },
+    {
+      "id": "2b", "label": "2b",
+      "display": "8(5 + y + r)",
+      "answer": { "type": "text", "value": "40 + 8y + 8r" },
+      "variables": ["y", "r"]
+    },
+    {
+      "id": "2c", "label": "2c",
+      "display": "4(s + 5 + 8)",
+      "answer": { "type": "text", "value": "4s + 52" },
+      "variables": ["s"]
+    },
+    {
+      "id": "2d", "label": "2d",
+      "display": "3(10 + c + d + 2)",
+      "answer": { "type": "text", "value": "36 + 3c + 3d" },
+      "variables": ["c", "d"]
+    },
+
+    {
+      "id": "3a", "label": "3a",
+      "group": "3. Multiply using the distributive property.",
+      "display": "2(3x + 5)",
+      "answer": { "type": "text", "value": "6x + 10" },
+      "variables": ["x"]
+    },
+    {
+      "id": "3b", "label": "3b",
+      "display": "7(7a + 6)",
+      "answer": { "type": "text", "value": "49a + 42" },
+      "variables": ["a"]
+    },
+    {
+      "id": "3c", "label": "3c",
+      "display": "5(4a + 8b)",
+      "answer": { "type": "text", "value": "20a + 40b" },
+      "variables": ["a", "b"]
+    },
+    {
+      "id": "3d", "label": "3d",
+      "display": "2(4x + 3y)",
+      "answer": { "type": "text", "value": "8x + 6y" },
+      "variables": ["x", "y"]
+    },
+    {
+      "id": "3e", "label": "3e",
+      "display": "3(9 + 10z)",
+      "answer": { "type": "text", "value": "27 + 30z" },
+      "variables": ["z"]
+    },
+    {
+      "id": "3f", "label": "3f",
+      "display": "6(3x + 4 + 2y)",
+      "answer": { "type": "text", "value": "18x + 24 + 12y" },
+      "variables": ["x", "y"]
+    },
+    {
+      "id": "3g", "label": "3g",
+      "display": "11(2c + 7a)",
+      "answer": { "type": "text", "value": "22c + 77a" },
+      "variables": ["a", "c"]
+    },
+    {
+      "id": "3h", "label": "3h",
+      "display": "8(5 + 2a + 3b)",
+      "answer": { "type": "text", "value": "40 + 16a + 24b" },
+      "variables": ["a", "b"]
+    },
+
+    {
+      "id": "4a", "label": "4a",
+      "group": "4. Write an expression for the area in two ways, thinking of one rectangle or two.",
+      "display": "See workbook.",
+      "answer": { "type": "workbook" }
+    },
+    {
+      "id": "4b", "label": "4b",
+      "display": "See workbook.",
+      "answer": { "type": "workbook" }
+    },
+    {
+      "id": "4c", "label": "4c",
+      "display": "See workbook.",
+      "answer": { "type": "workbook" }
+    },
+    {
+      "id": "4d", "label": "4d",
+      "display": "See workbook.",
+      "answer": { "type": "workbook" }
+    },
+    {
+      "id": "4e", "label": "4e",
+      "display": "See workbook.",
+      "answer": { "type": "workbook" }
+    },
+    {
+      "id": "4f", "label": "4f",
+      "display": "See workbook.",
+      "answer": { "type": "workbook" }
+    },
+
+    {
+      "id": "5a", "label": "5a",
+      "group": "5. Find the missing number or variable in these area models.",
+      "display": "See workbook.",
+      "answer": { "type": "gap", "template": "{0}(x + 2) = 3x + 6", "gaps": [{ "value": "3", "inputType": "number" }] },
+      "variables": ["x"]
+    },
+    {
+      "id": "5b", "label": "5b",
+      "display": "See workbook.",
+      "answer": { "type": "gap", "template": "{0}(t + 8) = 7t + 56", "gaps": [{ "value": "7", "inputType": "number" }] },
+      "variables": ["t"]
+    },
+    {
+      "id": "5c", "label": "5c",
+      "display": "See workbook. Total area is 9s + 54.",
+      "answer": { "type": "gap", "template": "{0}(s + 6) = 9s + 54", "gaps": [{ "value": "9", "inputType": "number" }] },
+      "variables": ["s"]
+    },
+    {
+      "id": "5d", "label": "5d",
+      "display": "See workbook.",
+      "answer": { "type": "gap", "template": "4({0} + 5) = 4z + 20", "gaps": [{ "value": "z", "inputType": "text" }] },
+      "variables": ["z"]
+    },
+    {
+      "id": "5e", "label": "5e",
+      "display": "See workbook.",
+      "answer": { "type": "gap", "template": "5(s + {0}) = 5s + 30", "gaps": [{ "value": "6", "inputType": "number" }] },
+      "variables": ["s"]
+    },
+    {
+      "id": "5f", "label": "5f",
+      "display": "See workbook. Total area is 7y + 42.",
+      "answer": { "type": "gap", "template": "7(y + {0}) = 7y + 42", "gaps": [{ "value": "6", "inputType": "number" }] },
+      "variables": ["y"]
+    },
+
+    {
+      "id": "6a", "label": "6a",
+      "group": "6. Find the missing number in the equations.",
+      "display": "",
+      "answer": { "type": "gap", "template": "{0}(x + 5) = 6x + 30", "gaps": [{ "value": "6", "inputType": "number" }] },
+      "variables": ["x"]
+    },
+    {
+      "id": "6b", "label": "6b",
+      "display": "",
+      "answer": { "type": "gap", "template": "10(y + {0}) = 10y + 30", "gaps": [{ "value": "3", "inputType": "number" }] },
+      "variables": ["y"]
+    },
+    {
+      "id": "6c", "label": "6c",
+      "display": "",
+      "answer": { "type": "gap", "template": "6({0} + z) = 12 + 6z", "gaps": [{ "value": "2", "inputType": "number" }] },
+      "variables": ["z"]
+    },
+    {
+      "id": "6d", "label": "6d",
+      "display": "",
+      "answer": { "type": "gap", "template": "8(r + {0}) = 8r + 24", "gaps": [{ "value": "3", "inputType": "number" }] },
+      "variables": ["r"]
+    },
+
+    {
+      "id": "7a", "label": "7a",
+      "group": "7. Find the missing number in the equations. These are just a little bit trickier!",
+      "display": "",
+      "answer": { "type": "gap", "template": "{0}(2x + 5) = 6x + 15", "gaps": [{ "value": "3", "inputType": "number" }] },
+      "variables": ["x"]
+    },
+    {
+      "id": "7b", "label": "7b",
+      "display": "",
+      "answer": { "type": "gap", "template": "{0}(3w + 5) = 21w + 35", "gaps": [{ "value": "7", "inputType": "number" }] },
+      "variables": ["w"]
+    },
+    {
+      "id": "7c", "label": "7c",
+      "display": "",
+      "answer": { "type": "gap", "template": "{0}(6y + 4) = 12y + 8", "gaps": [{ "value": "2", "inputType": "number" }] },
+      "variables": ["y"]
+    },
+    {
+      "id": "7d", "label": "7d",
+      "display": "",
+      "answer": { "type": "gap", "template": "{0}(10s + 3) = 50s + 15", "gaps": [{ "value": "5", "inputType": "number" }] },
+      "variables": ["s"]
+    },
+    {
+      "id": "7e", "label": "7e",
+      "display": "",
+      "answer": { "type": "gap", "template": "2({0} + 9) = 4x + 18", "gaps": [{ "value": "2x", "inputType": "text" }] },
+      "variables": ["x"]
+    },
+    {
+      "id": "7f", "label": "7f",
+      "display": "",
+      "answer": { "type": "gap", "template": "4({0} + 3) = 12x + 12", "gaps": [{ "value": "3x", "inputType": "text" }] },
+      "variables": ["x"]
+    },
+    {
+      "id": "7g", "label": "7g",
+      "display": "",
+      "answer": { "type": "gap", "template": "5({0} + 3) = 20y + 15", "gaps": [{ "value": "4y", "inputType": "text" }] },
+      "variables": ["y"]
+    },
+    {
+      "id": "7h", "label": "7h",
+      "display": "",
+      "answer": {
+        "type": "gap",
+        "template": "8({0} + {1} + 7) = 40t + 8s + 56",
+        "gaps": [
+          { "value": "5t", "inputType": "text" },
+          { "value": "s", "inputType": "text" }
+        ]
+      },
+      "variables": ["t", "s"]
+    },
+
+    {
+      "id": "8", "label": "8",
+      "group": "8. Write an expression for the perimeter of this regular heptagon as a product. Then multiply the expression using the distributive property.",
+      "display": "See workbook. Side length: 2x + 3",
+      "answer": {
+        "type": "dual",
+        "layout": "table",
+        "fields": [
+          { "label": "Product", "value": "7(2x + 3)", "inputType": "text" },
+          { "label": "Expanded", "value": "14x + 21", "inputType": "text" }
+        ]
+      },
+      "variables": ["x"]
+    },
+
+    {
+      "id": "9", "label": "9",
+      "group": "9. The perimeter of a regular pentagon is 15x + 5. How long is one of its sides?",
+      "display": "Perimeter = 15x + 5",
+      "answer": { "type": "text", "value": "3x + 1" },
+      "variables": ["x"]
+    },
+
+    {
+      "id": "10a", "label": "10a",
+      "group": "10. Think of the distributive property \"backwards,\" and factor these sums. Think of divisibility!",
+      "display": "6x + 6 =",
+      "answer": { "type": "gap", "template": "{0}(x + 1)", "gaps": [{ "value": "6", "inputType": "number" }] },
+      "variables": ["x"]
+    },
+    {
+      "id": "10b", "label": "10b",
+      "display": "8y + 16 =",
+      "answer": {
+        "type": "gap",
+        "template": "8({0} + {1})",
+        "gaps": [
+          { "value": "y", "inputType": "text" },
+          { "value": "2", "inputType": "number" }
+        ]
+      },
+      "variables": ["y"]
+    },
+    {
+      "id": "10c", "label": "10c",
+      "display": "15x + 45 =",
+      "answer": {
+        "type": "gap",
+        "template": "{0}(x + {1})",
+        "gaps": [
+          { "value": "15", "inputType": "number" },
+          { "value": "3", "inputType": "number" }
+        ]
+      },
+      "variables": ["x"]
+    },
+    {
+      "id": "10d", "label": "10d",
+      "display": "4w + 40 =",
+      "answer": {
+        "type": "gap",
+        "template": "{0}(w + {1})",
+        "gaps": [
+          { "value": "4", "inputType": "number" },
+          { "value": "10", "inputType": "number" }
+        ]
+      },
+      "variables": ["w"]
+    },
+    {
+      "id": "10e", "label": "10e",
+      "display": "6x + 30 =",
+      "answer": {
+        "type": "gap",
+        "template": "{0}({1} + {2})",
+        "gaps": [
+          { "value": "6", "inputType": "number" },
+          { "value": "x", "inputType": "text" },
+          { "value": "5", "inputType": "number" }
+        ]
+      },
+      "variables": ["x"]
+    },
+    {
+      "id": "10f", "label": "10f",
+      "display": "8x + 16y + 48 =",
+      "answer": {
+        "type": "gap",
+        "template": "{0}({1} + {2} + {3})",
+        "gaps": [
+          { "value": "8", "inputType": "number" },
+          { "value": "x", "inputType": "text" },
+          { "value": "2y", "inputType": "text" },
+          { "value": "6", "inputType": "number" }
+        ]
+      },
+      "variables": ["x", "y"]
+    },
+
+    {
+      "id": "11a", "label": "11a",
+      "group": "11. Factor these sums (writing them as products). Think of divisibility!",
+      "display": "8x + 4 =",
+      "answer": {
+        "type": "gap",
+        "template": "{0}(2x + {1})",
+        "gaps": [
+          { "value": "4", "inputType": "number" },
+          { "value": "1", "inputType": "number" }
+        ]
+      },
+      "variables": ["x"]
+    },
+    {
+      "id": "11b", "label": "11b",
+      "display": "15x + 10 =",
+      "answer": {
+        "type": "gap",
+        "template": "{0}(3x + {1})",
+        "gaps": [
+          { "value": "5", "inputType": "number" },
+          { "value": "2", "inputType": "number" }
+        ]
+      },
+      "variables": ["x"]
+    },
+    {
+      "id": "11c", "label": "11c",
+      "display": "24y + 8 =",
+      "answer": {
+        "type": "gap",
+        "template": "{0}({1} + {2})",
+        "gaps": [
+          { "value": "8", "inputType": "number" },
+          { "value": "3y", "inputType": "text" },
+          { "value": "1", "inputType": "number" }
+        ],
+        "validSets": [["8", "3y", "1"], ["2", "12y", "4"], ["4", "6y", "2"]]
+      },
+      "variables": ["y"]
+    },
+    {
+      "id": "11d", "label": "11d",
+      "display": "6x + 3 =",
+      "answer": {
+        "type": "gap",
+        "template": "{0}({1} + {2})",
+        "gaps": [
+          { "value": "3", "inputType": "number" },
+          { "value": "2x", "inputType": "text" },
+          { "value": "1", "inputType": "number" }
+        ]
+      },
+      "variables": ["x"]
+    },
+    {
+      "id": "11e", "label": "11e",
+      "display": "42y + 14 =",
+      "answer": {
+        "type": "gap",
+        "template": "{0}({1} + {2})",
+        "gaps": [
+          { "value": "7", "inputType": "number" },
+          { "value": "6y", "inputType": "text" },
+          { "value": "2", "inputType": "number" }
+        ],
+        "validSets": [["7", "6y", "2"], ["14", "3y", "1"], ["2", "21y", "7"]]
+      },
+      "variables": ["y"]
+    },
+    {
+      "id": "11f", "label": "11f",
+      "display": "32x + 24 =",
+      "answer": {
+        "type": "gap",
+        "template": "{0}({1} + {2})",
+        "gaps": [
+          { "value": "8", "inputType": "number" },
+          { "value": "4x", "inputType": "text" },
+          { "value": "3", "inputType": "number" }
+        ],
+        "validSets": [["8", "4x", "3"], ["2", "16x", "12"]]
+      },
+      "variables": ["x"]
+    },
+    {
+      "id": "11g", "label": "11g",
+      "display": "27y + 9 =",
+      "answer": {
+        "type": "gap",
+        "template": "{0}({1} + {2})",
+        "gaps": [
+          { "value": "9", "inputType": "number" },
+          { "value": "3y", "inputType": "text" },
+          { "value": "1", "inputType": "number" }
+        ],
+        "validSets": [["9", "3y", "1"], ["3", "9y", "3"]]
+      },
+      "variables": ["y"]
+    },
+    {
+      "id": "11h", "label": "11h",
+      "display": "55x + 22 =",
+      "answer": {
+        "type": "gap",
+        "template": "{0}({1} + {2})",
+        "gaps": [
+          { "value": "11", "inputType": "number" },
+          { "value": "5x", "inputType": "text" },
+          { "value": "2", "inputType": "number" }
+        ]
+      },
+      "variables": ["x"]
+    },
+    {
+      "id": "11i", "label": "11i",
+      "display": "36y + 12 =",
+      "answer": {
+        "type": "gap",
+        "template": "{0}({1} + {2})",
+        "gaps": [
+          { "value": "12", "inputType": "number" },
+          { "value": "3y", "inputType": "text" },
+          { "value": "1", "inputType": "number" }
+        ],
+        "validSets": [["12", "3y", "1"], ["6", "6y", "2"], ["4", "9y", "3"], ["3", "12y", "4"], ["2", "18y", "6"]]
+      },
+      "variables": ["y"]
+    },
+    {
+      "id": "11j", "label": "11j",
+      "display": "36x + 9z + 27 =",
+      "answer": {
+        "type": "gap",
+        "template": "{0}({1} + {2} + {3})",
+        "gaps": [
+          { "value": "9", "inputType": "number" },
+          { "value": "4x", "inputType": "text" },
+          { "value": "z", "inputType": "text" },
+          { "value": "3", "inputType": "number" }
+        ],
+        "validSets": [["9", "4x", "z", "3"], ["3", "12x", "3z", "9"]]
+      },
+      "variables": ["x", "z"]
+    },
+
+    {
+      "id": "12", "label": "12",
+      "group": "12. The perimeter of a square is 48x + 16. How long is its side?",
+      "display": "Perimeter = 48x + 16",
+      "answer": { "type": "text", "value": "12x + 4" },
+      "variables": ["x"]
+    },
+
+    {
+      "id": "puzzle", "label": "Puzzle",
+      "group": "Puzzle Corner",
+      "display": "As a shopkeeper, you need to purchase 1000 items to get a wholesale price of $8 per item. You figure you might sell 600 of them and want to advertise a $3 discount. What should the non-discounted selling price be for you to earn $500 profit?",
+      "answer": { "type": "workbook" }
+    }
   ]
 }

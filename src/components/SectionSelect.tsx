@@ -106,9 +106,7 @@ export default function SectionSelect({ progress }: SectionSelectProps) {
                          active:scale-[0.98] transition-transform border-2 border-transparent
                          hover:border-indigo-100"
             >
-              {/* Status dot */}
               <div className={`w-3 h-3 rounded-full shrink-0 ${progressDotColor(pct)}`} />
-
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-2">
                   <h3 className="text-lg font-semibold text-gray-900 truncate">
@@ -122,7 +120,6 @@ export default function SectionSelect({ progress }: SectionSelectProps) {
                 </div>
                 <p className="text-sm text-gray-400">Pages {section.pages}</p>
               </div>
-
               <div className={`text-right shrink-0 ${progressTextColor(pct)}`}>
                 <span className="text-sm font-medium">
                   {sectionCorrect > 0 ? `${Math.round(pct * 100)}%` : 'Not started'}

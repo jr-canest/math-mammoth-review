@@ -1,0 +1,161 @@
+{
+  "chapter": "chapter-7",
+  "section": "problem-solving-with-fractions-2",
+  "title": "Problem Solving with Fractions 2",
+  "pages": "62-64",
+  "problems": [
+    {
+      "id": "1", "label": "1",
+      "group": "1. Emily mixed 1 part concentrate with 7 parts water to make a total of 1560 ml of juice. How many millilitres of concentrate and how many millilitres of water were in the juice?",
+      "display": "1560 ml ÷ 8 parts",
+      "answer": {
+        "type": "dual",
+        "fields": [
+          { "label": "Concentrate (ml)", "value": "195", "inputType": "number" },
+          { "label": "Water (ml)", "value": "1365", "inputType": "number" }
+        ]
+      }
+    },
+    {
+      "id": "2", "label": "2",
+      "group": "2. A rectangle has a perimeter of 10 1/2 units, and its aspect ratio (width to length) is 1:5. Find the lengths of the two different sides.",
+      "display": "Perimeter = 10 1/2, ratio 1:5",
+      "answer": {
+        "type": "dual",
+        "fields": [
+          { "label": "Width", "value": "7/8", "inputType": "number", "decimal": 0.875, "tolerance": 0.001 },
+          { "label": "Length", "value": "4 3/8", "inputType": "number", "decimal": 4.375, "tolerance": 0.001 }
+        ]
+      }
+    },
+    {
+      "id": "3", "label": "3",
+      "group": "3. Heather has two different routes to the swimming pool, and their lengths are in a ratio of 3:4. The shorter route is 1 4/5 kilometres long. Find the length of the longer route.",
+      "display": "Shorter = 1 4/5 km, ratio 3:4",
+      "answer": { "type": "fraction", "value": "2 2/5", "decimal": 2.4 }
+    },
+    {
+      "id": "4a", "label": "4a",
+      "group": "4. Fill in the blanks.",
+      "display": "3/4 of a number is 15.",
+      "answer": {
+        "type": "gap",
+        "template": "1/4 of that number is {0}.\nThe number is {1}.",
+        "gaps": [
+          { "value": "5", "inputType": "number" },
+          { "value": "20", "inputType": "number" }
+        ]
+      }
+    },
+    {
+      "id": "4b", "label": "4b",
+      "group": "4. Fill in the blanks.",
+      "display": "2/9 of a number is 24.",
+      "answer": {
+        "type": "gap",
+        "template": "1/9 of that number is {0}.\nThe number is {1}.",
+        "gaps": [
+          { "value": "12", "inputType": "number" },
+          { "value": "108", "inputType": "number" }
+        ]
+      }
+    },
+    {
+      "id": "4c", "label": "4c",
+      "group": "4. Fill in the blanks.",
+      "display": "7/8 of a number is 49.",
+      "answer": {
+        "type": "gap",
+        "template": "1/8 of that number is {0}.\nThe number is {1}.",
+        "gaps": [
+          { "value": "7", "inputType": "number" },
+          { "value": "56", "inputType": "number" }
+        ]
+      }
+    },
+    {
+      "id": "5a", "label": "5a",
+      "group": "5. Use reasoning similar to the previous exercise. In each case, find the number.",
+      "display": "4/5 of a number is 24.",
+      "answer": { "type": "number", "value": "30" }
+    },
+    {
+      "id": "5b", "label": "5b",
+      "group": "5. Use reasoning similar to the previous exercise. In each case, find the number.",
+      "display": "2/3 of a number is 40.",
+      "answer": { "type": "number", "value": "60" }
+    },
+    {
+      "id": "5c", "label": "5c",
+      "group": "5. Use reasoning similar to the previous exercise. In each case, find the number.",
+      "display": "8/11 of a number is 56.",
+      "answer": { "type": "number", "value": "77" }
+    },
+    {
+      "id": "5d", "label": "5d",
+      "group": "5. Use reasoning similar to the previous exercise. In each case, find the number.",
+      "display": "5/7 of a number is 45.",
+      "answer": { "type": "number", "value": "63" }
+    },
+    {
+      "id": "6", "label": "6",
+      "group": "6. Of a horse club's members, 7/9 are girls, and 8 (the rest) are boys. How many members does the club have?",
+      "display": "Boys = 2/9 of total = 8",
+      "answer": { "type": "number", "value": "36" }
+    },
+    {
+      "id": "7", "label": "7",
+      "group": "7. It took 75 litres of gas for a tractor to plough 3/5 of a farm. How much gas will be needed to plough the rest of the farm?",
+      "display": "Rest = 2/5 of farm",
+      "answer": { "type": "number", "value": "50" }
+    },
+    {
+      "id": "8", "label": "8",
+      "group": "8. One-third of the audience at a concert were seniors who had half-price tickets. The total audience count was 657, and a full-price ticket cost $24.50. Find the total income from ticket sales for the concert.",
+      "display": "Hint: Start by finding how many were seniors and how many were not.",
+      "answer": { "type": "number", "value": "13413.75" }
+    },
+    {
+      "id": "9a", "label": "9a",
+      "group": "9. An eraser is 1 1/2 cm thick, 4 1/2 cm long, and 2 cm wide. A box is 10 cm tall, 15 cm long, and 10 cm wide.",
+      "display": "How many erasers can be stacked in the 10-cm tall box?",
+      "answer": { "type": "number", "value": "6" }
+    },
+    {
+      "id": "9b", "label": "9b",
+      "group": "9. An eraser is 1 1/2 cm thick, 4 1/2 cm long, and 2 cm wide. A box is 10 cm tall, 15 cm long, and 10 cm wide.",
+      "display": "How many erasers fit in lengthwise?",
+      "answer": { "type": "number", "value": "3" }
+    },
+    {
+      "id": "9c", "label": "9c",
+      "group": "9. An eraser is 1 1/2 cm thick, 4 1/2 cm long, and 2 cm wide. A box is 10 cm tall, 15 cm long, and 10 cm wide.",
+      "display": "How many erasers fit side by side in the width of the box?",
+      "answer": { "type": "number", "value": "5" }
+    },
+    {
+      "id": "9d", "label": "9d",
+      "group": "9. An eraser is 1 1/2 cm thick, 4 1/2 cm long, and 2 cm wide. A box is 10 cm tall, 15 cm long, and 10 cm wide.",
+      "display": "What is the total number of erasers that could fit into the box?",
+      "answer": { "type": "number", "value": "90" }
+    },
+    {
+      "id": "10", "label": "10",
+      "group": "10. How many of the same kind of erasers would fit into a box whose dimensions are 20 cm (length) by 20 cm (width) by 20 cm (height)?",
+      "display": "Same eraser: 1 1/2 cm × 4 1/2 cm × 2 cm",
+      "answer": { "type": "number", "value": "520" }
+    },
+    {
+      "id": "11", "label": "11",
+      "group": "11. First, a length of fabric was cut into two equal halves. Then 3/4 of one of the halves was cut off, leaving a 17-centimetre piece. How long was the fabric originally? See workbook for bar model.",
+      "display": "17 cm = 1/4 of half",
+      "answer": { "type": "number", "value": "136" }
+    },
+    {
+      "id": "12", "label": "12",
+      "group": "12. Jeremy gave 1/3 of his apple harvest to Dave, who gave half of his share to a neighbour. The neighbour got 15.5 kg. How many kilograms of apples did Jeremy harvest?",
+      "display": "Neighbour got 15.5 kg = 1/2 of Dave's share = 1/6 of Jeremy's",
+      "answer": { "type": "number", "value": "93" }
+    }
+  ]
+}

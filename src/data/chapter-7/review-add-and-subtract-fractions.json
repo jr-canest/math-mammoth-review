@@ -1,0 +1,286 @@
+{
+  "chapter": "chapter-7",
+  "section": "review-add-and-subtract-fractions",
+  "title": "Review: Add and Subtract Fractions and Mixed Numbers",
+  "pages": "37-40",
+  "problems": [
+    {
+      "id": "1a", "label": "1a",
+      "group": "1. Write the addition sentences.",
+      "display": "See workbook.",
+      "answer": { "type": "fraction", "value": "9/10", "decimal": 0.9 }
+    },
+    {
+      "id": "1b", "label": "1b",
+      "group": "1. Write the addition sentences.",
+      "display": "3/4 + 1/9",
+      "answer": { "type": "fraction", "value": "31/36", "decimal": 0.8611 }
+    },
+    {
+      "id": "1c", "label": "1c",
+      "group": "1. Write the addition sentences.",
+      "display": "7/10 + 1/4",
+      "answer": { "type": "fraction", "value": "19/20", "decimal": 0.95 }
+    },
+    {
+      "id": "2a", "label": "2a",
+      "group": "2. Add and subtract. Use the common denominator you found in the previous exercise.",
+      "display": "5/16 + 1/6",
+      "answer": { "type": "fraction", "value": "23/48", "decimal": 0.4792 }
+    },
+    {
+      "id": "2b", "label": "2b",
+      "group": "2. Add and subtract. Use the common denominator you found in the previous exercise.",
+      "display": "3 1/12 + 1 4/9",
+      "answer": { "type": "fraction", "value": "4 19/36", "decimal": 4.5278 }
+    },
+    {
+      "id": "2c", "label": "2c",
+      "group": "2. Add and subtract. Use the common denominator you found in the previous exercise.",
+      "display": "5/6 − 3/8",
+      "answer": { "type": "fraction", "value": "11/24", "decimal": 0.4583 }
+    },
+    {
+      "id": "2d", "label": "2d",
+      "group": "2. Add and subtract. Use the common denominator you found in the previous exercise.",
+      "display": "2 5/12 + 4/5",
+      "answer": { "type": "fraction", "value": "3 13/60", "decimal": 3.2167 }
+    },
+    {
+      "id": "2e", "label": "2e",
+      "group": "2. Add and subtract. Use the common denominator you found in the previous exercise.",
+      "display": "5 11/15 − 2 3/20",
+      "answer": { "type": "fraction", "value": "3 7/12", "decimal": 3.5833 }
+    },
+    {
+      "id": "2f", "label": "2f",
+      "group": "2. Add and subtract. Use the common denominator you found in the previous exercise.",
+      "display": "45/100 + 9/20",
+      "answer": { "type": "fraction", "value": "9/10", "decimal": 0.9 }
+    },
+    {
+      "id": "3a", "label": "3a",
+      "group": "3. Subtract.",
+      "display": "7 3/9 − 2 7/9",
+      "answer": { "type": "fraction", "value": "4 5/9", "decimal": 4.5556 }
+    },
+    {
+      "id": "3b", "label": "3b",
+      "group": "3. Subtract.",
+      "display": "18 1/10 − 5 9/10",
+      "answer": { "type": "fraction", "value": "12 1/5", "decimal": 12.2 }
+    },
+    {
+      "id": "3c", "label": "3c",
+      "group": "3. Subtract.",
+      "display": "10 1/15 − 3 8/15",
+      "answer": { "type": "fraction", "value": "6 8/15", "decimal": 6.5333 }
+    },
+    {
+      "id": "3d", "label": "3d",
+      "group": "3. Subtract.",
+      "display": "16 3/9 − 9 8/9",
+      "answer": { "type": "fraction", "value": "6 4/9", "decimal": 6.4444 }
+    },
+    {
+      "id": "3e", "label": "3e",
+      "group": "3. Subtract.",
+      "display": "7 3/14 − 2 10/14",
+      "answer": { "type": "fraction", "value": "4 1/2", "decimal": 4.5 }
+    },
+    {
+      "id": "4a", "label": "4a",
+      "group": "4. Subtract. First write equivalent fractions with the same denominator.",
+      "display": "3 3/4 − 1 1/6",
+      "answer": { "type": "fraction", "value": "2 7/12", "decimal": 2.5833 }
+    },
+    {
+      "id": "4b", "label": "4b",
+      "group": "4. Subtract. First write equivalent fractions with the same denominator.",
+      "display": "3 3/8 − 1 5/12",
+      "answer": { "type": "fraction", "value": "1 23/24", "decimal": 1.9583 }
+    },
+    {
+      "id": "4c", "label": "4c",
+      "group": "4. Subtract. First write equivalent fractions with the same denominator.",
+      "display": "8 9/11 − 5 1/2",
+      "answer": { "type": "fraction", "value": "3 7/22", "decimal": 3.3182 }
+    },
+    {
+      "id": "5", "label": "5",
+      "group": "5. Figure out and explain how these subtractions were done!",
+      "display": "See workbook.",
+      "answer": { "type": "workbook" }
+    },
+    {
+      "id": "6a", "label": "6a",
+      "group": "6. Add or subtract the fractions.",
+      "display": "5/12 + 1/6 + 1/3",
+      "answer": { "type": "fraction", "value": "11/12", "decimal": 0.9167 }
+    },
+    {
+      "id": "6b", "label": "6b",
+      "group": "6. Add or subtract the fractions.",
+      "display": "2/7 + 1/2 − 1/4",
+      "answer": { "type": "fraction", "value": "15/28", "decimal": 0.5357 }
+    },
+    {
+      "id": "6c", "label": "6c",
+      "group": "6. Add or subtract the fractions.",
+      "display": "1/10 + 2/5 + 1/3",
+      "answer": { "type": "fraction", "value": "5/6", "decimal": 0.8333 }
+    },
+    {
+      "id": "6d", "label": "6d",
+      "group": "6. Add or subtract the fractions.",
+      "display": "19/20 − 1/3 − 1/4",
+      "answer": { "type": "fraction", "value": "11/30", "decimal": 0.3667 }
+    },
+    {
+      "id": "6e", "label": "6e",
+      "group": "6. Add or subtract the fractions.",
+      "display": "7/8 − 1/5 + 2/3",
+      "answer": { "type": "fraction", "value": "1 41/120", "decimal": 1.3417 }
+    },
+    {
+      "id": "6f", "label": "6f",
+      "group": "6. Add or subtract the fractions.",
+      "display": "7/6 − 3/5 + 3/4",
+      "answer": { "type": "fraction", "value": "1 19/60", "decimal": 1.3167 }
+    },
+    {
+      "id": "7", "label": "7",
+      "group": "7. Solve.",
+      "display": "Joe started working at an automobile company 23 1/2 years ago. However, during that time, he has taken 1/4 of a year off for paternity leave, and spent another 1 1/3 years laid off due to a recession. So, how long has he actually been working for the company?",
+      "answer": { "type": "fraction", "value": "21 11/12", "decimal": 21.9167 }
+    },
+    {
+      "id": "8a", "label": "8a",
+      "group": "8. Compare the fractions, writing < or > between them.",
+      "display": "1/2 ☐ 5/9",
+      "answer": { "type": "multiselect", "options": ["<", ">"], "correct": ["<"] }
+    },
+    {
+      "id": "8b", "label": "8b",
+      "group": "8. Compare the fractions, writing < or > between them.",
+      "display": "15/65 ☐ 15/34",
+      "answer": { "type": "multiselect", "options": ["<", ">"], "correct": ["<"] }
+    },
+    {
+      "id": "8c", "label": "8c",
+      "group": "8. Compare the fractions, writing < or > between them.",
+      "display": "6/15 ☐ 1/2",
+      "answer": { "type": "multiselect", "options": ["<", ">"], "correct": ["<"] }
+    },
+    {
+      "id": "8d", "label": "8d",
+      "group": "8. Compare the fractions, writing < or > between them.",
+      "display": "1/120 ☐ 1/75",
+      "answer": { "type": "multiselect", "options": ["<", ">"], "correct": ["<"] }
+    },
+    {
+      "id": "8e", "label": "8e",
+      "group": "8. Compare the fractions, writing < or > between them.",
+      "display": "3/5 ☐ 8/13",
+      "answer": { "type": "multiselect", "options": ["<", ">"], "correct": ["<"] }
+    },
+    {
+      "id": "8f", "label": "8f",
+      "group": "8. Compare the fractions, writing < or > between them.",
+      "display": "2/3 ☐ 8/11",
+      "answer": { "type": "multiselect", "options": ["<", ">"], "correct": ["<"] }
+    },
+    {
+      "id": "8g", "label": "8g",
+      "group": "8. Compare the fractions, writing < or > between them.",
+      "display": "11/15 ☐ 3/4",
+      "answer": { "type": "multiselect", "options": ["<", ">"], "correct": ["<"] }
+    },
+    {
+      "id": "8h", "label": "8h",
+      "group": "8. Compare the fractions, writing < or > between them.",
+      "display": "10/2000 ☐ 2/1000",
+      "answer": { "type": "multiselect", "options": ["<", ">"], "correct": [">"] }
+    },
+    {
+      "id": "9", "label": "9",
+      "group": "9. Julie is convinced that 5/6 is more than 7/8 — she even sketched a picture where it looks like it is so. How would you convince (prove to) her otherwise?",
+      "display": "See workbook.",
+      "answer": { "type": "workbook" }
+    },
+    {
+      "id": "10a", "label": "10a",
+      "group": "10. Order the fractions from the smallest to the biggest.",
+      "display": "1/4, 1/2, 3/8, 3/7",
+      "answer": {
+        "type": "gap",
+        "template": "{0} < {1} < {2} < {3}",
+        "gaps": [
+          { "value": "1/4", "inputType": "number", "decimal": 0.25, "tolerance": 0.001 },
+          { "value": "3/8", "inputType": "number", "decimal": 0.375, "tolerance": 0.001 },
+          { "value": "3/7", "inputType": "number", "decimal": 0.4286, "tolerance": 0.001 },
+          { "value": "1/2", "inputType": "number", "decimal": 0.5, "tolerance": 0.001 }
+        ]
+      }
+    },
+    {
+      "id": "10b", "label": "10b",
+      "group": "10. Order the fractions from the smallest to the biggest.",
+      "display": "2/3, 7/5, 5/4, 3/2",
+      "answer": {
+        "type": "gap",
+        "template": "{0} < {1} < {2} < {3}",
+        "gaps": [
+          { "value": "2/3", "inputType": "number", "decimal": 0.6667, "tolerance": 0.001 },
+          { "value": "5/4", "inputType": "number", "decimal": 1.25, "tolerance": 0.001 },
+          { "value": "7/5", "inputType": "number", "decimal": 1.4, "tolerance": 0.001 },
+          { "value": "3/2", "inputType": "number", "decimal": 1.5, "tolerance": 0.001 }
+        ]
+      }
+    },
+    {
+      "id": "10c", "label": "10c",
+      "group": "10. Order the fractions from the smallest to the biggest.",
+      "display": "2/3, 8/5, 3/5, 3/4, 5/4",
+      "answer": {
+        "type": "gap",
+        "template": "{0} < {1} < {2} < {3} < {4}",
+        "gaps": [
+          { "value": "3/5", "inputType": "number", "decimal": 0.6, "tolerance": 0.001 },
+          { "value": "2/3", "inputType": "number", "decimal": 0.6667, "tolerance": 0.001 },
+          { "value": "3/4", "inputType": "number", "decimal": 0.75, "tolerance": 0.001 },
+          { "value": "5/4", "inputType": "number", "decimal": 1.25, "tolerance": 0.001 },
+          { "value": "8/5", "inputType": "number", "decimal": 1.6, "tolerance": 0.001 }
+        ]
+      }
+    },
+    {
+      "id": "10d", "label": "10d",
+      "group": "10. Order the fractions from the smallest to the biggest.",
+      "display": "5/6, 7/12, 5/8, 2/9, 6/5",
+      "answer": {
+        "type": "gap",
+        "template": "{0} < {1} < {2} < {3} < {4}",
+        "gaps": [
+          { "value": "2/9", "inputType": "number", "decimal": 0.2222, "tolerance": 0.001 },
+          { "value": "7/12", "inputType": "number", "decimal": 0.5833, "tolerance": 0.001 },
+          { "value": "5/8", "inputType": "number", "decimal": 0.625, "tolerance": 0.001 },
+          { "value": "5/6", "inputType": "number", "decimal": 0.8333, "tolerance": 0.001 },
+          { "value": "6/5", "inputType": "number", "decimal": 1.2, "tolerance": 0.001 }
+        ]
+      }
+    },
+    {
+      "id": "puzzle-a", "label": "a",
+      "group": "Puzzle Corner: Solve the equations.",
+      "display": "8 4/7 + x = 10 2/5",
+      "answer": { "type": "fraction", "value": "1 29/35", "decimal": 1.8286 }
+    },
+    {
+      "id": "puzzle-b", "label": "b",
+      "group": "Puzzle Corner: Solve the equations.",
+      "display": "5 1/9 − x = 2 1/3",
+      "answer": { "type": "fraction", "value": "2 7/9", "decimal": 2.7778 }
+    }
+  ]
+}

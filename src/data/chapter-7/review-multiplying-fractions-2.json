@@ -1,0 +1,200 @@
+{
+  "chapter": "chapter-7",
+  "section": "review-multiplying-fractions-2",
+  "title": "Review: Multiplying Fractions 2",
+  "pages": "47-49",
+  "problems": [
+    {
+      "id": "1a", "label": "1a",
+      "group": "1. Write the multiplication for the area of the coloured rectangle.",
+      "display": "See workbook. (Answer in m²)",
+      "answer": { "type": "fraction", "value": "1/2", "decimal": 0.5 }
+    },
+    {
+      "id": "1b", "label": "1b",
+      "group": "1. Write the multiplication for the area of the coloured rectangle.",
+      "display": "See workbook. (Answer in cm²)",
+      "answer": { "type": "fraction", "value": "4/9", "decimal": 0.4444 }
+    },
+    {
+      "id": "1c", "label": "1c",
+      "group": "1. Write the multiplication for the area of the coloured rectangle. (No units.)",
+      "display": "See workbook.",
+      "answer": { "type": "fraction", "value": "4/15", "decimal": 0.2667 }
+    },
+    {
+      "id": "1d", "label": "1d",
+      "group": "1. Write the multiplication for the area of the coloured rectangle. (No units.)",
+      "display": "See workbook.",
+      "answer": { "type": "fraction", "value": "2/5", "decimal": 0.4 }
+    },
+    {
+      "id": "2a", "label": "2a",
+      "group": "2. Multiply. Shade a rectangle in the grid to illustrate the multiplications.",
+      "display": "3/4 ⋅ 3/4",
+      "answer": { "type": "fraction", "value": "9/16", "decimal": 0.5625 }
+    },
+    {
+      "id": "2b", "label": "2b",
+      "group": "2. Multiply. Shade a rectangle in the grid to illustrate the multiplications.",
+      "display": "2/3 ⋅ 3/5",
+      "answer": { "type": "fraction", "value": "2/5", "decimal": 0.4 }
+    },
+    {
+      "id": "2c", "label": "2c",
+      "group": "2. Multiply. Shade a rectangle in the grid to illustrate the multiplications.",
+      "display": "8/9 ⋅ 1/3",
+      "answer": { "type": "fraction", "value": "8/27", "decimal": 0.2963 }
+    },
+    {
+      "id": "3a", "label": "3a",
+      "group": "3. Make equivalent fractions by multiplying the given fraction by different forms of the number 1.",
+      "display": "5/5 ⋅ 2/3",
+      "answer": { "type": "fraction", "value": "10/15", "decimal": 0.6667 }
+    },
+    {
+      "id": "3b", "label": "3b",
+      "group": "3. Make equivalent fractions by multiplying the given fraction by different forms of the number 1.",
+      "display": "3/3 ⋅ 7/10",
+      "answer": { "type": "fraction", "value": "21/30", "decimal": 0.7 }
+    },
+    {
+      "id": "3c", "label": "3c",
+      "group": "3. Make equivalent fractions by multiplying the given fraction by different forms of the number 1.",
+      "display": "9/9 ⋅ 8/15",
+      "answer": { "type": "fraction", "value": "72/135", "decimal": 0.5333 }
+    },
+    {
+      "id": "4a", "label": "4a",
+      "group": "4. Is the result of multiplication more, less, or equal to the original number? Write <, >, or =. You do not have to calculate anything.",
+      "display": "11/12 ⋅ 21 ___ 21",
+      "answer": { "type": "multiselect", "options": ["<", ">", "="], "correct": ["<"] }
+    },
+    {
+      "id": "4b", "label": "4b",
+      "group": "4. Is the result of multiplication more, less, or equal to the original number? Write <, >, or =. You do not have to calculate anything.",
+      "display": "2 1/3 ⋅ 19 ___ 19",
+      "answer": { "type": "multiselect", "options": ["<", ">", "="], "correct": [">"] }
+    },
+    {
+      "id": "4c", "label": "4c",
+      "group": "4. Is the result of multiplication more, less, or equal to the original number? Write <, >, or =. You do not have to calculate anything.",
+      "display": "16/16 ⋅ 105 ___ 105",
+      "answer": { "type": "multiselect", "options": ["<", ">", "="], "correct": ["="] }
+    },
+    {
+      "id": "5a", "label": "5a",
+      "group": "5. These situations use mixed numbers.",
+      "display": "See workbook. Write a multiplication and solve.",
+      "answer": { "type": "workbook" }
+    },
+    {
+      "id": "5b", "label": "5b",
+      "group": "5. These situations use mixed numbers.",
+      "display": "1 1/4 ⋅ 1 3/4",
+      "answer": { "type": "fraction", "value": "2 3/16", "decimal": 2.1875 }
+    },
+    {
+      "id": "6", "label": "6",
+      "group": "6. Shade a rectangle to illustrate 3 1/3 ⋅ 1 2/3.",
+      "display": "See workbook.",
+      "answer": { "type": "workbook" }
+    },
+    {
+      "id": "7", "label": "7",
+      "group": "7. Leo says: \"3 1/3 ⋅ 1 2/3 is simply 3 ⋅ 1 = 3, plus 1/3 ⋅ 2/3 = 2/9, a total of 3 2/9.\" Use your drawing from (6) to explain why Leo's work is wrong.",
+      "display": "See workbook.",
+      "answer": { "type": "workbook" }
+    },
+    {
+      "id": "8a", "label": "8a",
+      "group": "8. A town extends over a 4 1/4 km by 3 3/8 km rectangle.",
+      "display": "Find its area using fractions.",
+      "answer": { "type": "fraction", "value": "14 11/32", "decimal": 14.3438 }
+    },
+    {
+      "id": "8b", "label": "8b",
+      "group": "8. A town extends over a 4 1/4 km by 3 3/8 km rectangle.",
+      "display": "Find its area using decimals, rounded to the nearest hundredth.",
+      "answer": { "type": "number", "value": "14.34", "tolerance": 0.01 }
+    },
+    {
+      "id": "9a", "label": "9a",
+      "group": "9. Simplify before you multiply.",
+      "display": "8/12 ⋅ 6/12",
+      "answer": { "type": "fraction", "value": "1/3", "decimal": 0.3333 }
+    },
+    {
+      "id": "9b", "label": "9b",
+      "group": "9. Simplify before you multiply.",
+      "display": "3/10 ⋅ 2/18",
+      "answer": { "type": "fraction", "value": "1/30", "decimal": 0.0333 }
+    },
+    {
+      "id": "9c", "label": "9c",
+      "group": "9. Simplify before you multiply.",
+      "display": "2/30 ⋅ 10/11",
+      "answer": { "type": "fraction", "value": "2/33", "decimal": 0.0606 }
+    },
+    {
+      "id": "9d", "label": "9d",
+      "group": "9. Simplify before you multiply.",
+      "display": "7/21 ⋅ 3/4",
+      "answer": { "type": "fraction", "value": "1/4", "decimal": 0.25 }
+    },
+    {
+      "id": "9e", "label": "9e",
+      "group": "9. Simplify before you multiply.",
+      "display": "2/16 ⋅ 8/9",
+      "answer": { "type": "fraction", "value": "1/9", "decimal": 0.1111 }
+    },
+    {
+      "id": "9f", "label": "9f",
+      "group": "9. Simplify before you multiply.",
+      "display": "18/24 ⋅ 8/9",
+      "answer": { "type": "fraction", "value": "2/3", "decimal": 0.6667 }
+    },
+    {
+      "id": "10", "label": "10",
+      "group": "10. Find the price for 5/8 kilogram of nuts if one kilogram costs $20.",
+      "display": "Price = $?",
+      "answer": { "type": "fraction", "value": "12 1/2", "decimal": 12.5 }
+    },
+    {
+      "id": "11", "label": "11",
+      "group": "11. Find the price for 2 3/4 kilograms of nuts if one kilogram costs $16.",
+      "display": "Price = $?",
+      "answer": { "type": "number", "value": "44" }
+    },
+    {
+      "id": "12a", "label": "12a",
+      "group": "12. Try your simplifying skills with multiplying three fractions.",
+      "display": "5/4 ⋅ 12/9 ⋅ 3/15",
+      "answer": { "type": "fraction", "value": "1/3", "decimal": 0.3333 }
+    },
+    {
+      "id": "12b", "label": "12b",
+      "group": "12. Try your simplifying skills with multiplying three fractions.",
+      "display": "8/10 ⋅ 15/27 ⋅ 9/16",
+      "answer": { "type": "fraction", "value": "1/4", "decimal": 0.25 }
+    },
+    {
+      "id": "12c", "label": "12c",
+      "group": "12. Try your simplifying skills with multiplying three fractions.",
+      "display": "1/18 ⋅ 24/33 ⋅ 9/20",
+      "answer": { "type": "fraction", "value": "1/55", "decimal": 0.0182 }
+    },
+    {
+      "id": "12d", "label": "12d",
+      "group": "12. Try your simplifying skills with multiplying three fractions.",
+      "display": "3/5 ⋅ 15/18 ⋅ 16/50",
+      "answer": { "type": "fraction", "value": "4/25", "decimal": 0.16 }
+    },
+    {
+      "id": "puzzle", "label": "Puzzle",
+      "group": "Puzzle Corner",
+      "display": "Simplify: 60/48 ⋅ 36/90",
+      "answer": { "type": "fraction", "value": "1/2", "decimal": 0.5 }
+    }
+  ]
+}

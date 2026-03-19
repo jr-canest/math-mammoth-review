@@ -1,0 +1,51 @@
+{
+  "chapter": "chapter-2-review",
+  "section": "chapter-2-mixed-review",
+  "title": "Chapter 2 Mixed Review",
+  "pages": "90-91",
+  "problems": [
+    { "id": "1a", "label": "1a", "group": "1. Solve.", "display": "10⁵", "answer": { "type": "number", "value": 100000 } },
+    { "id": "1b", "label": "1b", "group": "1. Solve.", "display": "3⁴", "answer": { "type": "number", "value": 81 } },
+    { "id": "1c", "label": "1c", "group": "1. Solve.", "display": "10⁵ · 4", "answer": { "type": "number", "value": 400000 } },
+    { "id": "2a", "label": "2a", "group": "2. Fill in.", "display": "(1.4 m)² gives us the ___ of a ___ with sides ___ long. See workbook.", "answer": { "type": "workbook", "hint": "area of a square with sides 1.4 m long" } },
+    { "id": "2b", "label": "2b", "group": "2. Fill in.", "display": "(78 cm)³ gives us the ___ of a ___ with edges ___ long. See workbook.", "answer": { "type": "workbook", "hint": "volume of a cube with edges 78 cm long" } },
+    { "id": "3", "label": "3", "group": "3. Find the perimeter of the square.", "display": "The area of a square is 81 cm². What is its perimeter?", "answer": { "type": "number", "value": 36 } },
+    { "id": "4a-b", "label": "4a-b", "group": "4. Estimate and find the exact value.", "display": "Estimate, find exact value, and error of estimation (problems 4a–4b). See workbook.", "answer": { "type": "workbook", "hint": "a. Exact: 33,805,200  b. Exact: 9,754,502" } },
+    { "id": "5", "label": "5", "group": "5. Triple the recipe.", "display": "Triple the Spice Cookies recipe. See workbook.", "answer": { "type": "workbook", "hint": "Makes 7 1/2 dozen. All ingredients tripled." } },
+    {
+      "id": "6a", "label": "6a",
+      "group": "6. Write an expression.",
+      "display": "The quotient of 5s and 8",
+      "variables": ["s"],
+      "answer": { "type": "text", "value": "5s÷8" }
+    },
+    {
+      "id": "6b", "label": "6b",
+      "group": "6. Write an expression.",
+      "display": "7 times the quantity x plus 8",
+      "variables": ["x"],
+      "answer": { "type": "text", "value": "7(x+8)" }
+    },
+    {
+      "id": "6c", "label": "6c",
+      "group": "6. Write an expression.",
+      "display": "y less than 8",
+      "variables": ["y"],
+      "answer": { "type": "text", "value": "8−y" }
+    },
+    {
+      "id": "6d", "label": "6d",
+      "group": "6. Write an expression.",
+      "display": "The quantity x minus 8, squared",
+      "variables": ["x"],
+      "answer": { "type": "text", "value": "(x−8)²" }
+    },
+    { "id": "7a", "label": "7a", "group": "7. Write as a number.", "display": "5 trillion, 51 billion, 27 thousand", "answer": { "type": "number", "value": 5051000027000 } },
+    { "id": "7b", "label": "7b", "group": "7. Write as a number.", "display": "21 trillion, 650 billion, 99 million, 56", "answer": { "type": "number", "value": 21650099000056 } },
+    { "id": "7c", "label": "7c", "group": "7. Write as a number.", "display": "6 · 10⁶ + 2 · 10³ + 1 · 10⁰", "answer": { "type": "number", "value": 6002001 } },
+    { "id": "8a", "label": "8a", "group": "8. Solve using the correct order of operations.", "display": "4 · 50 + 310 ÷ 2", "answer": { "type": "number", "value": 355 } },
+    { "id": "8b", "label": "8b", "group": "8. Solve using the correct order of operations.", "display": "4800 ÷ 60 − (70 − 20)", "answer": { "type": "number", "value": 30 } },
+    { "id": "9", "label": "9", "group": "9. Write an equation and solve.", "display": "A bicycle was discounted by 2/10 and now costs $120. What was the original price?", "answer": { "type": "number", "value": 150 } },
+    { "id": "10", "label": "10", "group": "10. Divide.", "display": "562,790 ÷ 79. See workbook.", "answer": { "type": "workbook", "hint": "7123 R73" } }
+  ]
+}

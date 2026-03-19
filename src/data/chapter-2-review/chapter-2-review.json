@@ -1,0 +1,355 @@
+{
+  "chapter": "chapter-2-review",
+  "section": "chapter-2-review",
+  "title": "Chapter 2 Review",
+  "pages": "92-95",
+  "problems": [
+    {
+      "id": "1a", "label": "1a",
+      "group": "1. Write an expression for each phrase.",
+      "display": "The difference between 6 and x, squared",
+      "variables": ["x"],
+      "answer": { "type": "text", "value": "(6−x)²" }
+    },
+    {
+      "id": "1b", "label": "1b",
+      "group": "1. Write an expression for each phrase.",
+      "display": "The quotient of 5 and the sum of x and 6",
+      "variables": ["x"],
+      "answer": { "type": "text", "value": "5÷(x+6)" }
+    },
+    {
+      "id": "1c", "label": "1c",
+      "group": "1. Write an expression for each phrase.",
+      "display": "3 times the quantity 5 minus p",
+      "variables": ["p"],
+      "answer": { "type": "text", "value": "3(5−p)" }
+    },
+
+    { "id": "2a", "label": "2a", "group": "2. Find the value of the expressions.", "display": "(1 + 6)² + (10 − 2)²", "answer": { "type": "number", "value": 113 } },
+    { "id": "2b", "label": "2b", "group": "2. Find the value of the expressions.", "display": "5² · 2³", "answer": { "type": "number", "value": 200 } },
+    { "id": "2c", "label": "2c", "group": "2. Find the value of the expressions.", "display": "(21 + 6) ÷ (2 · 1 + 1)", "answer": { "type": "number", "value": 9 } },
+    { "id": "2d", "label": "2d", "group": "2. Find the value of the expressions.", "display": "(16 ÷ 2) · (120 − 50)", "answer": { "type": "number", "value": 560 } },
+
+    { "id": "3a", "label": "3a", "group": "3. Find the value of the expression.", "display": "2x + 18 when x = 5", "answer": { "type": "number", "value": 28 } },
+    { "id": "3b", "label": "3b", "group": "3. Find the value of the expression.", "display": "(35 ÷ z) · 13 when z = 5", "answer": { "type": "number", "value": 91 } },
+
+    {
+      "id": "4a", "label": "4a",
+      "group": "4. Write an expression for each situation.",
+      "display": "Three friends split a scuba outfit costing p dollars equally. Each pays?",
+      "variables": ["p"],
+      "answer": { "type": "text", "value": "p÷3" }
+    },
+    {
+      "id": "4b", "label": "4b",
+      "group": "4. Write an expression for each situation.",
+      "display": "Modelling clay for $3 and six boxes of crayons for c dollars each. Total cost?",
+      "variables": ["c"],
+      "answer": { "type": "text", "value": "3+6c" }
+    },
+
+    {
+      "id": "5a", "label": "5a",
+      "group": "5. Label each as an equation, inequality, or expression.",
+      "display": "2x + 17",
+      "answer": { "type": "multiselect", "options": ["expression", "equation", "inequality"], "correct": ["expression"] }
+    },
+    {
+      "id": "5b", "label": "5b",
+      "group": "5. Label each as an equation, inequality, or expression.",
+      "display": "8 = 8",
+      "answer": { "type": "multiselect", "options": ["expression", "equation", "inequality"], "correct": ["equation"] }
+    },
+    {
+      "id": "5c", "label": "5c",
+      "group": "5. Label each as an equation, inequality, or expression.",
+      "display": "y < 5",
+      "answer": { "type": "multiselect", "options": ["expression", "equation", "inequality"], "correct": ["inequality"] }
+    },
+    {
+      "id": "5d", "label": "5d",
+      "group": "5. Label each as an equation, inequality, or expression.",
+      "display": "4x − 3 = 8",
+      "answer": { "type": "multiselect", "options": ["expression", "equation", "inequality"], "correct": ["equation"] }
+    },
+    {
+      "id": "5e", "label": "5e",
+      "group": "5. Label each as an equation, inequality, or expression.",
+      "display": "(4/5)x − 16",
+      "answer": { "type": "multiselect", "options": ["expression", "equation", "inequality"], "correct": ["expression"] }
+    },
+    {
+      "id": "5f", "label": "5f",
+      "group": "5. Label each as an equation, inequality, or expression.",
+      "display": "4x + y² ≥ 9",
+      "answer": { "type": "multiselect", "options": ["expression", "equation", "inequality"], "correct": ["inequality"] }
+    },
+    {
+      "id": "5g", "label": "5g",
+      "group": "5. Label each as an equation, inequality, or expression.",
+      "display": "M = (44 − x) ÷ 5",
+      "answer": { "type": "multiselect", "options": ["expression", "equation", "inequality"], "correct": ["equation"] }
+    },
+
+    {
+      "id": "6a", "label": "6a",
+      "group": "6. Simplify the expressions.",
+      "display": "t + t + t + 3",
+      "variables": ["t"],
+      "answer": { "type": "text", "value": "3t+3" }
+    },
+    {
+      "id": "6b", "label": "6b",
+      "group": "6. Simplify the expressions.",
+      "display": "8d − 3d",
+      "variables": ["d"],
+      "answer": { "type": "text", "value": "5d" }
+    },
+    {
+      "id": "6c", "label": "6c",
+      "group": "6. Simplify the expressions.",
+      "display": "x · x · x",
+      "variables": ["x"],
+      "answer": { "type": "text", "value": "x³" }
+    },
+    {
+      "id": "6d", "label": "6d",
+      "group": "6. Simplify the expressions.",
+      "display": "12x − 6 − 6x",
+      "variables": ["x"],
+      "answer": { "type": "text", "value": "6x−6" }
+    },
+    {
+      "id": "6e", "label": "6e",
+      "group": "6. Simplify the expressions.",
+      "display": "z · z · 8 · z · 2",
+      "variables": ["z"],
+      "answer": { "type": "text", "value": "16z³" }
+    },
+    {
+      "id": "6f", "label": "6f",
+      "group": "6. Simplify the expressions.",
+      "display": "3x² + 5 + 11x²",
+      "variables": ["x"],
+      "answer": { "type": "text", "value": "14x²+5" }
+    },
+
+    {
+      "id": "7a", "label": "7a",
+      "group": "7. Write an expression for both the area and perimeter of each rectangle. Simplify.",
+      "display": "See workbook (square with sides 3s).",
+      "variables": ["s"],
+      "answer": {
+        "type": "dual",
+        "layout": "table",
+        "fields": [
+          { "label": "A", "value": "9s²", "inputType": "text" },
+          { "label": "P", "value": "12s", "inputType": "text" }
+        ]
+      }
+    },
+    {
+      "id": "7b", "label": "7b",
+      "group": "7. Write an expression for both the area and perimeter of each rectangle. Simplify.",
+      "display": "See workbook (rectangle with sides 2x and 3x).",
+      "variables": ["x"],
+      "answer": {
+        "type": "dual",
+        "layout": "table",
+        "fields": [
+          { "label": "A", "value": "6x²", "inputType": "text" },
+          { "label": "P", "value": "10x", "inputType": "text" }
+        ]
+      }
+    },
+
+    {
+      "id": "8a", "label": "8a",
+      "group": "8. Multiply using the distributive property.",
+      "display": "3(2x + 7) =",
+      "variables": ["x"],
+      "answer": { "type": "text", "value": "6x+21" }
+    },
+    {
+      "id": "8b", "label": "8b",
+      "group": "8. Multiply using the distributive property.",
+      "display": "8(9b + 5) =",
+      "variables": ["b"],
+      "answer": { "type": "text", "value": "72b+40" }
+    },
+
+    {
+      "id": "9a", "label": "9a",
+      "group": "9. Factor these sums.",
+      "display": "5x + 10 =",
+      "variables": ["x"],
+      "answer": {
+        "type": "gap",
+        "template": "{0}(x + {1})",
+        "gaps": [
+          { "value": "5", "inputType": "number" },
+          { "value": "2", "inputType": "number" }
+        ]
+      }
+    },
+    {
+      "id": "9b", "label": "9b",
+      "group": "9. Factor these sums.",
+      "display": "6y + 10 =",
+      "variables": ["y"],
+      "answer": {
+        "type": "gap",
+        "template": "{0}({1} + {2})",
+        "gaps": [
+          { "value": "2", "inputType": "number" },
+          { "value": "3y", "inputType": "text" },
+          { "value": "5", "inputType": "number" }
+        ],
+        "validSets": [["2", "3y", "5"]]
+      }
+    },
+    {
+      "id": "9c", "label": "9c",
+      "group": "9. Factor these sums.",
+      "display": "24b + 4 =",
+      "variables": ["b"],
+      "answer": {
+        "type": "gap",
+        "template": "{0}({1} + {2})",
+        "gaps": [
+          { "value": "4", "inputType": "number" },
+          { "value": "6b", "inputType": "text" },
+          { "value": "1", "inputType": "number" }
+        ],
+        "validSets": [["4", "6b", "1"], ["2", "12b", "2"]]
+      }
+    },
+    {
+      "id": "9d", "label": "9d",
+      "group": "9. Factor these sums.",
+      "display": "25w + 40 =",
+      "variables": ["w"],
+      "answer": {
+        "type": "gap",
+        "template": "{0}({1} + {2})",
+        "gaps": [
+          { "value": "5", "inputType": "number" },
+          { "value": "5w", "inputType": "text" },
+          { "value": "8", "inputType": "number" }
+        ],
+        "validSets": [["5", "5w", "8"]]
+      }
+    },
+
+    { "id": "10a", "label": "10a", "group": "10. Solve the equations.", "display": "7x = 784", "answer": { "type": "number", "value": 112 } },
+    { "id": "10b", "label": "10b", "group": "10. Solve the equations.", "display": "3 + z = 119", "answer": { "type": "number", "value": 116 } },
+    { "id": "10c", "label": "10c", "group": "10. Solve the equations.", "display": "x ÷ 6 = 12", "answer": { "type": "number", "value": 72 } },
+    { "id": "10d", "label": "10d", "group": "10. Solve the equations.", "display": "5y + 8y = 784", "answer": { "type": "fraction", "value": "60 4/13", "decimal": 60.3077, "tolerance": 0.01 } },
+    { "id": "10e", "label": "10e", "group": "10. Solve the equations.", "display": "32 + x = 9 · 40", "answer": { "type": "number", "value": 328 } },
+    { "id": "10f", "label": "10f", "group": "10. Solve the equations.", "display": "r ÷ (6 + 4) = 7", "answer": { "type": "number", "value": 70 } },
+
+    { "id": "11a", "label": "11a", "group": "11. Write an equation and solve.", "display": "The value of twenty-cent coins is 1680 cents. How many coins?", "answer": { "type": "number", "value": 84 } },
+    { "id": "11b", "label": "11b", "group": "11. Write an equation and solve.", "display": "The perimeter of a rectangle is 128 m and one side is 21 m. How long is the other side?", "answer": { "type": "number", "value": 43 } },
+
+    {
+      "id": "12a", "label": "12a",
+      "group": "12. Write an inequality that corresponds to the number line plot.",
+      "display": "See workbook (number line, problem 12a).",
+      "variables": ["x"],
+      "answer": { "type": "text", "value": "x<57" }
+    },
+    {
+      "id": "12b", "label": "12b",
+      "group": "12. Write an inequality that corresponds to the number line plot.",
+      "display": "See workbook (number line, problem 12b).",
+      "variables": ["x"],
+      "answer": { "type": "text", "value": "x≥30" }
+    },
+
+    {
+      "id": "13a", "label": "13a",
+      "group": "13. Solve the inequalities in the given set.",
+      "display": "Which values from {55, 44, 22, 23, 30} satisfy y + 2 > 24?",
+      "answer": { "type": "multiselect", "options": ["55", "44", "22", "23", "30"], "correct": ["55", "44", "23", "30"] }
+    },
+    {
+      "id": "13b", "label": "13b",
+      "group": "13. Solve the inequalities in the given set.",
+      "display": "Which even positive whole numbers satisfy x + 7 ≤ 14?",
+      "answer": { "type": "multiselect", "options": ["2", "4", "6", "8", "10", "12", "14"], "correct": ["2", "4", "6"] }
+    },
+
+    {
+      "id": "14-table", "label": "14",
+      "group": "14. Calculate the values of y according to the equation y = x + 3.",
+      "display": "Fill in the y values.",
+      "answer": {
+        "type": "gap",
+        "layout": "table",
+        "template": "",
+        "tableRows": [
+          ["x", "1", "2", "3", "4", "5", "6"],
+          ["y", "{0}", "{1}", "{2}", "{3}", "{4}", "{5}"]
+        ],
+        "gaps": [
+          { "value": "4", "inputType": "number" },
+          { "value": "5", "inputType": "number" },
+          { "value": "6", "inputType": "number" },
+          { "value": "7", "inputType": "number" },
+          { "value": "8", "inputType": "number" },
+          { "value": "9", "inputType": "number" }
+        ]
+      }
+    },
+    {
+      "id": "14-plot", "label": "14",
+      "group": "14. Calculate the values of y according to the equation y = x + 3.",
+      "display": "Now, plot the points.",
+      "answer": { "type": "workbook" }
+    },
+
+    {
+      "id": "15a", "label": "15a",
+      "group": "15. A train is travelling at a constant speed of 150 km per hour.",
+      "display": "Fill in the distance table.",
+      "answer": {
+        "type": "gap",
+        "layout": "table",
+        "template": "",
+        "tableRows": [
+          ["t (hours)", "0", "1", "2", "3", "4", "5", "6"],
+          ["d (km)", "{0}", "{1}", "{2}", "{3}", "{4}", "{5}", "{6}"]
+        ],
+        "gaps": [
+          { "value": "0", "inputType": "number" },
+          { "value": "150", "inputType": "number" },
+          { "value": "300", "inputType": "number" },
+          { "value": "450", "inputType": "number" },
+          { "value": "600", "inputType": "number" },
+          { "value": "750", "inputType": "number" },
+          { "value": "900", "inputType": "number" }
+        ]
+      }
+    },
+    {
+      "id": "15b", "label": "15b",
+      "group": "15. A train is travelling at a constant speed of 150 km per hour.",
+      "display": "Plot the points on the coordinate grid.",
+      "answer": { "type": "workbook" }
+    },
+    {
+      "id": "15c", "label": "15c",
+      "group": "15. A train is travelling at a constant speed of 150 km per hour.",
+      "display": "Write an equation that relates t and d.",
+      "variables": ["d", "t"],
+      "answer": { "type": "text", "value": "d=150t" }
+    },
+    {
+      "id": "15d", "label": "15d",
+      "group": "15. A train is travelling at a constant speed of 150 km per hour.",
+      "display": "Which of the two variables is the independent variable?",
+      "answer": { "type": "multiselect", "options": ["t", "d"], "correct": ["t"] }
+    }
+  ]
+}

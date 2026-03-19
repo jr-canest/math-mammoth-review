@@ -3,26 +3,190 @@
   "section": "equations",
   "title": "Equations",
   "pages": "74-75",
-  "needsReview": true,
   "problems": [
-    { "id": "1a", "label": "1a", "group": "1. Is it an equation or an expression?", "display": "Is 2x − 3 = 8 + x an equation or expression?", "answer": { "type": "text", "value": "equation" } },
-    { "id": "1b", "label": "1b", "display": "Is y² − 9 an equation or expression?", "answer": { "type": "text", "value": "expression" } },
-    { "id": "1c", "label": "1c", "display": "Is 4 + 2 = 6 an equation or expression?", "answer": { "type": "text", "value": "equation" } },
-    { "id": "1d", "label": "1d", "display": "Is (1/2)x⁴ − 5 an equation or expression?", "answer": { "type": "text", "value": "expression" } },
-    { "id": "1e", "label": "1e", "display": "Is (T + 2D)/C an equation or expression?", "answer": { "type": "text", "value": "expression" } },
-    { "id": "2b", "label": "2b", "group": "2. Write an equation and solve.", "display": "A secret number subtracted from 100 gives 35. Write the equation and solve.", "answer": { "type": "number", "value": 65 } },
-    { "id": "2c", "label": "2c", "display": "The product of 3 and a number is 63. Solve.", "answer": { "type": "number", "value": 21 } },
-    { "id": "2d", "label": "2d", "display": "When you divide a number by 7, the result is 12. Solve.", "answer": { "type": "number", "value": 84 } },
-    { "id": "2e", "label": "2e", "display": "19 less than a certain number gives 394. Solve.", "answer": { "type": "number", "value": 413 } },
-    { "id": "2f", "label": "2f", "display": "The quotient of 60 and a secret number is 12. Solve.", "answer": { "type": "number", "value": 5 } },
-    { "id": "3a", "label": "3a", "group": "3. Check if the given value is a solution.", "display": "Is x = 7 a root of x² − 17 = 33? (Yes or No)", "answer": { "type": "text", "value": "no" } },
-    { "id": "3b", "label": "3b", "display": "Is a = 78 a root of a/3 = 26? (Yes or No)", "answer": { "type": "text", "value": "yes" } },
-    { "id": "4a", "label": "4a", "group": "4. Find the root(s) from the given set.", "display": "Find the roots of x² + 18 − 9x = 0 in the set {1, 2, 3, 10, 7, 6} (see workbook p. 75)", "answer": { "type": "workbook", "hint": "The roots are 3 and 6" } },
-    { "id": "4b", "label": "4b", "display": "Find the root of 3x − 5 = 2x in the set {2, 3, 4, 5, 6}.", "answer": { "type": "number", "value": 5 } },
-    { "id": "5", "label": "5", "group": "5. Find a value that makes the equation false.", "display": "Find a value for k that makes 6k + 8 = 44 false (see workbook p. 75).", "answer": { "type": "workbook", "hint": "Any number except k = 6" } },
-    { "id": "6", "label": "6", "group": "6. Which value makes the equation true?", "display": "Which of 0, 1, 2, or 3 makes (y + 6)/(y + 2) = 2 true?", "answer": { "type": "number", "value": 2 } },
-    { "id": "7", "label": "7", "group": "7. Write two equations with the given root.", "display": "Write two different equations with the root x = 11 (see workbook p. 75).", "answer": { "type": "workbook", "hint": "Answers will vary" } },
-    { "id": "8", "label": "8", "group": "8. Find the solution from a set.", "display": "Find the solution of y/4 + 44 = 3y in the set of positive even numbers less than 20.", "answer": { "type": "number", "value": 16 } },
-    { "id": "9", "label": "9", "group": "9. Calculate the discounted prices.", "display": "Calculate the discounted prices (4/5)p for items costing $1, $2, $5, $10, $45 and find the original price for Boots at $32 (see workbook p. 75).", "answer": { "type": "workbook", "hint": "Eraser $0.80, Pen $1.60, Tea $4.00, Bread $8.00, Backpack $36.00, Boots original = $40" } }
+    {
+      "id": "1a", "label": "1a",
+      "group": "1. Label each as an equation or an expression.",
+      "display": "2x − 3 = 8 + x",
+      "answer": { "type": "multiselect", "options": ["equation", "expression"], "correct": ["equation"] }
+    },
+    {
+      "id": "1b", "label": "1b",
+      "group": "1. Label each as an equation or an expression.",
+      "display": "y² − 9",
+      "answer": { "type": "multiselect", "options": ["equation", "expression"], "correct": ["expression"] }
+    },
+    {
+      "id": "1c", "label": "1c",
+      "group": "1. Label each as an equation or an expression.",
+      "display": "4 + 2 = 6",
+      "answer": { "type": "multiselect", "options": ["equation", "expression"], "correct": ["equation"] }
+    },
+    {
+      "id": "1d", "label": "1d",
+      "group": "1. Label each as an equation or an expression.",
+      "display": "(1/2)x⁴ − 5",
+      "answer": { "type": "multiselect", "options": ["equation", "expression"], "correct": ["expression"] }
+    },
+    {
+      "id": "1e", "label": "1e",
+      "group": "1. Label each as an equation or an expression.",
+      "display": "(T + 2D)/C",
+      "answer": { "type": "multiselect", "options": ["equation", "expression"], "correct": ["expression"] }
+    },
+    {
+      "id": "2b", "label": "2b",
+      "group": "2. Write the statements as equations. Use a letter for the unknown (the \"secret number\" or \"a number\"). Then solve the equations.",
+      "display": "When a secret number is subtracted from 100, the difference is 35.",
+      "variables": ["x"],
+      "answer": {
+        "type": "dual",
+        "layout": "table",
+        "fields": [
+          { "label": "Equation", "value": "100 − x = 35", "inputType": "text" },
+          { "label": "Solution", "value": "x = 65", "inputType": "text" }
+        ]
+      }
+    },
+    {
+      "id": "2c", "label": "2c",
+      "group": "2. Write the statements as equations. Use a letter for the unknown (the \"secret number\" or \"a number\"). Then solve the equations.",
+      "display": "The product of 3 and a number is 63.",
+      "variables": ["x"],
+      "answer": {
+        "type": "dual",
+        "layout": "table",
+        "fields": [
+          { "label": "Equation", "value": "3x = 63", "inputType": "text" },
+          { "label": "Solution", "value": "x = 21", "inputType": "text" }
+        ]
+      }
+    },
+    {
+      "id": "2d", "label": "2d",
+      "group": "2. Write the statements as equations. Use a letter for the unknown (the \"secret number\" or \"a number\"). Then solve the equations.",
+      "display": "When you divide a number by 7, the result is 12.",
+      "variables": ["x"],
+      "answer": {
+        "type": "dual",
+        "layout": "table",
+        "fields": [
+          { "label": "Equation", "value": "x ÷ 7 = 12", "inputType": "text" },
+          { "label": "Solution", "value": "x = 84", "inputType": "text" }
+        ]
+      }
+    },
+    {
+      "id": "2e", "label": "2e",
+      "group": "2. Write the statements as equations. Use a letter for the unknown (the \"secret number\" or \"a number\"). Then solve the equations.",
+      "display": "19 less than a certain number gives us 394.",
+      "variables": ["x"],
+      "answer": {
+        "type": "dual",
+        "layout": "table",
+        "fields": [
+          { "label": "Equation", "value": "x − 19 = 394", "inputType": "text" },
+          { "label": "Solution", "value": "x = 413", "inputType": "text" }
+        ]
+      }
+    },
+    {
+      "id": "2f", "label": "2f",
+      "group": "2. Write the statements as equations. Use a letter for the unknown (the \"secret number\" or \"a number\"). Then solve the equations.",
+      "display": "The quotient of 60 and a secret number is equal to 12.",
+      "variables": ["x"],
+      "answer": {
+        "type": "dual",
+        "layout": "table",
+        "fields": [
+          { "label": "Equation", "value": "60 ÷ x = 12", "inputType": "text" },
+          { "label": "Solution", "value": "x = 5", "inputType": "text" }
+        ]
+      }
+    },
+    {
+      "id": "3a", "label": "3a",
+      "group": "3.",
+      "display": "Is x = 7 a root for the equation x² − 17 = 33?",
+      "answer": { "type": "multiselect", "options": ["Yes", "No"], "correct": ["No"] }
+    },
+    {
+      "id": "3b", "label": "3b",
+      "group": "3.",
+      "display": "Is a = 78 a root for the equation a/3 = 26?",
+      "answer": { "type": "multiselect", "options": ["Yes", "No"], "correct": ["Yes"] }
+    },
+    {
+      "id": "4a", "label": "4a",
+      "group": "4. Find the root(s) from the given set.",
+      "display": "Find the roots of x² + 18 − 9x = 0 in the set {1, 2, 3, 10, 7, 6}.",
+      "answer": { "type": "workbook", "hint": "The roots are 3 and 6" }
+    },
+    {
+      "id": "4b", "label": "4b",
+      "group": "4. Find the root(s) from the given set.",
+      "display": "Find the root of 3x − 5 = 2x in the set {2, 3, 4, 5, 6}.",
+      "answer": { "type": "workbook", "hint": "The root is 5" }
+    },
+    {
+      "id": "5", "label": "5",
+      "group": "5. Find a value for variable k that makes the equation 6k + 8 = 44 false.",
+      "display": "6k + 8 = 44",
+      "answer": { "type": "workbook", "hint": "Any number except k = 6" }
+    },
+    {
+      "id": "6", "label": "6",
+      "group": "6. Which of the numbers 0, 1, 2 or 3 make the equation (y + 6)/(y + 2) = 2 true?",
+      "display": "(y + 6)/(y + 2) = 2",
+      "answer": { "type": "multiselect", "options": ["0", "1", "2", "3"], "correct": ["2"] }
+    },
+    {
+      "id": "7", "label": "7",
+      "group": "7. Write two different equations with the root x = 11.",
+      "display": "See workbook.",
+      "answer": { "type": "workbook", "hint": "Answers will vary. For example: 6x/2 = 33 or x² − 88 = 33 or x + 20 = 31." }
+    },
+    {
+      "id": "8", "label": "8",
+      "group": "8. Find the solution of the equation y/4 + 44 = 3y in the set of positive even numbers that are less than 20.",
+      "display": "y/4 + 44 = 3y",
+      "answer": { "type": "number", "value": 16 }
+    },
+    {
+      "id": "9a-eraser", "label": "Eraser",
+      "group": "9. Matthew was studying the discounted prices of the items in his store. He denoted the original price as p, and used the expression (4/5)p for the price after 1/5 discount. Calculate the discounted prices.",
+      "display": "p = $1, (4/5)p = ?",
+      "answer": { "type": "number", "value": 0.8 }
+    },
+    {
+      "id": "9a-pen", "label": "Pen",
+      "group": "9. Matthew was studying the discounted prices of the items in his store. He denoted the original price as p, and used the expression (4/5)p for the price after 1/5 discount. Calculate the discounted prices.",
+      "display": "p = $2, (4/5)p = ?",
+      "answer": { "type": "number", "value": 1.6 }
+    },
+    {
+      "id": "9a-tea", "label": "Tea",
+      "group": "9. Matthew was studying the discounted prices of the items in his store. He denoted the original price as p, and used the expression (4/5)p for the price after 1/5 discount. Calculate the discounted prices.",
+      "display": "p = $5, (4/5)p = ?",
+      "answer": { "type": "number", "value": 4 }
+    },
+    {
+      "id": "9a-bread", "label": "Bread",
+      "group": "9. Matthew was studying the discounted prices of the items in his store. He denoted the original price as p, and used the expression (4/5)p for the price after 1/5 discount. Calculate the discounted prices.",
+      "display": "p = $10, (4/5)p = ?",
+      "answer": { "type": "number", "value": 8 }
+    },
+    {
+      "id": "9a-backpack", "label": "Backpack",
+      "group": "9. Matthew was studying the discounted prices of the items in his store. He denoted the original price as p, and used the expression (4/5)p for the price after 1/5 discount. Calculate the discounted prices.",
+      "display": "p = $45, (4/5)p = ?",
+      "answer": { "type": "number", "value": 36 }
+    },
+    {
+      "id": "9b", "label": "9b",
+      "group": "9b. (Challenge) Find the original price for the last item. Guess and check!",
+      "display": "Boots: (4/5)p = $32, p = ?",
+      "answer": { "type": "number", "value": 40 }
+    }
   ]
 }

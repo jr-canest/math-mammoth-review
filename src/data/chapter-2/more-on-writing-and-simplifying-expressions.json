@@ -3,267 +3,336 @@
   "section": "more-on-writing-and-simplifying-expressions",
   "title": "More on Writing and Simplifying Expressions",
   "pages": "58-60",
-  "needsReview": true,
   "problems": [
     {
-      "id": "1",
-      "label": "1",
-      "group": "1. Identify the terms, coefficients, and constants.",
-      "display": "Table: identify terms, coefficients, constants",
+      "id": "1a",
+      "label": "1a",
+      "group": "1. Fill in the table. Identify the terms, coefficients, and constants.",
+      "display": "300y",
       "answer": {
-        "type": "text",
-        "value": "4a + 5b: terms 4a,5b; coefficients 4,5; no constants. 300y: term 300y; coefficient 300; no constants. 11x + 5: terms 11x,5; coefficient 11; constant 5. x + 12y + 9: terms x,12y,9; coefficients 1,12; constant 9. p·9: term p·9; coefficient 9; no constants. 8x⁴y³ + 10: terms 8x⁴y³,10; coefficient 8; constant 10. (11/26)p: term (11/26)p; coefficient 11/26; no constants."
+        "type": "workbook",
+        "hint": "Terms: 300y | Coefficient: 300 | Constants: none"
+      }
+    },
+    {
+      "id": "1b",
+      "label": "1b",
+      "display": "11x + 5",
+      "answer": {
+        "type": "workbook",
+        "hint": "Terms: 11x and 5 | Coefficient: 11 | Constants: 5"
+      }
+    },
+    {
+      "id": "1c",
+      "label": "1c",
+      "display": "x + 12y + 9",
+      "answer": {
+        "type": "workbook",
+        "hint": "Terms: x, 12y, and 9 | Coefficients: 1, 12 | Constants: 9"
+      }
+    },
+    {
+      "id": "1d",
+      "label": "1d",
+      "display": "p\u00b79",
+      "answer": {
+        "type": "workbook",
+        "hint": "Terms: p\u00b79 | Coefficient: 9 | Constants: none"
+      }
+    },
+    {
+      "id": "1e",
+      "label": "1e",
+      "display": "8x\u2074y\u00b3 + 10",
+      "answer": {
+        "type": "workbook",
+        "hint": "Terms: 8x\u2074y\u00b3 and 10 | Coefficient: 8 | Constants: 10"
+      }
+    },
+    {
+      "id": "1f",
+      "label": "1f",
+      "display": "(11/26)p",
+      "answer": {
+        "type": "workbook",
+        "hint": "Terms: (11/26)p | Coefficient: 11/26 | Constants: none"
       }
     },
     {
       "id": "2a",
       "label": "2a",
-      "group": "2. Write an expression. Then identify its terms and coefficients.",
+      "group": "2. Write an expression for each situation. Then list the terms and coefficients in it.",
       "display": "The value, in cents, of m five-cent coins",
-      "answer": {
-        "type": "text",
-        "value": "5m; term: 5m; coefficient: 5"
-      }
+      "answer": { "type": "text", "value": "5m" },
+      "variables": ["m"]
     },
     {
       "id": "2b",
       "label": "2b",
       "display": "The total cost of buying 20 apples that cost p each",
-      "answer": {
-        "type": "text",
-        "value": "20p; term: 20p; coefficient: 20"
-      }
+      "answer": { "type": "text", "value": "20p" },
+      "variables": ["p"]
     },
     {
       "id": "2c",
       "label": "2c",
       "display": "15 less than v",
+      "answer": { "type": "text", "value": "v \u2212 15" },
+      "variables": ["v"]
+    },
+    {
+      "id": "3a",
+      "label": "3a",
+      "group": "3. Fill in the table. Identify the like terms and constants.",
+      "display": "10 + 10y + 30y",
       "answer": {
-        "type": "text",
-        "value": "v − 15; terms: v, 15; coefficient: 1"
+        "type": "workbook",
+        "hint": "Like terms: 10y and 30y | Constants: 10"
       }
     },
     {
-      "id": "3",
-      "label": "3",
-      "group": "3. Identify the like terms and constants.",
-      "display": "Table: identify like terms and constants",
+      "id": "3b",
+      "label": "3b",
+      "display": "p\u00b79 + 2",
       "answer": {
-        "type": "text",
-        "value": "15x + 12z + 9z: like terms 12z and 9z; no constants. 10 + 10y + 30y: like terms 10y and 30y; constant 10. p·9 + 2: no like terms; constant 2. 8a − 2a + 10 + b + 7b: like terms 8a and 2a, b and 7b; constant 10. 8y + 7x + 6 + 15y − 2x: like terms 8y and 15y, 7x and 2x; constant 6."
+        "type": "workbook",
+        "hint": "Like terms: none | Constants: 2"
+      }
+    },
+    {
+      "id": "3c",
+      "label": "3c",
+      "display": "8a \u2212 2a + 10 + b + 7b",
+      "answer": {
+        "type": "workbook",
+        "hint": "Like terms: 8a and 2a; b and 7b | Constants: 10"
+      }
+    },
+    {
+      "id": "3d",
+      "label": "3d",
+      "display": "8y + 7x + 6 + 15y \u2212 2x",
+      "answer": {
+        "type": "workbook",
+        "hint": "Like terms: 8y and 15y; 7x and 2x | Constants: 6"
       }
     },
     {
       "id": "4a",
       "label": "4a",
-      "group": "4. Simplify.",
-      "display": "Simplify",
-      "answer": {
-        "type": "text",
-        "value": "9x + 8"
-      }
+      "group": "4. Simplify the expressions by adding and subtracting like terms.",
+      "display": "4x + 5x + 8",
+      "answer": { "type": "text", "value": "9x + 8" },
+      "variables": ["x"]
     },
     {
       "id": "4b",
       "label": "4b",
-      "display": "Simplify",
-      "answer": {
-        "type": "text",
-        "value": "13z²"
-      }
+      "display": "2z\u00b2 + 11z\u00b2",
+      "answer": { "type": "text", "value": "13z\u00b2" },
+      "variables": ["z"]
     },
     {
       "id": "4c",
       "label": "4c",
-      "display": "Simplify",
-      "answer": {
-        "type": "text",
-        "value": "3m + 12n"
-      }
+      "display": "8m \u2212 5m + 9n + 3n",
+      "answer": { "type": "text", "value": "3m + 12n" },
+      "variables": ["m", "n"]
     },
     {
       "id": "4d",
       "label": "4d",
-      "display": "Simplify",
-      "answer": {
-        "type": "text",
-        "value": "5x + 23y + 6"
-      }
+      "display": "8y + 7x + 6 + 15y \u2212 2x",
+      "answer": { "type": "text", "value": "5x + 23y + 6" },
+      "variables": ["x", "y"]
     },
     {
       "id": "4e",
       "label": "4e",
-      "display": "Simplify",
-      "answer": {
-        "type": "text",
-        "value": "10m² + 9"
-      }
+      "display": "9m\u00b2 \u2212 2m\u00b2 + 9 + 3m\u00b2",
+      "answer": { "type": "text", "value": "10m\u00b2 + 9" },
+      "variables": ["m"]
     },
     {
       "id": "4f",
       "label": "4f",
-      "display": "Simplify",
-      "answer": {
-        "type": "text",
-        "value": "not possible to simplify"
-      }
+      "display": "16a + 15d + 10c \u2212 2x \u2212 7",
+      "answer": { "type": "text", "value": "16a + 15d + 10c \u2212 2x \u2212 7" },
+      "variables": ["a", "c", "d", "x"]
     },
     {
       "id": "4g",
       "label": "4g",
-      "display": "Simplify",
-      "answer": {
-        "type": "text",
-        "value": "12y + 11z − 6"
-      }
+      "display": "17y + 2z + 9z \u2212 6 \u2212 5y",
+      "answer": { "type": "text", "value": "12y + 11z \u2212 6" },
+      "variables": ["y", "z"]
     },
     {
       "id": "4h",
       "label": "4h",
-      "display": "Simplify",
-      "answer": {
-        "type": "text",
-        "value": "33h − w + 4"
-      }
+      "display": "30h + 10h + 24 \u2212 w \u2212 20 \u2212 7h",
+      "answer": { "type": "text", "value": "33h \u2212 w + 4" },
+      "variables": ["h", "w"]
     },
     {
       "id": "5a",
       "label": "5a",
-      "group": "5. Calculate.",
-      "display": "3 + 2(1/2)",
-      "answer": {
-        "type": "number",
-        "value": 4
-      }
+      "group": "5. Find the value of the expressions if x = 3 and y = 1/2.",
+      "display": "x + 2y",
+      "answer": { "type": "number", "value": 4 }
     },
     {
       "id": "5b",
       "label": "5b",
-      "display": "2(3 + 1/2)",
-      "answer": {
-        "type": "number",
-        "value": 7
-      }
+      "display": "2(x + y)",
+      "answer": { "type": "number", "value": 7 }
     },
     {
       "id": "6a",
       "label": "6a",
-      "group": "6. Which expressions are equivalent?",
-      "display": "Which expressions are equivalent to 3s?",
+      "group": "6. Find equivalent expressions. Don't be fooled!",
+      "display": "Select the equivalent expressions.",
       "answer": {
-        "type": "text",
-        "value": "s + s + s, 3s and 2s + s"
+        "type": "multiselect",
+        "options": ["s + s + s", "s\u00b3", "3s", "2s + s"],
+        "correct": ["s + s + s", "3s", "2s + s"]
       }
     },
     {
       "id": "6b",
       "label": "6b",
-      "display": "Which expressions are equivalent to 2y + 2x?",
+      "display": "Select the equivalent expressions.",
       "answer": {
-        "type": "text",
-        "value": "2y + 2x and y + y + x + x"
+        "type": "multiselect",
+        "options": ["2y + 2x", "x + y + x + b", "y + y + x + x", "yyxx"],
+        "correct": ["2y + 2x", "y + y + x + x"]
       }
     },
     {
       "id": "7a",
       "label": "7a",
-      "group": "7. Write each area as a product and as a sum.",
-      "display": "Write as product and as sum",
+      "group": "7. Write an expression for the perimeter in two ways.",
+      "display": "See workbook.",
       "answer": {
-        "type": "text",
-        "value": "4(5 + s) and 4s + 20"
-      }
+        "type": "dual",
+        "layout": "table",
+        "fields": [
+          { "label": "As a product", "value": "4(5+s)", "inputType": "text" },
+          { "label": "Simplified", "value": "4s+20", "inputType": "text" }
+        ]
+      },
+      "variables": ["s"]
     },
     {
       "id": "7b",
       "label": "7b",
-      "display": "Write as product and as sum",
+      "display": "See workbook.",
       "answer": {
-        "type": "text",
-        "value": "3(b + 3) and 3b + 9"
-      }
+        "type": "dual",
+        "layout": "table",
+        "fields": [
+          { "label": "As a product", "value": "3(b+3)", "inputType": "text" },
+          { "label": "Simplified", "value": "3b+9", "inputType": "text" }
+        ]
+      },
+      "variables": ["b"]
     },
     {
       "id": "7c",
       "label": "7c",
-      "display": "Write as product and as sum",
+      "display": "See workbook.",
       "answer": {
-        "type": "text",
-        "value": "4(y + 3) and 4y + 12"
-      }
+        "type": "dual",
+        "layout": "table",
+        "fields": [
+          { "label": "As a product", "value": "4(y+3)", "inputType": "text" },
+          { "label": "Simplified", "value": "4y+12", "inputType": "text" }
+        ]
+      },
+      "variables": ["y"]
     },
     {
       "id": "7d",
       "label": "7d",
-      "display": "Write as product and as sum",
+      "display": "See workbook.",
       "answer": {
-        "type": "text",
-        "value": "5(n + 10) and 5n + 50"
-      }
+        "type": "dual",
+        "layout": "table",
+        "fields": [
+          { "label": "As a product", "value": "5(n+10)", "inputType": "text" },
+          { "label": "Simplified", "value": "5n+50", "inputType": "text" }
+        ]
+      },
+      "variables": ["n"]
     },
     {
       "id": "7e",
       "label": "7e",
-      "display": "Write as product and as sum",
+      "display": "See workbook.",
       "answer": {
-        "type": "text",
-        "value": "6(s + 8) and 6s + 48"
-      }
+        "type": "dual",
+        "layout": "table",
+        "fields": [
+          { "label": "As a product", "value": "6(s+8)", "inputType": "text" },
+          { "label": "Simplified", "value": "6s+48", "inputType": "text" }
+        ]
+      },
+      "variables": ["s"]
     },
     {
       "id": "7f",
       "label": "7f",
-      "display": "Write as product and as sum",
+      "display": "See workbook.",
       "answer": {
-        "type": "text",
-        "value": "4(2x + 1) and 8x + 4"
-      }
+        "type": "dual",
+        "layout": "table",
+        "fields": [
+          { "label": "As a product", "value": "4(2x+1)", "inputType": "text" },
+          { "label": "Simplified", "value": "8x+4", "inputType": "text" }
+        ]
+      },
+      "variables": ["x"]
     },
     {
       "id": "8a",
       "label": "8a",
-      "group": "8. Write an expression.",
-      "display": "Write a simplified expression for the perimeter",
-      "answer": {
-        "type": "text",
-        "value": "4(a + 20) or 4a + 80"
-      }
+      "group": "8. Write an expression for each situation.",
+      "display": "The perimeter of a square with sides of length (a + 20)",
+      "answer": { "type": "text", "value": "4(a + 20)" },
+      "variables": ["a"]
     },
     {
       "id": "8b",
       "label": "8b",
-      "display": "Write an expression",
-      "answer": {
-        "type": "text",
-        "value": "p − $5"
-      }
+      "display": "The cost of a book that originally cost p, but is now discounted by $5",
+      "answer": { "type": "text", "value": "p \u2212 5" },
+      "variables": ["p"]
     },
     {
       "id": "8c",
       "label": "8c",
-      "display": "Write an expression",
-      "answer": {
-        "type": "text",
-        "value": "5(p − $3)"
-      }
+      "display": "The total cost of 5 headphones that originally cost p each, but are now each discounted by $3",
+      "answer": { "type": "text", "value": "5(p \u2212 3)" },
+      "variables": ["p"]
     },
     {
       "id": "puzzle_a",
       "label": "Puzzle a",
       "group": "Puzzle Corner.",
-      "display": "Puzzle corner",
+      "display": "The only variable is the most used in algebra. The constant term is the easiest fraction (kids learn it before first grade). The variable is multiplied by itself. I am a sum of two terms. What am I?",
       "answer": {
-        "type": "text",
-        "value": "x² + 1/2"
+        "type": "workbook",
+        "hint": "x\u00b2 + 1/2"
       }
     },
     {
       "id": "puzzle_b",
       "label": "Puzzle b",
-      "display": "Puzzle corner",
+      "display": "My constant and coefficients are whole numbers between 1 and 10. My constant is prime and more than 5. I have three terms, separated by addition. My first term has one variable, and so does the second. The variables are the two first letters of the alphabet. The two coefficients are distinct multiples of 2 that add up to 8. What am I?",
       "answer": {
-        "type": "text",
-        "value": "2a + 6b + 7 or 6a + 2b + 7"
+        "type": "workbook",
+        "hint": "2a + 6b + 7 or 6a + 2b + 7"
       }
     }
   ]

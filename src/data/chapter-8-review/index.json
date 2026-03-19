@@ -1,0 +1,16 @@
+[
+  {
+    "id": "chapter-8-mixed-review",
+    "title": "Chapter 8 Mixed Review",
+    "pages": "97-98",
+    "file": "chapter-8-mixed-review.json",
+    "order": 1
+  },
+  {
+    "id": "integers-review",
+    "title": "Integers Review",
+    "pages": "99-101",
+    "file": "integers-review.json",
+    "order": 2
+  }
+]

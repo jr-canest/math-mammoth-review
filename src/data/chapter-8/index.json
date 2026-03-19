@@ -1,0 +1,58 @@
+[
+  {
+    "id": "integers",
+    "title": "Integers",
+    "pages": "73-75",
+    "file": "integers.json",
+    "order": 1
+  },
+  {
+    "id": "coordinate-grid",
+    "title": "Coordinate Grid",
+    "pages": "76-79",
+    "file": "coordinate-grid.json",
+    "order": 2
+  },
+  {
+    "id": "coordinate-grid-practice",
+    "title": "Coordinate Grid Practice",
+    "pages": "80-82",
+    "file": "coordinate-grid-practice.json",
+    "order": 3
+  },
+  {
+    "id": "addition-and-subtraction-as-movements",
+    "title": "Addition and Subtraction as Movements",
+    "pages": "83-85",
+    "file": "addition-and-subtraction-as-movements.json",
+    "order": 4
+  },
+  {
+    "id": "adding-integers-counters",
+    "title": "Adding Integers: Counters",
+    "pages": "86-88",
+    "file": "adding-integers-counters.json",
+    "order": 5
+  },
+  {
+    "id": "subtracting-a-negative-integer",
+    "title": "Subtracting a Negative Integer",
+    "pages": "89-90",
+    "file": "subtracting-a-negative-integer.json",
+    "order": 6
+  },
+  {
+    "id": "add-and-subtract-roundup",
+    "title": "Add and Subtract Roundup",
+    "pages": "91-92",
+    "file": "add-and-subtract-roundup.json",
+    "order": 7
+  },
+  {
+    "id": "graphing",
+    "title": "Graphing",
+    "pages": "93-96",
+    "file": "graphing.json",
+    "order": 8
+  }
+]

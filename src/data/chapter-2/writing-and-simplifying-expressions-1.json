@@ -51,42 +51,42 @@
       "id": "2a",
       "label": "2a",
       "group": "2. Write an expression for the perimeter of each shape in simplified form.",
-      "display": "Rectangle with sides x and 4",
+      "display": "See workbook.",
       "answer": { "type": "text", "value": "2x + 8" },
       "variables": ["x"]
     },
     {
       "id": "2b",
       "label": "2b",
-      "display": "Rectangle with sides x and y",
+      "display": "See workbook.",
       "answer": { "type": "text", "value": "2x + 2y" },
       "variables": ["x", "y"]
     },
     {
       "id": "2c",
       "label": "2c",
-      "display": "Regular hexagon with side s",
+      "display": "See workbook.",
       "answer": { "type": "text", "value": "6s" },
       "variables": ["s"]
     },
     {
       "id": "2d",
       "label": "2d",
-      "display": "Square with side y",
+      "display": "See workbook.",
       "answer": { "type": "text", "value": "4y" },
       "variables": ["y"]
     },
     {
       "id": "2e",
       "label": "2e",
-      "display": "Triangle with sides a, b, and 7",
+      "display": "See workbook.",
       "answer": { "type": "text", "value": "a + b + 7" },
       "variables": ["a", "b"]
     },
     {
       "id": "2f",
       "label": "2f",
-      "display": "Pentagon with sides s, s, t, t, and 3",
+      "display": "See workbook.",
       "answer": { "type": "text", "value": "2s + 2t + 3" },
       "variables": ["s", "t"]
     },
@@ -94,28 +94,28 @@
       "id": "3a",
       "label": "3a",
       "group": "3. Write an expression for the illustration, and simplify it.",
-      "display": "3x + x",
+      "display": "See workbook.",
       "answer": { "type": "text", "value": "4x" },
       "variables": ["x"]
     },
     {
       "id": "3b",
       "label": "3b",
-      "display": "2z + 7 + 12",
+      "display": "See workbook.",
       "answer": { "type": "text", "value": "2z + 19" },
       "variables": ["z"]
     },
     {
       "id": "3c",
       "label": "3c",
-      "display": "4p − 2p",
+      "display": "See workbook.",
       "answer": { "type": "text", "value": "2p" },
       "variables": ["p"]
     },
     {
       "id": "3d",
       "label": "3d",
-      "display": "4x + 11 − 2x",
+      "display": "See workbook.",
       "answer": { "type": "text", "value": "2x + 11" },
       "variables": ["x"]
     },

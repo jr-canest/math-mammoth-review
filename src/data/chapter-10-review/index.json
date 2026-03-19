@@ -1,0 +1,16 @@
+[
+  {
+    "id": "chapter-10-mixed-review",
+    "title": "Chapter 10 Mixed Review",
+    "pages": "176-178",
+    "file": "chapter-10-mixed-review.json",
+    "order": 1
+  },
+  {
+    "id": "statistics-review",
+    "title": "Statistics Review",
+    "pages": "179-181",
+    "file": "statistics-review.json",
+    "order": 2
+  }
+]

@@ -5,93 +5,63 @@
   "pages": "49-50",
   "problems": [
     {
-      "id": "1a_sum", "label": "1a sum",
+      "id": "1a", "label": "1a",
       "group": "1. Fill in the table, calculating the sum, difference, product and quotient of the numbers.",
-      "display": "50 and 2: sum",
-      "answer": { "type": "number", "value": 52 }
+      "display": "50 and 2",
+      "answer": {
+        "type": "dual",
+        "layout": "table",
+        "fields": [
+          { "label": "Sum", "value": "52", "inputType": "number" },
+          { "label": "Difference", "value": "48", "inputType": "number" },
+          { "label": "Product", "value": "100", "inputType": "number" },
+          { "label": "Quotient", "value": "25", "inputType": "number" }
+        ]
+      }
     },
     {
-      "id": "1a_difference", "label": "1a diff",
-      "display": "50 and 2: difference",
-      "answer": { "type": "number", "value": 48 }
+      "id": "1b", "label": "1b",
+      "display": "5 and 3",
+      "answer": {
+        "type": "dual",
+        "layout": "table",
+        "fields": [
+          { "label": "Sum", "value": "8", "inputType": "number" },
+          { "label": "Difference", "value": "2", "inputType": "number" },
+          { "label": "Product", "value": "15", "inputType": "number" },
+          { "label": "Quotient", "value": "1 2/3", "inputType": "number", "decimal": 1.6667, "tolerance": 0.001 }
+        ]
+      }
     },
     {
-      "id": "1a_product", "label": "1a prod",
-      "display": "50 and 2: product",
-      "answer": { "type": "number", "value": 100 }
-    },
-    {
-      "id": "1a_quotient", "label": "1a quot",
-      "display": "50 and 2: quotient",
-      "answer": { "type": "number", "value": 25 }
-    },
-    {
-      "id": "1b_sum", "label": "1b sum",
-      "display": "5 and 3: sum",
-      "answer": { "type": "number", "value": 8 }
-    },
-    {
-      "id": "1b_difference", "label": "1b diff",
-      "display": "5 and 3: difference",
-      "answer": { "type": "number", "value": 2 }
-    },
-    {
-      "id": "1b_product", "label": "1b prod",
-      "display": "5 and 3: product",
-      "answer": { "type": "number", "value": 15 }
-    },
-    {
-      "id": "1b_quotient", "label": "1b quot",
-      "display": "5 and 3: quotient",
-      "answer": { "type": "fraction", "value": "1 2/3", "decimal": 1.6667, "tolerance": 0.001 }
-    },
-    {
-      "id": "2a_sum", "label": "2a sum",
+      "id": "2a", "label": "2a",
       "group": "2. Write the sum, difference, product and quotient of the numbers and letters (you cannot calculate anything).",
-      "display": "x and 6: sum",
-      "answer": { "type": "text", "value": "x + 6" },
+      "display": "x and 6",
+      "answer": {
+        "type": "dual",
+        "layout": "table",
+        "fields": [
+          { "label": "Sum", "value": "x + 6", "inputType": "text" },
+          { "label": "Difference", "value": "x − 6", "inputType": "text" },
+          { "label": "Product", "value": "6x", "inputType": "text" },
+          { "label": "Quotient", "value": "x/6", "inputType": "text" }
+        ]
+      },
       "variables": ["x"]
     },
     {
-      "id": "2a_difference", "label": "2a diff",
-      "display": "x and 6: difference",
-      "answer": { "type": "text", "value": "x − 6" },
-      "variables": ["x"]
-    },
-    {
-      "id": "2a_product", "label": "2a prod",
-      "display": "x and 6: product",
-      "answer": { "type": "text", "value": "6x" },
-      "variables": ["x"]
-    },
-    {
-      "id": "2a_quotient", "label": "2a quot",
-      "display": "x and 6: quotient",
-      "answer": { "type": "text", "value": "x/6" },
-      "variables": ["x"]
-    },
-    {
-      "id": "2b_sum", "label": "2b sum",
-      "display": "z and w: sum",
-      "answer": { "type": "text", "value": "z + w" },
-      "variables": ["z", "w"]
-    },
-    {
-      "id": "2b_difference", "label": "2b diff",
-      "display": "z and w: difference",
-      "answer": { "type": "text", "value": "z − w" },
-      "variables": ["z", "w"]
-    },
-    {
-      "id": "2b_product", "label": "2b prod",
-      "display": "z and w: product",
-      "answer": { "type": "text", "value": "wz" },
-      "variables": ["z", "w"]
-    },
-    {
-      "id": "2b_quotient", "label": "2b quot",
-      "display": "z and w: quotient",
-      "answer": { "type": "text", "value": "z/w" },
+      "id": "2b", "label": "2b",
+      "display": "z and w",
+      "answer": {
+        "type": "dual",
+        "layout": "table",
+        "fields": [
+          { "label": "Sum", "value": "z + w", "inputType": "text" },
+          { "label": "Difference", "value": "z − w", "inputType": "text" },
+          { "label": "Product", "value": "wz", "inputType": "text" },
+          { "label": "Quotient", "value": "z/w", "inputType": "text" }
+        ]
+      },
       "variables": ["z", "w"]
     },
     {
@@ -104,22 +74,50 @@
       "id": "4a", "label": "4a",
       "group": "4. Write an equation, and find the part that is not given.",
       "display": "The quotient is 5, the divisor is 8, the dividend is ___.",
-      "answer": { "type": "number", "value": 40 }
+      "answer": {
+        "type": "dual",
+        "layout": "table",
+        "fields": [
+          { "label": "Missing number", "value": "40", "inputType": "number" },
+          { "label": "Equation", "value": "40 ÷ 8 = 5", "inputType": "text" }
+        ]
+      }
     },
     {
       "id": "4b", "label": "4b",
       "display": "The subtrahend is ___, the difference is 15 and the minuend is 45.",
-      "answer": { "type": "number", "value": 30 }
+      "answer": {
+        "type": "dual",
+        "layout": "table",
+        "fields": [
+          { "label": "Missing number", "value": "30", "inputType": "number" },
+          { "label": "Equation", "value": "45 − 30 = 15", "inputType": "text" }
+        ]
+      }
     },
     {
       "id": "4c", "label": "4c",
       "display": "The factors are 5, 6 and 8, and the product is ___.",
-      "answer": { "type": "number", "value": 240 }
+      "answer": {
+        "type": "dual",
+        "layout": "table",
+        "fields": [
+          { "label": "Missing number", "value": "240", "inputType": "number" },
+          { "label": "Equation", "value": "5 ⋅ 6 ⋅ 8 = 240", "inputType": "text" }
+        ]
+      }
     },
     {
       "id": "4d", "label": "4d",
       "display": "The addends are 7, 8 and ___, and the sum is 100.",
-      "answer": { "type": "number", "value": 85 }
+      "answer": {
+        "type": "dual",
+        "layout": "table",
+        "fields": [
+          { "label": "Missing number", "value": "85", "inputType": "number" },
+          { "label": "Equation", "value": "7 + 8 + 85 = 100", "inputType": "text" }
+        ]
+      }
     },
     {
       "id": "5a", "label": "5a",

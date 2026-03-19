@@ -3,21 +3,174 @@
   "section": "writing-equations",
   "title": "Writing Equations",
   "pages": "80-81",
-  "needsReview": true,
   "problems": [
-    { "id": "1a", "label": "1a", "group": "1. Write an equation and solve.", "display": "The value of a certain number of five-cent coins is 485 cents. How many coins?", "answer": { "type": "number", "value": 97 } },
-    { "id": "1b", "label": "1b", "display": "The total cost of 25 buckets is $112.50. How much does one bucket cost?", "answer": { "type": "number", "value": 4.50, "tolerance": 0.01 } },
-    { "id": "1c", "label": "1c", "display": "Ann is 16 1/2 years younger than Elizabeth. When Elizabeth is 89, how old will Ann be?", "answer": { "type": "fraction", "value": "72 1/2", "decimal": 72.5 } },
-    { "id": "1d", "label": "1d", "display": "The area of a square is 169 square centimetres. How long is its side?", "answer": { "type": "number", "value": 13 } },
-    { "id": "1e", "label": "1e", "display": "Two adjacent angles make a right angle. One angle is 23°. What does the other angle measure?", "answer": { "type": "number", "value": 67 } },
-    { "id": "2a", "label": "2a", "group": "2. Write an equation and solve.", "display": "15 friends shared the cost of party supplies equally. Each share was $13. What was the total cost?", "answer": { "type": "number", "value": 195 } },
-    { "id": "2b", "label": "2b", "display": "Erica bought a computer for $380.16 total. Sales tax was $28.16. What was the price before tax?", "answer": { "type": "number", "value": 352, "tolerance": 0.01 } },
-    { "id": "2c", "label": "2c", "display": "Henry bought 15 litres of gasoline for $23.25. How much was the price per litre?", "answer": { "type": "number", "value": 1.55, "tolerance": 0.01 } },
-    { "id": "2d", "label": "2d", "display": "The perimeter of a rectangle is 1 1/2 m, and one side is 1/4 m. How long is the other side?", "answer": { "type": "fraction", "value": "1/2", "decimal": 0.5 } },
-    { "id": "2e", "label": "2e", "display": "Three adjacent angles make a straight angle (180°). Two are 88° and 25°. What is the third?", "answer": { "type": "number", "value": 67 } },
-    { "id": "3", "label": "3", "group": "3. Calculate the price of a 3-year-old automobile.", "display": "Calculate the price of a 3-year-old automobile using New Price = 0.76 · 0.94² · p for each selling price (see workbook p. 81)", "answer": { "type": "workbook", "hint": "$24200→$16251.17, $17500→$11751.88, $36400→$24443.91" } },
-    { "id": "4", "label": "4", "group": "4. Challenge: Find the original selling price.", "display": "(Challenge) If a 3-year car costs $27,398.67, what was the original selling price?", "answer": { "type": "workbook", "hint": "$40,800" } },
-    { "id": "5a", "label": "5a", "group": "5. Find the mystery expression.", "display": "Mystery expression: I am the product of 8 and a certain sum. Distributing gives 8b + 24. What am I?", "answer": { "type": "text", "value": "8(b + 3)" } },
-    { "id": "5b", "label": "5b", "display": "Mystery expression: Multiply me by 3 then by 2, and you get 6t − 18s + 30. What am I?", "answer": { "type": "text", "value": "t - 3s + 5" } }
+    {
+      "id": "1a", "label": "1a",
+      "group": "1. Write an equation for each situation (even if you could easily solve the problem without an equation). Then solve the equation.",
+      "display": "The value of a certain number of five-cent coins is 485 cents. How many five-cent coins are there?",
+      "variables": ["n"],
+      "answer": {
+        "type": "dual",
+        "fields": [
+          { "label": "Equation", "value": "5n = 485", "inputType": "text" },
+          { "label": "Solution", "value": "97", "inputType": "number" }
+        ]
+      }
+    },
+    {
+      "id": "1b", "label": "1b",
+      "group": "1. Write an equation for each situation (even if you could easily solve the problem without an equation). Then solve the equation.",
+      "display": "The total cost of 25 buckets is $112.50. How much does one bucket cost?",
+      "variables": ["b"],
+      "answer": {
+        "type": "dual",
+        "fields": [
+          { "label": "Equation", "value": "25b = 112.5", "inputType": "text" },
+          { "label": "Solution", "value": "4.5", "inputType": "number", "tolerance": 0.01 }
+        ]
+      }
+    },
+    {
+      "id": "1c", "label": "1c",
+      "group": "1. Write an equation for each situation (even if you could easily solve the problem without an equation). Then solve the equation.",
+      "display": "Ann is 16 1/2 years younger than Elizabeth. When Elizabeth is 89 years old, how old will Ann be?",
+      "variables": ["a"],
+      "answer": {
+        "type": "dual",
+        "fields": [
+          { "label": "Equation", "value": "89 − 16.5 = a", "inputType": "text" },
+          { "label": "Solution", "value": "72 1/2", "inputType": "number", "decimal": 72.5, "tolerance": 0.001 }
+        ]
+      }
+    },
+    {
+      "id": "1d", "label": "1d",
+      "group": "1. Write an equation for each situation (even if you could easily solve the problem without an equation). Then solve the equation.",
+      "display": "The area of a square is 169 square centimetres. How long is its side?",
+      "variables": ["s"],
+      "answer": {
+        "type": "dual",
+        "fields": [
+          { "label": "Equation", "value": "s² = 169", "inputType": "text" },
+          { "label": "Solution", "value": "13", "inputType": "number" }
+        ]
+      }
+    },
+    {
+      "id": "1e", "label": "1e",
+      "group": "1. Write an equation for each situation (even if you could easily solve the problem without an equation). Then solve the equation.",
+      "display": "Two adjacent angles make a right angle together. One of the angles is 23°. What does the other angle measure?",
+      "variables": ["x"],
+      "answer": {
+        "type": "dual",
+        "fields": [
+          { "label": "Equation", "value": "x + 23 = 90", "inputType": "text" },
+          { "label": "Solution", "value": "67", "inputType": "number" }
+        ]
+      }
+    },
+    {
+      "id": "2a", "label": "2a",
+      "group": "2. Write an equation for each situation (even if you could solve the problem without one). Then solve the equation.",
+      "display": "Fifteen friends shared equally the cost of supplies for a party. Each person's share of the cost came to $13. How much did the supplies cost in total?",
+      "variables": ["C"],
+      "answer": {
+        "type": "dual",
+        "fields": [
+          { "label": "Equation", "value": "C÷15 = 13", "inputType": "text" },
+          { "label": "Solution", "value": "195", "inputType": "number" }
+        ]
+      }
+    },
+    {
+      "id": "2b", "label": "2b",
+      "group": "2. Write an equation for each situation (even if you could solve the problem without one). Then solve the equation.",
+      "display": "Erica bought a computer for a total cost of $380.16. The sales tax was $28.16. What was the price of the computer before the sales tax was added?",
+      "variables": ["p"],
+      "answer": {
+        "type": "dual",
+        "fields": [
+          { "label": "Equation", "value": "p + 28.16 = 380.16", "inputType": "text" },
+          { "label": "Solution", "value": "352", "inputType": "number", "tolerance": 0.01 }
+        ]
+      }
+    },
+    {
+      "id": "2c", "label": "2c",
+      "group": "2. Write an equation for each situation (even if you could solve the problem without one). Then solve the equation.",
+      "display": "Henry bought 15 litres of gasoline for $23.25. How much was the price per litre?",
+      "variables": ["p"],
+      "answer": {
+        "type": "dual",
+        "fields": [
+          { "label": "Equation", "value": "15p = 23.25", "inputType": "text" },
+          { "label": "Solution", "value": "1.55", "inputType": "number", "tolerance": 0.01 }
+        ]
+      }
+    },
+    {
+      "id": "2d", "label": "2d",
+      "group": "2. Write an equation for each situation (even if you could solve the problem without one). Then solve the equation.",
+      "display": "The perimeter of a rectangle is 1 1/2 m, and one of its sides measures 1/4 m. How long is the other side?",
+      "variables": ["s"],
+      "answer": {
+        "type": "dual",
+        "fields": [
+          { "label": "Equation", "value": "s + 0.25 = 0.75", "inputType": "text" },
+          { "label": "Solution", "value": "1/2", "inputType": "number", "decimal": 0.5, "tolerance": 0.001 }
+        ]
+      }
+    },
+    {
+      "id": "2e", "label": "2e",
+      "group": "2. Write an equation for each situation (even if you could solve the problem without one). Then solve the equation.",
+      "display": "Three adjacent angles make a straight angle together. Two of the angles are 88° and 25°. What does the third angle measure?",
+      "variables": ["a"],
+      "answer": {
+        "type": "dual",
+        "fields": [
+          { "label": "Equation", "value": "a + 88 + 25 = 180", "inputType": "text" },
+          { "label": "Solution", "value": "67", "inputType": "number" }
+        ]
+      }
+    },
+    {
+      "id": "3a", "label": "3a",
+      "group": "3. The formula New Price = 0.76 ⋅ 0.94² ⋅ p gives us the value of an automobile that is three years old, where p is the original selling price. Calculate the price of a three-year-old used automobile for each of the given values of p.",
+      "display": "p = $24,200",
+      "answer": { "type": "number", "value": 16251.17, "tolerance": 0.01 }
+    },
+    {
+      "id": "3b", "label": "3b",
+      "group": "3. The formula New Price = 0.76 ⋅ 0.94² ⋅ p gives us the value of an automobile that is three years old, where p is the original selling price. Calculate the price of a three-year-old used automobile for each of the given values of p.",
+      "display": "p = $17,500",
+      "answer": { "type": "number", "value": 11751.88, "tolerance": 0.01 }
+    },
+    {
+      "id": "3c", "label": "3c",
+      "group": "3. The formula New Price = 0.76 ⋅ 0.94² ⋅ p gives us the value of an automobile that is three years old, where p is the original selling price. Calculate the price of a three-year-old used automobile for each of the given values of p.",
+      "display": "p = $36,400",
+      "answer": { "type": "number", "value": 24443.91, "tolerance": 0.01 }
+    },
+    {
+      "id": "4", "label": "4",
+      "group": "4. (Challenge) If the price of a 3-year car is $27,398.67, then what was its original selling price?",
+      "display": "New Price = $27,398.67, find p.",
+      "answer": { "type": "number", "value": 40800 }
+    },
+    {
+      "id": "5a", "label": "5a",
+      "group": "5. Can you find the mystery expressions?",
+      "display": "I am the product of 8 and a certain sum. If you multiply the sum by 8 (using the distributive property) you will get 8b + 24. What am I?",
+      "variables": ["b"],
+      "answer": { "type": "text", "value": "8(b + 3)" }
+    },
+    {
+      "id": "5b", "label": "5b",
+      "group": "5. Can you find the mystery expressions?",
+      "display": "Multiply me by 3 and then the result by 2, and you will get 6t − 18s + 30. What am I?",
+      "variables": ["t", "s"],
+      "answer": { "type": "text", "value": "t − 3s + 5" }
+    }
   ]
 }

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import type { ProgressData } from '../lib/progressStore';
+import type { Answer } from '../lib/answerChecker';
 import { loadSections, loadSectionData } from '../lib/dataLoader';
 
 interface ParentDashboardProps {
@@ -22,9 +23,22 @@ function getDefaultRange(): { start: string; end: string } {
   };
 }
 
-function formatAnswerValue(answer: { type: string; value?: number | string }): string {
-  if (answer.type === 'workbook') return 'Done in workbook';
-  return String(answer.value ?? '');
+function formatAnswerValue(answer: Answer): string {
+  switch (answer.type) {
+    case 'workbook':
+      return 'Done in workbook';
+    case 'multiselect':
+      return answer.correct.join(', ');
+    case 'dual':
+      return answer.fields.map(f => f.value).join(', ');
+    case 'gap':
+      return answer.gaps.map(g => g.value).join(', ');
+    case 'measure':
+    case 'number':
+    case 'fraction':
+    case 'text':
+      return String(answer.value ?? '');
+  }
 }
 
 interface ProblemInfo {

@@ -1,7 +1,9 @@
 import { useState, useRef, useEffect } from 'react';
 import type { Problem } from '../lib/dataLoader';
 import { checkAnswer } from '../lib/answerChecker';
+import type { MeasureAnswer } from '../lib/answerChecker';
 import ExpressionBuilder from './ExpressionBuilder';
+import MeasureBuilder from './MeasureBuilder';
 
 interface ProblemRowProps {
   problem: Problem;
@@ -36,6 +38,9 @@ export default function ProblemRow({
   const inputRef = useRef<HTMLInputElement>(null);
 
   const hasExpressionBuilder = problem.answer.type === 'text' && problem.variables?.length;
+  const hasMeasureBuilder = problem.answer.type === 'measure';
+  const builderLabel = (problem.display + ' ' + (problem.group || '')).toLowerCase().includes('equation')
+    ? 'Build equation' : 'Build expression';
   const keyboardMode = problem.answer.type === 'number' ? 'decimal' as const : 'text' as const;
 
   useEffect(() => {
@@ -177,17 +182,35 @@ export default function ProblemRow({
             Done in workbook
           </button>
         </div>
+      ) : !isCorrect && hasMeasureBuilder ? (
+        <div className="flex items-center gap-2 ml-1">
+          <button
+            onClick={() => { if (!document.querySelector('[data-modal="measure-builder"]')) setShowBuilder(true); }}
+            className="px-5 py-2 bg-indigo-600 text-white rounded-lg font-semibold
+                       active:scale-95 transition-transform text-base flex items-center gap-2"
+          >
+            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M3 6h18M3 6v12a1 1 0 001 1h16a1 1 0 001-1V6M9 6v4M12 6v2M15 6v4M18 6v2M6 6v6" />
+            </svg>
+            Build measure
+          </button>
+          {showWrong && (
+            <span className="text-red-500 text-sm font-medium whitespace-nowrap">
+              Not quite!
+            </span>
+          )}
+        </div>
       ) : !isCorrect && hasExpressionBuilder ? (
         <div className="flex items-center gap-2 ml-1">
           <button
-            onClick={() => setShowBuilder(true)}
+            onClick={() => { if (!document.querySelector('[data-modal="expression-builder"]')) setShowBuilder(true); }}
             className="px-5 py-2 bg-indigo-600 text-white rounded-lg font-semibold
                        active:scale-95 transition-transform text-base flex items-center gap-2"
           >
             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 15.75V18m-7.5-6.75h.008v.008H8.25v-.008zm0 2.25h.008v.008H8.25v-.008zm0 2.25h.008v.008H8.25v-.008zm0 2.25h.008v.008H8.25v-.008zm2.25-4.5h.008v.008H10.5v-.008zm0 2.25h.008v.008H10.5v-.008zm0 2.25h.008v.008H10.5v-.008zm2.25-4.5h.008v.008H12.75v-.008zm0 2.25h.008v.008H12.75v-.008zm2.25-6.75h.008v.008H15v-.008zm0 2.25h.008v.008H15v-.008zm0 2.25h.008v.008H15v-.008zm0 2.25h.008v.008H15v-.008zm2.25-4.5h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008v-.008zM6 18.75V6.75A2.25 2.25 0 018.25 4.5h7.5A2.25 2.25 0 0118 6.75v12a2.25 2.25 0 01-2.25 2.25h-7.5A2.25 2.25 0 016 18.75z" />
             </svg>
-            Build Expression
+            {builderLabel}
           </button>
           {showWrong && (
             <span className="text-red-500 text-sm font-medium whitespace-nowrap">
@@ -235,6 +258,9 @@ export default function ProblemRow({
           variables={problem.variables}
           expectedAnswer={(problem.answer as { type: 'text'; value: string }).value}
           problemDisplay={problem.display}
+          problemLabel={problem.label}
+          builderLabel={builderLabel}
+          showInequality={problem.answer.type === 'text' && /[<>≤≥]/.test((problem.answer as { type: 'text'; value: string }).value)}
           onCorrect={(expression) => {
             setShowBuilder(false);
             setInput(expression);
@@ -244,6 +270,34 @@ export default function ProblemRow({
             const newAttempts = attempts + 1;
             setAttempts(newAttempts);
             onCorrect(newAttempts, expression);
+          }}
+          onIncorrect={() => {
+            setShowWrong(true);
+            const newAttempts = attempts + 1;
+            setAttempts(newAttempts);
+            playIncorrect();
+            onIncorrect(newAttempts);
+          }}
+          onClose={() => setShowBuilder(false)}
+        />
+      )}
+
+      {/* Measure Builder Modal */}
+      {showBuilder && hasMeasureBuilder && (
+        <MeasureBuilder
+          units={(problem.answer as MeasureAnswer).units}
+          expectedAnswer={(problem.answer as MeasureAnswer).value}
+          problemDisplay={problem.display}
+          problemLabel={problem.label}
+          onCorrect={(measure) => {
+            setShowBuilder(false);
+            setInput(measure);
+            setIsCorrect(true);
+            setShowWrong(false);
+            playCorrect();
+            const newAttempts = attempts + 1;
+            setAttempts(newAttempts);
+            onCorrect(newAttempts, measure);
           }}
           onIncorrect={() => {
             setShowWrong(true);

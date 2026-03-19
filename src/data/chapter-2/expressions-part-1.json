@@ -48,23 +48,51 @@
     {
       "id": "2a", "label": "2a",
       "group": "2. Evaluate 100 − x² for the given values of x.",
-      "display": "100 − x² when x = 3",
-      "answer": { "type": "number", "value": 91 }
+      "display": "x = 3",
+      "answer": {
+        "type": "dual",
+        "layout": "table",
+        "fields": [
+          { "label": "Expression", "value": "100 − 3²", "inputType": "text" },
+          { "label": "Value", "value": "91", "inputType": "number" }
+        ]
+      }
     },
     {
       "id": "2b", "label": "2b",
-      "display": "100 − x² when x = 4",
-      "answer": { "type": "number", "value": 84 }
+      "display": "x = 4",
+      "answer": {
+        "type": "dual",
+        "layout": "table",
+        "fields": [
+          { "label": "Expression", "value": "100 − 4²", "inputType": "text" },
+          { "label": "Value", "value": "84", "inputType": "number" }
+        ]
+      }
     },
     {
       "id": "2c", "label": "2c",
-      "display": "100 − x² when x = 5",
-      "answer": { "type": "number", "value": 75 }
+      "display": "x = 5",
+      "answer": {
+        "type": "dual",
+        "layout": "table",
+        "fields": [
+          { "label": "Expression", "value": "100 − 5²", "inputType": "text" },
+          { "label": "Value", "value": "75", "inputType": "number" }
+        ]
+      }
     },
     {
       "id": "2d", "label": "2d",
-      "display": "100 − x² when x = 6",
-      "answer": { "type": "number", "value": 64 }
+      "display": "x = 6",
+      "answer": {
+        "type": "dual",
+        "layout": "table",
+        "fields": [
+          { "label": "Expression", "value": "100 − 6²", "inputType": "text" },
+          { "label": "Value", "value": "64", "inputType": "number" }
+        ]
+      }
     },
     {
       "id": "3a", "label": "3a",
@@ -106,23 +134,47 @@
     {
       "id": "5a", "label": "5a",
       "group": "5. Write a single expression for each problem, then find the value.",
-      "display": "Total value in cents: five 10¢ coins, five 5¢ coins, two 20¢ coins, seven 50¢ coins",
-      "answer": { "type": "number", "value": 465 }
+      "display": "What is the total value, in cents, of five 10-cent coins, five 5-cent coins, two 20-cent coins, and seven 50-cent coins?",
+      "answer": {
+        "type": "dual",
+        "fields": [
+          { "label": "Expression", "value": "5 ⋅ 10 + 5 ⋅ 5 + 2 ⋅ 20 + 7 ⋅ 50", "inputType": "text" },
+          { "label": "Value", "value": "465", "inputType": "number" }
+        ]
+      }
     },
     {
       "id": "5b", "label": "5b",
-      "display": "Margaret has 64 marbles. Tom has 15 less. Henry has twice Tom's amount. How many does Henry have?",
-      "answer": { "type": "number", "value": 98 }
+      "display": "Margaret has 64 marbles. Tom has 15 less than Margaret. Henry has twice the amount of marbles Tom has. How many marbles does Henry have?",
+      "answer": {
+        "type": "dual",
+        "fields": [
+          { "label": "Expression", "value": "2(64 − 15)", "inputType": "text" },
+          { "label": "Value", "value": "98", "inputType": "number" }
+        ]
+      }
     },
     {
       "id": "5c", "label": "5c",
       "display": "What is the area of the coloured part? (see workbook p. 48, rectangle diagram)",
-      "answer": { "type": "number", "value": 82 }
+      "answer": {
+        "type": "dual",
+        "fields": [
+          { "label": "Expression", "value": "5 ⋅ 20 − 9 ⋅ 2", "inputType": "text" },
+          { "label": "Value", "value": "82", "inputType": "number" }
+        ]
+      }
     },
     {
       "id": "5d", "label": "5d",
       "display": "What is the area of the coloured part? (see workbook p. 48, square diagram)",
-      "answer": { "type": "number", "value": 21 }
+      "answer": {
+        "type": "dual",
+        "fields": [
+          { "label": "Expression", "value": "5 ⋅ 5 − 2 ⋅ 2", "inputType": "text" },
+          { "label": "Value", "value": "21", "inputType": "number" }
+        ]
+      }
     }
   ]
 }
