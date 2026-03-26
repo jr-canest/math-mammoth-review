@@ -58,5 +58,11 @@
     "title": "Chapter 10 Review",
     "folder": "chapter-10-review",
     "order": 10.5
+  },
+  {
+    "id": "games-activities",
+    "title": "Games & Activities",
+    "folder": "games-activities",
+    "order": 100
   }
 ]

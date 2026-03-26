@@ -1,12 +1,59 @@
 import { useState, useCallback } from 'react';
-import { HashRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route, useParams, useNavigate } from 'react-router-dom';
 import { useProgress } from './hooks/useProgress';
 import { useSound } from './hooks/useSound';
+import { loadSections } from './lib/dataLoader';
 import UserSelect from './components/UserSelect';
 import ChapterSelect from './components/ChapterSelect';
 import SectionSelect from './components/SectionSelect';
 import ProblemView from './components/ProblemView';
 import ParentDashboard from './components/ParentDashboard';
+import MathMachines from './components/games/MathMachines';
+
+interface SectionRouterProps {
+  gameComponents: Record<string, React.ComponentType<{ onComplete?: (score: number) => void }>>;
+  problemViewProps: React.ComponentProps<typeof ProblemView>;
+  markCorrect: (sectionKey: string, problemId: string, attemptCount: number, totalProblems: number, answer?: string) => void;
+}
+
+function SectionRouter({ gameComponents, problemViewProps, markCorrect }: SectionRouterProps) {
+  const { chapterId, sectionId } = useParams<{ chapterId: string; sectionId: string }>();
+  const navigate = useNavigate();
+
+  if (!chapterId || !sectionId) return null;
+
+  const sections = loadSections(chapterId);
+  const section = sections.find(s => s.id === sectionId);
+
+  if (section?.type === 'game' && section.component && gameComponents[section.component]) {
+    const GameComponent = gameComponents[section.component];
+    const sectionKey = `${chapterId}-${sectionId}`;
+    return (
+      <div className="min-h-screen bg-slate-50">
+        <header className="bg-white shadow-sm">
+          <div className="max-w-3xl mx-auto px-4 py-4 flex items-center gap-3">
+            <button
+              onClick={() => navigate(`/chapter/${chapterId}`)}
+              className="p-2 -ml-2 text-indigo-600 active:scale-95 transition-transform"
+            >
+              <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+            <h1 className="text-lg font-bold text-gray-900">{section.title}</h1>
+          </div>
+        </header>
+        <GameComponent
+          onComplete={() => {
+            markCorrect(sectionKey, 'game-complete', 1, 1);
+          }}
+        />
+      </div>
+    );
+  }
+
+  return <ProblemView {...problemViewProps} />;
+}
 
 export default function App() {
   const [userId, setUserId] = useState<string | null>(null);
@@ -21,6 +68,10 @@ export default function App() {
   if (!userId) {
     return <UserSelect onSelect={setUserId} />;
   }
+
+  const gameComponents: Record<string, React.ComponentType<{ onComplete?: (score: number) => void }>> = {
+    MathMachines,
+  };
 
   if (loading) {
     return (
@@ -49,16 +100,20 @@ export default function App() {
         <Route
           path="/chapter/:chapterId/:sectionId"
           element={
-            <ProblemView
-              getSectionProgress={getSectionProgress}
+            <SectionRouter
+              gameComponents={gameComponents}
+              problemViewProps={{
+                getSectionProgress,
+                markCorrect,
+                markIncorrect,
+                undoAnswer,
+                clearSection,
+                playCorrect,
+                playIncorrect,
+                playMilestone,
+                playComplete,
+              }}
               markCorrect={markCorrect}
-              markIncorrect={markIncorrect}
-              undoAnswer={undoAnswer}
-              clearSection={clearSection}
-              playCorrect={playCorrect}
-              playIncorrect={playIncorrect}
-              playMilestone={playMilestone}
-              playComplete={playComplete}
             />
           }
         />

@@ -38,21 +38,32 @@ export default function SectionSelect({ progress }: SectionSelectProps) {
   const sections = loadSections(chapterId);
   const chapter = loadChaptersSync().find(c => c.folder === chapterId);
 
+  const isGameChapter = sections.length > 0 && sections.every(s => s.type === 'game');
+
   // Calculate overall chapter progress
   let totalProblems = 0;
   let totalCorrect = 0;
   let totalIncorrect = 0;
-  sections.forEach(section => {
-    const data = loadSectionData(chapterId, section.file);
-    if (data) totalProblems += data.problems.length;
-    const key = `${chapterId}-${section.id}`;
-    const sp = progress.sections[key];
-    if (sp) {
-      const attempts = Object.values(sp.attempts);
-      totalCorrect += attempts.filter(a => a.correct).length;
-      totalIncorrect += attempts.filter(a => !a.correct).length;
-    }
-  });
+  if (isGameChapter) {
+    totalProblems = sections.length;
+    sections.forEach(section => {
+      const key = `${chapterId}-${section.id}`;
+      const sp = progress.sections[key];
+      if (sp && sp.completedAt) totalCorrect++;
+    });
+  } else {
+    sections.forEach(section => {
+      const data = loadSectionData(chapterId, section.file);
+      if (data) totalProblems += data.problems.length;
+      const key = `${chapterId}-${section.id}`;
+      const sp = progress.sections[key];
+      if (sp) {
+        const attempts = Object.values(sp.attempts);
+        totalCorrect += attempts.filter(a => a.correct).length;
+        totalIncorrect += attempts.filter(a => !a.correct).length;
+      }
+    });
+  }
 
   const overallPct = totalProblems > 0 ? totalCorrect / totalProblems : 0;
 
@@ -74,12 +85,23 @@ export default function SectionSelect({ progress }: SectionSelectProps) {
             </h1>
           </div>
           <div className="text-right shrink-0">
-            <span className={`text-lg font-bold ${progressTextColor(overallPct)}`}>
-              {Math.round(overallPct * 100)}%
-            </span>
-            <p className="text-xs text-gray-400">
-              {totalCorrect}/{totalProblems}
-            </p>
+            {isGameChapter ? (
+              <>
+                <span className={`text-lg font-bold ${progressTextColor(overallPct)}`}>
+                  {totalCorrect}/{totalProblems}
+                </span>
+                <p className="text-xs text-gray-400">completed</p>
+              </>
+            ) : (
+              <>
+                <span className={`text-lg font-bold ${progressTextColor(overallPct)}`}>
+                  {Math.round(overallPct * 100)}%
+                </span>
+                <p className="text-xs text-gray-400">
+                  {totalCorrect}/{totalProblems}
+                </p>
+              </>
+            )}
           </div>
         </div>
         <div className="max-w-3xl mx-auto px-4 pb-3">
@@ -91,6 +113,38 @@ export default function SectionSelect({ progress }: SectionSelectProps) {
         {sections.map(section => {
           const key = `${chapterId}-${section.id}`;
           const sp = progress.sections[key];
+          const isGame = section.type === 'game';
+
+          // Game sections: completed or not
+          if (isGame) {
+            const completed = sp?.completedAt != null;
+            return (
+              <button
+                key={section.id}
+                onClick={() => navigate(`/chapter/${chapterId}/${section.id}`)}
+                className="w-full bg-white rounded-xl shadow-sm p-4 text-left flex items-center gap-4
+                           active:scale-[0.98] transition-transform border-2 border-transparent
+                           hover:border-indigo-100"
+              >
+                <div className="w-7 h-7 shrink-0 flex items-center justify-center text-lg">
+                  {completed ? '🏆' : '🎮'}
+                </div>
+                <div className="flex-1 min-w-0">
+                  <h3 className="text-lg font-semibold text-gray-900 truncate">
+                    {section.title}
+                  </h3>
+                  <p className="text-sm text-gray-400">{section.subtitle || 'Interactive game'}</p>
+                </div>
+                <div className={`text-right shrink-0 ${completed ? 'text-emerald-600' : 'text-gray-400'}`}>
+                  <span className="text-sm font-medium">
+                    {completed ? 'Completed' : 'Not played'}
+                  </span>
+                </div>
+              </button>
+            );
+          }
+
+          // Regular problem sections
           const data = loadSectionData(chapterId, section.file);
           const sectionTotal = data?.problems.length ?? 0;
           const sectionCorrect = sp

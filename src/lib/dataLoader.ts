@@ -13,6 +13,9 @@ export interface SectionMeta {
   pages: string;
   file: string;
   order: number;
+  type?: 'game';
+  component?: string;
+  subtitle?: string;
 }
 
 export interface Problem {

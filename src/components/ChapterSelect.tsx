@@ -51,10 +51,55 @@ export default function ChapterSelect({ progress, onSwitchUser, userName, onExpo
         </div>
       </header>
 
-      <main className="max-w-3xl mx-auto px-4 py-6 space-y-4">
+      <main className="max-w-3xl mx-auto px-4 py-6 space-y-3">
         {chapters.map(chapter => {
           const sections = loadSections(chapter.folder);
           const totalSections = sections.length;
+          const isGameChapter = totalSections > 0 && sections.every(s => s.type === 'game');
+
+          if (isGameChapter) {
+            // Game chapter: show completion count instead of problem percentages
+            let gamesCompleted = 0;
+            sections.forEach(section => {
+              const key = `${chapter.folder}-${section.id}`;
+              const sp = progress.sections[key];
+              if (sp?.completedAt) gamesCompleted++;
+            });
+            const pct = totalSections > 0 ? gamesCompleted / totalSections : 0;
+
+            return (
+              <button
+                key={chapter.id}
+                onClick={() => navigate(`/chapter/${chapter.folder}`)}
+                className="w-full bg-white rounded-2xl shadow-md p-6 text-left
+                           active:scale-[0.98] transition-transform"
+              >
+                <div className="flex items-center justify-between mb-3">
+                  <h2 className="text-xl font-bold text-gray-900 flex items-center gap-2">
+                    <span className="text-2xl">🎮</span> {chapter.title}
+                  </h2>
+                  <span className="text-sm text-gray-400">
+                    {totalSections} {totalSections === 1 ? 'game' : 'games'}
+                  </span>
+                </div>
+                <div className="w-full bg-gray-200 rounded-full h-3 overflow-hidden">
+                  <div
+                    className="h-full transition-all duration-500 rounded-full"
+                    style={{ width: `${pct * 100}%`, backgroundColor: progressBarColor(pct) }}
+                  />
+                </div>
+                {gamesCompleted > 0 && (
+                  <div className="flex items-center justify-between mt-2">
+                    <span className={`text-sm font-medium ${progressTextColor(pct)}`}>
+                      {gamesCompleted}/{totalSections} completed
+                    </span>
+                  </div>
+                )}
+              </button>
+            );
+          }
+
+          // Compute progress for regular + review chapters
           let totalProblems = 0;
           let totalCorrect = 0;
 
@@ -69,7 +114,44 @@ export default function ChapterSelect({ progress, onSwitchUser, userName, onExpo
           });
 
           const pct = totalProblems > 0 ? totalCorrect / totalProblems : 0;
+          const isReview = chapter.folder.endsWith('-review');
 
+          // Review chapters: compact inline card
+          if (isReview) {
+            return (
+              <button
+                key={chapter.id}
+                onClick={() => navigate(`/chapter/${chapter.folder}`)}
+                className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-left
+                           active:scale-[0.98] transition-transform flex items-center gap-3"
+              >
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center gap-2">
+                    <span className="text-sm">📝</span>
+                    <h3 className="text-sm font-semibold text-gray-700 truncate">{chapter.title}</h3>
+                    <span className="text-xs text-gray-400 shrink-0">{totalSections} sections</span>
+                  </div>
+                  <div className="w-full bg-gray-200 rounded-full h-1.5 mt-1.5 overflow-hidden">
+                    <div
+                      className="h-full transition-all duration-500 rounded-full"
+                      style={{ width: `${pct * 100}%`, backgroundColor: progressBarColor(pct) }}
+                    />
+                  </div>
+                </div>
+                <div className="text-right shrink-0">
+                  {pct > 0 ? (
+                    <span className={`text-xs font-medium ${progressTextColor(pct)}`}>
+                      {Math.round(pct * 100)}%
+                    </span>
+                  ) : (
+                    <span className="text-xs text-gray-400">—</span>
+                  )}
+                </div>
+              </button>
+            );
+          }
+
+          // Regular chapter: full card
           return (
             <button
               key={chapter.id}
