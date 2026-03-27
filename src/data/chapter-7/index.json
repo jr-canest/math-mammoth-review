@@ -4,28 +4,47 @@
     "title": "Review: Add and Subtract Fractions and Mixed Numbers",
     "pages": "37-40",
     "file": "review-add-and-subtract-fractions.json",
-    "order": 1
+    "order": 1,
+    "pacing": {
+      "type": "skip",
+      "note": "Review of earlier material",
+      "condition": "If Ch 7 Mixed Review (p65) score is 80%+, consider skipping p37-49 and jumping to Reciprocals (p50)"
+    }
   },
   {
     "id": "add-and-subtract-fractions-more-practice",
     "title": "Add and Subtract Fractions: More Practice",
     "pages": "41-43",
     "file": "add-and-subtract-fractions-more-practice.json",
-    "order": 2
+    "order": 2,
+    "pacing": {
+      "type": "skip",
+      "note": "More review practice",
+      "condition": "If Ch 7 Mixed Review (p65) score is 80%+, consider skipping p37-49 and jumping to Reciprocals (p50)"
+    }
   },
   {
     "id": "review-multiplying-fractions-1",
     "title": "Review: Multiplying Fractions 1",
     "pages": "44-46",
     "file": "review-multiplying-fractions-1.json",
-    "order": 3
+    "order": 3,
+    "pacing": {
+      "type": "half-review",
+      "note": "Covered in Term 1 IXL",
+      "suggestion": "In group 4 (simplify), assign odd-numbered: 4-01, 4-03, 4-05, 4-07, 4-09, 4-11 of 12. In group 6 (recipe), assign 6a, 6c, 6e of 6"
+    }
   },
   {
     "id": "review-multiplying-fractions-2",
     "title": "Review: Multiplying Fractions 2",
     "pages": "47-49",
     "file": "review-multiplying-fractions-2.json",
-    "order": 4
+    "order": 4,
+    "pacing": {
+      "type": "half-review",
+      "note": "Covered in Term 1 IXL"
+    }
   },
   {
     "id": "dividing-fractions-reciprocal-numbers",

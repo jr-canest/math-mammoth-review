@@ -181,6 +181,7 @@ export default function ProblemView({
   }
 
   const currentIdx = sections.findIndex(s => s.id === sectionId);
+  const currentMeta = currentIdx >= 0 ? sections[currentIdx] : null;
   const hasNext = currentIdx >= 0 && sections.slice(currentIdx + 1).some(s => {
     const d = loadSectionData(chapterId!, s.file);
     return d && !d.needsReview;
@@ -200,9 +201,26 @@ export default function ProblemView({
             </svg>
           </button>
           <div className="flex-1 min-w-0">
-            <h1 className="text-lg font-bold text-gray-900 truncate">
-              {sectionData.title}
-            </h1>
+            <div className="flex items-center gap-2">
+              <h1 className="text-lg font-bold text-gray-900 truncate">
+                {sectionData.title}
+              </h1>
+              {currentMeta?.pacing?.type === 'half' && (
+                <span className="shrink-0 px-1.5 py-0.5 text-[10px] font-semibold bg-blue-50 text-blue-500 rounded-full">½</span>
+              )}
+              {currentMeta?.pacing?.type === 'skip' && (
+                <span className="shrink-0 px-1.5 py-0.5 text-[10px] font-semibold bg-gray-100 text-gray-400 rounded-full">skip?</span>
+              )}
+              {currentMeta?.pacing?.type === 'review' && (
+                <span className="shrink-0 px-1.5 py-0.5 text-[10px] font-semibold bg-purple-50 text-purple-400 rounded-full">review</span>
+              )}
+              {currentMeta?.pacing?.type === 'half-review' && (
+                <>
+                  <span className="shrink-0 px-1.5 py-0.5 text-[10px] font-semibold bg-blue-50 text-blue-500 rounded-full">½</span>
+                  <span className="shrink-0 px-1.5 py-0.5 text-[10px] font-semibold bg-purple-50 text-purple-400 rounded-full">review</span>
+                </>
+              )}
+            </div>
             <p className="text-sm text-gray-500">Pages {sectionData.pages}</p>
           </div>
           <div className="text-right shrink-0">
@@ -237,6 +255,23 @@ export default function ProblemView({
           />
         </div>
       </header>
+
+      {/* Pacing suggestion */}
+      {currentMeta?.pacing?.suggestion && (
+        <div className="max-w-3xl mx-auto px-4 pt-3">
+          <div className="bg-blue-50 border border-blue-100 rounded-xl px-4 py-2.5">
+            <p className="text-xs font-semibold text-blue-600 mb-0.5">Pacing suggestion</p>
+            <p className="text-xs text-blue-500/80">{currentMeta.pacing.suggestion}</p>
+          </div>
+        </div>
+      )}
+      {currentMeta?.pacing?.condition && (
+        <div className="max-w-3xl mx-auto px-4 pt-3">
+          <div className="bg-gray-50 border border-gray-200 rounded-xl px-4 py-2.5">
+            <p className="text-xs text-gray-500 italic">{currentMeta.pacing.condition}</p>
+          </div>
+        </div>
+      )}
 
       {/* Problems */}
       <main className="max-w-3xl mx-auto px-4 py-4 space-y-3 pb-24">

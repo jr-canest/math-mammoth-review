@@ -4,7 +4,11 @@
     "title": "Understanding Distributions",
     "pages": "149-153",
     "file": "understanding-distributions.json",
-    "order": 1
+    "order": 1,
+    "pacing": {
+      "type": "half",
+      "note": "5 pages, introductory material"
+    }
   },
   {
     "id": "mean-median-and-mode",
@@ -39,7 +43,11 @@
     "title": "Mean Absolute Deviation",
     "pages": "163-166",
     "file": "mean-absolute-deviation.json",
-    "order": 6
+    "order": 6,
+    "pacing": {
+      "type": "half",
+      "note": "Hardest topic in Ch 10, long lesson"
+    }
   },
   {
     "id": "making-histograms",
@@ -53,13 +61,21 @@
     "title": "Summarizing Statistical Distributions",
     "pages": "170-173",
     "file": "summarizing-statistical-distributions.json",
-    "order": 8
+    "order": 8,
+    "pacing": {
+      "type": "half",
+      "note": "4 pages, repetitive summary exercises"
+    }
   },
   {
     "id": "stem-and-leaf-plots",
     "title": "Stem-and-Leaf-Plots",
     "pages": "174-175",
     "file": "stem-and-leaf-plots.json",
-    "order": 9
+    "order": 9,
+    "pacing": {
+      "type": "half",
+      "note": "Lighter topic"
+    }
   }
 ]

@@ -4,14 +4,22 @@
     "title": "Quadrilaterals Review",
     "pages": "105-107",
     "file": "quadrilaterals-review.json",
-    "order": 1
+    "order": 1,
+    "pacing": {
+      "type": "half",
+      "note": "Classification review only"
+    }
   },
   {
     "id": "triangles-review",
     "title": "Triangles Review",
     "pages": "108-109",
     "file": "triangles-review.json",
-    "order": 2
+    "order": 2,
+    "pacing": {
+      "type": "half",
+      "note": "Classification review only"
+    }
   },
   {
     "id": "area-of-right-triangles",
@@ -53,7 +61,11 @@
     "title": "Area of Shapes Not Drawn on Grid",
     "pages": "122-123",
     "file": "area-of-shapes-not-drawn-on-grid.json",
-    "order": 8
+    "order": 8,
+    "pacing": {
+      "type": "half",
+      "note": "Repetitive calculation practice"
+    }
   },
   {
     "id": "area-and-perimeter-problems",
@@ -81,14 +93,22 @@
     "title": "Problems to Solve – Surface Area",
     "pages": "131-132",
     "file": "problems-to-solve-surface-area.json",
-    "order": 12
+    "order": 12,
+    "pacing": {
+      "type": "half",
+      "note": "Extra practice problems"
+    }
   },
   {
     "id": "converting-between-area-units",
     "title": "Converting Between Area Units",
     "pages": "133-134",
     "file": "converting-between-area-units.json",
-    "order": 13
+    "order": 13,
+    "pacing": {
+      "type": "half",
+      "note": "Lighter topic"
+    }
   },
   {
     "id": "volume-of-rectangular-prism-fractional-length",

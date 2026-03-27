@@ -4,7 +4,12 @@
     "title": "Integers",
     "pages": "73-75",
     "file": "integers.json",
-    "order": 1
+    "order": 1,
+    "pacing": {
+      "type": "skip",
+      "note": "Introductory material",
+      "condition": "If Ch 8 Mixed Review (p97) score is 80%+, consider skipping and starting at Coordinate Grid (p76)"
+    }
   },
   {
     "id": "coordinate-grid",
@@ -18,7 +23,11 @@
     "title": "Coordinate Grid Practice",
     "pages": "80-82",
     "file": "coordinate-grid-practice.json",
-    "order": 3
+    "order": 3,
+    "pacing": {
+      "type": "half",
+      "note": "Extra practice on previous lesson"
+    }
   },
   {
     "id": "addition-and-subtraction-as-movements",

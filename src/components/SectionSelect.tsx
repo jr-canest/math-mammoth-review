@@ -151,38 +151,71 @@ export default function SectionSelect({ progress }: SectionSelectProps) {
             ? Object.values(sp.attempts).filter(a => a.correct).length
             : 0;
           const pct = sectionTotal > 0 ? sectionCorrect / sectionTotal : 0;
+          const pacing = section.pacing;
 
           return (
-            <button
-              key={section.id}
-              onClick={() => navigate(`/chapter/${chapterId}/${section.id}`)}
-              className="w-full bg-white rounded-xl shadow-sm p-4 text-left flex items-center gap-4
-                         active:scale-[0.98] transition-transform border-2 border-transparent
-                         hover:border-indigo-100"
-            >
-              <div className={`w-3 h-3 rounded-full shrink-0 ${progressDotColor(pct)}`} />
-              <div className="flex-1 min-w-0">
-                <div className="flex items-center gap-2">
-                  <h3 className="text-lg font-semibold text-gray-900 truncate">
-                    {section.title}
-                  </h3>
-                  {data?.needsReview && (
-                    <span className="shrink-0 px-1.5 py-0.5 text-[10px] font-semibold bg-amber-100 text-amber-600 rounded-full uppercase tracking-wide">
-                      In Construction
-                    </span>
-                  )}
+            <div key={section.id}>
+              <button
+                onClick={() => navigate(`/chapter/${chapterId}/${section.id}`)}
+                className="w-full bg-white rounded-xl shadow-sm p-4 text-left flex items-center gap-4
+                           active:scale-[0.98] transition-transform border-2 border-transparent
+                           hover:border-indigo-100"
+              >
+                <div className={`w-3 h-3 rounded-full shrink-0 ${progressDotColor(pct)}`} />
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center gap-2 flex-wrap">
+                    <h3 className="text-lg font-semibold text-gray-900 truncate">
+                      {section.title}
+                    </h3>
+                    {data?.needsReview && (
+                      <span className="shrink-0 px-1.5 py-0.5 text-[10px] font-semibold bg-amber-100 text-amber-600 rounded-full uppercase tracking-wide">
+                        In Construction
+                      </span>
+                    )}
+                    {pacing?.type === 'half' && (
+                      <span className="shrink-0 px-1.5 py-0.5 text-[10px] font-semibold bg-blue-50 text-blue-500 rounded-full">
+                        ½
+                      </span>
+                    )}
+                    {pacing?.type === 'skip' && (
+                      <span className="shrink-0 px-1.5 py-0.5 text-[10px] font-semibold bg-gray-100 text-gray-400 rounded-full">
+                        skip?
+                      </span>
+                    )}
+                    {pacing?.type === 'review' && (
+                      <span className="shrink-0 px-1.5 py-0.5 text-[10px] font-semibold bg-purple-50 text-purple-400 rounded-full">
+                        review
+                      </span>
+                    )}
+                    {pacing?.type === 'half-review' && (
+                      <>
+                        <span className="shrink-0 px-1.5 py-0.5 text-[10px] font-semibold bg-blue-50 text-blue-500 rounded-full">
+                          ½
+                        </span>
+                        <span className="shrink-0 px-1.5 py-0.5 text-[10px] font-semibold bg-purple-50 text-purple-400 rounded-full">
+                          review
+                        </span>
+                      </>
+                    )}
+                  </div>
+                  <p className="text-sm text-gray-400">Pages {section.pages}</p>
                 </div>
-                <p className="text-sm text-gray-400">Pages {section.pages}</p>
-              </div>
-              <div className={`text-right shrink-0 ${progressTextColor(pct)}`}>
-                <span className="text-sm font-medium">
-                  {sectionCorrect > 0 ? `${Math.round(pct * 100)}%` : 'Not started'}
-                </span>
-                <p className="text-xs opacity-70">
-                  {sectionCorrect > 0 ? `${sectionCorrect}/${sectionTotal}` : `0/${sectionTotal}`}
+                <div className={`text-right shrink-0 ${progressTextColor(pct)}`}>
+                  <span className="text-sm font-medium">
+                    {sectionCorrect > 0 ? `${Math.round(pct * 100)}%` : 'Not started'}
+                  </span>
+                  <p className="text-xs opacity-70">
+                    {sectionCorrect > 0 ? `${sectionCorrect}/${sectionTotal}` : `0/${sectionTotal}`}
+                  </p>
+                </div>
+              </button>
+              {pacing && (
+                <p className="text-xs text-gray-400 italic mt-1 ml-11 mb-1">
+                  {pacing.condition || pacing.note}
+                  {pacing.suggestion && <span className="block text-gray-400/70 mt-0.5">{pacing.suggestion}</span>}
                 </p>
-              </div>
-            </button>
+              )}
+            </div>
           );
         })}
       </main>

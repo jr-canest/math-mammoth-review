@@ -7,6 +7,15 @@ export interface Chapter {
   order: number;
 }
 
+export interface PacingInfo {
+  type: 'half' | 'skip' | 'review' | 'half-review';
+  note: string;
+  /** For 'half' type: which specific problems to assign, e.g. "odd-numbered" or "1a-1d of 8" */
+  suggestion?: string;
+  /** For 'skip' type: the diagnostic condition */
+  condition?: string;
+}
+
 export interface SectionMeta {
   id: string;
   title: string;
@@ -16,6 +25,7 @@ export interface SectionMeta {
   type?: 'game';
   component?: string;
   subtitle?: string;
+  pacing?: PacingInfo;
 }
 
 export interface Problem {
