@@ -205,20 +205,17 @@ export default function ProblemView({
               <h1 className="text-lg font-bold text-gray-900 truncate">
                 {sectionData.title}
               </h1>
-              {currentMeta?.pacing?.type === 'half' && (
-                <span className="shrink-0 px-1.5 py-0.5 text-[10px] font-semibold bg-blue-50 text-blue-500 rounded-full">½</span>
-              )}
-              {currentMeta?.pacing?.type === 'skip' && (
-                <span className="shrink-0 px-1.5 py-0.5 text-[10px] font-semibold bg-gray-100 text-gray-400 rounded-full">skip?</span>
-              )}
-              {currentMeta?.pacing?.type === 'review' && (
-                <span className="shrink-0 px-1.5 py-0.5 text-[10px] font-semibold bg-purple-50 text-purple-400 rounded-full">review</span>
-              )}
-              {currentMeta?.pacing?.type === 'half-review' && (
-                <>
-                  <span className="shrink-0 px-1.5 py-0.5 text-[10px] font-semibold bg-blue-50 text-blue-500 rounded-full">½</span>
-                  <span className="shrink-0 px-1.5 py-0.5 text-[10px] font-semibold bg-purple-50 text-purple-400 rounded-full">review</span>
-                </>
+              {currentMeta?.pacing && (
+                <span className={`shrink-0 px-1.5 py-0.5 text-[10px] font-semibold rounded-full ${
+                  currentMeta.pacing.type === 'skip' ? 'bg-gray-100 text-gray-400' :
+                  currentMeta.pacing.type === 'review' ? 'bg-purple-50 text-purple-400' :
+                  'bg-blue-50 text-blue-500'
+                }`}>
+                  {currentMeta.pacing.type === 'half' ? 'lite' :
+                   currentMeta.pacing.type === 'skip' ? 'skip?' :
+                   currentMeta.pacing.type === 'review' ? 'review' :
+                   'lite + review'}
+                </span>
               )}
             </div>
             <p className="text-sm text-gray-500">Pages {sectionData.pages}</p>
@@ -256,15 +253,7 @@ export default function ProblemView({
         </div>
       </header>
 
-      {/* Pacing suggestion */}
-      {currentMeta?.pacing?.suggestion && (
-        <div className="max-w-3xl mx-auto px-4 pt-3">
-          <div className="bg-blue-50 border border-blue-100 rounded-xl px-4 py-2.5">
-            <p className="text-xs font-semibold text-blue-600 mb-0.5">Pacing suggestion</p>
-            <p className="text-xs text-blue-500/80">{currentMeta.pacing.suggestion}</p>
-          </div>
-        </div>
-      )}
+      {/* Skip condition callout (section-level, shown for skip? sections) */}
       {currentMeta?.pacing?.condition && (
         <div className="max-w-3xl mx-auto px-4 pt-3">
           <div className="bg-gray-50 border border-gray-200 rounded-xl px-4 py-2.5">
@@ -286,6 +275,17 @@ export default function ProblemView({
                   <p className="text-sm font-semibold text-gray-500 italic">
                     {problem.group}
                   </p>
+                  {currentMeta?.pacing?.groups?.map((gp, gi) => {
+                    if (problem.group && problem.group.includes(gp.group)) {
+                      return (
+                        <div key={gi} className="mt-1.5 flex items-center gap-1.5 bg-blue-50 border border-blue-100 rounded-lg px-2.5 py-1.5">
+                          <span className="shrink-0 px-1.5 py-0.5 text-[9px] font-bold bg-blue-100 text-blue-600 rounded-full">lite</span>
+                          <span className="text-xs text-blue-600/80">{gp.note}</span>
+                        </div>
+                      );
+                    }
+                    return null;
+                  })}
                 </div>
               )}
               {problem.answer.type === 'multiselect' ? (

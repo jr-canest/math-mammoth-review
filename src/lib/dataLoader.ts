@@ -7,11 +7,17 @@ export interface Chapter {
   order: number;
 }
 
+export interface GroupPacing {
+  /** Substring match against the group text in problem data */
+  group: string;
+  note: string;
+}
+
 export interface PacingInfo {
   type: 'half' | 'skip' | 'review' | 'half-review';
   note: string;
-  /** For 'half' type: which specific problems to assign, e.g. "odd-numbered" or "1a-1d of 8" */
-  suggestion?: string;
+  /** Per-group suggestions shown inline under group headers */
+  groups?: GroupPacing[];
   /** For 'skip' type: the diagnostic condition */
   condition?: string;
 }
@@ -25,6 +31,7 @@ export interface SectionMeta {
   type?: 'game';
   component?: string;
   subtitle?: string;
+  week?: number;
   pacing?: PacingInfo;
 }
 

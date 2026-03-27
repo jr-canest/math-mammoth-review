@@ -58,14 +58,16 @@ export default function ChapterSelect({ progress, onSwitchUser, userName, onExpo
           const isGameChapter = totalSections > 0 && sections.every(s => s.type === 'game');
 
           if (isGameChapter) {
-            // Game chapter: show completion count instead of problem percentages
+            // Game chapter: count only playable games (have a component)
+            const playableGames = sections.filter(s => !!s.component);
+            const totalPlayable = playableGames.length;
             let gamesCompleted = 0;
-            sections.forEach(section => {
+            playableGames.forEach(section => {
               const key = `${chapter.folder}-${section.id}`;
               const sp = progress.sections[key];
               if (sp?.completedAt) gamesCompleted++;
             });
-            const pct = totalSections > 0 ? gamesCompleted / totalSections : 0;
+            const pct = totalPlayable > 0 ? gamesCompleted / totalPlayable : 0;
 
             return (
               <button
@@ -79,7 +81,7 @@ export default function ChapterSelect({ progress, onSwitchUser, userName, onExpo
                     <span className="text-2xl">🎮</span> {chapter.title}
                   </h2>
                   <span className="text-sm text-gray-400">
-                    {totalSections} {totalSections === 1 ? 'game' : 'games'}
+                    {totalPlayable} of {totalSections} {totalSections === 1 ? 'game' : 'games'} ready
                   </span>
                 </div>
                 <div className="w-full bg-gray-200 rounded-full h-3 overflow-hidden">
@@ -91,7 +93,7 @@ export default function ChapterSelect({ progress, onSwitchUser, userName, onExpo
                 {gamesCompleted > 0 && (
                   <div className="flex items-center justify-between mt-2">
                     <span className={`text-sm font-medium ${progressTextColor(pct)}`}>
-                      {gamesCompleted}/{totalSections} completed
+                      {gamesCompleted}/{totalPlayable} completed
                     </span>
                   </div>
                 )}

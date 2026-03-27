@@ -1,12 +1,153 @@
 [
   {
-    "id": "math-machines",
-    "title": "Math Machines",
+    "id": "function-machine",
+    "title": "Function Machine",
     "pages": "",
     "file": "",
-    "order": 1,
+    "order": 26,
     "type": "game",
     "component": "MathMachines",
-    "subtitle": "Expressions & Distributive Property"
+    "subtitle": "Expressions & Distributive Property",
+    "week": 26
+  },
+  {
+    "id": "equation-solver",
+    "title": "Equation Solver",
+    "pages": "",
+    "file": "",
+    "order": 28,
+    "type": "game",
+    "component": "EquationSolver",
+    "subtitle": "Solving & Writing Equations",
+    "week": 28
+  },
+  {
+    "id": "lego-fraction-challenge",
+    "title": "LEGO Fraction Challenge",
+    "pages": "",
+    "file": "",
+    "order": 30,
+    "type": "game",
+    "component": "",
+    "subtitle": "Fraction Division with Reciprocals",
+    "week": 30
+  },
+  {
+    "id": "coordinate-battleship",
+    "title": "Coordinate Battleship",
+    "pages": "",
+    "file": "",
+    "order": 32,
+    "type": "game",
+    "component": "",
+    "subtitle": "Coordinate Grid & Integer Operations",
+    "week": 32
+  },
+  {
+    "id": "mirror-art",
+    "title": "Mirror Art",
+    "pages": "",
+    "file": "",
+    "order": 33,
+    "type": "game",
+    "component": "",
+    "subtitle": "Angles & Transformations",
+    "week": 33
+  },
+  {
+    "id": "angle-scavenger-hunt",
+    "title": "Angle Scavenger Hunt",
+    "pages": "",
+    "file": "",
+    "order": 33.5,
+    "type": "game",
+    "component": "",
+    "subtitle": "Measuring & Classifying Angles",
+    "week": 33
+  },
+  {
+    "id": "room-designer",
+    "title": "Room Designer",
+    "pages": "",
+    "file": "",
+    "order": 35,
+    "type": "game",
+    "component": "",
+    "subtitle": "Area of Polygons & Composite Shapes",
+    "week": 35
+  },
+  {
+    "id": "box-builder",
+    "title": "Box Builder",
+    "pages": "",
+    "file": "",
+    "order": 37,
+    "type": "game",
+    "component": "",
+    "subtitle": "Volume & Surface Area",
+    "week": 37
+  },
+  {
+    "id": "stats-lab",
+    "title": "Stats Lab",
+    "pages": "",
+    "file": "",
+    "order": 39,
+    "type": "game",
+    "component": "",
+    "subtitle": "Mean, Median, Mode, Boxplots & Histograms",
+    "week": 39
+  },
+  {
+    "id": "dice-coin-lab",
+    "title": "Dice & Coin Lab",
+    "pages": "",
+    "file": "",
+    "order": 40,
+    "type": "game",
+    "component": "",
+    "subtitle": "Probability & Experimental vs Theoretical",
+    "week": 40
+  },
+  {
+    "id": "mini-market",
+    "title": "Mini Market",
+    "pages": "",
+    "file": "",
+    "order": 40.5,
+    "type": "game",
+    "component": "",
+    "subtitle": "Percentages, Tax & Financial Literacy",
+    "week": 40
+  },
+  {
+    "id": "ratio-recipe-scaler",
+    "title": "Ratio Recipe Scaler",
+    "pages": "",
+    "file": "",
+    "order": 50,
+    "type": "game",
+    "component": "",
+    "subtitle": "Ratios & Proportions"
+  },
+  {
+    "id": "integer-number-line-arena",
+    "title": "Integer Number Line Arena",
+    "pages": "",
+    "file": "",
+    "order": 51,
+    "type": "game",
+    "component": "",
+    "subtitle": "Integer Operations on a Number Line"
+  },
+  {
+    "id": "percent-calculator-challenge",
+    "title": "Percent Calculator Challenge",
+    "pages": "",
+    "file": "",
+    "order": 52,
+    "type": "game",
+    "component": "",
+    "subtitle": "Percentages, Fractions & Decimals"
   }
 ]

@@ -43,7 +43,10 @@
     "pacing": {
       "type": "half",
       "note": "Last groups are repetitive drill",
-      "suggestion": "In groups 4 and 5 (simplify expressions / remove multiplication signs), assign odd-numbered only: 4a, 4c, 4e, 4g, 4i, 4k and 5a, 5c, 5e, 5g, 5i"
+      "groups": [
+        { "group": "4. Simplify the expressions", "note": "Assign odd-numbered: 4a, 4c, 4e, 4g, 4i, 4k (6 of 12)" },
+        { "group": "5. Simplify the expressions and remove", "note": "Assign odd-numbered: 5a, 5c, 5e, 5g, 5i (5 of 11)" }
+      ]
     }
   },
   {
@@ -55,7 +58,10 @@
     "pacing": {
       "type": "half",
       "note": "Reinforces previous lesson",
-      "suggestion": "In group 4 (combine like terms), assign first half: 4a-4d of 8. In group 7 (perimeter), assign 7a, 7c, 7e of 6"
+      "groups": [
+        { "group": "4. Simplify the expressions by adding", "note": "Assign first half: 4a–4d of 8" },
+        { "group": "7. Write an expression for the perimeter", "note": "Assign 7a, 7c, 7e (3 of 6)" }
+      ]
     }
   },
   {
@@ -67,7 +73,10 @@
     "pacing": {
       "type": "half",
       "note": "5 pages, repetitive area/perimeter problems",
-      "suggestion": "In group 5 (area & perimeter), assign 5a, 5c, 5e of 6. Skip group 7 investigation if short on time"
+      "groups": [
+        { "group": "5. Write an expression, in simplified form, for both the area", "note": "Assign 5a, 5c, 5e (3 of 6)" },
+        { "group": "7. Copy the area and perimeter", "note": "Skip if short on time" }
+      ]
     }
   },
   {
@@ -79,7 +88,12 @@
     "pacing": {
       "type": "half",
       "note": "Many similar drill groups",
-      "suggestion": "Groups 5, 8, 9, 10 each have 6+ problems — assign odd-numbered in each (e.g., 5a, 5c, 5e, 5g, 5i)"
+      "groups": [
+        { "group": "5. Divide in parts, then add", "note": "Assign odd-numbered: 5a, 5c, 5e, 5g, 5i (5 of 9)" },
+        { "group": "8. Divide in parts. You will have a fraction", "note": "Assign 8a, 8c, 8e (3 of 6)" },
+        { "group": "9. Divide in parts in your head", "note": "Assign 9a, 9c, 9e (3 of 6)" },
+        { "group": "10. Simplify", "note": "Assign 10a, 10c, 10e (3 of 6)" }
+      ]
     }
   },
   {
@@ -119,7 +133,12 @@
     "pacing": {
       "type": "half",
       "note": "Intro only — revisited in depth in Grade 7",
-      "suggestion": "Groups 1, 4, 5, 7 each have 6 problems — assign odd-numbered: 1a/1c/1e, 4a/4c/4e, 5a/5c/5e, 7a/7c/7e"
+      "groups": [
+        { "group": "1. Write an inequality", "note": "Assign 1a, 1c, 1e (3 of 6)" },
+        { "group": "4. Write an inequality that corresponds", "note": "Assign 4a, 4c, 4e (3 of 6)" },
+        { "group": "5. Solve the inequalities in the given sets", "note": "Assign 5a, 5c, 5e (3 of 6)" },
+        { "group": "7. Solve these inequalities by applying", "note": "Assign 7a, 7c, 7e (3 of 6)" }
+      ]
     }
   },
   {
@@ -131,7 +150,12 @@
     "pacing": {
       "type": "half",
       "note": "Lighter topic, many similar table-filling exercises",
-      "suggestion": "Assign groups 1-3 (tables) plus group 4 (car problem). Skip groups 5-8 if short on time"
+      "groups": [
+        { "group": "5. Larry gets water", "note": "Can skip — similar to groups 1–4" },
+        { "group": "6. Xavier and Yvonne", "note": "Can skip — similar pattern" },
+        { "group": "7. Maximum safe heart rate", "note": "Can skip if short on time" },
+        { "group": "8. For each graph", "note": "Can skip if short on time" }
+      ]
     }
   }
 ]

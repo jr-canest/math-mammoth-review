@@ -9,6 +9,7 @@ import SectionSelect from './components/SectionSelect';
 import ProblemView from './components/ProblemView';
 import ParentDashboard from './components/ParentDashboard';
 import MathMachines from './components/games/MathMachines';
+import EquationSolver from './components/games/EquationSolver';
 
 interface SectionRouterProps {
   gameComponents: Record<string, React.ComponentType<{ onComplete?: (score: number) => void }>>;
@@ -71,6 +72,7 @@ export default function App() {
 
   const gameComponents: Record<string, React.ComponentType<{ onComplete?: (score: number) => void }>> = {
     MathMachines,
+    EquationSolver,
   };
 
   if (loading) {

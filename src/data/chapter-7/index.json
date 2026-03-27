@@ -32,7 +32,10 @@
     "pacing": {
       "type": "half-review",
       "note": "Covered in Term 1 IXL",
-      "suggestion": "In group 4 (simplify), assign odd-numbered: 4-01, 4-03, 4-05, 4-07, 4-09, 4-11 of 12. In group 6 (recipe), assign 6a, 6c, 6e of 6"
+      "groups": [
+        { "group": "4. Simplify before multiplying", "note": "Assign odd-numbered: 4-01, 4-03, 4-05, 4-07, 4-09, 4-11 (6 of 12)" },
+        { "group": "6. Rewrite the ingredients", "note": "Assign 6a, 6c, 6e (3 of 6)" }
+      ]
     }
   },
   {
