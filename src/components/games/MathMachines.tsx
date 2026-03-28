@@ -24,6 +24,42 @@ interface MathMachinesProps {
 
 // ─── Levels ──────────────────────────────────────────────────────────
 
+/** Generate a progressive hint from the level description based on attempt count */
+function getProgressiveHint(desc: string, variable: string, attempts: number): string | null {
+  // desc looks like "n ⋅ 2", "3 ⋅ a + 1", "2 ⋅ k − 5", "3 ⋅ (x + 2)", "4 ⋅ b + 2"
+  if (attempts < 2) return null; // no hint for first wrong guess
+
+  // Build a blanked-out structure hint
+  const tokens = desc.split(/\s+/);
+
+  if (attempts === 2) {
+    // Hint 1: Show the structure with blanks for numbers
+    const blanked = tokens.map(t => {
+      if (t === variable) return variable;
+      if (/^\d+$/.test(t)) return '?';
+      return t; // operators, parens
+    }).join(' ');
+    return `The pattern looks like: ${blanked}`;
+  }
+
+  if (attempts === 3) {
+    // Hint 2: Reveal one number (the first one)
+    let revealed = false;
+    const partial = tokens.map(t => {
+      if (t === variable) return variable;
+      if (/^\d+$/.test(t)) {
+        if (!revealed) { revealed = true; return t; }
+        return '?';
+      }
+      return t;
+    }).join(' ');
+    return `Almost there: ${partial}`;
+  }
+
+  // Hint 3+: Reveal the full expression
+  return `The rule is: ${desc}`;
+}
+
 const LEVELS: Level[] = [
   { id: 1, variable: 'n', label: 'Level 1', hint: 'The machine does one thing to your number.', rule: n => n * 2, description: 'n ⋅ 2' },
   { id: 2, variable: 'x', label: 'Level 2', hint: 'This machine adds something to your number.', rule: n => n + 7, description: 'x + 7' },
@@ -601,6 +637,14 @@ export default function MathMachines({ onComplete }: MathMachinesProps) {
                 Not quite — try changing your expression or testing more numbers!
               </p>
             )}
+            {guessAttempts >= 2 && !levelComplete && (() => {
+              const hint = getProgressiveHint(level.description, level.variable, guessAttempts);
+              return hint ? (
+                <p className="text-amber-700 text-sm font-medium mt-2 text-center bg-amber-50 rounded-lg px-3 py-2">
+                  💡 {hint}
+                </p>
+              ) : null;
+            })()}
           </div>
         ) : (
           <div className="relative bg-white rounded-2xl shadow-sm px-3 py-3 mb-3 overflow-hidden">
