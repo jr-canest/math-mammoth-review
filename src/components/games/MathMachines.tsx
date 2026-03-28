@@ -662,7 +662,7 @@ export default function MathMachines({ onComplete }: MathMachinesProps) {
                 return (
                   <div key={i} className="grid grid-cols-3 items-center">
                     <div className="px-3 py-2.5 font-mono text-sm text-gray-700">{level.variable} = {entry.input}</div>
-                    <div className={`px-3 py-2.5 font-mono text-xs text-center truncate ${
+                    <div className={`px-3 py-2.5 font-mono text-xs text-center ${
                       has ? match ? 'text-emerald-600' : 'text-red-400' : 'text-gray-400'
                     }`}>{sub}</div>
                     <div className="px-3 py-2.5 text-right">

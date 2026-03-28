@@ -232,6 +232,66 @@ function cleanNum(n: number): string {
   return s;
 }
 
+/** Generate 3 plausible wrong answers for a merge quiz */
+function generateDistractors(correct: number, op: OpType, a: number, b: number): number[] {
+  const wrongs = new Set<number>();
+  // Common mistakes:
+  if (op === '−' || op === '+') {
+    // Off-by-one errors
+    wrongs.add(correct + 1);
+    wrongs.add(correct - 1);
+    // Wrong operation (add instead of subtract, or vice versa)
+    wrongs.add(op === '−' ? a + b : a - b);
+    // Sign error
+    wrongs.add(-correct);
+    // Off-by-operand
+    wrongs.add(correct + 2);
+    wrongs.add(correct - 2);
+  } else if (op === '×') {
+    wrongs.add(a + b); // added instead
+    wrongs.add(correct + a);
+    wrongs.add(correct - a);
+    wrongs.add(correct + 1);
+    wrongs.add(correct - 1);
+  } else if (op === '÷') {
+    wrongs.add(a * b); // multiplied instead
+    wrongs.add(correct + 1);
+    wrongs.add(correct - 1);
+    wrongs.add(a - b);
+    wrongs.add(correct + b);
+  }
+  // Remove the correct answer and zero-ish/negative when not appropriate
+  wrongs.delete(correct);
+  const pool = [...wrongs].filter(w => w !== correct && isFinite(w));
+  // Shuffle and take 3
+  const shuffled = pool.sort(() => Math.random() - 0.5);
+  while (shuffled.length < 3) {
+    const offset = shuffled.length + 2;
+    const candidate = correct + offset * (Math.random() > 0.5 ? 1 : -1);
+    if (candidate !== correct && !shuffled.includes(candidate)) shuffled.push(candidate);
+  }
+  return shuffled.slice(0, 3);
+}
+
+/** Generate 3 plausible wrong expansions for a distributive quiz */
+function generateExpandDistractors(factor: number, innerConst: number): string[] {
+  const sign = innerConst >= 0 ? '+' : '−';
+  const absConst = Math.abs(innerConst);
+  const correctProduct = factor * absConst;
+  const wrongs: string[] = [];
+
+  // Distractor 1: forgot to multiply the constant (e.g. 5n + 3 instead of 5n + 15)
+  wrongs.push(`${factor}n ${sign} ${absConst}`);
+
+  // Distractor 2: forgot to multiply the variable (e.g. n + 15 instead of 5n + 15)
+  wrongs.push(`n ${sign} ${correctProduct}`);
+
+  // Distractor 3: added instead of multiplied the constant (e.g. 5n + 8 instead of 5n + 15)
+  wrongs.push(`${factor}n ${sign} ${factor + absConst}`);
+
+  return wrongs;
+}
+
 function sideToString(terms: Term[]): string {
   if (terms.length === 0) return '0';
   let s = '';
@@ -379,7 +439,7 @@ interface StepAnimation {
   label: string; // e.g. "− 15" or "÷ 5"
 }
 
-function DragBalanceScale({ equation, wobble, distributive, quotient, expanded, onDrop, onExpand, hintBlockId, interactive, stepAnim, expandStep }: {
+function DragBalanceScale({ equation, wobble, distributive, quotient, expanded, onDrop, onExpand, hintBlockId, interactive, stepAnim, expandStep, mergeQuizExpr }: {
   equation: EquationState;
   wobble: boolean;
   distributive?: DistributiveForm;
@@ -391,6 +451,7 @@ function DragBalanceScale({ equation, wobble, distributive, quotient, expanded, 
   interactive: boolean;
   stepAnim?: StepAnimation | null;
   expandStep?: string | null;
+  mergeQuizExpr?: string | null; // e.g. "21 − 9" to show in right pan during quiz
 }) {
   const [drag, setDrag] = useState<{ block: VisualBlock; fromSide: 'left' | 'right'; x: number; y: number } | null>(null);
   const leftRef = useRef<HTMLDivElement>(null);
@@ -578,7 +639,11 @@ function DragBalanceScale({ equation, wobble, distributive, quotient, expanded, 
           className={`flex-1 rounded-xl border-2 p-3 min-h-[60px] flex flex-wrap items-center justify-center gap-2 transition-all
             ${drag && drag.fromSide === 'left' && overTarget ? 'bg-amber-100 border-amber-400 scale-[1.02]' : 'bg-amber-50 border-amber-200'}`}
         >
-          {showGrouped ? (
+          {mergeQuizExpr ? (
+            <span className="font-mono font-bold text-amber-800 text-base">
+              {mergeQuizExpr}
+            </span>
+          ) : showGrouped ? (
             <span className="font-mono font-bold text-gray-700 text-base px-2.5 py-1.5 rounded-lg border-2 bg-white border-gray-200">
               {showDist ? distributive!.otherSide : quotient!.otherSide}
             </span>
@@ -593,11 +658,13 @@ function DragBalanceScale({ equation, wobble, distributive, quotient, expanded, 
 
       {/* Equation string */}
       <p className="text-center text-xs font-mono text-gray-400 mt-2">
-        {showDist
-          ? `${distributive!.factor}(n + ${distributive!.innerConst}) = ${distributive!.otherSide}`
-          : showQuot
-            ? `(n ${quotient!.innerConst >= 0 ? '+' : '−'} ${Math.abs(quotient!.innerConst)}) ÷ ${quotient!.divisor} = ${quotient!.otherSide}`
-            : eqToString(equation)}
+        {mergeQuizExpr
+          ? `${sideToString(equation.left)} = ${mergeQuizExpr}`
+          : showDist
+            ? `${distributive!.factor}(n + ${distributive!.innerConst}) = ${distributive!.otherSide}`
+            : showQuot
+              ? `(n ${quotient!.innerConst >= 0 ? '+' : '−'} ${Math.abs(quotient!.innerConst)}) ÷ ${quotient!.divisor} = ${quotient!.otherSide}`
+              : eqToString(equation)}
       </p>
 
       {interactive && !showGrouped && (
@@ -639,6 +706,19 @@ export default function EquationSolver({ onComplete }: EquationSolverProps) {
   const [showConfetti, setShowConfetti] = useState(false);
   const [stepAnim, setStepAnim] = useState<StepAnimation | null>(null);
   const [expandStep, setExpandStep] = useState<string | null>(null); // intermediate expansion text
+  const [mergeQuiz, setMergeQuiz] = useState<{
+    pendingOp: { op: OpType; value: number };
+    question: string;       // e.g. "21 − 9 = ?"
+    correctAnswer: number;
+    options: number[];       // 4 shuffled choices
+    wrongPick: number | null;
+    expandType?: 'distributive' | 'quotient'; // for expand quizzes
+    previewEq?: EquationState; // what the equation will look like after resolving (to preview the "from" side)
+    // For expression-based expand quizzes (distributive)
+    exprOptions?: string[];
+    correctExpr?: string;
+    wrongExprPick?: string | null;
+  } | null>(null);
 
   useEffect(() => { ensureStyles(); }, []);
 
@@ -674,6 +754,7 @@ export default function EquationSolver({ onComplete }: EquationSolverProps) {
     setShowConfetti(false);
     setStepAnim(null);
     setExpandStep(null);
+    setMergeQuiz(null);
   }, []);
 
   const problem = shuffled[problemIndex];
@@ -707,39 +788,51 @@ export default function EquationSolver({ onComplete }: EquationSolverProps) {
 
     if (problem.distributive) {
       const d = problem.distributive;
-      // Phase 1: show the distribution step
       const sign = d.innerConst >= 0 ? '+' : '−';
-      setExpandStep(`${d.factor} · n  ${sign}  ${d.factor} · ${Math.abs(d.innerConst)}`);
 
-      // Phase 2: resolve to simplified blocks
-      setTimeout(() => {
-        setExpandStep(null);
-        setEquation(normalize(problem.initial));
-        setExpanded(true);
-        setWobble(true);
-        setStepCount(prev => prev + 1);
-        setTimeout(() => setWobble(false), 500);
-      }, 1200);
+      // Show expression quiz immediately — "How does this expand?"
+      const correctProduct = d.factor * Math.abs(d.innerConst);
+      const correctExpr = `${d.factor}n ${sign} ${correctProduct}`;
+      const distractorExprs = generateExpandDistractors(d.factor, d.innerConst);
+      const exprOptions = [correctExpr, ...distractorExprs].sort(() => Math.random() - 0.5);
+      setMergeQuiz({
+        pendingOp: { op: '×', value: 0 }, // sentinel
+        question: `${d.factor}(n ${sign} ${Math.abs(d.innerConst)}) = ?`,
+        correctAnswer: 0,
+        options: [],
+        wrongPick: null,
+        expandType: 'distributive',
+        exprOptions,
+        correctExpr,
+        wrongExprPick: null,
+      });
     } else if (problem.quotient) {
       const q = problem.quotient;
       // Phase 1: show the multiplication step
       const sign = q.innerConst >= 0 ? '+' : '−';
       setExpandStep(`(n ${sign} ${Math.abs(q.innerConst)}) × ${q.divisor}  =  ${q.otherSide} × ${q.divisor}`);
 
-      // Phase 2: resolve
+      // Phase 2: show merge quiz for the right-side multiplication
       setTimeout(() => {
         setExpandStep(null);
-        setEquation(q.expandedLeft);
-        setExpanded(true);
-        setWobble(true);
-        setStepCount(prev => prev + 1);
-        setTimeout(() => setWobble(false), 500);
+        const correctResult = q.otherSide * q.divisor;
+        const questionStr = `${q.otherSide} × ${q.divisor} = ?`;
+        const distractors = generateDistractors(correctResult, '×', q.otherSide, q.divisor);
+        const options = [correctResult, ...distractors].sort(() => Math.random() - 0.5);
+        setMergeQuiz({
+          pendingOp: { op: '×', value: 0 }, // sentinel
+          question: questionStr,
+          correctAnswer: correctResult,
+          options,
+          wrongPick: null,
+          expandType: 'quotient',
+        });
       }, 1200);
     }
   };
 
   const handleBlockDrop = (action: VisualBlock['action'], fromSide: 'left' | 'right') => {
-    if (!equation || wobble || feedback === 'solved' || !action || stepAnim) return;
+    if (!equation || wobble || feedback === 'solved' || !action || stepAnim || mergeQuiz) return;
 
     setHistory(prev => [...prev, equation]);
     setHintText(null);
@@ -748,64 +841,161 @@ export default function EquationSolver({ onComplete }: EquationSolverProps) {
     // Determine the animation label and target side
     const targetSide = fromSide === 'left' ? 'right' : 'left';
     let animLabel = '';
+    let op: OpType = '+';
+    let opValue = 0;
     switch (action.type) {
       case 'move': {
         const val = action.value;
         animLabel = val > 0 ? `− ${cleanNum(val)}` : `+ ${cleanNum(Math.abs(val))}`;
+        op = val > 0 ? '−' : '+';
+        opValue = Math.abs(val);
         break;
       }
       case 'divide':
         animLabel = `÷ ${cleanNum(action.value)}`;
+        op = '÷';
+        opValue = action.value;
         break;
       case 'multiply':
         animLabel = `× ${cleanNum(action.value)}`;
+        op = '×';
+        opValue = action.value;
         break;
       case 'negate':
         animLabel = '× (−1)';
+        op = '×';
+        opValue = -1;
         break;
     }
 
     // Phase 1: Show the operation label appearing on the target side
     setStepAnim({ targetSide, label: animLabel });
 
-    // Phase 2: After a brief pause, apply the operation and resolve
+    // Phase 2: After animation, show a merge quiz instead of auto-resolving
     setTimeout(() => {
-      let next: EquationState;
-      switch (action.type) {
-        case 'move': {
-          const val = action.value;
-          next = val > 0 ? applyOp(equation, '−', val) : applyOp(equation, '+', Math.abs(val));
-          break;
-        }
-        case 'divide':
-          next = applyOp(equation, '÷', action.value);
-          break;
-        case 'multiply':
-          next = applyOp(equation, '×', action.value);
-          break;
-        case 'negate':
-          next = applyOp(equation, '×', -1);
-          break;
-      }
-
       setStepAnim(null);
-      setEquation(next);
-      setStepCount(prev => prev + 1);
-      setWobble(true);
-      setTimeout(() => setWobble(false), 500);
 
-      const check = isSolved(next);
-      if (check.solved) {
-        setTimeout(() => {
-          setFeedback('solved');
-          setShowConfetti(true);
-          setTimeout(() => setShowConfetti(false), 2500);
-        }, 600);
+      // Compute the next state to find the correct answer
+      const next = applyOp(equation, op, opValue);
+
+      // Build the quiz question from the target side's arithmetic
+      // The target side is where the interesting merge happens
+      const targetTerms = targetSide === 'right' ? equation.right : equation.left;
+      const resultTerms = targetSide === 'right' ? next.right : next.left;
+
+      // Find the constant on the target side before and after
+      const oldConst = targetTerms.filter(t => !t.variable).reduce((s, t) => s + t.coefficient, 0);
+      const newConst = resultTerms.filter(t => !t.variable).reduce((s, t) => s + t.coefficient, 0);
+
+      // Build a readable question
+      let questionStr = '';
+      let a = oldConst;
+      let b = opValue;
+
+      if (op === '−') {
+        questionStr = `${cleanNum(a)} − ${cleanNum(b)} = ?`;
+      } else if (op === '+') {
+        questionStr = `${cleanNum(a)} + ${cleanNum(b)} = ?`;
+      } else if (op === '÷') {
+        // For divide, the question is about the constant being divided
+        questionStr = `${cleanNum(oldConst)} ÷ ${cleanNum(b)} = ?`;
+      } else if (op === '×') {
+        if (opValue === -1) {
+          questionStr = `${cleanNum(oldConst)} × (−1) = ?`;
+        } else {
+          questionStr = `${cleanNum(oldConst)} × ${cleanNum(b)} = ?`;
+        }
       }
+
+      const distractors = generateDistractors(newConst, op, a, b);
+      const options = [newConst, ...distractors].sort(() => Math.random() - 0.5);
+
+      setMergeQuiz({
+        pendingOp: { op, value: opValue },
+        question: questionStr,
+        correctAnswer: newConst,
+        options,
+        wrongPick: null,
+        previewEq: next,
+      });
     }, 700);
   };
 
+  const handleMergeAnswer = (pick: number) => {
+    if (!mergeQuiz) return;
+
+    if (Math.abs(pick - mergeQuiz.correctAnswer) < 1e-9) {
+      // Correct!
+      if (mergeQuiz.expandType === 'distributive') {
+        // Expand the distributive equation
+        setMergeQuiz(null);
+        setEquation(normalize(problem.initial));
+        setExpanded(true);
+        setWobble(true);
+        setStepCount(prev => prev + 1);
+        setTimeout(() => setWobble(false), 500);
+      } else if (mergeQuiz.expandType === 'quotient') {
+        // Expand the quotient equation
+        setMergeQuiz(null);
+        setEquation(problem.quotient!.expandedLeft);
+        setExpanded(true);
+        setWobble(true);
+        setStepCount(prev => prev + 1);
+        setTimeout(() => setWobble(false), 500);
+      } else if (equation) {
+        // Normal block move — apply the operation
+        const next = applyOp(equation, mergeQuiz.pendingOp.op, mergeQuiz.pendingOp.value);
+        setMergeQuiz(null);
+        setEquation(next);
+        setStepCount(prev => prev + 1);
+        setWobble(true);
+        setTimeout(() => setWobble(false), 500);
+
+        const check = isSolved(next);
+        if (check.solved) {
+          setTimeout(() => {
+            setFeedback('solved');
+            setShowConfetti(true);
+            setTimeout(() => setShowConfetti(false), 2500);
+          }, 600);
+        }
+      }
+    } else {
+      // Wrong — shake and let them try again
+      setMergeQuiz(prev => prev ? { ...prev, wrongPick: pick } : null);
+      setTimeout(() => setMergeQuiz(prev => prev ? { ...prev, wrongPick: null } : null), 600);
+    }
+  };
+
+  const handleExprAnswer = (pick: string) => {
+    if (!mergeQuiz) return;
+
+    if (pick === mergeQuiz.correctExpr) {
+      // Correct!
+      if (mergeQuiz.expandType === 'distributive') {
+        setMergeQuiz(null);
+        setEquation(normalize(problem.initial));
+        setExpanded(true);
+        setWobble(true);
+        setStepCount(prev => prev + 1);
+        setTimeout(() => setWobble(false), 500);
+      }
+    } else {
+      // Wrong — shake
+      setMergeQuiz(prev => prev ? { ...prev, wrongExprPick: pick } : null);
+      setTimeout(() => setMergeQuiz(prev => prev ? { ...prev, wrongExprPick: null } : null), 600);
+    }
+  };
+
   const handleUndo = () => {
+    if (mergeQuiz) {
+      // If quiz is showing, undo cancels the pending move
+      setMergeQuiz(null);
+      const prev = history[history.length - 1];
+      setEquation(prev);
+      setHistory(h => h.slice(0, -1));
+      return;
+    }
     if (history.length === 0) return;
     const prev = history[history.length - 1];
     setEquation(prev);
@@ -864,6 +1054,7 @@ export default function EquationSolver({ onComplete }: EquationSolverProps) {
     setShowConfetti(false);
     setStepAnim(null);
     setExpandStep(null);
+    setMergeQuiz(null);
   };
 
   // ─── Game Complete Screen ──────────────────────────────────────
@@ -993,7 +1184,7 @@ export default function EquationSolver({ onComplete }: EquationSolverProps) {
             <div className="bg-white rounded-2xl shadow-sm p-4 mb-3 relative overflow-hidden">
               {showConfetti && <ConfettiParticles />}
               <DragBalanceScale
-                equation={equation}
+                equation={mergeQuiz?.previewEq && !mergeQuiz.expandType ? mergeQuiz.previewEq : equation}
                 wobble={wobble}
                 distributive={problem.distributive}
                 quotient={problem.quotient}
@@ -1001,11 +1192,57 @@ export default function EquationSolver({ onComplete }: EquationSolverProps) {
                 onDrop={handleBlockDrop}
                 onExpand={handleExpand}
                 hintBlockId={hintHighlight}
-                interactive={feedback !== 'solved' && !stepAnim && !expandStep}
+                interactive={feedback !== 'solved' && !stepAnim && !expandStep && !mergeQuiz}
                 stepAnim={stepAnim}
                 expandStep={expandStep}
+                mergeQuizExpr={mergeQuiz && !mergeQuiz.expandType ? mergeQuiz.question.replace(' = ?', '') : null}
               />
             </div>
+
+            {/* Merge quiz — pick the correct result */}
+            {mergeQuiz && (
+              <div className="bg-amber-50 border-2 border-amber-200 rounded-2xl p-4 mb-3 text-center -mt-1">
+                {mergeQuiz.exprOptions ? (
+                  <>
+                    <p className="text-amber-800 font-bold text-sm mb-3">How does this expand?</p>
+                    <p className="font-mono text-lg text-amber-900 mb-4">{mergeQuiz.question}</p>
+                    <div className="grid grid-cols-2 gap-2">
+                      {mergeQuiz.exprOptions.map((expr, i) => {
+                        const isWrong = mergeQuiz.wrongExprPick === expr;
+                        return (
+                          <button key={i} onClick={() => handleExprAnswer(expr)}
+                            className={`py-3 rounded-xl font-mono text-base font-bold border-2 transition-all active:scale-95
+                              ${isWrong
+                                ? 'bg-red-50 border-red-300 text-red-500 es-shake'
+                                : 'bg-white border-amber-200 text-gray-700 hover:border-amber-400'}`}>
+                            {expr}
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    <p className="text-amber-800 font-bold text-sm mb-3">What's the result?</p>
+                    <p className="font-mono text-lg text-amber-900 mb-4">{mergeQuiz.question}</p>
+                    <div className="grid grid-cols-2 gap-2">
+                      {mergeQuiz.options.map((opt, i) => {
+                        const isWrong = mergeQuiz.wrongPick !== null && Math.abs(opt - mergeQuiz.wrongPick) < 1e-9;
+                        return (
+                          <button key={i} onClick={() => handleMergeAnswer(opt)}
+                            className={`py-3 rounded-xl font-mono text-base font-bold border-2 transition-all active:scale-95
+                              ${isWrong
+                                ? 'bg-red-50 border-red-300 text-red-500 es-shake'
+                                : 'bg-white border-amber-200 text-gray-700 hover:border-amber-400'}`}>
+                            {cleanNum(opt)}
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </>
+                )}
+              </div>
+            )}
 
             {/* Solved celebration */}
             {feedback === 'solved' && solvedResult?.solved && (
@@ -1025,8 +1262,8 @@ export default function EquationSolver({ onComplete }: EquationSolverProps) {
               </div>
             )}
 
-            {/* Hint + Undo (only when not solved) */}
-            {feedback !== 'solved' && (
+            {/* Hint + Undo (only when not solved and no quiz showing) */}
+            {feedback !== 'solved' && !mergeQuiz && (
               <div className="flex gap-2">
                 <button onClick={handleHint}
                   className="flex-1 py-2.5 rounded-xl text-sm font-semibold bg-amber-50 text-amber-600 border border-amber-200 active:scale-95 transition-transform">
