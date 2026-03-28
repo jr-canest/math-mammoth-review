@@ -36,7 +36,24 @@ const LEVELS: Level[] = [
 // ─── Expression helpers ──────────────────────────────────────────────
 
 function substituteTokens(tokens: string[], value: number, variable: string): string {
-  return tokens.map(t => t === variable ? String(value) : t).join(' ');
+  const substituted = tokens.map(t => t === variable ? String(value) : t);
+  // Insert implicit ⋅ where needed (number next to number, number next to '(', ')' next to number)
+  const result: string[] = [];
+  for (let i = 0; i < substituted.length; i++) {
+    if (i > 0) {
+      const prev = substituted[i - 1];
+      const curr = substituted[i];
+      const prevIsNum = /^\d/.test(prev) || /\d$/.test(prev);
+      const currIsNum = /^\d/.test(curr);
+      const prevIsClose = prev === ')';
+      const currIsOpen = curr === '(';
+      if ((prevIsNum && currIsNum) || (prevIsNum && currIsOpen) || (prevIsClose && currIsNum)) {
+        result.push('⋅');
+      }
+    }
+    result.push(substituted[i]);
+  }
+  return result.join(' ');
 }
 
 function evaluateTokens(tokens: string[], xVal: number, variable: string): number {
