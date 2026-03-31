@@ -58,7 +58,7 @@ function SectionRouter({ gameComponents, problemViewProps, markCorrect }: Sectio
 
 export default function App() {
   const [userId, setUserId] = useState<string | null>(null);
-  const { progress, loading, markCorrect, markIncorrect, undoAnswer, clearSection, getSectionProgress, exportData, importData } = useProgress(userId);
+  const { progress, loading, markCorrect, markIncorrect, undoAnswer, clearSection, markSkipped, markUnskipped, getSectionProgress, exportData, importData } = useProgress(userId);
   const { muted, toggleMute, playCorrect, playIncorrect, playMilestone, playComplete } = useSound();
 
   const handleSwitchUser = useCallback(() => {
@@ -110,6 +110,8 @@ export default function App() {
                 markIncorrect,
                 undoAnswer,
                 clearSection,
+                markSkipped,
+                markUnskipped,
                 playCorrect,
                 playIncorrect,
                 playMilestone,

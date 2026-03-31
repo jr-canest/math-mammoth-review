@@ -155,6 +155,9 @@ export default function SectionSelect({ progress }: SectionSelectProps) {
           const sectionCorrect = sp
             ? Object.values(sp.attempts).filter(a => a.correct).length
             : 0;
+          const sectionSkipped = sp
+            ? Object.values(sp.attempts).filter(a => a.skipped).length
+            : 0;
           const pct = sectionTotal > 0 ? sectionCorrect / sectionTotal : 0;
           const pacing = section.pacing;
 
@@ -192,6 +195,7 @@ export default function SectionSelect({ progress }: SectionSelectProps) {
                   </span>
                   <p className="text-xs opacity-70">
                     {sectionCorrect > 0 ? `${sectionCorrect}/${sectionTotal}` : `0/${sectionTotal}`}
+                    {sectionSkipped > 0 && ` (${sectionSkipped} skipped)`}
                   </p>
                 </div>
               </div>

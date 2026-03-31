@@ -48,9 +48,20 @@ interface ProblemInfo {
   attempted: boolean;
   correct: boolean;
   attempts: number;
+  skipped?: boolean;
 }
 
 function ProblemRow({ p }: { p: ProblemInfo }) {
+  if (p.skipped) {
+    return (
+      <div className="flex items-center gap-2 px-2 py-1 rounded bg-gray-50">
+        <span className="w-4 text-center text-gray-300">—</span>
+        <span className="font-mono font-bold text-gray-400 shrink-0 whitespace-nowrap">{p.label}</span>
+        <span className="text-gray-400 flex-1 truncate">{p.display}</span>
+        <span className="text-gray-400 text-[10px] italic shrink-0">skipped</span>
+      </div>
+    );
+  }
   const firstTry = p.correct && p.attempts === 1;
   const eventuallyCorrect = p.correct && p.attempts > 1;
 
@@ -156,6 +167,7 @@ export default function ParentDashboard({ progress }: ParentDashboardProps) {
           attempted: !!attempt,
           correct: attempt?.correct ?? false,
           attempts: attempt?.attempts ?? 0,
+          skipped: attempt?.skipped ?? false,
         };
       }) ?? [];
 
@@ -171,6 +183,7 @@ export default function ParentDashboard({ progress }: ParentDashboardProps) {
         score: sp.score,
         completedAt: sp.completedAt,
         correctCount: Object.values(sp.attempts).filter(a => a.correct).length,
+        skippedCount: Object.values(sp.attempts).filter(a => a.skipped).length,
         totalProblems: sectionData?.problems.length ?? Object.keys(sp.attempts).length,
         problems,
         hasActivityInRange,
@@ -384,6 +397,11 @@ export default function ParentDashboard({ progress }: ParentDashboardProps) {
                         <span className="text-xs text-gray-400 ml-1">
                           ({Math.round(s.score * 100)}%)
                         </span>
+                        {s.skippedCount > 0 && (
+                          <span className="text-xs text-gray-400 ml-1">
+                            · {s.skippedCount} skipped
+                          </span>
+                        )}
                       </div>
                     </div>
                   </div>

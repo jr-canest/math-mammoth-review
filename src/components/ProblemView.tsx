@@ -16,6 +16,8 @@ interface ProblemViewProps {
   markIncorrect: (sectionKey: string, problemId: string, attemptCount: number) => void;
   undoAnswer: (sectionKey: string, problemId: string, totalProblems: number) => void;
   clearSection: (sectionKey: string) => void;
+  markSkipped: (sectionKey: string, problemId: string, totalProblems: number) => void;
+  markUnskipped: (sectionKey: string, problemId: string, totalProblems: number) => void;
   playCorrect: () => void;
   playIncorrect: () => void;
   playMilestone: () => void;
@@ -28,6 +30,8 @@ export default function ProblemView({
   markIncorrect,
   undoAnswer,
   clearSection,
+  markSkipped,
+  markUnskipped,
   playCorrect,
   playIncorrect,
   playMilestone,
@@ -81,6 +85,9 @@ export default function ProblemView({
   const incorrectCount = progress
     ? Object.values(progress.attempts).filter(a => !a.correct).length
     : 0;
+  const skippedCount = progress
+    ? Object.values(progress.attempts).filter(a => a.skipped).length
+    : 0;
 
   const score = totalProblems > 0 ? correctCount / totalProblems : 0;
 
@@ -123,6 +130,20 @@ export default function ProblemView({
       undoAnswer(sectionKey, problemId, totalProblems);
     },
     [undoAnswer, sectionKey, totalProblems],
+  );
+
+  const handleSkip = useCallback(
+    (problemId: string) => {
+      markSkipped(sectionKey, problemId, totalProblems);
+    },
+    [markSkipped, sectionKey, totalProblems],
+  );
+
+  const handleUnskip = useCallback(
+    (problemId: string) => {
+      markUnskipped(sectionKey, problemId, totalProblems);
+    },
+    [markUnskipped, sectionKey, totalProblems],
   );
 
   const handleNextSection = () => {
@@ -235,11 +256,19 @@ export default function ProblemView({
             {totalProblems > 0 && (
               <p className={`text-xs font-medium ${
                 score >= 1 ? 'text-emerald-500' :
-                score >= 0.8 ? 'text-emerald-400' :
-                score > 0 ? 'text-gray-400' :
+                score >= 0.65 ? 'text-emerald-400' :
+                score >= 0.4 ? 'text-green-400' :
+                score >= 0.2 ? 'text-yellow-400' :
+                score >= 0.1 ? 'text-amber-400' :
+                score > 0 ? 'text-orange-400' :
                 'text-gray-300'
               }`}>
                 {Math.round(score * 100)}%
+                {skippedCount > 0 && (
+                  <span className="text-gray-400 font-normal ml-1">
+                    ({skippedCount} skipped)
+                  </span>
+                )}
               </p>
             )}
           </div>
@@ -249,6 +278,7 @@ export default function ProblemView({
             total={totalProblems}
             correct={correctCount}
             incorrect={incorrectCount}
+            skipped={skippedCount}
           />
         </div>
       </header>
@@ -266,6 +296,8 @@ export default function ProblemView({
       <main className="max-w-3xl mx-auto px-4 py-4 space-y-3 pb-24">
         {sectionData.problems.map((problem, idx) => {
           const attempt = progress?.attempts[problem.id];
+          const isSkipped = attempt?.skipped === true;
+          const isAnswered = attempt?.correct === true && !isSkipped;
           const prevGroup = idx > 0 ? sectionData.problems[idx - 1].group : undefined;
           const showGroupHeader = problem.group && problem.group !== prevGroup;
           return (
@@ -288,6 +320,32 @@ export default function ProblemView({
                   })}
                 </div>
               )}
+              {/* Skipped state: greyed out with unskip option */}
+              {isSkipped ? (
+                <div className="relative rounded-2xl bg-gray-100 border-2 border-gray-200 p-4 opacity-50">
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm text-gray-400 font-mono">{problem.label}</span>
+                    <button
+                      onClick={() => handleUnskip(problem.id)}
+                      className="text-xs text-gray-400 hover:text-gray-600 transition-colors"
+                    >
+                      Unskip
+                    </button>
+                  </div>
+                  <p className="text-sm text-gray-400 mt-1 truncate">{problem.display}</p>
+                  <p className="text-xs text-gray-400 mt-1 italic">Skipped</p>
+                </div>
+              ) : (
+                <div className="relative">
+                  {/* Skip button — subtle, inside card top-right with padding */}
+                  {!isAnswered && (
+                    <button
+                      onClick={(e) => { e.stopPropagation(); handleSkip(problem.id); }}
+                      className="absolute top-3 right-3 z-[1] text-[10px] text-gray-300 hover:text-gray-400 transition-colors"
+                    >
+                      Skip
+                    </button>
+                  )}
               {problem.answer.type === 'multiselect' ? (
                 <MultiSelectRow
                   problem={problem as any}
@@ -333,6 +391,8 @@ export default function ProblemView({
                   playCorrect={playCorrect}
                   playIncorrect={playIncorrect}
                 />
+              )}
+              </div>
               )}
             </div>
           );
@@ -385,6 +445,7 @@ export default function ProblemView({
           type={celebration}
           sectionTitle={sectionData.title}
           score={score}
+          skippedCount={skippedCount}
           onClose={() => setCelebration(null)}
           onNextSection={hasNext ? handleNextSection : undefined}
         />

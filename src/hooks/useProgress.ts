@@ -7,6 +7,8 @@ import {
   recordIncorrectAttempt,
   removeAnswer,
   clearSection as clearSectionData,
+  skipProblem as skipProblemData,
+  unskipProblem as unskipProblemData,
   exportProgressToFile,
   importProgressFromFile,
 } from '../lib/progressStore';
@@ -84,6 +86,28 @@ export function useProgress(userId: string | null) {
     [debouncedSave],
   );
 
+  const markSkipped = useCallback(
+    (sectionKey: string, problemId: string, totalProblems: number) => {
+      setProgress(prev => {
+        const next = skipProblemData(prev, sectionKey, problemId, totalProblems);
+        debouncedSave(next);
+        return next;
+      });
+    },
+    [debouncedSave],
+  );
+
+  const markUnskipped = useCallback(
+    (sectionKey: string, problemId: string, totalProblems: number) => {
+      setProgress(prev => {
+        const next = unskipProblemData(prev, sectionKey, problemId, totalProblems);
+        debouncedSave(next);
+        return next;
+      });
+    },
+    [debouncedSave],
+  );
+
   const getSectionProgress = useCallback(
     (sectionKey: string) => progress.sections[sectionKey] || null,
     [progress],
@@ -101,5 +125,5 @@ export function useProgress(userId: string | null) {
     setProgress(data);
   }, []);
 
-  return { progress, loading, markCorrect, markIncorrect, undoAnswer, clearSection, getSectionProgress, exportData, importData };
+  return { progress, loading, markCorrect, markIncorrect, undoAnswer, clearSection, markSkipped, markUnskipped, getSectionProgress, exportData, importData };
 }

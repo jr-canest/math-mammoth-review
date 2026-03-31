@@ -8,6 +8,7 @@ export interface ProblemAttempt {
   attempts: number;
   lastAttempt: string;
   answer?: string;
+  skipped?: boolean;
 }
 
 export interface SectionProgress {
@@ -238,6 +239,65 @@ export function clearSection(
   return {
     ...progress,
     sections: remainingSections,
+  };
+}
+
+export function skipProblem(
+  progress: ProgressData,
+  sectionKey: string,
+  problemId: string,
+  totalProblems: number,
+): ProgressData {
+  const now = new Date().toISOString();
+  const section = progress.sections[sectionKey] || {
+    attempts: {},
+    completedAt: null,
+    score: 0,
+  };
+
+  section.attempts[problemId] = {
+    correct: true,
+    attempts: 0,
+    lastAttempt: now,
+    skipped: true,
+  };
+
+  // Recalculate score: correct (including skipped) / total
+  const correctCount = Object.values(section.attempts).filter(a => a.correct).length;
+  section.score = correctCount / totalProblems;
+
+  if (correctCount === totalProblems) {
+    section.completedAt = now;
+  }
+
+  return {
+    ...progress,
+    sections: { ...progress.sections, [sectionKey]: section },
+  };
+}
+
+export function unskipProblem(
+  progress: ProgressData,
+  sectionKey: string,
+  problemId: string,
+  totalProblems: number,
+): ProgressData {
+  const section = progress.sections[sectionKey];
+  if (!section) return progress;
+
+  const { [problemId]: _removed, ...remaining } = section.attempts;
+  const correctCount = Object.values(remaining).filter(a => a.correct).length;
+
+  return {
+    ...progress,
+    sections: {
+      ...progress.sections,
+      [sectionKey]: {
+        attempts: remaining,
+        completedAt: null,
+        score: totalProblems > 0 ? correctCount / totalProblems : 0,
+      },
+    },
   };
 }
 

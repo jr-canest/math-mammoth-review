@@ -4,6 +4,7 @@ interface CelebrationModalProps {
   type: 'halfway' | 'milestone' | 'complete';
   sectionTitle: string;
   score: number;
+  skippedCount?: number;
   onClose: () => void;
   onNextSection?: () => void;
 }
@@ -12,6 +13,7 @@ export default function CelebrationModal({
   type,
   sectionTitle,
   score,
+  skippedCount = 0,
   onClose,
   onNextSection,
 }: CelebrationModalProps) {
@@ -37,9 +39,15 @@ export default function CelebrationModal({
         <p className="text-lg text-gray-700 mb-2">
           {message}
         </p>
-        <p className="text-3xl font-bold text-emerald-500 mb-6">
+        <p className="text-3xl font-bold text-emerald-500 mb-1">
           {Math.round(score * 100)}%
         </p>
+        {skippedCount > 0 && (
+          <p className="text-sm text-gray-400 mb-5">
+            ({skippedCount} problem{skippedCount !== 1 ? 's' : ''} skipped)
+          </p>
+        )}
+        {skippedCount === 0 && <div className="mb-6" />}
         <div className="flex gap-3 justify-center">
           <button
             onClick={onClose}
