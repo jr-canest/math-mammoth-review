@@ -89,7 +89,9 @@ export default function ProblemView({
     ? Object.values(progress.attempts).filter(a => a.skipped).length
     : 0;
 
-  const score = totalProblems > 0 ? correctCount / totalProblems : 0;
+  const effectiveTotal = totalProblems - skippedCount;
+  const answeredCorrect = correctCount - skippedCount;
+  const score = effectiveTotal > 0 ? answeredCorrect / effectiveTotal : (skippedCount > 0 ? 1 : 0);
 
   // Check for milestones
   useEffect(() => {
@@ -251,7 +253,7 @@ export default function ProblemView({
               score > 0 ? 'text-orange-500' :
               'text-gray-400'
             }`}>
-              {correctCount}/{totalProblems}
+              {answeredCorrect}/{effectiveTotal}
             </span>
             {totalProblems > 0 && (
               <p className={`text-xs font-medium ${

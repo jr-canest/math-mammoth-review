@@ -153,12 +153,13 @@ export default function SectionSelect({ progress }: SectionSelectProps) {
           const data = loadSectionData(chapterId, section.file);
           const sectionTotal = data?.problems.length ?? 0;
           const sectionCorrect = sp
-            ? Object.values(sp.attempts).filter(a => a.correct).length
+            ? Object.values(sp.attempts).filter(a => a.correct && !a.skipped).length
             : 0;
           const sectionSkipped = sp
             ? Object.values(sp.attempts).filter(a => a.skipped).length
             : 0;
-          const pct = sectionTotal > 0 ? sectionCorrect / sectionTotal : 0;
+          const sectionEffectiveTotal = sectionTotal - sectionSkipped;
+          const pct = sectionEffectiveTotal > 0 ? sectionCorrect / sectionEffectiveTotal : (sectionSkipped > 0 ? 1 : 0);
           const pacing = section.pacing;
 
           const pacingLabel = pacing?.type === 'half' ? 'lite' :
@@ -194,7 +195,7 @@ export default function SectionSelect({ progress }: SectionSelectProps) {
                     {sectionCorrect > 0 ? `${Math.round(pct * 100)}%` : 'Not started'}
                   </span>
                   <p className="text-xs opacity-70">
-                    {sectionCorrect > 0 ? `${sectionCorrect}/${sectionTotal}` : `0/${sectionTotal}`}
+                    {sectionCorrect > 0 ? `${sectionCorrect}/${sectionEffectiveTotal}` : `0/${sectionEffectiveTotal}`}
                     {sectionSkipped > 0 && ` (${sectionSkipped} skipped)`}
                   </p>
                 </div>

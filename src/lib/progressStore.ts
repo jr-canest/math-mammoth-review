@@ -148,7 +148,9 @@ export function recordCorrectAnswer(
 
   const attemptValues = Object.values(section.attempts);
   const correctCount = attemptValues.filter(a => a.correct).length;
-  section.score = correctCount / totalProblems;
+  const skippedCount = attemptValues.filter(a => a.skipped).length;
+  const effectiveTotal = totalProblems - skippedCount;
+  section.score = effectiveTotal > 0 ? (correctCount - skippedCount) / effectiveTotal : (skippedCount > 0 ? 1 : 0);
 
   if (correctCount === totalProblems) {
     section.completedAt = now;
@@ -179,7 +181,10 @@ export function removeAnswer(
 
   const { [problemId]: _removed, ...remaining } = section.attempts;
 
-  const correctCount = Object.values(remaining).filter(a => a.correct).length;
+  const remainingValues = Object.values(remaining);
+  const correctCount = remainingValues.filter(a => a.correct).length;
+  const skippedCount = remainingValues.filter(a => a.skipped).length;
+  const effectiveTotal = totalProblems - skippedCount;
 
   return {
     ...progress,
@@ -188,7 +193,7 @@ export function removeAnswer(
       [sectionKey]: {
         attempts: remaining,
         completedAt: null,
-        score: totalProblems > 0 ? correctCount / totalProblems : 0,
+        score: effectiveTotal > 0 ? (correctCount - skippedCount) / effectiveTotal : 0,
       },
     },
   };
@@ -262,9 +267,12 @@ export function skipProblem(
     skipped: true,
   };
 
-  // Recalculate score: correct (including skipped) / total
-  const correctCount = Object.values(section.attempts).filter(a => a.correct).length;
-  section.score = correctCount / totalProblems;
+  // Recalculate score: answered correct / effective total (excluding skipped)
+  const attemptValues = Object.values(section.attempts);
+  const correctCount = attemptValues.filter(a => a.correct).length;
+  const skippedCount = attemptValues.filter(a => a.skipped).length;
+  const effectiveTotal = totalProblems - skippedCount;
+  section.score = effectiveTotal > 0 ? (correctCount - skippedCount) / effectiveTotal : (skippedCount > 0 ? 1 : 0);
 
   if (correctCount === totalProblems) {
     section.completedAt = now;
@@ -286,7 +294,10 @@ export function unskipProblem(
   if (!section) return progress;
 
   const { [problemId]: _removed, ...remaining } = section.attempts;
-  const correctCount = Object.values(remaining).filter(a => a.correct).length;
+  const remainingValues = Object.values(remaining);
+  const correctCount = remainingValues.filter(a => a.correct).length;
+  const skippedCount = remainingValues.filter(a => a.skipped).length;
+  const effectiveTotal = totalProblems - skippedCount;
 
   return {
     ...progress,
@@ -295,7 +306,7 @@ export function unskipProblem(
       [sectionKey]: {
         attempts: remaining,
         completedAt: null,
-        score: totalProblems > 0 ? correctCount / totalProblems : 0,
+        score: effectiveTotal > 0 ? (correctCount - skippedCount) / effectiveTotal : 0,
       },
     },
   };
