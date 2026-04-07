@@ -9,6 +9,7 @@ import DualAnswerRow from './DualAnswerRow';
 import GapRow from './GapRow';
 import ProgressBar from './ProgressBar';
 import CelebrationModal from './CelebrationModal';
+import Stars from './Stars';
 
 interface ProblemViewProps {
   getSectionProgress: (key: string) => SectionProgress | null;
@@ -244,35 +245,28 @@ export default function ProblemView({
             <p className="text-sm text-gray-500">Pages {sectionData.pages}</p>
           </div>
           <div className="text-right shrink-0">
-            <span className={`text-lg font-bold ${
-              score >= 1 ? 'text-emerald-600' :
-              score >= 0.65 ? 'text-emerald-500' :
-              score >= 0.4 ? 'text-green-500' :
-              score >= 0.2 ? 'text-yellow-500' :
-              score >= 0.1 ? 'text-amber-500' :
-              score > 0 ? 'text-orange-500' :
-              'text-gray-400'
-            }`}>
-              {answeredCorrect}/{effectiveTotal}
-            </span>
-            {totalProblems > 0 && (
-              <p className={`text-xs font-medium ${
-                score >= 1 ? 'text-emerald-500' :
-                score >= 0.65 ? 'text-emerald-400' :
-                score >= 0.4 ? 'text-green-400' :
-                score >= 0.2 ? 'text-yellow-400' :
-                score >= 0.1 ? 'text-amber-400' :
-                score > 0 ? 'text-orange-400' :
-                'text-gray-300'
+            <div className="flex items-center justify-end gap-1.5">
+              <Stars pct={score} size="md" />
+              <span className={`text-lg font-bold ${
+                score >= 1 ? 'text-emerald-600' :
+                score >= 0.65 ? 'text-emerald-500' :
+                score >= 0.4 ? 'text-green-500' :
+                score >= 0.2 ? 'text-yellow-500' :
+                score >= 0.1 ? 'text-amber-500' :
+                score > 0 ? 'text-orange-500' :
+                'text-gray-400'
               }`}>
                 {Math.round(score * 100)}%
-                {skippedCount > 0 && (
-                  <span className="text-gray-400 font-normal ml-1">
-                    ({skippedCount} skipped)
-                  </span>
-                )}
-              </p>
-            )}
+              </span>
+            </div>
+            <p className="text-xs opacity-70">
+              {answeredCorrect}/{effectiveTotal}
+              {skippedCount > 0 && (
+                <span className="text-gray-400 ml-1">
+                  ({skippedCount} skipped)
+                </span>
+              )}
+            </p>
           </div>
         </div>
         <div className="max-w-3xl mx-auto px-4 pb-3">

@@ -2,6 +2,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { loadSections, loadSectionData, loadChaptersSync } from '../lib/dataLoader';
 import type { ProgressData } from '../lib/progressStore';
 import ProgressBar from './ProgressBar';
+import Stars from './Stars';
 
 interface SectionSelectProps {
   progress: ProgressData;
@@ -16,17 +17,6 @@ function progressTextColor(pct: number): string {
   if (pct >= 0.1) return 'text-amber-500';
   if (pct > 0) return 'text-orange-500';
   return 'text-gray-400';
-}
-
-/** Returns a Tailwind bg color class for the status dot */
-function progressDotColor(pct: number): string {
-  if (pct >= 1) return 'bg-emerald-500';
-  if (pct >= 0.65) return 'bg-emerald-400';
-  if (pct >= 0.4) return 'bg-green-400';
-  if (pct >= 0.2) return 'bg-yellow-400';
-  if (pct >= 0.1) return 'bg-amber-400';
-  if (pct > 0) return 'bg-orange-400';
-  return 'bg-gray-300';
 }
 
 export default function SectionSelect({ progress }: SectionSelectProps) {
@@ -167,16 +157,21 @@ export default function SectionSelect({ progress }: SectionSelectProps) {
             pacing?.type === 'review' ? 'review' :
             pacing?.type === 'half-review' ? 'lite + review' : null;
 
+          const borderClass = pct >= 1
+            ? 'border-2 border-emerald-400 bg-emerald-50/40'
+            : sectionCorrect > 0
+              ? 'border-2 border-amber-300 bg-amber-50/30'
+              : 'border-2 border-transparent bg-white';
+
           return (
             <button
               key={section.id}
               onClick={() => navigate(`/chapter/${chapterId}/${section.id}`)}
-              className="w-full bg-white rounded-xl shadow-sm p-4 text-left
-                         active:scale-[0.98] transition-transform border-2 border-transparent
-                         hover:border-indigo-100"
+              className={`w-full rounded-xl shadow-sm p-4 text-left
+                         active:scale-[0.98] transition-transform
+                         ${borderClass}`}
             >
-              <div className="flex items-center gap-4">
-                <div className={`w-3 h-3 rounded-full shrink-0 ${progressDotColor(pct)}`} />
+              <div className="flex items-center gap-3">
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2 flex-wrap">
                     <h3 className="text-lg font-semibold text-gray-900 truncate">
@@ -191,9 +186,12 @@ export default function SectionSelect({ progress }: SectionSelectProps) {
                   <p className="text-sm text-gray-400">Pages {section.pages}</p>
                 </div>
                 <div className={`text-right shrink-0 ${progressTextColor(pct)}`}>
-                  <span className="text-sm font-medium">
-                    {sectionCorrect > 0 ? `${Math.round(pct * 100)}%` : 'Not started'}
-                  </span>
+                  <div className="flex items-center justify-end gap-1">
+                    <Stars pct={pct} />
+                    <span className="text-sm font-medium">
+                      {sectionCorrect > 0 ? `${Math.round(pct * 100)}%` : 'Not started'}
+                    </span>
+                  </div>
                   <p className="text-xs opacity-70">
                     {sectionCorrect > 0 ? `${sectionCorrect}/${sectionEffectiveTotal}` : `0/${sectionEffectiveTotal}`}
                     {sectionSkipped > 0 && ` (${sectionSkipped} skipped)`}

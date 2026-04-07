@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { loadChapters, loadSections, loadSectionData } from '../lib/dataLoader';
-import type { Chapter } from '../lib/dataLoader';
+import type { Chapter, SectionMeta } from '../lib/dataLoader';
 import type { ProgressData } from '../lib/progressStore';
 
 interface ChapterSelectProps {
@@ -33,6 +33,103 @@ function progressBarColor(pct: number): string {
   return '#fb923c';                   // orange-400
 }
 
+/** Find the most recent section the user was working on (not yet 100% complete) */
+function findContinueTarget(
+  progress: ProgressData,
+  chapters: Chapter[]
+): { chapterId: string; sectionId: string; sectionTitle: string; chapterTitle: string } | null {
+  let bestKey = '';
+  let bestTime = '';
+
+  // Find the section with the most recent attempt
+  for (const [key, sp] of Object.entries(progress.sections)) {
+    for (const attempt of Object.values(sp.attempts)) {
+      if (attempt.lastAttempt > bestTime) {
+        bestTime = attempt.lastAttempt;
+        bestKey = key;
+      }
+    }
+  }
+
+  if (!bestKey) return null;
+
+  // Parse key: format is "chapterFolder-sectionId" but sectionId may contain hyphens
+  // Try to find the matching chapter folder
+  for (const chapter of chapters) {
+    if (bestKey.startsWith(chapter.folder + '-')) {
+      const sectionId = bestKey.slice(chapter.folder.length + 1);
+      const sections = loadSections(chapter.folder);
+      const section = sections.find(s => s.id === sectionId);
+      if (!section) continue;
+
+      // Check if this section is already complete
+      const sp = progress.sections[bestKey];
+      const data = loadSectionData(chapter.folder, section.file);
+      const total = data?.problems.length ?? 0;
+      const correct = sp ? Object.values(sp.attempts).filter(a => a.correct).length : 0;
+      if (total > 0 && correct < total) {
+        return { chapterId: chapter.folder, sectionId, sectionTitle: section.title, chapterTitle: chapter.title };
+      }
+
+      // If complete, find next incomplete section in that chapter
+      const nextIncomplete = findNextIncomplete(chapter, sections, progress);
+      if (nextIncomplete) return nextIncomplete;
+
+      // Fall through: find any recent incomplete section
+      break;
+    }
+  }
+
+  // Fallback: find the most recently worked incomplete section across all chapters
+  const entries = Object.entries(progress.sections)
+    .map(([key, sp]) => {
+      const latestAttempt = Object.values(sp.attempts).reduce(
+        (max, a) => a.lastAttempt > max ? a.lastAttempt : max, ''
+      );
+      return { key, sp, latestAttempt };
+    })
+    .sort((a, b) => b.latestAttempt.localeCompare(a.latestAttempt));
+
+  for (const { key } of entries) {
+    for (const chapter of chapters) {
+      if (key.startsWith(chapter.folder + '-')) {
+        const sectionId = key.slice(chapter.folder.length + 1);
+        const sections = loadSections(chapter.folder);
+        const section = sections.find(s => s.id === sectionId);
+        if (!section) continue;
+        const sp = progress.sections[key];
+        const data = loadSectionData(chapter.folder, section.file);
+        const total = data?.problems.length ?? 0;
+        const correct = sp ? Object.values(sp.attempts).filter(a => a.correct).length : 0;
+        if (total > 0 && correct < total) {
+          return { chapterId: chapter.folder, sectionId, sectionTitle: section.title, chapterTitle: chapter.title };
+        }
+      }
+    }
+  }
+
+  return null;
+}
+
+function findNextIncomplete(
+  chapter: Chapter,
+  sections: SectionMeta[],
+  progress: ProgressData
+): { chapterId: string; sectionId: string; sectionTitle: string; chapterTitle: string } | null {
+  for (const section of sections) {
+    if (section.type === 'game') continue;
+    const key = `${chapter.folder}-${section.id}`;
+    const sp = progress.sections[key];
+    const data = loadSectionData(chapter.folder, section.file);
+    const total = data?.problems.length ?? 0;
+    const correct = sp ? Object.values(sp.attempts).filter(a => a.correct).length : 0;
+    if (total > 0 && correct < total) {
+      return { chapterId: chapter.folder, sectionId: section.id, sectionTitle: section.title, chapterTitle: chapter.title };
+    }
+  }
+  return null;
+}
+
 export default function ChapterSelect({ progress, onSwitchUser, userName, onExport, onImport }: ChapterSelectProps) {
   const [chapters, setChapters] = useState<Chapter[]>([]);
   const navigate = useNavigate();
@@ -41,6 +138,8 @@ export default function ChapterSelect({ progress, onSwitchUser, userName, onExpo
   useEffect(() => {
     loadChapters().then(setChapters);
   }, []);
+
+  const continueTarget = chapters.length > 0 ? findContinueTarget(progress, chapters) : null;
 
   return (
     <div className="min-h-screen bg-slate-50">
@@ -52,6 +151,24 @@ export default function ChapterSelect({ progress, onSwitchUser, userName, onExpo
       </header>
 
       <main className="max-w-3xl mx-auto px-4 py-6 space-y-3">
+        {continueTarget && (
+          <button
+            onClick={() => navigate(`/chapter/${continueTarget.chapterId}/${continueTarget.sectionId}`)}
+            className="w-full bg-indigo-600 text-white rounded-2xl shadow-lg p-4 text-left
+                       active:scale-[0.98] transition-transform flex items-center gap-3"
+          >
+            <span className="text-2xl">&#9654;&#xFE0E;</span>
+            <div className="flex-1 min-w-0">
+              <p className="text-sm font-medium text-indigo-200">Continue where you left off</p>
+              <p className="text-lg font-bold truncate">{continueTarget.sectionTitle}</p>
+              <p className="text-xs text-indigo-300">{continueTarget.chapterTitle}</p>
+            </div>
+            <svg className="w-6 h-6 text-indigo-200 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+        )}
+
         {chapters.map(chapter => {
           const sections = loadSections(chapter.folder);
           const totalSections = sections.length;
@@ -117,6 +234,7 @@ export default function ChapterSelect({ progress, onSwitchUser, userName, onExpo
 
           const pct = totalProblems > 0 ? totalCorrect / totalProblems : 0;
           const isReview = chapter.folder.endsWith('-review');
+          const inConstruction = totalProblems === 0 && totalSections > 0;
 
           // Review chapters: compact inline card
           if (isReview) {
@@ -125,30 +243,36 @@ export default function ChapterSelect({ progress, onSwitchUser, userName, onExpo
                 key={chapter.id}
                 onClick={() => navigate(`/chapter/${chapter.folder}`)}
                 className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-left
-                           active:scale-[0.98] transition-transform flex items-center gap-3"
+                           active:scale-[0.98] transition-transform"
               >
-                <div className="flex-1 min-w-0">
-                  <div className="flex items-center gap-2">
+                <div className="flex items-center justify-between mb-1.5">
+                  <div className="flex items-center gap-2 min-w-0">
                     <span className="text-sm">📝</span>
                     <h3 className="text-sm font-semibold text-gray-700 truncate">{chapter.title}</h3>
-                    <span className="text-xs text-gray-400 shrink-0">{totalSections} sections</span>
+                    {inConstruction && (
+                      <span className="shrink-0 px-1.5 py-0.5 text-[10px] font-semibold bg-amber-100 text-amber-600 rounded-full uppercase tracking-wide">
+                        In Construction
+                      </span>
+                    )}
                   </div>
-                  <div className="w-full bg-gray-200 rounded-full h-1.5 mt-1.5 overflow-hidden">
-                    <div
-                      className="h-full transition-all duration-500 rounded-full"
-                      style={{ width: `${pct * 100}%`, backgroundColor: progressBarColor(pct) }}
-                    />
-                  </div>
+                  <span className="text-xs text-gray-400 shrink-0 ml-2">{totalSections} sections</span>
                 </div>
-                <div className="text-right shrink-0">
-                  {pct > 0 ? (
+                <div className="w-full bg-gray-200 rounded-full h-1.5 overflow-hidden">
+                  <div
+                    className="h-full transition-all duration-500 rounded-full"
+                    style={{ width: `${pct * 100}%`, backgroundColor: progressBarColor(pct) }}
+                  />
+                </div>
+                {pct > 0 && (
+                  <div className="flex items-center justify-between mt-1">
                     <span className={`text-xs font-medium ${progressTextColor(pct)}`}>
-                      {Math.round(pct * 100)}%
+                      {Math.round(pct * 100)}% complete
                     </span>
-                  ) : (
-                    <span className="text-xs text-gray-400">—</span>
-                  )}
-                </div>
+                    <span className="text-xs text-gray-400">
+                      {totalCorrect}/{totalProblems} problems
+                    </span>
+                  </div>
+                )}
               </button>
             );
           }
@@ -162,8 +286,15 @@ export default function ChapterSelect({ progress, onSwitchUser, userName, onExpo
                          active:scale-[0.98] transition-transform"
             >
               <div className="flex items-center justify-between mb-3">
-                <h2 className="text-xl font-bold text-gray-900">{chapter.title}</h2>
-                <span className="text-sm text-gray-400">
+                <div className="flex items-center gap-2 min-w-0">
+                  <h2 className="text-xl font-bold text-gray-900 truncate">{chapter.title}</h2>
+                  {inConstruction && (
+                    <span className="shrink-0 px-2 py-0.5 text-[11px] font-semibold bg-amber-100 text-amber-600 rounded-full uppercase tracking-wide">
+                      In Construction
+                    </span>
+                  )}
+                </div>
+                <span className="text-sm text-gray-400 shrink-0 ml-2">
                   {totalSections} sections
                 </span>
               </div>
