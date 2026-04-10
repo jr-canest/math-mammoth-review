@@ -1,12 +1,15 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import type { ProgressData } from '../lib/progressStore';
+import type { ProgressData, SectionProgress } from '../lib/progressStore';
 import type { Answer } from '../lib/answerChecker';
+import type { Problem } from '../lib/dataLoader';
 import { loadSections, loadSectionData } from '../lib/dataLoader';
 
 interface ParentDashboardProps {
   progress: ProgressData;
 }
+
+// ── Helpers ──────────────────────────────────────────────────
 
 function formatDate(iso: string): string {
   const d = new Date(iso + 'T00:00:00');
@@ -21,6 +24,89 @@ function getDefaultRange(): { start: string; end: string } {
     start: start.toISOString().split('T')[0],
     end: end.toISOString().split('T')[0],
   };
+}
+
+function getSectionDateRange(sp: SectionProgress): { first: string; last: string } {
+  let earliest = '';
+  let latest = '';
+  for (const a of Object.values(sp.attempts)) {
+    const d = a.lastAttempt.split('T')[0];
+    if (!earliest || d < earliest) earliest = d;
+    if (!latest || d > latest) latest = d;
+  }
+  if (sp.completedAt) {
+    const cd = sp.completedAt.split('T')[0];
+    if (!earliest || cd < earliest) earliest = cd;
+    if (!latest || cd > latest) latest = cd;
+  }
+  return { first: earliest, last: latest };
+}
+
+function formatDateShort(iso: string): string {
+  const d = new Date(iso + 'T00:00:00');
+  return d.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
+}
+
+function formatDateRange(first: string, last: string): string {
+  if (!first) return '';
+  if (first === last) return formatDateShort(first);
+  return `${formatDateShort(first)} – ${formatDateShort(last)}`;
+}
+
+function getSectionDuration(sp: SectionProgress): number | null {
+  const timestamps: number[] = [];
+  for (const a of Object.values(sp.attempts)) {
+    if (a.lastAttempt) timestamps.push(new Date(a.lastAttempt).getTime());
+  }
+  if (sp.completedAt) timestamps.push(new Date(sp.completedAt).getTime());
+  if (timestamps.length < 2) return null;
+
+  // Group timestamps into sessions: gaps > 30 min start a new session
+  timestamps.sort((a, b) => a - b);
+  const SESSION_GAP = 30 * 60 * 1000; // 30 minutes
+  let totalMs = 0;
+  let sessionStart = timestamps[0];
+  let prev = timestamps[0];
+  for (let i = 1; i < timestamps.length; i++) {
+    if (timestamps[i] - prev > SESSION_GAP) {
+      // End previous session, start new one
+      totalMs += prev - sessionStart;
+      sessionStart = timestamps[i];
+    }
+    prev = timestamps[i];
+  }
+  totalMs += prev - sessionStart; // close last session
+
+  const minutes = Math.round(totalMs / 60000);
+  return Math.min(minutes, 120);
+}
+
+function formatDuration(minutes: number): string {
+  if (minutes < 1) return '< 1 min';
+  if (minutes < 60) return `${minutes} min`;
+  const h = Math.floor(minutes / 60);
+  const m = minutes % 60;
+  return m > 0 ? `${h}h ${m}min` : `${h}h`;
+}
+
+function extractConcepts(problems: Problem[]): string[] {
+  const groups = new Set<string>();
+  for (const p of problems) {
+    if (p.group) {
+      // Strip leading numbering like "1. " or "2a. "
+      let clean = p.group.replace(/^\d+[a-z]?\.\s*/, '');
+      // Truncate at first sentence if too long
+      if (clean.length > 60) {
+        const dot = clean.indexOf('. ');
+        if (dot > 0 && dot < 60) clean = clean.slice(0, dot);
+        else clean = clean.slice(0, 57) + '...';
+      }
+      // Remove trailing periods
+      clean = clean.replace(/\.\s*$/, '');
+      if (clean) groups.add(clean);
+    }
+  }
+  return [...groups];
 }
 
 function formatAnswerValue(answer: Answer): string {
@@ -40,6 +126,17 @@ function formatAnswerValue(answer: Answer): string {
       return String(answer.value ?? '');
   }
 }
+
+function accuracyColor(pct: number): string {
+  if (pct >= 1) return 'text-emerald-600';
+  if (pct >= 0.65) return 'text-emerald-500';
+  if (pct >= 0.4) return 'text-green-500';
+  if (pct >= 0.2) return 'text-yellow-500';
+  if (pct >= 0.1) return 'text-amber-500';
+  return 'text-orange-500';
+}
+
+// ── Sub-components ───────────────────────────────────────────
 
 interface ProblemInfo {
   label: string;
@@ -128,35 +225,62 @@ function SectionProblems({ problems }: { problems: ProblemInfo[] }) {
   );
 }
 
+// ── Section entry type ───────────────────────────────────────
+
+interface SectionEntry {
+  key: string;
+  title: string;
+  pages: string;
+  score: number;
+  completedAt: string | null;
+  correctCount: number;
+  skippedCount: number;
+  totalProblems: number;
+  problems: ProblemInfo[];
+  firstDate: string;
+  lastDate: string;
+  durationMinutes: number | null;
+  concepts: string[];
+  isGame: boolean;
+}
+
+// ── Main Component ───────────────────────────────────────────
+
 export default function ParentDashboard({ progress }: ParentDashboardProps) {
   const navigate = useNavigate();
   const defaults = getDefaultRange();
   const [startDate, setStartDate] = useState(defaults.start);
   const [endDate, setEndDate] = useState(defaults.end);
 
-  // Filter daily log by date range
-  const dailyEntries = Object.entries(progress.dailyLog)
-    .filter(([date]) => date >= startDate && date <= endDate)
-    .sort(([a], [b]) => b.localeCompare(a));
-
-  // Totals for the range
-  const rangeTotals = dailyEntries.reduce(
-    (acc, [, day]) => ({
-      attempted: acc.attempted + day.problemsAttempted,
-      correct: acc.correct + day.problemsCorrect,
-    }),
-    { attempted: 0, correct: 0 },
-  );
-
-  // Section breakdown with individual problem details
-  const sectionEntries = Object.entries(progress.sections)
+  // Build section entries with date, duration, and concepts
+  const sectionEntries: SectionEntry[] = Object.entries(progress.sections)
     .map(([key, sp]) => {
+      // Parse section key to find chapter folder
+      // Key format: "chapter-2-order-of-operations" or "games-activities-math-machines"
       const parts = key.split('-');
-      const chapterFolder = parts.slice(0, 2).join('-');
-      const sectionId = parts.slice(2).join('-');
+      let chapterFolder = '';
+      let sectionId = '';
+
+      // Try common prefixes
+      for (let i = 2; i <= Math.min(parts.length - 1, 4); i++) {
+        const candidate = parts.slice(0, i).join('-');
+        const sections = loadSections(candidate);
+        if (sections.length > 0) {
+          chapterFolder = candidate;
+          sectionId = parts.slice(i).join('-');
+          break;
+        }
+      }
+
+      if (!chapterFolder) {
+        chapterFolder = parts.slice(0, 2).join('-');
+        sectionId = parts.slice(2).join('-');
+      }
+
       const sections = loadSections(chapterFolder);
       const meta = sections.find(s => s.id === sectionId);
-      const sectionData = meta ? loadSectionData(chapterFolder, meta.file) : null;
+      const isGame = meta?.type === 'game';
+      const sectionData = meta && !isGame ? loadSectionData(chapterFolder, meta.file) : null;
 
       const problems = sectionData?.problems.map(p => {
         const attempt = sp.attempts[p.id];
@@ -171,10 +295,18 @@ export default function ParentDashboard({ progress }: ParentDashboardProps) {
         };
       }) ?? [];
 
-      const hasActivityInRange = Object.values(sp.attempts).some(a => {
-        const date = a.lastAttempt.split('T')[0];
-        return date >= startDate && date <= endDate;
-      });
+      const hasActivityInRange = isGame
+        ? (sp.completedAt && sp.completedAt.split('T')[0] >= startDate && sp.completedAt.split('T')[0] <= endDate)
+        : Object.values(sp.attempts).some(a => {
+            const date = a.lastAttempt.split('T')[0];
+            return date >= startDate && date <= endDate;
+          });
+
+      if (!hasActivityInRange) return null;
+
+      const { first, last } = getSectionDateRange(sp);
+      const durationMinutes = getSectionDuration(sp);
+      const concepts = sectionData ? extractConcepts(sectionData.problems) : [];
 
       return {
         key,
@@ -182,25 +314,58 @@ export default function ParentDashboard({ progress }: ParentDashboardProps) {
         pages: meta?.pages ?? '',
         score: sp.score,
         completedAt: sp.completedAt,
-        correctCount: Object.values(sp.attempts).filter(a => a.correct).length,
+        correctCount: Object.values(sp.attempts).filter(a => a.correct && !a.skipped).length,
         skippedCount: Object.values(sp.attempts).filter(a => a.skipped).length,
         totalProblems: sectionData?.problems.length ?? Object.keys(sp.attempts).length,
         problems,
-        hasActivityInRange,
+        firstDate: first,
+        lastDate: last,
+        durationMinutes,
+        concepts,
+        isGame,
       };
     })
-    .filter(s => s.hasActivityInRange)
-    .sort((a, b) => (b.completedAt ?? '').localeCompare(a.completedAt ?? ''));
+    .filter((s): s is SectionEntry => s !== null)
+    .sort((a, b) => b.lastDate.localeCompare(a.lastDate));
+
+  // Range totals from section entries (unique problems, not raw attempts)
+  const rangeTotals = sectionEntries.reduce(
+    (acc, s) => {
+      if (s.isGame) return acc;
+      const attempted = s.problems.filter(p => p.attempted && !p.skipped).length;
+      const correct = s.problems.filter(p => p.correct && !p.skipped).length;
+      return {
+        attempted: acc.attempted + attempted,
+        correct: acc.correct + correct,
+      };
+    },
+    { attempted: 0, correct: 0 },
+  );
+
+  // Total estimated time across all sections in range
+  const totalEstTime = sectionEntries.reduce(
+    (sum, s) => sum + (s.durationMinutes ?? 0), 0
+  );
 
   const handleShare = () => {
-    const totalSections = sectionEntries.length;
-    const completedSections = sectionEntries.filter(s => s.completedAt).length;
+    const totalSections = sectionEntries.filter(s => !s.isGame).length;
+    const completedSections = sectionEntries.filter(s => !s.isGame && s.completedAt).length;
+    const gamesCompleted = sectionEntries.filter(s => s.isGame && s.completedAt).length;
     const rangeLabel = `${formatDate(startDate)} – ${formatDate(endDate)}`;
     const accuracy = rangeTotals.attempted > 0
       ? Math.round((rangeTotals.correct / rangeTotals.attempted) * 100)
       : 0;
 
-    const text = `${rangeLabel}: Odaniel worked on ${totalSections} section(s), completed ${completedSections}, with ${accuracy}% accuracy (${rangeTotals.correct}/${rangeTotals.attempted} problems correct).`;
+    // Collect top concepts
+    const allConcepts = sectionEntries.flatMap(s => s.concepts).slice(0, 5);
+    const conceptsText = allConcepts.length > 0
+      ? `\nTopics covered: ${allConcepts.join(', ')}`
+      : '';
+
+    const timeText = totalEstTime > 0 ? ` (~${formatDuration(totalEstTime)})` : '';
+    const gamesText = gamesCompleted > 0 ? `, ${gamesCompleted} game(s) completed` : '';
+
+    const text = `${rangeLabel}: Odaniel worked on ${totalSections} section(s), completed ${completedSections}${gamesText}, with ${accuracy}% accuracy (${rangeTotals.correct}/${rangeTotals.attempted} problems correct)${timeText}.${conceptsText}`;
 
     if (navigator.share) {
       navigator.share({ text }).catch(() => {});
@@ -284,7 +449,7 @@ export default function ParentDashboard({ progress }: ParentDashboardProps) {
         </div>
 
         {/* Summary Stats */}
-        <div className="grid grid-cols-3 gap-3">
+        <div className="grid grid-cols-4 gap-3">
           <div className="bg-white rounded-xl shadow-sm p-4 text-center">
             <div className="text-2xl font-bold text-indigo-600">{rangeTotals.attempted}</div>
             <div className="text-xs text-gray-500 mt-1">Attempted</div>
@@ -295,17 +460,7 @@ export default function ParentDashboard({ progress }: ParentDashboardProps) {
           </div>
           <div className="bg-white rounded-xl shadow-sm p-4 text-center">
             <div className={`text-2xl font-bold ${
-              rangeTotals.attempted > 0
-                ? (() => {
-                    const pct = rangeTotals.correct / rangeTotals.attempted;
-                    return pct >= 1 ? 'text-emerald-600' :
-                      pct >= 0.65 ? 'text-emerald-500' :
-                      pct >= 0.4 ? 'text-green-500' :
-                      pct >= 0.2 ? 'text-yellow-500' :
-                      pct >= 0.1 ? 'text-amber-500' :
-                      'text-orange-500';
-                  })()
-                : 'text-gray-400'
+              rangeTotals.attempted > 0 ? accuracyColor(rangeTotals.correct / rangeTotals.attempted) : 'text-gray-400'
             }`}>
               {rangeTotals.attempted > 0
                 ? `${Math.round((rangeTotals.correct / rangeTotals.attempted) * 100)}%`
@@ -313,100 +468,107 @@ export default function ParentDashboard({ progress }: ParentDashboardProps) {
             </div>
             <div className="text-xs text-gray-500 mt-1">Accuracy</div>
           </div>
+          <div className="bg-white rounded-xl shadow-sm p-4 text-center">
+            <div className="text-2xl font-bold text-purple-600">
+              {totalEstTime > 0 ? `~${formatDuration(totalEstTime)}` : '—'}
+            </div>
+            <div className="text-xs text-gray-500 mt-1">Est. Time</div>
+          </div>
         </div>
 
-        {/* Daily Activity */}
-        <section>
-          <h2 className="text-sm font-bold text-gray-700 uppercase tracking-wide mb-3">Daily Activity</h2>
-          {dailyEntries.length === 0 ? (
-            <p className="text-gray-400 text-sm">No activity in this date range.</p>
-          ) : (
-            <div className="bg-white rounded-xl shadow-sm overflow-hidden">
-              <table className="w-full text-left text-sm">
-                <thead>
-                  <tr className="border-b bg-gray-50">
-                    <th className="px-3 py-2 font-semibold text-gray-600">Date</th>
-                    <th className="px-3 py-2 font-semibold text-gray-600 text-right">Done</th>
-                    <th className="px-3 py-2 font-semibold text-gray-600 text-right">Right</th>
-                    <th className="px-3 py-2 font-semibold text-gray-600 text-right">Acc.</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {dailyEntries.map(([date, day]) => (
-                    <tr key={date} className="border-b last:border-0">
-                      <td className="px-3 py-2 text-gray-900">{formatDate(date)}</td>
-                      <td className="px-3 py-2 text-right text-gray-700">{day.problemsAttempted}</td>
-                      <td className="px-3 py-2 text-right text-gray-700">{day.problemsCorrect}</td>
-                      <td className="px-3 py-2 text-right font-semibold">
-                        <span className={
-                          day.problemsAttempted > 0
-                            ? (() => {
-                                const pct = day.problemsCorrect / day.problemsAttempted;
-                                return pct >= 1 ? 'text-emerald-600' :
-                                  pct >= 0.65 ? 'text-emerald-500' :
-                                  pct >= 0.4 ? 'text-green-500' :
-                                  pct >= 0.2 ? 'text-yellow-500' :
-                                  pct >= 0.1 ? 'text-amber-500' :
-                                  'text-orange-500';
-                              })()
-                            : 'text-gray-400'
-                        }>
-                          {day.problemsAttempted > 0
-                            ? `${Math.round((day.problemsCorrect / day.problemsAttempted) * 100)}%`
-                            : '—'}
-                        </span>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          )}
-        </section>
-
-        {/* Section Breakdown with Problem Details */}
+        {/* Section results — one card per section, sorted by most recent activity */}
         <section>
           <h2 className="text-sm font-bold text-gray-700 uppercase tracking-wide mb-3">
             Section Results
           </h2>
           {sectionEntries.length === 0 ? (
-            <p className="text-gray-400 text-sm">No sections attempted in this date range.</p>
+            <p className="text-gray-400 text-sm">No activity in this date range.</p>
           ) : (
             <div className="space-y-4">
-              {sectionEntries.map(s => (
+              {sectionEntries.map(s => s.isGame ? (
+                // Game section card
                 <div key={s.key} className="bg-white rounded-xl shadow-sm overflow-hidden">
-                  {/* Section header */}
+                  <div className="p-4 flex items-center gap-3">
+                    <span className="text-xl">🎮</span>
+                    <div className="flex-1 min-w-0">
+                      <h3 className="font-semibold text-gray-900 text-sm">{s.title}</h3>
+                      <span className="text-xs text-gray-400">{formatDateRange(s.firstDate, s.lastDate)}</span>
+                    </div>
+                    <span className="text-xs font-medium px-2 py-1 rounded-full bg-emerald-100 text-emerald-700">
+                      Completed
+                    </span>
+                  </div>
+                </div>
+              ) : (
+                // Regular section card
+                <div key={s.key} className="bg-white rounded-xl shadow-sm overflow-hidden">
                   <div className="p-4 border-b bg-gray-50">
                     <div className="flex items-center justify-between">
-                      <div>
-                        <h3 className="font-semibold text-gray-900 text-sm">{s.title}</h3>
-                        {s.pages && <span className="text-xs text-gray-400">pp. {s.pages}</span>}
-                      </div>
-                      <div className="text-right">
-                        <span className={`text-lg font-bold ${
-                          s.score >= 1 ? 'text-emerald-600' :
-                          s.score >= 0.65 ? 'text-emerald-500' :
-                          s.score >= 0.4 ? 'text-green-500' :
-                          s.score >= 0.2 ? 'text-yellow-500' :
-                          s.score >= 0.1 ? 'text-amber-500' :
-                          s.score > 0 ? 'text-orange-500' :
-                          'text-gray-400'
-                        }`}>
-                          {s.correctCount}/{s.totalProblems}
-                        </span>
-                        <span className="text-xs text-gray-400 ml-1">
-                          ({Math.round(s.score * 100)}%)
-                        </span>
-                        {s.skippedCount > 0 && (
-                          <span className="text-xs text-gray-400 ml-1">
-                            · {s.skippedCount} skipped
+                      <div className="min-w-0">
+                        <div className="flex items-center gap-2">
+                          <h3 className="font-semibold text-gray-900 text-sm truncate">{s.title}</h3>
+                          {s.completedAt || s.correctCount >= (s.totalProblems - s.skippedCount) ? (
+                            <span className="shrink-0 text-xs font-medium px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700">
+                              Complete
+                            </span>
+                          ) : (
+                            <span className="shrink-0 text-xs font-medium px-2 py-0.5 rounded-full bg-blue-100 text-blue-600">
+                              In Progress
+                            </span>
+                          )}
+                        </div>
+                        <div className="flex items-center gap-2 mt-0.5 flex-wrap">
+                          <span className="text-xs text-gray-400">
+                            {formatDateRange(s.firstDate, s.lastDate)}
                           </span>
-                        )}
+                          {s.pages && <span className="text-xs text-gray-300">·</span>}
+                          {s.pages && <span className="text-xs text-gray-400">pp. {s.pages}</span>}
+                          {s.durationMinutes != null && s.durationMinutes > 0 && (
+                            <>
+                              <span className="text-xs text-gray-300">·</span>
+                              <span className="text-xs text-purple-400 flex items-center gap-0.5">
+                                <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                                ~{formatDuration(s.durationMinutes)}
+                              </span>
+                            </>
+                          )}
+                        </div>
+                      </div>
+                      <div className="text-right shrink-0">
+                        {(() => {
+                          const effectiveTotal = s.totalProblems - s.skippedCount;
+                          const pct = effectiveTotal > 0 ? s.correctCount / effectiveTotal : 0;
+                          return (
+                            <>
+                              <span className={`text-lg font-bold ${accuracyColor(pct)}`}>
+                                {s.correctCount}/{effectiveTotal}
+                              </span>
+                              <span className="text-xs text-gray-400 ml-1">
+                                ({Math.round(pct * 100)}%)
+                              </span>
+                              {s.skippedCount > 0 && (
+                                <span className="text-xs text-gray-400 ml-1">
+                                  · {s.skippedCount} skipped
+                                </span>
+                              )}
+                            </>
+                          );
+                        })()}
                       </div>
                     </div>
+
+                    {/* Concepts summary */}
+                    {s.concepts.length > 0 && (
+                      <div className="mt-2 text-xs text-gray-400 leading-relaxed">
+                        <span className="font-medium text-gray-500">Skills: </span>
+                        {s.concepts.slice(0, 4).join(' · ')}
+                        {s.concepts.length > 4 && ` · +${s.concepts.length - 4} more`}
+                      </div>
+                    )}
                   </div>
 
-                  {/* Problem grid - condensed */}
                   <SectionProblems problems={s.problems} />
                 </div>
               ))}

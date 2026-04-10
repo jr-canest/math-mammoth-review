@@ -464,13 +464,19 @@ export default function MathMachines({ onComplete }: MathMachinesProps) {
       setFeedback('correct');
       setShowConfetti(true);
       setLevelComplete(true);
-      setTotalGuesses(prev => [...prev, guessAttempts + 1]);
+      const updatedGuesses = [...totalGuesses, guessAttempts + 1];
+      setTotalGuesses(updatedGuesses);
       setTimeout(() => setShowConfetti(false), 2500);
+      // If this was the last level, save completion immediately
+      if (currentLevel + 1 >= LEVELS.length) {
+        const avg = updatedGuesses.reduce((a, b) => a + b, 0) / updatedGuesses.length;
+        onComplete?.(avg <= 2 ? 3 : avg <= 3 ? 2 : 1);
+      }
     } else {
       setFeedback('wrong');
       setTimeout(() => setFeedback(null), 1500);
     }
-  }, [tokenLabels, level, guessAttempts]);
+  }, [tokenLabels, level, guessAttempts, currentLevel, totalGuesses, onComplete]);
 
   const handleNextLevel = useCallback(() => {
     if (currentLevel + 1 >= LEVELS.length) {
