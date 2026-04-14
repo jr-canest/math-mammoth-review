@@ -42,6 +42,13 @@ function tokenize(value: string, variables: string[]): string[] {
   return tokens;
 }
 
+const NO_SELECT_STYLE = {
+  touchAction: 'manipulation' as const,
+  userSelect: 'none' as const,
+  WebkitUserSelect: 'none' as const,
+  WebkitTouchCallout: 'none' as const,
+};
+
 function CalcButton({
   label,
   onClick,
@@ -56,12 +63,13 @@ function CalcButton({
   return (
     <button
       onClick={onClick}
+      onContextMenu={(e) => e.preventDefault()}
       disabled={disabled}
-      className={`min-h-12 rounded-xl text-lg font-semibold
+      className={`min-h-12 rounded-xl text-lg font-semibold select-none
                   active:scale-95 transition-transform
                   disabled:opacity-40 disabled:cursor-not-allowed
                   ${className || 'bg-white border-2 border-gray-200 text-gray-800'}`}
-      style={{ touchAction: 'manipulation' }}
+      style={NO_SELECT_STYLE}
     >
       {label}
     </button>
@@ -149,6 +157,13 @@ export default function ExpressionBuilder({
     if (!fromTouch && isTouchRef.current) return;
     if (fromTouch) isTouchRef.current = true;
 
+    // Guard against double-start (e.g. gesture interrupted by iOS callout)
+    if (deleteTimerRef.current !== null) {
+      clearTimeout(deleteTimerRef.current);
+      deleteTimerRef.current = null;
+    }
+    deleteIntervalRef.current = 400;
+
     // Fire one immediate delete
     handleBackspace();
     // Wait 500ms before starting repeat-delete (so a quick tap only deletes one)
@@ -227,29 +242,32 @@ export default function ExpressionBuilder({
           <div className="flex gap-0.5 shrink-0 self-stretch">
             <button
               onClick={handleCursorLeft}
+              onContextMenu={(e) => e.preventDefault()}
               disabled={safeCursor === 0}
-              className="px-1.5 rounded-md bg-indigo-50 text-indigo-500 text-xs font-bold
+              className="px-1.5 rounded-md bg-indigo-50 text-indigo-500 text-xs font-bold select-none
                          active:scale-95 transition-transform disabled:opacity-30"
               aria-label="Move cursor left"
-              style={{ touchAction: 'manipulation' }}
+              style={NO_SELECT_STYLE}
             >
               ◀
             </button>
             <button
               onClick={handleCursorRight}
+              onContextMenu={(e) => e.preventDefault()}
               disabled={safeCursor === tokens.length}
-              className="px-1.5 rounded-md bg-indigo-50 text-indigo-500 text-xs font-bold
+              className="px-1.5 rounded-md bg-indigo-50 text-indigo-500 text-xs font-bold select-none
                          active:scale-95 transition-transform disabled:opacity-30"
               aria-label="Move cursor right"
-              style={{ touchAction: 'manipulation' }}
+              style={NO_SELECT_STYLE}
             >
               ▶
             </button>
           </div>
           <div
-            className={`flex-1 min-h-14 px-3 py-3 rounded-xl border-2 text-xl
+            className={`flex-1 min-h-14 px-3 py-3 rounded-xl border-2 text-xl select-none
                         font-mono tracking-wide flex items-center justify-end cursor-text
                         ${showWrong ? 'border-red-400 bg-red-50' : 'border-gray-200 bg-gray-50'}`}
+            style={NO_SELECT_STYLE}
             onClick={() => moveCursor(tokens.length)}
           >
             {tokens.length === 0 ? (
@@ -288,14 +306,16 @@ export default function ExpressionBuilder({
           {/* Backspace on the right */}
           <button
             onTouchStart={(e) => { e.preventDefault(); startHoldDelete(true); }}
-            onTouchEnd={stopHoldDelete}
+            onTouchEnd={(e) => { e.preventDefault(); stopHoldDelete(); }}
             onTouchCancel={stopHoldDelete}
-            onMouseDown={() => startHoldDelete(false)}
+            onMouseDown={(e) => { e.preventDefault(); startHoldDelete(false); }}
             onMouseUp={stopHoldDelete}
             onMouseLeave={stopHoldDelete}
+            onContextMenu={(e) => e.preventDefault()}
             disabled={safeCursor === 0}
-            className="px-3 py-3 rounded-xl bg-gray-100 text-gray-600 text-xl
+            className="px-3 py-3 rounded-xl bg-gray-100 text-gray-600 text-xl select-none
                        active:scale-95 transition-transform disabled:opacity-30"
+            style={NO_SELECT_STYLE}
             aria-label="Backspace (hold to delete faster)"
           >
             ⌫

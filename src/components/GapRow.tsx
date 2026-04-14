@@ -58,6 +58,9 @@ export default function GapRow({
   const segments = parseTemplate(template);
   const builderLabel = (problem.display + ' ' + (problem.group || '')).toLowerCase().includes('equation')
     ? 'Build equation' : 'Build expression';
+  // If any gap needs the expression builder, route number gaps through it too
+  // so the student gets a single consistent input mechanism per problem.
+  const hasTextGap = gaps.some(g => g.inputType === 'text');
 
   // Initialize gap values from saved answer
   const [values, setValues] = useState<string[]>(() => {
@@ -402,14 +405,15 @@ export default function GapRow({
             const filled = values[gapIdx]?.trim();
             const isWrong = wrongGaps[gapIdx];
 
-            // Number gaps render as text inputs (no ExpressionBuilder needed)
-            if (gap.inputType === 'number' && !isCorrect) {
+            // Number gaps render as inline inputs unless the problem also has a
+            // text gap — in that case route them through the builder too for consistency.
+            if (gap.inputType === 'number' && !isCorrect && !hasTextGap) {
               return [
                 <input
                   key={i}
                   ref={el => { inputRefs.current[gapIdx] = el; }}
                   type="text"
-                  inputMode="text"
+                  inputMode={gap.decimal !== undefined ? 'text' : 'decimal'}
                   value={values[gapIdx]}
                   onChange={e => updateValue(gapIdx, e.target.value)}
                   onKeyDown={handleKeyDown}
